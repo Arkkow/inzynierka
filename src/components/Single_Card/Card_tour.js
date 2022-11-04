@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import leo from './img.png';
+import cat from './img.png';
 
 function BasicExample() {
     return (
@@ -13,7 +13,13 @@ function BasicExample() {
             <Container>
                 <Row>
                     <Col xs={1} md={1}>
-                        <Card.Img src={leo} style={{width: '10vh', height:'10vh', justifyContent: 'left'}}/>
+                        <Card.Img src={cat} style={{position: "relative", margin: "auto"}}/>
+                        {/*text-align: center;*/}
+                        {/*display: block;*/}
+                        {/*justify-content: center;*/}
+                        {/*align-items: center;*/}
+                        {/*margin: auto;*/}
+                        {/*width: 100%;*/}
                     </Col>
                     <Col xs={3} md={11}>
                         <Card.Body>
