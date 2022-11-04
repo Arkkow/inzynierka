@@ -1,21 +1,32 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-import leo from '../calendar_single/img.png';
+import leo from './img.png';
 
 function BasicExample() {
     return (
-        <Card border={"dark"} style={{ width: '18rem'}}>
-            <Card.Img variant="top" src={leo} />
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
+        <Card border={"dark"} style={{ width: '80%', height: '10%'}} >
+            <Container>
+                <Row>
+                    <Col xs={1} md={1}>
+                        <Card.Img src={leo} style={{width: '10vh', height:'10vh', justifyContent: 'left'}}/>
+                    </Col>
+                    <Col xs={3} md={11}>
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Col>
+                </Row>
+            </Container>
         </Card>
     );
 }

@@ -6,12 +6,13 @@ import reportWebVitals from './reportWebVitals';
 // import Tournament_box from "./components/calendar_single/tournament_box.js";
 import BasicExample from "./components/Single_Card/Card_tour";
 import Todo from "./components/Single_Card/Card_tour";
+// Importing the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-      <Todo></Todo>
   </React.StrictMode>
 );
 
