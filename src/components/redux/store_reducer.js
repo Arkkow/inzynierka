@@ -29,12 +29,12 @@ const default_state = {
 };
 
 //Obsługa zmiany stanu
-export const store_reducer_function = (state = default_state.calendar_content, action) => {
+export const calendar_content = (state = default_state.calendar_content, action) => {
     switch(action.type){
         case "DOWNLOAD_CALENDAR":
             return {
                 ...state,
-                data: action.data
+                data: action.payload.data
             }
         default:
             return state;
@@ -43,4 +43,4 @@ export const store_reducer_function = (state = default_state.calendar_content, a
 
 
 //W przypadku wielu stanów dodaje kolejną warstwę struktury - head reducer, który zarządza reducerami
-export default combineReducers({store_reducer_function});
+export default combineReducers({calendar_content});

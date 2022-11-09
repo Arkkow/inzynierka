@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleDownloadCalendar: () => {
         //    API z kalendarza
-            return dispatch({type: "DOWNLOAD_CALENDAR", action: {
+            return dispatch({type: "DOWNLOAD_CALENDAR", payload: {
                 data: [
                         {
                             "id": "1",
@@ -56,9 +56,10 @@ const mapDispatchToProps = (dispatch) => {
             })
 
             .then((res) => {
-                    return dispatch({type: "DOWNLOAD_CALENDAR", action: {data: res.json()}})
+                    return dispatch({type: "DOWNLOAD_CALENDAR", payload: {data: res.json()}})
                 }
             )
+                .catch((err) => {console.log(err)})
         }
     }
 }
