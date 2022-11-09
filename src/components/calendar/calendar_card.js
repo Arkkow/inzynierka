@@ -10,23 +10,17 @@ import leo from '../../assets/leo.gif';
 export const CalendarCard = (props) => {
     return (
         <Card border={"dark"} style={{ width: '60%', height: '10%'}} >
-            <Container>
-                <Row>
-                    <Col xs={1} md={1}>
-                        <Card.Img src={leo} style={{position: "relative", margin: "auto"}}/>
-                    </Col>
-                    <Col xs={3} md={11}>
-                        <Card.Body>
-                            <Card.Title>{props.name}</Card.Title>
-                            <Card.Text>
-                                {props.places} <br/>
-                                {props.from} do {props.to}
-                            </Card.Text>
-                            <Button variant="success" disabled={true}>OPEN</Button>
-                        </Card.Body>
-                    </Col>
-                </Row>
-            </Container>
+
+            <Card.Img src={leo} style={{position: "relative", margin: "auto"}}/>
+
+            <Card.Body>
+                <Card.Title>{props.name}</Card.Title>
+                <Card.Text>
+                    {props.places} <br/>
+                    {props.from} do {props.to}
+                </Card.Text>
+                <Button variant="success" disabled={true}>OPEN</Button>
+            </Card.Body>
         </Card>
     );
 }
