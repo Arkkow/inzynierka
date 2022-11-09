@@ -7,28 +7,22 @@ import Col from 'react-bootstrap/Col';
 
 import leo from '../../assets/leo.gif';
 
-function SingleCard() {
+export const CalendarCard = (props) => {
     return (
-        <Card border={"dark"} style={{ width: '80%', height: '10%'}} >
+        <Card border={"dark"} style={{ width: '60%', height: '10%'}} >
             <Container>
                 <Row>
                     <Col xs={1} md={1}>
                         <Card.Img src={leo} style={{position: "relative", margin: "auto"}}/>
-                        {/*text-align: center;*/}
-                        {/*display: block;*/}
-                        {/*justify-content: center;*/}
-                        {/*align-items: center;*/}
-                        {/*margin: auto;*/}
-                        {/*width: 100%;*/}
                     </Col>
                     <Col xs={3} md={11}>
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
+                            <Card.Title>{props.name}</Card.Title>
                             <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
+                                {props.places} <br/>
+                                {props.from} do {props.to}
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            <Button variant="success" disabled={true}>OPEN</Button>
                         </Card.Body>
                     </Col>
                 </Row>
@@ -37,4 +31,4 @@ function SingleCard() {
     );
 }
 
-export default SingleCard;
+export default CalendarCard;

@@ -7,13 +7,13 @@ import * as React from "react";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/index.css";
 import "../styles/App.css";
-import SingleCard from "../components/single_card/single_card";
+import Calendar_controller from "../components/calendar/calendar_controller";
 
 export default function CalendarRoute() {
   return (
     <div>
       <h2>Calendar</h2>
-      <SingleCard />
+        <Calendar_controller />
     </div>
   );
 }
