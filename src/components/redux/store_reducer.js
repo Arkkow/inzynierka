@@ -2,6 +2,8 @@
 import {combineReducers} from "redux";
 
 const default_state = {
+    calendar: {},
+    profile: {}
 
 };
 

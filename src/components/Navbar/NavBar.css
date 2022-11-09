@@ -1,0 +1,45 @@
+.navBar {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 1em;
+    margin-bottom: 2em;
+    background-color: white;
+    color: #fff;
+}
+
+.loginIn__Button {
+    width: 157px;
+    height: 42px;
+    padding: 10px 18px;
+    background-color: #007C36;
+    border-radius: 15px;
+}
+
+.loginIn__Window {
+    width: 625px;
+    height: 382px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginIn__Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mb-3 {
+    width: 388px;
+    height: 40px;
+}
+
+.loginIn__Form-passwordInput {
+    width: 388px;
+    height: 40px;
+}
