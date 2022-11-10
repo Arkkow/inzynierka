@@ -5,7 +5,7 @@ import {Button} from "react-bootstrap";
 export const Calendar_controller = (props) => {
     return (
         <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-            <Button onClick={props.handleDownloadCalendar}>ODŚWIEŻ</Button>
+            {/*<Button onClick={props.handleDownloadCalendar}>ODŚWIEŻ</Button>*/}
             {props.calendar_list.length === 0 ? <h5>no results available</h5> : props.calendar_list.map((card)=>(
                 <CalendarCard {...card}/>
             ))}

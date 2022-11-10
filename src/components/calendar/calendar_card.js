@@ -1,26 +1,26 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
-import leo from '../../assets/leo.gif';
+import cup_logo from "../../assets/cup.svg";
 
 export const CalendarCard = (props) => {
     return (
-        <Card border={"dark"} style={{ width: '60%', height: '10%'}} >
+        <Card border={"dark"} style={{ minWidth: '50%', maxHeight: '10%'}} >
+            <div style={{display: "flex"}}>
+                <Card.Img src={cup_logo} style={{ margin: "2%", height: "auto", width: "auto"}}/>
+                <div>
+                    <Card.Body>
+                        <Card.Title>{props.name} </Card.Title>
+                        <Card.Text>
+                            <div>{props.places}</div>
+                            <div>od {props.from}</div>
+                            <div>do {props.to}</div>
 
-            <Card.Img src={leo} style={{position: "relative", margin: "auto"}}/>
-
-            <Card.Body>
-                <Card.Title>{props.name}</Card.Title>
-                <Card.Text>
-                    {props.places} <br/>
-                    {props.from} do {props.to}
-                </Card.Text>
-                <Button variant="success" disabled={true}>OPEN</Button>
-            </Card.Body>
+                        </Card.Text>
+                        <Button variant="success" disabled={true}>OPEN</Button>
+                    </Card.Body>
+                </div>
+            </div>
         </Card>
     );
 }
