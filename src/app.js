@@ -9,7 +9,7 @@ import Header from "./components/constant/header";
 import Footer from "./components/constant/footer";
 
 // CSS files
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
 import './styles/App.css';
 
