@@ -5,7 +5,7 @@ import cup_logo from "../../assets/cup.svg";
 
 export const CalendarCard = (props) => {
     return (
-        <Card border={"dark"} style={{ minWidth: '50%', maxHeight: '10%'}} >
+        <Card border={"dark"} style={{ minWidth: '40%', maxHeight: '10%' }} >
             <div style={{display: "flex"}}>
                 <Card.Img src={cup_logo} style={{ margin: "2%", height: "auto", width: "auto"}}/>
                 <div>
@@ -13,9 +13,10 @@ export const CalendarCard = (props) => {
                         <Card.Title>{props.name} </Card.Title>
                         <Card.Text>
                             <div>{props.places}</div>
-                            <div>od {props.from}</div>
-                            <div>do {props.to}</div>
-
+                            <div>
+                                od {props.from}&nbsp;
+                                do {props.to}
+                            </div>
                         </Card.Text>
                         <Button variant="success" disabled={true}>OPEN</Button>
                     </Card.Body>

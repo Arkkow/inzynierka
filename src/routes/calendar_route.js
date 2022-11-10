@@ -6,7 +6,7 @@ import * as React from "react";
 // CSS files
 import "../styles/index.css";
 import "../styles/App.css";
-import background_image from "../assets/leo.gif";
+import background_image from "../assets/cup.svg";
 import Calendar_controller from "../components/calendar/calendar_controller";
 
 export default function CalendarRoute() {
