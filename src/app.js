@@ -12,6 +12,7 @@ import Footer from "./components/constant/footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
 import './styles/App.css';
+import NewTournamentRoute from "./routes/new_tournament";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Routes>
               <Route path="/calendar" element={<CalendarRoute />} exact={true} />
               <Route path="/profile" element={<ProfileRoute />} exact={true} />
+              <Route path="/new_tournament" element={<NewTournamentRoute />} exact={true} />
           </Routes>
           <Footer />
       </div>

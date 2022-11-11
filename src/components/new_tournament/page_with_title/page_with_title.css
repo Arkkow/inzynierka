@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+    --black: #282828;
+    --dark_grey: #828282;
+    --light_grey: #EBEBEB;
+    --pfp_green: #007C36;
+}
+
+.background {
+    text-align: center;
+    background-color: #EBEBEB;
+    height:180vh; /*are u sure? resposywnosc*/
+    /*height: 1700px;*/
+}
+
+page_title {
+    position:relative;
+    top: 1%;
+    color: var(--black);
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+}
