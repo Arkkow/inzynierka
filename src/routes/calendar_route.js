@@ -2,18 +2,24 @@
 import * as React from "react";
 
 // Project specific files
+import Calendar_controller from "../components/calendar/calendar_controller";
+import CalendarNavbar from "../components/calendar/calendarNavbar/calendar_navbar";
 
 // CSS files
 import "../styles/index.css";
 import "../styles/App.css";
-import background_image from "../assets/cup.svg";
-import Calendar_controller from "../components/calendar/calendar_controller";
+
 
 export default function CalendarRoute() {
   return (
-    <div style={{ backgroundImage: `url(${background_image})`, minHeight:"94vh"}}>
-      <h2>Calendar</h2>
-        <Calendar_controller />
+    <div style={{
+        background: "#c2d1b8",
+        minHeight:"94vh"
+    }}>
+        <div>
+            <CalendarNavbar/>
+            <Calendar_controller />
+        </div>
     </div>
   );
 }

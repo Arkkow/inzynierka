@@ -1,6 +1,11 @@
+// General react imports
+
+// Project specific files
 import CalendarCard from "./calendar_card";
 import {connect} from "react-redux";
-import {Button} from "react-bootstrap";
+
+// CSS files
+
 
 export const Calendar_controller = (props) => {
     return (
@@ -28,14 +33,14 @@ const mapDispatchToProps = (dispatch) => {
                 data: [
                         {
                             "id": "1",
-                            "name": "Turniej sadsadsadasdsadsadsa",
+                            "name": "Turniej Listopadowy",
                             "typeOfLadder": "string",
                             "pointsForTournament": "string",
                             "places": "Poznań",
                             "roles": "string",
                             "approved": "string",
-                            "from": "24 listopada 2023",
-                            "to": "270000000000000000 listopada 2023",
+                            "from": "2023-11-15",
+                            "to": "2023-11-17",
                             "rang": "rang1",
                             "entryFee": "5",
                             "director": "name",
