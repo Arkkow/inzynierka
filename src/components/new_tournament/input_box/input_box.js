@@ -51,7 +51,7 @@ function InputBox() {
             <input style={{width:"33%"}} type="date" className="form-control" id="exampleFormControlInput1"></input>
 
             <label style={{display: "block", textAlign: "left", marginTop: "1%"}} htmlFor="exampleFormControlTextarea1" className="form-label">Dodatkowe informacje</label>
-            <textarea style={{width:"66%", height:"25vh"}} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea style={{width:"66%", height:"25vh", resize: "none"}} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 
             <label style={{display: "block", textAlign: "left", marginTop: "1%"}} htmlFor="exampleFormControlTextarea1" className="form-label">Widoczność turnieju</label>
             <div style={{display: "block", textAlign: "left"}} className="form-check form-switch">
