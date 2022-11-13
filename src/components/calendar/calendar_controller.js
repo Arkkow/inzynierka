@@ -3,18 +3,23 @@
 // Project specific files
 import CalendarCard from "./calendar_card";
 import {connect} from "react-redux";
+import {Col, Row} from "react-bootstrap";
 
 // CSS files
 
 
 export const Calendar_controller = (props) => {
     return (
-        <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-            {/*<Button onClick={props.handleDownloadCalendar}>ODŚWIEŻ</Button>*/}
-            {props.calendar_list.length === 0 ? <h5>no results available</h5> : props.calendar_list.map((card)=>(
-                <CalendarCard {...card}/>
-            ))}
-        </div>
+        <Row className="justify-content-md-center">
+            <Col sm={6} >
+            {/*<div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>*/}
+                {/*<Button onClick={props.handleDownloadCalendar}>ODŚWIEŻ</Button>*/}
+                {props.calendar_list.length === 0 ? <h5>no results available</h5> : props.calendar_list.map((card)=>(
+                    <CalendarCard {...card}/>
+                ))}
+            {/*</div>*/}
+            </Col>
+        </Row>
     )
 }
 

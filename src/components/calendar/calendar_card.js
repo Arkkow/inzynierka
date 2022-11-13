@@ -8,37 +8,59 @@ import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
 
 // CSS files
 import cup_logo from "../../assets/cup.svg";
+import {Container, Row, Col} from "react-bootstrap";
 
 
 export const CalendarCard = (props) => {
     return (
-        <Card border={"dark"} style={{ minWidth: '40%', maxHeight: '10%', margin: "2%"}} >
-            <div style={{display: "flex"}}>
-                <Card.Img src={cup_logo} style={{ margin: "2%", height: "auto", width: "auto"}}/>
-                <div>
-                    <Card.Body>
-                        <Card.Title>{props.name} </Card.Title>
+        <Card border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%"}} >
+            <Container fluid="md">
+                <Row>
+                    <Col sm={2}>
+                        <div style={{display: "flex", justifyContent: "center"}}>
+                            <img src={cup_logo} alt={""}/>
+                        </div>
+                    </Col>
+                    <Col sm={6}>
+                        <Container>
+                            <Row className="justify-content-md-center">
+                                <Col>
+                                    <h5>{props.name}</h5>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <div><GeoAlt/>&nbsp; {props.places}</div>
+                            </Row>
+                            <Row>
+                                <div>
+                                <CalendarCheck/>&nbsp; od {props.from}
+                                </div>
+                            </Row>
+                            <Row>
+                                <div>
+                                    <CalendarCheck/>&nbsp; do {props.to}
+                                </div>
+                            </Row>
+                            <Row>
+                                <Col sm="auto">
+                                    <Button variant="success" disabled={true}>OPEN</Button>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Col>
+                    <Col sm={4}>
                         <Card.Text>
-                            <div><GeoAlt /> &nbsp;{props.places}</div>
-                            <div>
-                                <CalendarCheck/>&nbsp;
-                                od {props.from}&nbsp;
-                                do {props.to}
+                            <div style={{ textAlign: "center"}}>
+                                Użytkownik zaprosił cię do gry w tym turnieju
+                            </div>
+                            <div style={{textAlign: "center"}}>
+                                <Button variant="success" style={{margin: "5%"}}>TAK</Button>
+                                <Button variant="danger" style={{margin: "5%"}}>NIE</Button>
                             </div>
                         </Card.Text>
-                        <Button variant="success" disabled={true}>OPEN</Button>
-                    </Card.Body>
-                </div>
-                <div style={{padding: "2%"}}>
-                    <div style={{ textAlign: "center"}}>
-                        Użytkownik zaprosił cię do gry w tym turnieju
-                    </div>
-                    <div style={{textAlign: "center"}}>
-                        <Button variant="success" style={{margin: "5%"}}>TAK</Button>
-                        <Button variant="danger" style={{margin: "5%"}}>NIE</Button>
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
         </Card>
     );
 }
