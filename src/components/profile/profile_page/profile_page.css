@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.background2 {
+    text-align: center;
+    background-color: #EBEBEB;
+    height:100vh; /*are u sure? resposywnosc*/
+    /*height: 1700px;*/
+}
+
+page_title {
+    position:relative;
+    top: 1%;
+    color: var(--black);
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+}
