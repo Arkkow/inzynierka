@@ -17,8 +17,8 @@ export const CalendarCard = (props) => {
             <Container fluid="md">
                 <Row>
                     <Col sm={2}>
-                        <div style={{display: "flex", justifyContent: "center"}}>
-                            <img src={cup_logo} alt={""}/>
+                        <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
+                            <img src={cup_logo} alt={""} style={{minHeight: "50%"}}/>
                         </div>
                     </Col>
                     <Col sm={6}>

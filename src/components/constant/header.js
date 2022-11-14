@@ -12,6 +12,7 @@ function Header() {
                     <Nav className="me-auto">
                         <Nav.Link href="calendar">Calendar</Nav.Link>
                         <Nav.Link href="profile">Profile</Nav.Link>
+                        <Nav.Link href="tournament">Tournament</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
