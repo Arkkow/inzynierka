@@ -14,13 +14,15 @@ import {Col, Form, Row} from "react-bootstrap";
 import TournamentContent from "../components/Tournament/tournament_content";
 import TournamentHeader from "../components/Tournament/tournament_header";
 import Button from "react-bootstrap/Button";
+import Zapisy from "../components/zapisy/zapisy";
 
 
 export default function TournamentRoute() {
     return (
         <div style={{minHeight: "94vh"}}>
             <TournamentHeader/>
-            <TournamentContent/>
+            {/*<TournamentContent/>*/}
+            <Zapisy/>
         </div>
     );
 }

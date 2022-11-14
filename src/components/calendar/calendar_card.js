@@ -62,6 +62,7 @@ export const CalendarCard = (props) => {
                 </Row>
             </Container>
         </Card>
+
     );
 }
 
