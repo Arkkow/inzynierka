@@ -25,10 +25,10 @@ function InputBox() {
             <input style={{width:"33%"}} type="tel" className="form-control" id="exampleFormControlInput1" placeholder="123456789"></input>
 
             <label style={{display: "block", textAlign: "left", width:"33%", marginTop: "1%"}} htmlFor="exampleFormControlInput1" className="form-label">Nowe hasło</label>
-            <input style={{width:"33%"}} type="text" className="form-control" id="exampleFormControlInput1"></input>
+            <input style={{width:"33%"}} type="password" className="form-control" id="exampleFormControlInput1"></input>
 
             <label style={{display: "block", textAlign: "left", width:"33%", marginTop: "1%"}} htmlFor="exampleFormControlInput1" className="form-label">Powtórz nowe hasło</label>
-            <input style={{width:"33%"}} type="text" className="form-control" id="exampleFormControlInput1"></input>
+            <input style={{width:"33%"}} type="password" className="form-control" id="exampleFormControlInput1"></input>
 
                 <div style={{marginTop: "5%"}}>
                         <button style={{fontFamily: 'Montserrat', fontWeight: "600", fontSize: "18px", lineHeight: "25px", color: "white"}} type="button" className="btn btn-success">WPROWADŹ ZMIANY</button>

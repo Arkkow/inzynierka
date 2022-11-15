@@ -7,7 +7,7 @@ function TitlePage() {
     return (
         <div className="background">
 
-            <page_title>Dodawanie turnieju</page_title>
+            <page_title>Edycja turnieju</page_title>
             <TournamentForm />
             <div style={{width: "100%", minHeight:"8vh", textAlign: "left", paddingTop:"1%", paddingLeft:"0.5%"}}>
                 <paragraph>Masz jakiś problem lub coś nie działa tak jak powinno?</paragraph><br/>

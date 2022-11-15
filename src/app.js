@@ -7,12 +7,14 @@ import CalendarRoute from "./routes/calendar_route";
 import ProfileRoute from "./routes/profile_route";
 import Header from "./components/constant/header";
 import Footer from "./components/constant/footer";
+import NewTournamentRoute from "./routes/new_tournament";
+import EditTournamentRoute from "./routes/edit_tournament";
 
 // CSS files
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
 import './styles/App.css';
-import NewTournamentRoute from "./routes/new_tournament";
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
               <Route path="/calendar" element={<CalendarRoute />} exact={true} />
               <Route path="/profile" element={<ProfileRoute />} exact={true} />
               <Route path="/new_tournament" element={<NewTournamentRoute />} exact={true} />
+              <Route path="/edit_tournament" element={<EditTournamentRoute />} exact={true} />
           </Routes>
           <Footer />
       </div>
