@@ -3,13 +3,12 @@
 .background2 {
     text-align: center;
     background-color: #EBEBEB;
-    height:100vh; /*are u sure? resposywnosc*/
-    /*height: 1700px;*/
+    min-height:95vh;
 }
 
 page_title {
-    position:relative;
-    top: 1%;
+    padding-top: 1%;
+    display: block;
     color: var(--black);
     font-family: 'Montserrat';
     font-weight: 600;
