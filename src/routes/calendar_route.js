@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/index.css";
 import "../styles/App.css";
 import SingleCard from "../components/single_card/single_card";
-import Popup from "../components/Popups/Popup"
+import Popup from "../components/popups/popup"
 
 export default function CalendarRoute() {
   return (
