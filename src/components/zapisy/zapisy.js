@@ -18,16 +18,29 @@ export const Zapisy = (props) => {
             <Row className="justify-content-md-center" >
                 <Col sm={6} style={{paddingLeft: 0, paddingRight:0}}>
                     <Container>
-                        <Row fluid style={{backgroundColor: "transparent"}}>
-                            <Col sm={10} >
+                        <Row fluid style={{backgroundColor: "transparent", marginTop: "1%", marginBottom: "0.5%"}}>
+                            <Col sm={5} style={{padding: 0}}>
                                 <ButtonGroup style={{marginTop: "0.25%"}}>
                                     <Button variant="light" style={{border: "1px solid black"}}>Informacje</Button>
                                     <Button variant="light" style={{border: "1px solid black"}}>Zapisy</Button>
                                     <Button variant="light" style={{border: "1px solid black"}}>Wyniki</Button>
                                 </ButtonGroup>
                             </Col>
+                            <Col sm={4} style={{paddingRight: 0}}>
+                                <Button variant="outline-light" style={{ float: "right"}}> Zaakceptowanych par: 8</Button>
+                            </Col>
+                            <Col sm={3} style={{paddingRight:0}}>
+                                <Button variant="secondary" style={{float: "right"}}>Wygeneruj drabinkę</Button>
+                            </Col>
                         </Row>
                         <Row style={{background: "white"}}>
+                            <ZapisyCard/>
+                            <ZapisyCard/>
+                            <ZapisyCard/>
+                            <ZapisyCard/>
+                            <ZapisyCard/>
+                            <ZapisyCard/>
+                            <ZapisyCard/>
                             <ZapisyCard/>
                         </Row>
                     </Container>
