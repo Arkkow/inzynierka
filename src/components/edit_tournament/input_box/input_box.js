@@ -22,7 +22,7 @@ function InputBox() {
 
             <div className="form-group">
                 <label style={{display: "block", textAlign: "left", marginTop: "1%"}} htmlFor="exampleFormControlInput1" className="form-label">Ranga</label>
-                <select style={{width:"33%"}} className="form-control" id="sel1">
+                <select style={{width:"33%"}} className="form-select" id="sel1">
                     <option selected>CHALLENGER</option>
                     <option value="1">MASTER</option>
                 </select>
@@ -30,7 +30,7 @@ function InputBox() {
 
             <div className="form-group">
                 <label style={{display: "block", textAlign: "left", marginTop: "1%"}} htmlFor="exampleFormControlInput1" className="form-label">System turniejowy</label>
-                <select style={{width:"33%"}} className="form-control" id="sel1">
+                <select style={{width:"33%"}} className="form-select" id="sel1">
                     <option selected>DRABINKA KLASYCZNA</option>
                     <option value="1">DRABINKA O MIEJSCA</option>
                     <option value="2">GRUPY + DRABINKA</option>

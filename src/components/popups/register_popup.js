@@ -14,7 +14,17 @@ function Register_popup() {
     return (
         <>
             {/*/!*Ten button tylko do testów, bo normalnie rejestracja nie ma buttona, przenosi cie tam tekst z logowania*!/*/}
-            <Button style={{fontFamily: 'Montserrat', fontWeight: "600", fontSize: "18px", lineHeight: "25px", color: "white", borderRadius: "40px", padding: "1%", paddingBottom: "0.5%", paddingTop: "0.5%"}} variant="success" onClick={handleShow}>
+            <Button style={{ fontFamily: 'Montserrat',
+                fontWeight: "600",
+                fontSize: "18px",
+                lineHeight: "25px",
+                color: "white",
+                borderRadius: "15px",
+                paddingRight: "1.5%",
+                paddingLeft: "1.5%",
+                paddingBottom: "0.5%",
+                paddingTop: "0.5%",
+                marginRight: "1%"}} variant="success" onClick={handleShow}>
                 REJESTRACJA
             </Button>
             <Modal show={show} onHide={handleClose}>
