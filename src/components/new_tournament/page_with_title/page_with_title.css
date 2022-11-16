@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-:root {
-    --black: #282828;
-    --dark_grey: #828282;
-    --light_grey: #EBEBEB;
-    --pfp_green: #007C36;
-}
 
 .background {
     text-align: center;

@@ -9,16 +9,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/index.css";
 import "../styles/App.css";
 import SingleCard from "../components/single_card/single_card";
-import Popup from "../components/popups/popup"
+import Register_popup from "../components/popups/register_popup"
 
 export default function CalendarRoute() {
   return (
           <div>
       <h2>Calendar</h2>
       <SingleCard />
-
-              <Popup />
-
+              <Register_popup/>
 
     </div>
   );
