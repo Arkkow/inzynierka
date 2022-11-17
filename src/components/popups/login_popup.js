@@ -9,7 +9,7 @@ import "../../styles/App.css";
 function Login_popup() {
   const [show, setShow] = useState(false);
   const [error, setError] = useState(null);
-  const [isSended, setIsSended] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [response, setResponse] = useState([]);
 
   const handleClose = () => setShow(false);
@@ -29,13 +29,14 @@ function Login_popup() {
       .then((res) => res.json())
       .then(
         (result) => {
-          setIsSended(true);
+          setIsLoaded(true);
           setResponse(result);
           localStorage.setItem("token", JSON.stringify(result));
           setShow(false);
+          window.location.reload(false);
         },
         (error) => {
-          setIsSended(true);
+          setIsLoaded(true);
           setError(error);
         }
       );

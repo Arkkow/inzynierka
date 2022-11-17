@@ -28,6 +28,7 @@ function Logout() {
         marginRight: "1%",
       }}
       onClick={handleClick}
+      href="calendar"
       variant="success"
     >
       WYLOGUJ
