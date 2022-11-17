@@ -52,7 +52,17 @@ const Register_popup = () => {
   return (
     <>
       {/*/!*Ten button tylko do testów, bo normalnie rejestracja nie ma buttona, przenosi cie tam tekst z logowania*!/*/}
-      <Button
+      <paragraph
+        style={{
+          textDecoration: "underline",
+          marginLeft: "3px",
+          cursor: "pointer",
+        }}
+        onClick={(handleClose, handleShow)}
+      >
+        Zarejestruj się
+      </paragraph>
+      {/* <Button
         style={{
           fontFamily: "Montserrat",
           fontWeight: "600",
@@ -68,7 +78,7 @@ const Register_popup = () => {
         onClick={handleShow}
       >
         REJESTRACJA
-      </Button>
+      </Button> */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <img src={PFP_LOGO} style={{ marginLeft: "auto" }} alt="LOGO" />
