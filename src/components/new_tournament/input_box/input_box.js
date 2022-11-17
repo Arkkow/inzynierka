@@ -5,11 +5,12 @@ function InputBox() {
   const [error, setError] = useState(null);
   const [isSended, setIsSended] = useState(false);
   const [response, setResponse] = useState([]);
+  const Token = JSON.parse(localStorage.getItem("token")).token;
   const name = useRef("1");
   const typeOfLadder = useRef("1");
-  const pointsForTournament = useRef("1");
+  const pointsForTournament = useRef(1);
   const places = useRef("1");
-  const roles = useRef("1");
+  // const roles = useRef("1");
   const ranked = useRef("1");
   const place = useRef("1");
   const from = useRef("1");
@@ -23,14 +24,17 @@ function InputBox() {
   const categotry = useRef("OPEN");
   const visibility = useRef("TRUE");
   const handleClick = () => {
-    fetch("https://dragonmaster.pl/inz/user/create", {
+    fetch("https://dragonmaster.pl/inz/tournament", {
+      headers: {
+        Authorization: "Bearer " + Token,
+      },
       method: "PUT",
       body: JSON.stringify({
         name: name.current.value,
         typeOfLadder: typeOfLadder.current.value,
-        pointsForTournament: pointsForTournament.current.value,
-        places: places.current.value,
-        roles: roles.current.value,
+        pointsForTournament: "4",
+        places: "2",
+        // roles: "dupa",
         ranked: ranked.current.value,
         place: place.current.value,
         from: from.current.value,
@@ -42,7 +46,7 @@ function InputBox() {
         entriesTo: entriesTo.current.value,
         additionalInformations: additionalInformations.current.value,
         categotry: categotry.current.value,
-        visibility: visibility.current.value,
+        visibility: "TRUE",
       }),
     })
       .then((res) => res.json())
