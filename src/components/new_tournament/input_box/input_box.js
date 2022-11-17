@@ -38,6 +38,14 @@ function InputBox() {
                 </select>
             </div>
 
+            <div className="form-group">
+                <label style={{display: "block", textAlign: "left", marginTop: "1%"}} htmlFor="exampleFormControlInput1" className="form-label">Liczba par</label>
+                <select style={{width:"33%"}} className="form-select" id="sel1">
+                    <option selected>8</option>
+                    <option value="1">16</option>
+                </select>
+            </div>
+
             <label style={{display: "block", textAlign: "left", marginTop: "1%"}} htmlFor="exampleFormControlInput1" className="form-label">Wpisowe</label>
             <input style={{width:"33%"}} type="number" className="form-control" id="exampleFormControlInput1"></input>
 
