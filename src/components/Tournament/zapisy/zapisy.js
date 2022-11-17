@@ -7,9 +7,9 @@ import Card from 'react-bootstrap/Card';
 import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
 
 // CSS files
-import cup_logo from "../../assets/cup.svg";
+import cup_logo from "../../../assets/cup.svg";
 import {Container, Row, Col, Form, ButtonGroup} from "react-bootstrap";
-import ZapisyCard from "./zapisy_card";
+import ZapisyCard from "./features/zapisy_card";
 
 
 export const Zapisy = (props) => {

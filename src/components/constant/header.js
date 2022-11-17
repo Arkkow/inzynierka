@@ -13,6 +13,7 @@ function Header() {
                         <Nav.Link href="calendar">Calendar</Nav.Link>
                         <Nav.Link href="profile">Profile</Nav.Link>
                         <Nav.Link href="tournament">Tournament</Nav.Link>
+                        <Nav.Link href="tournamentPlay">TournamentPlay</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
