@@ -13,6 +13,11 @@ import UserName from "./components/profile/userName";
 import NewTemplateRoute from "./routes/new_template";
 
 // CSS files
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/index.css';
+import './styles/App.css';
+import TournamentRoute from "./routes/tournament_route";
+import TournamentPlayRoute from "./routes/tournament_play_route";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/index.css";
 import "./styles/App.css";
@@ -28,6 +33,8 @@ function App() {
               <Route path="/new_tournament" element={<NewTournamentRoute />} exact={true} />
               <Route path="/edit_tournament" element={<EditTournamentRoute />} exact={true} />
               <Route path="/new_template" element={<NewTemplateRoute />} exact={true} />
+            <Route path="/tournament" element={<TournamentRoute />} exact={true} />
+            <Route path="/tournamentPlay" element={<TournamentPlayRoute />} exact={true} />
           </Routes>
           <Footer />
       </div>

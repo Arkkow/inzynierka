@@ -8,6 +8,8 @@ import { store } from "./components/redux/redux_store";
 // Project specific files
 import App from "./app";
 
+// CSS files
+
 render(
   <Provider store={store}>
     <BrowserRouter>
