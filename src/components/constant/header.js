@@ -9,6 +9,8 @@ import UserName from "../profile/userName";
 function Header(props) {
   if (localStorage.getItem("token") == null) {
     return (
+        // ponizej uzytkownicy do dodania dla admnina
+        // <Nav.Link href="#" style={{paddingLeft:"50px", paddingRight:"30px"}}><my_h4>Użytkownicy</my_h4></Nav.Link>
       <Navbar expand="lg" style={{ boxShadow: "0px 2px 5px #999" }}>
         <a className="navbar-brand" href="calendar">
           <img

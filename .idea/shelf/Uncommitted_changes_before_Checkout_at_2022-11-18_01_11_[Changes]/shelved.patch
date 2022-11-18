@@ -1,0 +1,19 @@
+Index: src/routes/calendar_route.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// General React imports\r\nimport * as React from \"react\";\r\n\r\n// Project specific files\r\n\r\n// CSS files\r\nimport \"bootstrap/dist/css/bootstrap.min.css\";\r\nimport \"../styles/index.css\";\r\nimport \"../styles/App.css\";\r\nimport SingleCard from \"../components/single_card/single_card\";\r\n\r\nexport default function CalendarRoute() {\r\n  return (\r\n    <div>\r\n      <h2>Calendar</h2>\r\n      <SingleCard />\r\n    </div>\r\n  );\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/routes/calendar_route.js b/src/routes/calendar_route.js
+--- a/src/routes/calendar_route.js	(revision 9edffeac21e3436fa1b773c85c6760b1d3b18063)
++++ b/src/routes/calendar_route.js	(date 1668730211096)
+@@ -7,7 +7,7 @@
+ import "bootstrap/dist/css/bootstrap.min.css";
+ import "../styles/index.css";
+ import "../styles/App.css";
+-import SingleCard from "../components/single_card/single_card";
++import SingleCard from "../components/single_card/single_card.js";
+ 
+ export default function CalendarRoute() {
+   return (
