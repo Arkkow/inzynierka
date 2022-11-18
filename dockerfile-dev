@@ -8,7 +8,7 @@ COPY . .
 
 RUN npm install
 
-# RUN adduser -D -H anon
-# USER anon
+RUN adduser -D -H anon
+USER anon
 
 CMD npm start
