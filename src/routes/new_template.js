@@ -4,10 +4,10 @@ import * as React from "react";
 // Project specific files
 
 // CSS files
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/index.css";
 import "../styles/App.css";
-import TitlePage from "../components/new_template/page_with_title/page_with_title";
+import TitlePage from "../components/new_template/page_with_title/page_with_title.js";
 
 
 export default function NewTemplateRoute() {

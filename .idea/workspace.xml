@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70ff7af7-e243-42f3-9b77-b557d1b0970d" name="Changes" comment="MERGE MASTER I">
+    <list default="true" id="fe92971e-4344-42dd-9fe0-ddd5c9ac1f55" name="Changes" comment="MERGE MASTER I">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-11-08_21_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-11-08_21_39__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-11-08_21_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-11-08_21_41__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-11-18_01_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-11-18_01_11__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-11-10_13_46__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-11-10_13_46__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-11-18_01_51__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-11-18_01_51__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile/profile_input_box/input_box.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/profile_input_box/input_box.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile/userName.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/userName.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/edit_tournament.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/edit_tournament.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/new_template.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/new_template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/new_tournament.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/new_tournament.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
