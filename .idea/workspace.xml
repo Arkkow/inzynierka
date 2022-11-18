@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49b380c5-ae4e-4400-b77e-23d3b512a608" name="Changes" comment="MERGE Paweł x Janek+Arek">
+    <list default="true" id="70ff7af7-e243-42f3-9b77-b557d1b0970d" name="Changes" comment="MERGE MASTER I">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/calendar_route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/calendar_route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="project_structure" />
+        <entry key="$PROJECT_DIR$" value="janek" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -103,7 +103,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="49b380c5-ae4e-4400-b77e-23d3b512a608" name="Changes" comment="" />
+      <changelist id="70ff7af7-e243-42f3-9b77-b557d1b0970d" name="Changes" comment="MERGE MASTER I" />
       <created>1667552971177</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -123,6 +123,7 @@
       <workItem from="1668717986630" duration="16675000" />
       <workItem from="1668735835803" duration="119000" />
       <workItem from="1668735965892" duration="461000" />
+      <workItem from="1668770678107" duration="297000" />
     </task>
     <task id="LOCAL-00001" summary="refactor navbar to outer component">
       <created>1667553693360</created>
@@ -257,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668736313039</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="MERGE MASTER I">
+      <created>1668737001665</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737001665</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +318,8 @@
     <MESSAGE value="MERGE" />
     <MESSAGE value="Unversioned files" />
     <MESSAGE value="MERGE Paweł x Janek+Arek" />
-    <option name="LAST_COMMIT_MESSAGE" value="MERGE Paweł x Janek+Arek" />
+    <MESSAGE value="MERGE MASTER I" />
+    <option name="LAST_COMMIT_MESSAGE" value="MERGE MASTER I" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
