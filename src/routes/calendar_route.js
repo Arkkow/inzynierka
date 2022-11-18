@@ -1,7 +1,6 @@
 // General React imports
 import * as React from "react";
 
-
 // Project specific files
 
 // CSS files
@@ -16,7 +15,7 @@ import PastTournamentSelect_popup from "../components/popups/past_tournament_sel
 
 export default function CalendarRoute() {
   return (
-          <div>
+    <div>
       <h2>Calendar</h2>
       <SingleCard />
               <Register_popup/>

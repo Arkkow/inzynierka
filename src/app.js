@@ -1,5 +1,5 @@
 // General React imports
-import * as React from 'react';
+import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Project specific files
@@ -9,13 +9,13 @@ import Header from "./components/constant/header";
 import Footer from "./components/constant/footer";
 import NewTournamentRoute from "./routes/new_tournament";
 import EditTournamentRoute from "./routes/edit_tournament";
+import UserName from "./components/profile/userName";
 import NewTemplateRoute from "./routes/new_template";
 
 // CSS files
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/index.css';
-import './styles/App.css';
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/index.css";
+import "./styles/App.css";
 
 
 function App() {
