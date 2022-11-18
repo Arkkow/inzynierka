@@ -6,10 +6,10 @@ import * as React from "react";
 // CSS files
 import "../styles/index.css";
 import "../styles/App.css";
-import TitlePage from "../components/new_tournament/page_with_title/page_with_title";
+import TitlePage from "../components/new_template/page_with_title/page_with_title.js";
 
 
-export default function NewTournamentRoute() {
+export default function NewTemplateRoute() {
 
     return (
         <div>
