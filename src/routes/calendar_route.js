@@ -16,9 +16,7 @@ import PastTournamentSelect_popup from "../components/popups/past_tournament_sel
 export default function CalendarRoute() {
   return (
     <div>
-      <h2>Calendar</h2>
       <SingleCard />
-              <Register_popup/>
               <NewTournament_popup/>
               <TemplateSelect_popup/>
               <PastTournamentSelect_popup/>
