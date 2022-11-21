@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+  --black: #282828;
+  --dark_grey: #828282;
+  --light_grey: #EBEBEB;
+  --pfp_green: #007C36;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +45,21 @@
     transform: rotate(360deg);
   }
 }
+
+paragraph{
+  color: black;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+my_h4{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+}
+

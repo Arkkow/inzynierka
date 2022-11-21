@@ -4,12 +4,16 @@ import * as React from 'react';
 // Project specific files
 
 // CSS files
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/index.css';
 import '../styles/App.css';
+import TitlePage from "../components/new_tournament/page_with_title/page_with_title";
+import ProfilePage from "../components/profile/profile_page/profile_page";
 
 export default function ProfileRoute () {
     return (
-        <h2>Profile</h2>
+        <div>
+            <ProfilePage>
+            </ProfilePage>
+        </div>
     )
 };
