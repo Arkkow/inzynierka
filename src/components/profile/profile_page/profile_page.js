@@ -8,6 +8,10 @@ function ProfilePage() {
         <div className="background2">
             <page_title>Mój profil</page_title>
             <ProfileForm />
+            <div style={{width: "100%", minHeight:"8vh", textAlign: "left", paddingTop:"1%", paddingLeft:"0.5%"}}>
+                <paragraph>Masz jakiś problem lub coś nie działa tak jak powinno?</paragraph><br/>
+                <paragraph>Skontaktuj się z nami - padeltournamentsystems@gmail.com</paragraph>
+            </div>
         </div>
     );
 }
