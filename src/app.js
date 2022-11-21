@@ -9,7 +9,6 @@ import Header from "./components/constant/header";
 import Footer from "./components/constant/footer";
 import NewTournamentRoute from "./routes/new_tournament";
 import EditTournamentRoute from "./routes/edit_tournament";
-import UserName from "./components/profile/userName.js";
 import NewTemplateRoute from "./routes/new_template.js";
 
 // CSS files

@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import PFP_LOGO from "../../assets/PFP_LOGO.png";
 import "../../styles/App.css";
+import LoginPopupForRegister from "./login_popup_for_register";
 
 const Register_popup = () => {
   const [error, setError] = useState(null);
@@ -58,7 +59,7 @@ const Register_popup = () => {
           marginLeft: "3px",
           cursor: "pointer",
         }}
-        onClick={(handleClose, handleShow)}
+        onClick={handleShow}
       >
         Zarejestruj się
       </paragraph>
@@ -193,9 +194,13 @@ const Register_popup = () => {
           <paragraph>
             Masz już konto?
             <paragraph
-              style={{ textDecoration: "underline", marginLeft: "3px" }}
+              style={{
+                textDecoration: "underline",
+                marginLeft: "3px",
+                cursor: "pointer",
+              }}
             >
-              Zaloguj się
+              <LoginPopupForRegister />
             </paragraph>
           </paragraph>
         </Modal.Footer>

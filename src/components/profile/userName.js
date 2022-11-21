@@ -38,7 +38,7 @@ function UserName() {
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
-    return <my_h4>{userName.name}</my_h4>;
+    return <my_h4>Profil</my_h4>;
   }
 }
 
