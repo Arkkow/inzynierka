@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import PFP_LOGO from "../../assets/PFP_LOGO.png";
 import Login_popup from "../popups/login_popup";
 import { Dropdown, NavDropdown } from "react-bootstrap";
-import Logout from "../Buttons/log_out";
+import Logout from "./Buttons/log_out";
 import UserName from "../profile/userName";
 
 function Header(props) {

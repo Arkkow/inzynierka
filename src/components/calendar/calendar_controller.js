@@ -14,63 +14,62 @@ export const Calendar_controller = (props) => {
             <Col sm={6} >
             {/*<div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>*/}
                 {/*<Button onClick={props.handleDownloadCalendar}>ODŚWIEŻ</Button>*/}
-                {props.calendar_list.length === 0 ? <h5>no results available</h5> : props.calendar_list.map((card)=>(
-                    <CalendarCard {...card}/>
-                ))}
+                {props.calendar_list.length === 0 ?
+                  <h5>no results available</h5> :
+                  props.calendar_list.map((card)=>(
+                    <CalendarCard {...card} user={props.user}/>
+                    ))
+                }
             {/*</div>*/}
             </Col>
         </Row>
     )
 }
 
+// Przypisanie do Calendar_controller.props stanów
 const mapStateToProps = (state) => {
     return {
         calendar_list: state.calendar_content.data,
+        user: state.user_content.data
     }
 }
 
 //Wywołanie zmiany stanu (obsługa w store)
+// Przekazanie data z API do stanu Calendar_controller
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleDownloadCalendar: () => {
+        handleDownloadCalendar: (params) => {
         //    API z kalendarza
-            return dispatch({type: "DOWNLOAD_CALENDAR", payload: {
-                data: [
-                        {
-                            "id": "1",
-                            "name": "Turniej Listopadowy",
-                            "typeOfLadder": "string",
-                            "pointsForTournament": "string",
-                            "places": "Poznań",
-                            "roles": "string",
-                            "approved": "string",
-                            "from": "2023-11-15",
-                            "to": "2023-11-17",
-                            "rang": "rang1",
-                            "entryFee": "5",
-                            "director": "name",
-                            "phone": "123123",
-                            "entriesTo": "string",
-                            "additionalInformations": "info",
-                            "categotry": "cat1",
-                            "visibility": "TRUE"
-                        }
-                    ]}})
-        },
-
-        handleCheckRole: () => {
-            fetch('https://dragonmaster.pl/inz/user', {
+            fetch('https://dragonmaster.pl/inz/' + "tournaments", {
                 headers: {
-                    Authorization: ("Bearer " + localStorage.getItem("token"))
-                }
+                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7")
+                },
+                method: "GET",
+                params: params //byId?id=10
+            //    data: {} lub body
             })
-
-            .then((res) => {
+              .then((res) => {
                     return dispatch({type: "DOWNLOAD_CALENDAR", payload: {data: res.json()}})
                 }
-            )
-                .catch((err) => {console.log(err)})
-        }
+              )
+              .catch((err) => {console.log(err)});
+        },
+        handleDownloadUser: (params) => {
+            //    API z kalendarza
+            fetch('https://dragonmaster.pl/inz/' + "user", {
+                headers: {
+                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7")
+                },
+                method: "GET",
+                params: params //byId?id=10
+                //    data: {} lub body
+            })
+              .then((res) => {
+                    return dispatch({type: "DOWNLOAD_USER", payload: {data: res.json()}})
+                }
+              )
+              .catch((err) => {console.log(err)});
+        },
     }
 }
 

@@ -31,10 +31,10 @@ export default function CalendarRoute() {
                 <TemplateSelect_popup/>
                 <PastTournamentSelect_popup/>
                 <Calendar_controller />
-                <Calendar_controller />
-                <Calendar_controller />
-                <Calendar_controller />
-                <Calendar_controller />
+                {/*<Calendar_controller />*/}
+                {/*<Calendar_controller />*/}
+                {/*<Calendar_controller />*/}
+                {/*<Calendar_controller />*/}
             </Row>
         </Container>
   );

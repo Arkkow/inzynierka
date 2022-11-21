@@ -25,7 +25,13 @@ const default_state = {
                 }
             ]
         },
-        profile_content: {}
+        profile_content: {},
+        user_content: {
+            data: {
+                role: "default"
+                //"tu będzie puste na razie, to jest default, to się nadpisze"
+            }
+        }
 };
 
 //Obsługa zmiany stanu
@@ -41,6 +47,17 @@ export const calendar_content = (state = default_state.calendar_content, action)
     }
 };
 
+export const user_content = (state = default_state.user_content, action) => {
+    switch(action.type){
+        case "DOWNLOAD_USER":
+            return {
+                ...state,
+                data: action.payload.data
+            }
+        default:
+            return state;
+    }
+};
 
 //W przypadku wielu stanów dodaje kolejną warstwę struktury - head reducer, który zarządza reducerami
-export default combineReducers({calendar_content});
+export default combineReducers({calendar_content, user_content});
