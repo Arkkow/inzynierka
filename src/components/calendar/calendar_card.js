@@ -17,26 +17,23 @@ export const CalendarCard = (props) => {
             <Container fluid="md">
                 <Row>
                     <Col sm={2}>
-                        {/*{props.user.role === 'admin' ?*/}
-                        {/*  <div>Siemanko</div> :*/}
-                        {/*  // może być:null*/}
-                        {/*  <div style={{*/}
-                        {/*      display: "flex",*/}
-                        {/*      justifyContent: "center",*/}
-                        {/*      margin: "auto",*/}
-                        {/*      height: "100%",*/}
-                        {/*      alignItems: "center"*/}
-                        {/*  }}>*/}
-                        {/*      <img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />*/}
-                        {/*  </div>*/}
-                        {/*}*/}
-                        <img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />
+                          <div style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              margin: "auto",
+                              height: "100%",
+                              alignItems: "center"
+                          }}>
+                              <img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />
+                          </div>
+
+                        {/*<img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />*/}
                     </Col>
                     <Col sm={5}>
                         <Container>
                             <Row className="justify-content-md-center">
                                 <Col>
-                                    <h5>{props.name}</h5>
+                                    <h5>{props.name} {props.user.surname}</h5>
                                 </Col>
                             </Row>
                             <Row>
@@ -60,6 +57,7 @@ export const CalendarCard = (props) => {
                         </Container>
                     </Col>
                     <Col sm={4}>
+                        {props.user.role === '3' ?
                         <Card.Text>
                             <div style={{ textAlign: "center"}}>
                                 Użytkownik zaprosił cię do gry w tym turnieju
@@ -68,10 +66,10 @@ export const CalendarCard = (props) => {
                                 <Button variant="success" style={{margin: "5%"}}>TAK</Button>
                                 <Button variant="danger" style={{margin: "5%"}}>NIE</Button>
                             </div>
-                        </Card.Text>
+                        </Card.Text>:null}
                     </Col>
                     <Col sm={1} >
-                        <ThreeDotsVertical size="small" style={{verticalAlign: "top"}}/>
+                        <ThreeDotsVertical style={{verticalAlign: "top"}}/>
                     </Col>
                 </Row>
             </Container>
