@@ -4,6 +4,7 @@
 import CalendarCard from "./calendar_card";
 import {connect} from "react-redux";
 import {Col, Row} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 
 // CSS files
 
@@ -13,11 +14,20 @@ export const Calendar_controller = (props) => {
         <Row className="justify-content-md-center">
             <Col sm={6} >
             {/*<div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>*/}
-                {/*<Button onClick={props.handleDownloadCalendar}>ODŚWIEŻ</Button>*/}
+                <Button onClick={() => {
+                    props.handleDownloadCalendar();
+                    props.handleDownloadUser();
+                }
+                }>ODŚWIEŻ</Button>
+
+
+                {console.log(props.calendar_list)}
+
+
                 {props.calendar_list.length === 0 ?
                   <h5>no results available</h5> :
                   props.calendar_list.map((card)=>(
-                    <CalendarCard {...card} user={props.user}/>
+                    <CalendarCard {...card}/>
                     ))
                 }
             {/*</div>*/}
@@ -38,17 +48,18 @@ const mapStateToProps = (state) => {
 // Przekazanie data z API do stanu Calendar_controller
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleDownloadCalendar: (params) => {
+        handleDownloadCalendar: () => {
         //    API z kalendarza
             fetch('https://dragonmaster.pl/inz/' + "tournaments", {
                 headers: {
                     Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7")
                 },
                 method: "GET",
-                params: params //byId?id=10
+                // params: params //byId?id=10
             //    data: {} lub body
             })
               .then((res) => {
+                  // console.log("dupa")
                     return dispatch({type: "DOWNLOAD_CALENDAR", payload: {data: res.json()}})
                 }
               )

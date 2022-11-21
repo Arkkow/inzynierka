@@ -21,9 +21,24 @@ import TournamentPlayRoute from "./routes/tournament_play_route.js";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/index.css";
 import "./styles/App.css";
+import { useEffect } from "react";
 
 
 function App() {
+
+  useEffect((params) => {
+    fetch('https://dragonmaster.pl/inz/' + 'tournaments', {
+      headers: {
+        Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7")
+      },
+      method: "GET",
+      params: params
+      }
+    )
+      .then(response => response.json())
+      .then(json => console.log(json))
+  }, []);
+
   return (
       <div>
           <Header />

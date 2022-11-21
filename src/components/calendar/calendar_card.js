@@ -17,19 +17,20 @@ export const CalendarCard = (props) => {
             <Container fluid="md">
                 <Row>
                     <Col sm={2}>
-                        {props.user.role === 'admin' ?
-                          <div>Siemanko</div> :
-                          // może być :null
-                          <div style={{
-                              display: "flex",
-                              justifyContent: "center",
-                              margin: "auto",
-                              height: "100%",
-                              alignItems: "center"
-                          }}>
-                              <img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />
-                          </div>
-                        }
+                        {/*{props.user.role === 'admin' ?*/}
+                        {/*  <div>Siemanko</div> :*/}
+                        {/*  // może być:null*/}
+                        {/*  <div style={{*/}
+                        {/*      display: "flex",*/}
+                        {/*      justifyContent: "center",*/}
+                        {/*      margin: "auto",*/}
+                        {/*      height: "100%",*/}
+                        {/*      alignItems: "center"*/}
+                        {/*  }}>*/}
+                        {/*      <img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />*/}
+                        {/*  </div>*/}
+                        {/*}*/}
+                        <img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />
                     </Col>
                     <Col sm={5}>
                         <Container>

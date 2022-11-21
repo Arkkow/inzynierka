@@ -6,7 +6,7 @@ const default_state = {
             data: [
                 {
                     "id": "1",
-                    "name": "Turniej majowy",
+                    "name": "Turniej bez bazy",
                     "typeOfLadder": "string",
                     "pointsForTournament": "string",
                     "places": "Poznań",
