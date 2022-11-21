@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fe92971e-4344-42dd-9fe0-ddd5c9ac1f55" name="Changes" comment="UPDATE After merge cleanup">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/new_template.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/new_template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/new_tournament.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/new_tournament.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/profile_route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/profile_route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/ranking_route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/ranking_route.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/project_structure" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="janek" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="8106ee51-3096-4727-930c-589bc1ba8730" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2H4mwokXKb18WDFDtQk9qhAqeMD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lewy/WebstormProjects/inzynierka/src/assets&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Lewy\\WebstormProjects\\inzynierka\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lewy\WebstormProjects\inzynierka\src\assets" />
+      <recent name="C:\Users\Lewy\WebstormProjects\inzynierka\src\components\calendar_single" />
+      <recent name="C:\Users\Lewy\WebstormProjects\inzynierka\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lewy\WebstormProjects\inzynierka\src\components\Tournament\zapisy\features" />
+      <recent name="C:\Users\Lewy\WebstormProjects\inzynierka\src\components\Tournament\header" />
+      <recent name="C:\Users\Lewy\WebstormProjects\inzynierka\src\components\Tournament\informacje" />
+      <recent name="C:\Users\Lewy\WebstormProjects\inzynierka\src\components\Tournament" />
+      <recent name="C:\Users\Lewy\WebstormProjects\inzynierka\src\components\calendar" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="App.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="App.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.App.js" />
+      <item itemvalue="Node.js.index.js" />
+      <item itemvalue="npm.start" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.index.js" />
+        <item itemvalue="Node.js.App.js" />
+        <item itemvalue="Node.js.index.js" />
+        <item itemvalue="Node.js.App.js" />
+        <item itemvalue="Node.js.index.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70ff7af7-e243-42f3-9b77-b557d1b0970d" name="Changes" comment="MERGE MASTER I" />
+      <created>1667552971177</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667552971177</updated>
+      <workItem from="1667552973974" duration="13068000" />
+      <workItem from="1667679373009" duration="3202000" />
+      <workItem from="1667853139588" duration="1319000" />
+      <workItem from="1667939935407" duration="4047000" />
+      <workItem from="1668081554383" duration="5674000" />
+      <workItem from="1668114212721" duration="2100000" />
+      <workItem from="1668165293438" duration="5293000" />
+      <workItem from="1668254438572" duration="14935000" />
+      <workItem from="1668348666510" duration="20233000" />
+      <workItem from="1668457054970" duration="3433000" />
+      <workItem from="1668537873391" duration="9134000" />
+      <workItem from="1668632478912" duration="1914000" />
+      <workItem from="1668717986630" duration="16675000" />
+      <workItem from="1668735835803" duration="119000" />
+      <workItem from="1668735965892" duration="461000" />
+      <workItem from="1668770678107" duration="297000" />
+    </task>
+    <task id="LOCAL-00001" summary="refactor navbar to outer component">
+      <created>1667553693360</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667553693360</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Components... not working">
+      <created>1667566468962</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667566468962</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Card component working">
+      <created>1667569210636</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667569210636</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Card component working base grid">
+      <created>1667569743556</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667569743556</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Card component working base grid">
+      <created>1667940287648</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667940287648</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ADD full card with JSON data&#10;full calendar layout base (TODO)">
+      <created>1668087084798</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668087084798</updated>
+    </task>
+    <task id="LOCAL-00007" summary="UPDATE calendar details">
+      <created>1668087487119</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668087487119</updated>
+    </task>
+    <task id="LOCAL-00008" summary="ADD pełna karta turnieju z opcją akceptacji">
+      <created>1668276824766</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668276824766</updated>
+    </task>
+    <task id="LOCAL-00009" summary="ADD pełna karta turnieju z opcją akceptacji">
+      <created>1668378444221</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668378444221</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ADD karta pojedynczego turnieju">
+      <created>1668388026353</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668388026353</updated>
+    </task>
+    <task id="LOCAL-00011" summary="ADD karta pojedynczego turnieju">
+      <created>1668546119904</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668546119904</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update">
+      <created>1668718899906</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668718899906</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update">
+      <created>1668722769415</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668722769415</updated>
+    </task>
+    <task id="LOCAL-00014" summary="MERGE">
+      <created>1668725673805</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668725673805</updated>
+    </task>
+    <task id="LOCAL-00015" summary="MERGE">
+      <created>1668725691621</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668725691621</updated>
+    </task>
+    <task id="LOCAL-00016" summary="MERGE">
+      <created>1668727758543</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668727758543</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Unversioned files">
+      <created>1668735681040</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668735681040</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Unversioned files">
+      <created>1668735997829</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668735997829</updated>
+    </task>
+    <task id="LOCAL-00019" summary="MERGE Paweł x Janek+Arek">
+      <created>1668736313039</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668736313039</updated>
+    </task>
+    <task id="LOCAL-00020" summary="MERGE MASTER I">
+      <created>1668737001665</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737001665</updated>
+    </task>
+    <task id="LOCAL-00021" summary="UPDATE After merge cleanup">
+      <created>1668772152539</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1668772152539</updated>
+    </task>
+    <task id="LOCAL-00022" summary="UPDATE After merge cleanup">
+      <created>1668773926809</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1668773926809</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/podlaczenia_janka_arek" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor navbar to outer component" />
+    <MESSAGE value="Components... not working" />
+    <MESSAGE value="Card component working" />
+    <MESSAGE value="Card component working base grid" />
+    <MESSAGE value="ADD full card with JSON data&#10;full calendar layout base (TODO)" />
+    <MESSAGE value="UPDATE calendar details" />
+    <MESSAGE value="ADD pełna karta turnieju z opcją akceptacji" />
+    <MESSAGE value="ADD karta pojedynczego turnieju" />
+    <MESSAGE value="Update" />
+    <MESSAGE value="MERGE" />
+    <MESSAGE value="Unversioned files" />
+    <MESSAGE value="MERGE Paweł x Janek+Arek" />
+    <MESSAGE value="MERGE MASTER I" />
+    <MESSAGE value="UPDATE After merge cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE After merge cleanup" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+</project>

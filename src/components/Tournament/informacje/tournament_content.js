@@ -7,8 +7,9 @@ import Card from 'react-bootstrap/Card';
 import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
 
 // CSS files
-import cup_logo from "../../assets/cup.svg";
+import cup_logo from "../../../assets/cup.svg";
 import {Container, Row, Col, Form, ButtonGroup} from "react-bootstrap";
+import TournamentNavbar from "../navbar/tournament_navbar";
 
 
 export const TournamentContent = (props) => {
@@ -19,11 +20,7 @@ export const TournamentContent = (props) => {
                     <Container>
                         <Row fluid style={{backgroundColor: "transparent"}}>
                             <Col sm={10} >
-                                <ButtonGroup style={{marginTop: "0.25%"}}>
-                                    <Button variant="light" style={{border: "1px solid black"}}>Informacje</Button>
-                                    <Button variant="light" style={{border: "1px solid black"}}>Zapisy</Button>
-                                    <Button variant="light" style={{border: "1px solid black"}}>Wyniki</Button>
-                                </ButtonGroup>
+                                <TournamentNavbar/>
                             </Col>
                         </Row>
                         <Container style={{background: "white"}}>
@@ -44,17 +41,20 @@ export const TournamentContent = (props) => {
                                     <h5 style={{marginBottom:"0"}}>Do</h5>
                                     <div>
                                         29/05/2022
-                                    </div>                            </div>
+                                    </div>
+                                </div>
                                 <div style={{marginBottom: "1%"}}>
                                     <h5 style={{marginBottom:"0"}}>Wpisowe</h5>
                                     <div>
                                         80 zł/os
-                                    </div>                            </div>
+                                    </div>
+                                </div>
                                 <div style={{marginBottom: "1%"}}>
                                     <h5 style={{marginBottom:"0"}}>Ranga</h5>
                                     <div>
                                         CHALLENGER
-                                    </div>                            </div>
+                                    </div>
+                                </div>
                                 <div style={{marginBottom: "1%"}}>
                                     <h5 style={{marginBottom:"0"}}>System turniejowy</h5>
                                     <div>

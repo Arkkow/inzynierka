@@ -4,7 +4,7 @@ import * as React from 'react';
 // Project specific files
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
+import { GeoAlt, CalendarCheck, ThreeDotsVertical } from "react-bootstrap-icons";
 
 // CSS files
 import cup_logo from "../../assets/cup.svg";
@@ -21,7 +21,7 @@ export const CalendarCard = (props) => {
                             <img src={cup_logo} alt={""} style={{minHeight: "50%"}}/>
                         </div>
                     </Col>
-                    <Col sm={6}>
+                    <Col sm={5}>
                         <Container>
                             <Row className="justify-content-md-center">
                                 <Col>
@@ -58,6 +58,9 @@ export const CalendarCard = (props) => {
                                 <Button variant="danger" style={{margin: "5%"}}>NIE</Button>
                             </div>
                         </Card.Text>
+                    </Col>
+                    <Col sm={1} >
+                        <ThreeDotsVertical size="small" style={{verticalAlign: "top"}}/>
                     </Col>
                 </Row>
             </Container>

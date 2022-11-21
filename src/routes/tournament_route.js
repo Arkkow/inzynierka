@@ -11,18 +11,20 @@ import "../styles/App.css";
 import CalNav from "../components/calendar/calendarNavbar/calNav";
 import Container from "react-bootstrap/Container";
 import {Col, Form, Row} from "react-bootstrap";
-import TournamentContent from "../components/Tournament/tournament_content";
-import TournamentHeader from "../components/Tournament/tournament_header";
+import TournamentContent from "../components/Tournament/informacje/tournament_content";
+import TournamentHeader from "../components/Tournament/navbar/tournament_header";
 import Button from "react-bootstrap/Button";
-import Zapisy from "../components/zapisy/zapisy";
+import Zapisy from "../components/Tournament/zapisy/zapisy";
+import Drabinka from "../components/Tournament/drabinka/drabinka";
 
 
 export default function TournamentRoute() {
     return (
         <div style={{minHeight: "94vh"}}>
             <TournamentHeader/>
-            {/*<TournamentContent/>*/}
-            <Zapisy/>
+            <TournamentContent/>
+            {/*<Zapisy/>*/}
+            {/*<Drabinka/>*/}
         </div>
     );
 }
