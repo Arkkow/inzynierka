@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe92971e-4344-42dd-9fe0-ddd5c9ac1f55" name="Changes" comment="UPDATE After merge cleanup">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/new_tournament/input_box/input_box.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/new_tournament/input_box/input_box.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile/profile_input_box/input_box.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/profile_input_box/input_box.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/profile/userName.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/userName.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/edit_tournament.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/edit_tournament.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/new_template.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/new_template.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/new_tournament.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/new_tournament.js" afterDir="false" />
-    </list>
+    <list default="true" id="fe92971e-4344-42dd-9fe0-ddd5c9ac1f55" name="Changes" comment="unversioned files 2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,22 +38,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lewy/WebstormProjects/inzynierka/src/assets&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Lewy\\WebstormProjects\\inzynierka\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Lewy/WebstormProjects/inzynierka/src/assets",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Lewy\\WebstormProjects\\inzynierka\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Lewy\WebstormProjects\inzynierka\src\assets" />
