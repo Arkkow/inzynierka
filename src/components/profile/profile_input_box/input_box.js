@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "../profile_input_box/input_box.css";
 
-// import { Button } from "bootstrap";
+import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
 function InputBox() {

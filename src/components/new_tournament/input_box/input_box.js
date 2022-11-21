@@ -197,7 +197,7 @@ function InputBox() {
         </label>
         <select
           style={{ width: "33%" }}
-          className="form-control"
+          className="form-select"
           id="sel1"
           ref={typeOfLadder}
         >
