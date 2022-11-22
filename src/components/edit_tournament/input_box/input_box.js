@@ -6,9 +6,10 @@ function InputBox() {
   const [error, setError] = useState(null);
   const [isSended, setIsSended] = useState(false);
   const [response, setResponse] = useState([]);
+  const Token = JSON.parse(localStorage.getItem("token")).token;
   const name = useRef("1");
   const typeOfLadder = useRef("1");
-  const pointsForTournament = useRef("1");
+  const pointsForTournament = useRef("50");
   const places = useRef("1");
   const roles = useRef("1");
   const ranked = useRef("1");
@@ -24,17 +25,32 @@ function InputBox() {
   const categotry = useRef("OPEN");
   const visibility = useRef("TRUE");
   const handleClick = () => {
-    fetch("https://dragonmaster.pl/inz/user/create", {
+    if (visibility.current.value == "on") {
+      visibility.current.value = "TRUE";
+    } else {
+      visibility.current.value = "FALSE";
+    }
+
+    if (places.current.value == "8") {
+      pointsForTournament.value = "20";
+      roles.value = "8";
+    } else {
+      pointsForTournament.value = "50";
+      roles.value = "16";
+    }
+
+    fetch("https://dragonmaster.pl/inz/tournament", {
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        Authorization: "Bearer " + Token,
       },
       method: "POST",
       body: JSON.stringify({
+        id: "41040",
         name: name.current.value,
         typeOfLadder: typeOfLadder.current.value,
-        pointsForTournament: pointsForTournament.current.value,
+        pointsForTournament: pointsForTournament.value,
         places: places.current.value,
-        roles: roles.current.value,
+        roles: roles.value,
         ranked: ranked.current.value,
         place: place.current.value,
         from: from.current.value,
@@ -62,7 +78,7 @@ function InputBox() {
         }
       );
     if (error) {
-      alert("Coś poszło nie tak: " + error.message);
+      console.log("Coś poszło nie tak: " + error.message);
     }
   };
   return (
@@ -198,13 +214,24 @@ function InputBox() {
         </select>
       </div>
 
-        <div className="form-group">
-            <label style={{display: "block", textAlign: "left", marginTop: "1%"}} htmlFor="exampleFormControlInput1" className="form-label">Liczba par</label>
-            <select style={{width:"33%"}} className="form-select" id="sel1">
-                <option selected>8</option>
-                <option value="1">16</option>
-            </select>
-        </div>
+      <div className="form-group">
+        <label
+          style={{ display: "block", textAlign: "left", marginTop: "1%" }}
+          htmlFor="exampleFormControlInput1"
+          className="form-label"
+        >
+          Liczba par
+        </label>
+        <select
+          style={{ width: "33%" }}
+          className="form-select"
+          id="sel1"
+          ref={places}
+        >
+          <option selected>8</option>
+          <option value="1">16</option>
+        </select>
+      </div>
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}

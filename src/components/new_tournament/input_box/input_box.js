@@ -24,6 +24,23 @@ function InputBox() {
   const categotry = useRef("OPEN");
   const visibility = useRef("TRUE");
   const handleClick = () => {
+    if (visibility.current.value == "on") {
+      visibility.current.value = "TRUE";
+    } else {
+      visibility.current.value = "FALSE";
+    }
+
+    if (ranked.current.value == "on") {
+      ranked.current.value = "TRUE";
+    } else {
+      ranked.current.value = "FALSE";
+    }
+
+    if (places.current.value == "8") {
+      pointsForTournament.value = "20";
+    } else {
+      pointsForTournament.value = "50";
+    }
     fetch("https://dragonmaster.pl/inz/tournament", {
       headers: {
         Authorization: "Bearer " + Token,
@@ -211,13 +228,19 @@ function InputBox() {
         </select>
       </div>
 
-        <div className="form-group">
-            <label style={{display: "block", textAlign: "left", marginTop: "1%"}} htmlFor="exampleFormControlInput1" className="form-label">Liczba par</label>
-            <select style={{width:"33%"}} className="form-select" id="sel1">
-                <option selected>8</option>
-                <option value="1">16</option>
-            </select>
-        </div>
+      <div className="form-group">
+        <label
+          style={{ display: "block", textAlign: "left", marginTop: "1%" }}
+          htmlFor="exampleFormControlInput1"
+          className="form-label"
+        >
+          Liczba par
+        </label>
+        <select style={{ width: "33%" }} className="form-select" id="sel1">
+          <option selected>8</option>
+          <option value="1">16</option>
+        </select>
+      </div>
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
