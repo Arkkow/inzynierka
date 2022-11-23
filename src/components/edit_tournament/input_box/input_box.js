@@ -31,11 +31,26 @@ function InputBox() {
       visibility.current.value = "FALSE";
     }
 
-    if (places.current.value == "8") {
-      pointsForTournament.value = "20";
+    if (
+      places.current.value == "8" &&
+      categotry.current.value == "CHALLENGER"
+    ) {
+      pointsForTournament.value = "250";
+      roles.value = "8";
+    } else if (
+      places.current.value == "16" &&
+      categotry.current.value == "CHALLENGER"
+    ) {
+      pointsForTournament.value = "500";
+      roles.value = "16";
+    } else if (
+      places.current.value == "8" &&
+      categotry.current.value == "MASTER"
+    ) {
+      pointsForTournament.value = "500";
       roles.value = "8";
     } else {
-      pointsForTournament.value = "50";
+      pointsForTournament.value = "1000";
       roles.value = "16";
     }
 
