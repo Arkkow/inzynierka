@@ -23,9 +23,6 @@ function App() {
   return (
       <div>
           <Header />
-          <div>
-              TESTOWY DIV DO USUNIĘCIA ASAP
-          </div>
           <Routes>
             <Route path="/#" element={<CalendarRoute />} exact={true} />
             <Route path="/calendar" element={<CalendarRoute />} exact={true} />
