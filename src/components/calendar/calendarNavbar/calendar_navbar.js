@@ -30,7 +30,8 @@ export const CalendarNavbar = (props) => {
                     <Button variant="outline-secondary" disabled={true} style={{margin: "1%", marginLeft: "2%", marginRight: "2%"}}>WSZYSTKIE</Button>
                     <Button variant="outline-secondary" disabled={false} style={{margin: "1%", marginLeft: "2%", marginRight: "2%"}}>MOJE</Button>
 
-                    <Button variant="success" style={{float: "right", margin: "1%", marginRight: "3%"}}>STWÓRZ NOWY TURNIEJ</Button>
+                    <Button
+                        variant="success" style={{float: "right", margin: "1%", marginRight: "3%"}}>STWÓRZ NOWY TURNIEJ</Button>
             </div>
         </div>
     );

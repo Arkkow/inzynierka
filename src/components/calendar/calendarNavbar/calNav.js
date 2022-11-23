@@ -28,7 +28,17 @@ function Header() {
                                     </Col>
                                     <Col sm={8} style={{marginTop: "2%"}}>
                                         <div style={{float: "right"}}>
-                                            <Button variant="success">STWÓRZ NOWY TURNIEJ</Button>
+                                            <Button
+                                                style={{
+                                                    fontFamily: "Montserrat",
+                                                    fontWeight: "600",
+                                                    fontSize: "18px",
+                                                    lineHeight: "25px",
+                                                    color: "white"
+                                                }}
+                                                type="button"
+                                                className="btn btn-success"
+                                               >STWÓRZ NOWY TURNIEJ</Button>
                                         </div>
                                     </Col>
                                 </Row>

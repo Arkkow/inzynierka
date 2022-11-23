@@ -200,7 +200,7 @@ function InputBox() {
         </label>
         <select
           style={{ width: "33%" }}
-          className="form-control"
+          className="form-select"
           id="sel1"
           ref={rang}
         >
@@ -219,7 +219,7 @@ function InputBox() {
         </label>
         <select
           style={{ width: "33%" }}
-          className="form-control"
+          className="form-select"
           id="sel1"
           ref={typeOfLadder}
         >
@@ -230,10 +230,10 @@ function InputBox() {
       </div>
 
       <div className="form-group">
-        <label
-          style={{ display: "block", textAlign: "left", marginTop: "1%" }}
-          htmlFor="exampleFormControlInput1"
-          className="form-label"
+          <label
+              style={{ display: "block", textAlign: "left", marginTop: "1%" }}
+              htmlFor="exampleFormControlInput1"
+              className="form-label"
         >
           Liczba par
         </label>

@@ -74,13 +74,14 @@ function Header(props) {
               <my_h4>Ranking</my_h4>
             </Nav.Link>
             {/*<Nav.Link href="profile" style={{paddingLeft:"50px", paddingRight:"30px"}}><my_h4>Profil</my_h4></Nav.Link>*/}
+            <Nav.Link
+                href="profile"
+                style={{ paddingLeft: "50px", paddingRight: "30px" }}
+            >
+              <UserName />
+            </Nav.Link>
           </Nav>
-          <Nav.Link
-            href="profile"
-            style={{ paddingLeft: "50px", paddingRight: "30px" }}
-          >
-            <UserName />
-          </Nav.Link>
+
 
           <Logout />
         </Navbar.Collapse>

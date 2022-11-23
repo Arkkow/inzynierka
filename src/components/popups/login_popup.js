@@ -99,6 +99,7 @@ function Login_popup() {
                 autoFocus
               />
               <Form.Control
+                  style={{ marginTop: "1%" }}
                 type="password"
                 placeholder="Tutaj wpisz hasło"
                 ref={password}

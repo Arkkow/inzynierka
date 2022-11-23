@@ -109,21 +109,21 @@ function InputBox() {
         color: "var(--dark_grey)",
       }}
     >
-      <button
-        style={{
-          fontFamily: "Montserrat",
-          fontWeight: "600",
-          fontSize: "18px",
-          lineHeight: "25px",
-          color: "white",
-          float: "right",
-          marginRight: "5%",
-        }}
-        type="button"
-        className="btn btn-success"
-      >
-        STWÓRZ SZABLON TURNIEJU
-      </button>
+      {/*<button*/}
+      {/*  style={{*/}
+      {/*    fontFamily: "Montserrat",*/}
+      {/*    fontWeight: "600",*/}
+      {/*    fontSize: "18px",*/}
+      {/*    lineHeight: "25px",*/}
+      {/*    color: "white",*/}
+      {/*    float: "right",*/}
+      {/*    marginRight: "5%",*/}
+      {/*  }}*/}
+      {/*  type="button"*/}
+      {/*  className="btn btn-success"*/}
+      {/*>*/}
+      {/*  STWÓRZ SZABLON TURNIEJU*/}
+      {/*</button>*/}
 
       <label
         style={{ display: "block", textAlign: "left", width: "33%" }}
@@ -212,7 +212,7 @@ function InputBox() {
         </label>
         <select
           style={{ width: "33%" }}
-          className="form-control"
+          className="form-select"
           id="sel1"
           ref={rang}
         >
@@ -231,7 +231,7 @@ function InputBox() {
         </label>
         <select
           style={{ width: "33%" }}
-          className="form-control"
+          className="form-select"
           id="sel1"
           ref={typeOfLadder}
         >
