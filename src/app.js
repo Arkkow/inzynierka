@@ -1,47 +1,35 @@
 // General React imports
 import * as React from "react";
+import {useState} from "react";
 import { Routes, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 // Project specific files
-import CalendarRoute from "./routes/calendar_route";
-import ProfileRoute from "./routes/profile_route";
 import Header from "./components/common/header";
 import Footer from "./components/common/footer";
+// Routes
+import CalendarRoute from "./routes/calendar_route";
+import ProfileRoute from "./routes/profile_route";
 import NewTournamentRoute from "./routes/new_tournament";
 import EditTournamentRoute from "./routes/edit_tournament";
-import UserName from "./components/profile/userName.js";
 import NewTemplateRoute from "./routes/new_template.js";
-
-// CSS files
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/index.css';
-import './styles/App.css';
 import TournamentRoute from "./routes/tournament_route.js";
 import TournamentPlayRoute from "./routes/tournament_play_route.js";
-// import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/index.css";
-import "./styles/App.css";
-import { useEffect } from "react";
+
+// import { mapStateToProps, mapDispatchToProps } from "./components/calendar/calendar_controller"
+
+// CSS files
+import './styles/index.css';
+import './styles/App.css';
+import Button from "react-bootstrap/Button";
+import * as props from "./components/redux/states/states";
+import { Calendar_controller } from "./components/calendar/calendar_controller";
 
 
 function App() {
-
-  useEffect((params) => {
-    fetch('https://dragonmaster.pl/inz/' + 'tournaments', {
-      headers: {
-        Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7")
-      },
-      method: "GET",
-      params: params
-      }
-    )
-      .then(response => response.json())
-      .then(json => console.log(json))
-  }, []);
-
   return (
       <div>
-          <Header />
+          <Header/>
           <Routes>
             <Route path="/#" element={<CalendarRoute />} exact={true} />
             <Route path="/calendar" element={<CalendarRoute />} exact={true} />
@@ -58,3 +46,8 @@ function App() {
 }
 
 export default App;
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(App)

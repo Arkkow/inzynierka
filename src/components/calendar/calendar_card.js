@@ -8,15 +8,18 @@ import { GeoAlt, CalendarCheck, ThreeDotsVertical } from "react-bootstrap-icons"
 
 // CSS files
 import cup_logo from "../../assets/cup.svg";
-import {Container, Row, Col} from "react-bootstrap";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
 
 
 export const CalendarCard = (props) => {
+    console.log("Kartka z kalendarza")
+    console.log(props)
     return (
         <Card border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%"}} >
             <Container fluid="md">
                 <Row>
                     <Col sm={2}>
+                        {props.view.screen === 'calendar' ? <h2>YES</h2>:<h2>NO</h2>}
                           <div style={{
                               display: "flex",
                               justifyContent: "center",
@@ -31,13 +34,16 @@ export const CalendarCard = (props) => {
                     </Col>
                     <Col sm={5}>
                         <Container>
+                            <Row>
+                                <Button >Click to get tournament card</Button>
+                            </Row>
                             <Row className="justify-content-md-center">
                                 <Col>
-                                    <h5>{props.name} {props.user.surname}</h5>
+                                    <h5>{props.name}</h5>
                                 </Col>
                             </Row>
                             <Row>
-                                <div><GeoAlt/>&nbsp; {props.places}</div>
+                                <div><GeoAlt/>&nbsp; {props.place}</div>
                             </Row>
                             <Row>
                                 <div>
@@ -69,7 +75,20 @@ export const CalendarCard = (props) => {
                         </Card.Text>:null}
                     </Col>
                     <Col sm={1} >
-                        <ThreeDotsVertical style={{verticalAlign: "top"}}/>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="secondary">
+                                ...
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu variant="secondary">
+                                <Dropdown.Item>
+                                    Action 1
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    Action 2
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </Col>
                 </Row>
             </Container>
