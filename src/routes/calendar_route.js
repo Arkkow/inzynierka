@@ -27,14 +27,14 @@ export default function CalendarRoute() {
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
-                <NewTournament_popup/>
-                <TemplateSelect_popup/>
-                <PastTournamentSelect_popup/>
+                {/*<NewTournament_popup/>*/}
+                {/*<TemplateSelect_popup/>*/}
+                {/*<PastTournamentSelect_popup/>*/}
                 <Calendar_controller />
-                <Calendar_controller />
-                <Calendar_controller />
-                <Calendar_controller />
-                <Calendar_controller />
+                {/*<Calendar_controller />*/}
+                {/*<Calendar_controller />*/}
+                {/*<Calendar_controller />*/}
+                {/*<Calendar_controller />*/}
             </Row>
         </Container>
   );
