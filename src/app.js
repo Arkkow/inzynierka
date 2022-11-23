@@ -18,7 +18,6 @@ import TournamentPlayRoute from "./routes/tournament_play_route.js";
 import './styles/index.css';
 import './styles/App.css';
 
-
 function App() {
   return (
       <div>
