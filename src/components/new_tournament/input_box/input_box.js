@@ -36,11 +36,25 @@ function InputBox() {
       ranked.current.value = "FALSE";
     }
 
-    if (places.current.value == "8") {
-      pointsForTournament.value = "20";
+    if (
+      places.current.value == "8" &&
+      categotry.current.value == "CHALLENGER"
+    ) {
+      pointsForTournament.value = "250";
+    } else if (
+      places.current.value == "16" &&
+      categotry.current.value == "CHALLENGER"
+    ) {
+      pointsForTournament.value = "500";
+    } else if (
+      places.current.value == "8" &&
+      categotry.current.value == "MASTER"
+    ) {
+      pointsForTournament.value = "500";
     } else {
-      pointsForTournament.value = "50";
+      pointsForTournament.value = "1000";
     }
+
     fetch("https://dragonmaster.pl/inz/tournament", {
       headers: {
         Authorization: "Bearer " + Token,
@@ -51,7 +65,6 @@ function InputBox() {
         typeOfLadder: typeOfLadder.current.value,
         pointsForTournament: "4",
         places: "2",
-        // roles: "dupa",
         ranked: ranked.current.value,
         place: place.current.value,
         from: from.current.value,
