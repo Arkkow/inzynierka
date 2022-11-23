@@ -9,16 +9,13 @@ import Header from "./components/constant/header";
 import Footer from "./components/constant/footer";
 import NewTournamentRoute from "./routes/new_tournament";
 import EditTournamentRoute from "./routes/edit_tournament";
-import UserName from "./components/profile/userName.js";
 import NewTemplateRoute from "./routes/new_template.js";
 
 // CSS files
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
 import './styles/App.css';
 import TournamentRoute from "./routes/tournament_route.js";
 import TournamentPlayRoute from "./routes/tournament_play_route.js";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/index.css";
 import "./styles/App.css";
 
