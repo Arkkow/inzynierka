@@ -4,7 +4,7 @@ import * as React from 'react';
 // Project specific files
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { GeoAlt, CalendarCheck, ThreeDotsVertical } from "react-bootstrap-icons";
+import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
 
 // CSS files
 import cup_logo from "../../assets/cup.svg";
@@ -75,6 +75,7 @@ export const CalendarCard = (props) => {
                         </Card.Text>:null}
                     </Col>
                     <Col sm={1} >
+                        {/*<ThreeDotsVertical/>*/}
                         <Dropdown>
                             <Dropdown.Toggle variant="secondary">
                                 ...
