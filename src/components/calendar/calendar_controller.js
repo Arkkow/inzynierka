@@ -20,6 +20,7 @@ export const Calendar_controller = (props) => {
                 }
                 }>ODŚWIEŻ</Button>
                 <Button onClick={() => {props.handleGOTO('tournament');}}>TOURNAMENT</Button>
+                <Button onClick={() => {props.handleGOTO('calendar');}}>CALENDAR</Button>
 
 
 
@@ -79,6 +80,7 @@ const mapDispatchToProps = (dispatch) => {
               .catch((err) => {console.log(err)});
         },
         handleGOTO: (props) => {
+
             return dispatch({type: "ROUTE_STATE", payload: {data: props}});
         }
     }

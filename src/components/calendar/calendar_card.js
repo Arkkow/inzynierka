@@ -34,9 +34,9 @@ export const CalendarCard = (props) => {
                     </Col>
                     <Col sm={5}>
                         <Container>
-                            <Row>
-                                <Button >Click to get tournament card</Button>
-                            </Row>
+                            {/*<Row>*/}
+                            {/*    <Button>Click to get tournament card</Button>*/}
+                            {/*</Row>*/}
                             <Row className="justify-content-md-center">
                                 <Col>
                                     <h5>{props.name}</h5>
