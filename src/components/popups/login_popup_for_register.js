@@ -6,7 +6,7 @@ import PFP_LOGO from "../../assets/PFP_LOGO.png";
 import Register_popup from "./register_popup";
 import "../../styles/App.css";
 
-function Login_popup() {
+function LoginPopupForRegister() {
   const [show, setShow] = useState(false);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -47,25 +47,13 @@ function Login_popup() {
 
   return (
     <>
-      <Button
-        style={{
-          fontFamily: "Montserrat",
-          fontWeight: "600",
-          fontSize: "18px",
-          lineHeight: "25px",
-          color: "white",
-          borderRadius: "15px",
-          paddingRight: "1.5%",
-          paddingLeft: "1.5%",
-          paddingBottom: "0.5%",
-          paddingTop: "0.5%",
-          marginRight: "1%",
-        }}
+      <paragraph
+        style={{ textDecoration: "underline", marginLeft: "3px" }}
         variant="success"
         onClick={handleShow}
       >
-        LOGOWANIE
-      </Button>
+        Zaloguj się
+      </paragraph>
       <Modal show={show} onHide={handleCloseLogin}>
         <Modal.Header closeButton>
           <img src={PFP_LOGO} style={{ marginLeft: "auto" }} alt="LOGO" />
@@ -142,4 +130,4 @@ function Login_popup() {
   );
 }
 
-export default Login_popup;
+export default LoginPopupForRegister;

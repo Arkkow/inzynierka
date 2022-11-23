@@ -13,6 +13,7 @@ function InputBox() {
   const name = useRef(null);
   const surname = useRef(null);
   const password = useRef(null);
+  const repeatPassword = useRef(null);
   const phone = useRef(null);
   const mail = useRef(null);
 
@@ -20,47 +21,51 @@ function InputBox() {
   // this useEffect will run once
   // similar to componentDidMount()
   const handleClick = () => {
-    if (name.current.value == null) {
-      name.current.value = userData.name;
-    } else if (surname.current.value == null) {
-      surname.current.value = userData.surname;
-    } else if (mail.current.value == null) {
-      mail.current.value = userData.mail;
-    } else if (phone.current.value == null) {
-      phone.current.value = userData.phone;
-    } else if (password.current.value == null) {
-      password.current.value = userData.password;
-    }
-    fetch("https://dragonmaster.pl/inz/user", {
-      method: "POST",
-      body: JSON.stringify({
-        name: name.current.value,
-        surname: surname.current.value,
-        mail: mail.current.value,
-        phone: phone.current.value,
-        password: password.current.value,
-      }),
-      headers: {
-        Accept: "application/json",
-        Authorization: "Bearer " + Token,
-      },
-    })
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsSended(true);
-          setResponse(result);
-          console.log(result);
-          window.location.reload(false);
+    if (password.current.value == repeatPassword.current.value) {
+      if (name.current.value == null) {
+        name.current.value = userData.name;
+      } else if (surname.current.value == null) {
+        surname.current.value = userData.surname;
+      } else if (mail.current.value == null) {
+        mail.current.value = userData.mail;
+      } else if (phone.current.value == null) {
+        phone.current.value = userData.phone;
+      } else if (password.current.value == null) {
+        password.current.value = userData.password;
+      }
+      fetch("https://dragonmaster.pl/inz/user", {
+        method: "POST",
+        body: JSON.stringify({
+          name: name.current.value,
+          surname: surname.current.value,
+          mail: mail.current.value,
+          phone: phone.current.value,
+          password: password.current.value,
+        }),
+        headers: {
+          Accept: "application/json",
+          Authorization: "Bearer " + Token,
         },
-        (error) => {
-          setIsSended(true);
-          setError(error);
-          window.location.reload(false);
-        }
-      );
-    if (error) {
-      alert("Coś poszło nie tak: " + error.message);
+      })
+        .then((res) => res.json())
+        .then(
+          (result) => {
+            setIsSended(true);
+            setResponse(result);
+            console.log(result);
+            window.location.reload(false);
+          },
+          (error) => {
+            setIsSended(true);
+            setError(error);
+            window.location.reload(false);
+          }
+        );
+      if (error) {
+        alert("Coś poszło nie tak: " + error.message);
+      }
+    } else {
+      alert("Powtórzone hasło nie jest takie samo!");
     }
   };
 
@@ -89,9 +94,9 @@ function InputBox() {
   }, []);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Proszę czekać...</div>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div>Proszę czekać...</div>;
   } else {
     return (
       <div
@@ -119,7 +124,7 @@ function InputBox() {
           readOnly
           className="form-control-plaintext"
           id="staticID"
-          value={userData.id}
+          defaultValue={userData.id}
         ></input>
 
         <label
@@ -135,7 +140,7 @@ function InputBox() {
           readOnly
           className="form-control-plaintext"
           id="staticLogin"
-          value={userData.login}
+          defaultValue={userData.login}
         ></input>
 
         <label
@@ -155,7 +160,7 @@ function InputBox() {
           type="email"
           className="form-control"
           id="exampleFormControlInput1"
-          placeholder={userData.mail}
+          defaultValue={userData.mail}
           ref={mail}
         ></input>
 
@@ -176,7 +181,7 @@ function InputBox() {
           type="text"
           className="form-control"
           id="exampleFormControlInput1"
-          placeholder={userData.name}
+          defaultValue={userData.name}
           ref={name}
         ></input>
 
@@ -197,7 +202,7 @@ function InputBox() {
           type="text"
           className="form-control"
           id="exampleFormControlInput1"
-          placeholder={userData.surname}
+          defaultValue={userData.surname}
           ref={surname}
         ></input>
 
@@ -218,7 +223,7 @@ function InputBox() {
           type="tel"
           className="form-control"
           id="exampleFormControlInput1"
-          placeholder={userData.phone}
+          defaultValue={userData.phone}
           ref={phone}
         ></input>
 
@@ -259,6 +264,7 @@ function InputBox() {
           type="password"
           className="form-control"
           id="exampleFormControlInput1"
+          ref={repeatPassword}
         ></input>
 
         <div style={{ marginTop: "5%" }}>
