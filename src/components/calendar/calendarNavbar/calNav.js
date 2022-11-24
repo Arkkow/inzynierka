@@ -38,6 +38,7 @@ function Header() {
                                                 }}
                                                 type="button"
                                                 className="btn btn-success"
+                                                href="new_tournament"
                                                >STWÓRZ NOWY TURNIEJ</Button>
                                         </div>
                                     </Col>
