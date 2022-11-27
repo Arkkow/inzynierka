@@ -87,6 +87,8 @@ const mapDispatchToProps = (dispatch) => {
                 .catch((err) => {console.log(err)});
         },
         handleGOTO: (props) => {
+            console.log("props")
+            console.log(props)
             return dispatch({type: "ROUTE_STATE", payload: {data: props}});
         }
     }

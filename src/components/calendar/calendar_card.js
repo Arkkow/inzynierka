@@ -19,7 +19,7 @@ export const CalendarCard = (props) => {
             <Container fluid="md">
                 <Row>
                     <Col sm={2}>
-                        {props.view.screen === 'calendar' ? <h2>YES</h2>:<h2>NO</h2>}
+                        {/*{props.view.screen === 'calendar' ? <h2>YES</h2>:<h2>NO</h2>}*/}
                           <div style={{
                               display: "flex",
                               justifyContent: "center",
@@ -34,9 +34,11 @@ export const CalendarCard = (props) => {
                     </Col>
                     <Col sm={5}>
                         <Container>
-                            {/*<Row>*/}
-                            {/*    <Button>Click to get tournament card</Button>*/}
-                            {/*</Row>*/}
+                            <Row>
+                                {console.log("CARD: " + props.id)}
+
+                                <Button href={"tournament"} id={props.id}>Click to get tournament card</Button>
+                            </Row>
                             <Row className="justify-content-md-center">
                                 <Col>
                                     <h5>{props.name}</h5>
@@ -77,16 +79,14 @@ export const CalendarCard = (props) => {
                     <Col sm={1} >
                         {/*<ThreeDotsVertical/>*/}
                         <Dropdown>
-                            <Dropdown.Toggle variant="secondary">
-                                ...
-                            </Dropdown.Toggle>
+                            <Dropdown.Toggle variant="secondary"/>
 
                             <Dropdown.Menu variant="secondary">
                                 <Dropdown.Item>
-                                    Action 1
+                                    Edytuj turniej
                                 </Dropdown.Item>
                                 <Dropdown.Item>
-                                    Action 2
+                                    Usuń turniej
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>

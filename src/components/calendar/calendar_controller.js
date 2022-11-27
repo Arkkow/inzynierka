@@ -5,15 +5,26 @@ import CalendarCard from "./calendar_card";
 import {connect} from "react-redux";
 import {Col, Row} from "react-bootstrap";
 import {Button} from "react-bootstrap";
+import {useEffect} from "react";
+import Tournament_content from "../Tournament/informacje/tournament_content";
 
 // CSS files
 
 
 export const Calendar_controller = (props) => {
+
+    // useEffect(() => {
+    //
+    //         props.handleDownloadCalendar();
+    //         props.handleDownloadUser();
+    //
+    //     }
+    // )
+
     return (
         <Row className="justify-content-md-center">
             <Col sm={6} >
-                {/*{props.calendar_list === 'calendar' && props.user.role === '3'? none:none}*/}
+
                 <Button onClick={() => {
                     props.handleDownloadCalendar();
                     props.handleDownloadUser();
