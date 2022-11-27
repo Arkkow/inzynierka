@@ -31,11 +31,26 @@ function InputBox() {
       visibility.current.value = "FALSE";
     }
 
-    if (places.current.value == "8") {
-      pointsForTournament.value = "20";
+    if (
+      places.current.value == "8" &&
+      categotry.current.value == "CHALLENGER"
+    ) {
+      pointsForTournament.value = "250";
+      roles.value = "8";
+    } else if (
+      places.current.value == "16" &&
+      categotry.current.value == "CHALLENGER"
+    ) {
+      pointsForTournament.value = "500";
+      roles.value = "16";
+    } else if (
+      places.current.value == "8" &&
+      categotry.current.value == "MASTER"
+    ) {
+      pointsForTournament.value = "500";
       roles.value = "8";
     } else {
-      pointsForTournament.value = "50";
+      pointsForTournament.value = "1000";
       roles.value = "16";
     }
 
@@ -185,7 +200,7 @@ function InputBox() {
         </label>
         <select
           style={{ width: "33%" }}
-          className="form-control"
+          className="form-select"
           id="sel1"
           ref={rang}
         >
@@ -204,7 +219,7 @@ function InputBox() {
         </label>
         <select
           style={{ width: "33%" }}
-          className="form-control"
+          className="form-select"
           id="sel1"
           ref={typeOfLadder}
         >
@@ -215,10 +230,10 @@ function InputBox() {
       </div>
 
       <div className="form-group">
-        <label
-          style={{ display: "block", textAlign: "left", marginTop: "1%" }}
-          htmlFor="exampleFormControlInput1"
-          className="form-label"
+          <label
+              style={{ display: "block", textAlign: "left", marginTop: "1%" }}
+              htmlFor="exampleFormControlInput1"
+              className="form-label"
         >
           Liczba par
         </label>
