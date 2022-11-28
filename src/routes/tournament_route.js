@@ -6,7 +6,7 @@ import * as React from "react";
 // CSS files
 import "../styles/index.css";
 import "../styles/App.css";
-import TournamentContent from "../components/Tournament/informacje/tournament_content";
+import TournamentContent from "../components/Tournament/tournament_controller";
 import TournamentHeader from "../components/Tournament/navbar/tournament_header";
 
 

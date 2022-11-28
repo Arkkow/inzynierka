@@ -134,7 +134,7 @@ function Login_popup() {
             <paragraph
               style={{ textDecoration: "underline", marginLeft: "3px" }}
             >
-              <Register_popup />
+              <Register_popup/>
             </paragraph>
           </paragraph>
         </Modal.Footer>

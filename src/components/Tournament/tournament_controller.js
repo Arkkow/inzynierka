@@ -7,12 +7,21 @@ import Card from 'react-bootstrap/Card';
 import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
 
 // CSS files
-import cup_logo from "../../../assets/cup.svg";
+import cup_logo from "../../assets/cup.svg";
 import {Container, Row, Col, Form, ButtonGroup} from "react-bootstrap";
-import TournamentNavbar from "../navbar/tournament_navbar";
+import TournamentNavbar from "./navbar/tournament_navbar";
+import {connect} from "react-redux";
+import {Calendar_controller} from "../calendar/calendar_controller";
+import {useEffect} from "react";
 
 
-export const TournamentContent = (props) => {
+export const Tournament_controller = (props) => {
+    const id = window.location.href.split('?')[1].split('=')[1]
+
+    // useEffect((props.calendar_list === null?) => {props.handleDownloadCalendarCard(id,[])})
+    // eslint-disable-next-line no-unused-expressions
+    props.calendar_list.data.id === '1' ? props.handleDownloadCalendarCard(id): null
+
     return (
         <Container fluid style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
             <Row className="justify-content-md-center" >
@@ -24,8 +33,13 @@ export const TournamentContent = (props) => {
                             </Col>
                         </Row>
                         <Container style={{background: "white"}}>
+                            <Row>
+                                {/*<Button onClick={() => {props.handleDownloadCalendarCard(id);}}>id: {id}</Button>*/}
+                            </Row>
                             <Row style={{borderBottom: "1px solid black", paddingLeft: "5%", paddingRight: "5%", marginTop: "0.25%", paddingTop: "0.5%"}}>
-                                <h3>Turniej majowy 2022</h3>
+
+                                <h3>{props.calendar_list.name}</h3>
+
                             </Row>
                             <Row style={{borderBottom: "1px solid black", paddingLeft: "5%", paddingRight: "5%"}}>
                                 <h4>Propadel, Warszawa</h4>
@@ -107,4 +121,43 @@ export const TournamentContent = (props) => {
     );
 }
 
-export default TournamentContent;
+// Przypisanie do Calendar_controller.props stanów
+const mapStateToProps = (state) => {
+    return {
+        calendar_list: state.calendar_content.data,
+        user: state.user_content.data,
+        view: state.view_content.data
+    }
+}
+
+//Wywołanie zmiany stanu (obsługa w store)
+// Przekazanie data z API do stanu Calendar_controller
+const mapDispatchToProps = (dispatch) => {
+    const id = window.location.href.split('?')[1].split('=')[1]
+    return {
+        handleHref: () => {
+            return dispatch({type: "SAVE_HREF_ID", payload: {data: id}})
+        },
+
+        handleDownloadCalendarCard: (id) => {
+            //    API z kalendarza
+            fetch('https://dragonmaster.pl/inz/' + "tournament" + "?id=" + id, {
+                headers: {
+                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
+                },
+                method: "GET",
+            })
+                .then((res) => res.json())
+                .then( res => {
+                        return dispatch({type: "DOWNLOAD_CALENDAR", payload: {data: res}});
+                    }
+                )
+                .catch((err) => {console.log(err)});
+        },
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Tournament_controller)
