@@ -25,6 +25,11 @@ export const Tournament_controller = (props) => {
     return (
         <Container fluid style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
             <Row className="justify-content-md-center" >
+                <div>
+                tournament
+                </div>
+                {/*{console.log("Hi")}*/}
+                {/*{console.log(props.id)}*/}
                 <Col sm={6} style={{paddingLeft: 0, paddingRight:0}}>
                     <Container>
                         <Row fluid style={{backgroundColor: "transparent"}}>
