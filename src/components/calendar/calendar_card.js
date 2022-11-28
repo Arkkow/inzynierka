@@ -4,11 +4,14 @@ import * as React from 'react';
 // Project specific files
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
+import {GeoAlt, CalendarCheck, CheckCircleFill, CheckCircle} from "react-bootstrap-icons";
 
 // CSS files
 import cup_logo from "../../assets/cup.svg";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
+import {TournamentInfo} from "../Tournament/tournament_overlay";
+import RangTick from "../common/Buttons/rang_tick";
+import InfoPanel from "../common/info_panel";
 
 
 export const CalendarCard = (props) => {
@@ -33,39 +36,17 @@ export const CalendarCard = (props) => {
                         {/*<img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />*/}
                     </Col>
                     <Col sm={5}>
-                        <Container>
-                            <Row>
-                                {console.log("CARD: " + props.id)}
+                        <Row className="justify-content-md-center">
+                            <h5>
+                                {props.name} &nbsp;
+                                <RangTick {...props}/>
+                            </h5>
+                        </Row>
 
-                                <Button href={"tournament"} id={props.id}>Click to get tournament card</Button>
-                            </Row>
-                            <Row className="justify-content-md-center">
-                                <Col>
-                                    <h5>{props.name}</h5>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <div><GeoAlt/>&nbsp; {props.place}</div>
-                            </Row>
-                            <Row>
-                                <div>
-                                <CalendarCheck/>&nbsp; od {props.from}
-                                </div>
-                            </Row>
-                            <Row>
-                                <div>
-                                    <CalendarCheck/>&nbsp; do {props.to}
-                                </div>
-                            </Row>
-                            <Row>
-                                <Col sm="auto">
-                                    <Button variant="success" disabled={true}>OPEN</Button>
-                                </Col>
-                            </Row>
-                        </Container>
+                        <InfoPanel {...props}/>
                     </Col>
-                    <Col sm={4}>
-                        {props.user.role === '3' ?
+                    <Col sm={3}>
+                        {props.user.role === '2' ?
                         <Card.Text>
                             <div style={{ textAlign: "center"}}>
                                 Użytkownik zaprosił cię do gry w tym turnieju
@@ -74,27 +55,37 @@ export const CalendarCard = (props) => {
                                 <Button variant="success" style={{margin: "5%"}}>TAK</Button>
                                 <Button variant="danger" style={{margin: "5%"}}>NIE</Button>
                             </div>
-                        </Card.Text>:null}
+                        </Card.Text>
+                            :null
+                        }
                     </Col>
-                    <Col sm={1} >
+                    <Col sm={2} >
                         {/*<ThreeDotsVertical/>*/}
+                        <Row>
                         <Dropdown>
-                            <Dropdown.Toggle variant="secondary"/>
+                            <Dropdown.Toggle variant="secondary">
+                                ...
+                            </Dropdown.Toggle>
 
                             <Dropdown.Menu variant="secondary">
                                 <Dropdown.Item>
-                                    Edytuj turniej
+                                    Action 1
                                 </Dropdown.Item>
                                 <Dropdown.Item>
-                                    Usuń turniej
+                                    Action 2
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
+                        </Row>
+                        <br/>
+                        <Row>
+                            <TournamentInfo {...props} user = {props.user} view = {props.view}/>
+                            <Button href={"tournament"+"?id="+props.id} >GOTO</Button>
+                        </Row>
                     </Col>
                 </Row>
             </Container>
         </Card>
-
     );
 }
 
