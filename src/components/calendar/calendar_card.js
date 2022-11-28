@@ -30,10 +30,8 @@ export const CalendarCard = (props) => {
                               height: "100%",
                               alignItems: "center"
                           }}>
-                              <img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />
+                              <img src={cup_logo} alt={""} />
                           </div>
-
-                        {/*<img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />*/}
                     </Col>
                     <Col sm={5}>
                         <Row className="justify-content-md-center">
@@ -45,7 +43,7 @@ export const CalendarCard = (props) => {
 
                         <InfoPanel {...props}/>
                     </Col>
-                    <Col sm={3}>
+                    <Col sm={2}>
                         {props.user.role === '2' ?
                         <Card.Text>
                             <div style={{ textAlign: "center"}}>
@@ -59,8 +57,7 @@ export const CalendarCard = (props) => {
                             :null
                         }
                     </Col>
-                    <Col sm={2} >
-                        {/*<ThreeDotsVertical/>*/}
+                    <Col sm={3} >
                         <Row>
                         <Dropdown>
                             <Dropdown.Toggle variant="secondary">
@@ -79,8 +76,7 @@ export const CalendarCard = (props) => {
                         </Row>
                         <br/>
                         <Row>
-                            <TournamentInfo {...props} user = {props.user} view = {props.view}/>
-                            <Button href={"tournament"+"?id="+props.id} >GOTO</Button>
+                            <Button href={"tournament"+"?id="+props.id} >Informacje</Button>
                         </Row>
                     </Col>
                 </Row>
