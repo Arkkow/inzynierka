@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 // CSS files
 import {Container, Row, Col } from "react-bootstrap";
 import TournamentNavbar from "./navbar/tournament_navbar";
-import {connect} from "react-redux";
 import {useEffect} from "react";
 
 
@@ -106,43 +105,4 @@ export const Tournament_controller = (props) => {
     );
 }
 
-// Przypisanie do Calendar_controller.props stanów
-const mapStateToProps = (state) => {
-    return {
-        calendar_list: state.calendar_content.data,
-        user: state.user_content.data,
-        view: state.view_content.data
-    }
-}
-
-//Wywołanie zmiany stanu (obsługa w store)
-// Przekazanie data z API do stanu Calendar_controller
-const mapDispatchToProps = (dispatch) => {
-    const id = window.location.href.split('?')[1].split('=')[1]
-    return {
-        handleHref: () => {
-            return dispatch({type: "SAVE_HREF_ID", payload: {data: id}})
-        },
-
-        handleDownloadCalendarCard: (id) => {
-            //    API z kalendarza
-            fetch('https://dragonmaster.pl/inz/' + "tournament" + "?id=" + id, {
-                headers: {
-                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
-                },
-                method: "GET",
-            })
-                .then((res) => res.json())
-                .then( res => {
-                        return dispatch({type: "DOWNLOAD_CALENDAR", payload: {data: res}});
-                    }
-                )
-                .catch((err) => {console.log(err)});
-        },
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(Tournament_controller)
+export default Tournament_controller;

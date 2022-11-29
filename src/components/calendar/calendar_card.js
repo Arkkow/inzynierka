@@ -9,7 +9,6 @@ import {GeoAlt, CalendarCheck, CheckCircleFill, CheckCircle} from "react-bootstr
 // CSS files
 import cup_logo from "../../assets/cup.svg";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
-import {TournamentInfo} from "../Tournament/tournament_overlay";
 import RangTick from "../common/Buttons/rang_tick";
 import InfoPanel from "../common/info_panel";
 
