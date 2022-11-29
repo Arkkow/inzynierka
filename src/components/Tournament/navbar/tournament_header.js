@@ -12,6 +12,8 @@ import {Container, Row, Col} from "react-bootstrap";
 
 
 export const TournamentHeader = (props) => {
+    console.log("HEADER")
+    console.log(props)
     return (
         <Container fluid style={{background: "#99D17B", minHeight: "30vh", paddingTop: "2%", paddingBottom: "3%"}}>
             <Row>
@@ -24,20 +26,20 @@ export const TournamentHeader = (props) => {
                     <Container>
                         <Row className="justify-content-md-center">
                             <Col>
-                                <h1>Turniej majowy</h1>
+                                <h1>{props.calendar_list.name}</h1>
                             </Col>
                         </Row>
                         <Row>
-                            <h2><GeoAlt size={40}/>&nbsp; Propadel, Warszawa</h2>
+                            <h2><GeoAlt size={40}/>&nbsp; {props.calendar_list.place}</h2>
                         </Row>
                         <Row>
                             <h3>
-                                <CalendarCheck size={30}/>&nbsp; od 13/05/2022
+                                <CalendarCheck size={30}/>&nbsp; od {props.calendar_list.from}
                             </h3>
                         </Row>
                         <Row>
                             <h3>
-                                <CalendarCheck size={30}/>&nbsp; do 15/05/2022
+                                <CalendarCheck size={30}/>&nbsp; do {props.calendar_list.to}
                             </h3>
                         </Row>
                     </Container>

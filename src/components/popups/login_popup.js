@@ -3,17 +3,12 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import PFP_LOGO from "../../assets/PFP_LOGO.png";
-import Register_popup from "./register_popup";
 import "../../styles/App.css";
 
-function Login_popup() {
-  const [show, setShow] = useState(false);
+function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [response, setResponse] = useState([]);
-
-  const handleCloseLogin = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const username = useRef(null);
   const password = useRef(null);
@@ -32,7 +27,7 @@ function Login_popup() {
           setIsLoaded(true);
           setResponse(result);
           localStorage.setItem("token", JSON.stringify(result));
-          setShow(false);
+          setIsLoginOpen(false);
           window.location.reload(false);
         },
         (error) => {
@@ -46,99 +41,90 @@ function Login_popup() {
   };
 
   return (
-    <>
-      <Button
+    <Modal show={isLoginOpen} onHide={() => setIsLoginOpen(false)}>
+      <Modal.Header closeButton>
+        <img src={PFP_LOGO} style={{ marginLeft: "auto" }} alt="LOGO" />
+      </Modal.Header>
+      <Modal.Body
         style={{
-          fontFamily: "Montserrat",
-          fontWeight: "600",
-          fontSize: "18px",
-          lineHeight: "25px",
-          color: "white",
-          borderRadius: "15px",
-          paddingRight: "1.5%",
-          paddingLeft: "1.5%",
-          paddingBottom: "0.5%",
-          paddingTop: "0.5%",
-          marginRight: "1%",
+          backgroundColor: "#EBEBEB",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
-        variant="success"
-        onClick={handleShow}
       >
-        LOGOWANIE
-      </Button>
-      <Modal show={show} onHide={handleCloseLogin}>
-        <Modal.Header closeButton>
-          <img src={PFP_LOGO} style={{ marginLeft: "auto" }} alt="LOGO" />
-        </Modal.Header>
-        <Modal.Body
+        <h2
           style={{
-            backgroundColor: "#EBEBEB",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            color: "var(--black)",
+            fontFamily: "Montserrat",
+            fontWeight: "600",
+            fontSize: "28px",
+            lineHeight: "42px",
+            textAlign: "center",
           }}
         >
-          <h2
-            style={{
-              color: "var(--black)",
-              fontFamily: "Montserrat",
-              fontWeight: "600",
-              fontSize: "28px",
-              lineHeight: "42px",
-              textAlign: "center",
-            }}
-          >
-            Logowanie
-          </h2>
-          <Form style={{ width: "100%" }}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Control
-                type="text"
-                placeholder="Tutaj wpisz e-mail lub nick"
-                ref={username}
-                autoFocus
-              />
-              <Form.Control
-                type="password"
-                placeholder="Tutaj wpisz hasło"
-                ref={password}
-                autoFocus
-              />
-            </Form.Group>
-          </Form>
-          <Button
-            style={{
-              fontFamily: "Montserrat",
-              fontWeight: "600",
-              fontSize: "18px",
-              lineHeight: "25px",
-              color: "white",
-              borderRadius: "13px",
-            }}
-            variant="success"
-            onClick={handleClick}
-          >
-            ZALOGUJ
-          </Button>
-        </Modal.Body>
-        <Modal.Footer
+          Logowanie
+        </h2>
+        <Form style={{ width: "100%" }}>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Control
+              type="text"
+              placeholder="Tutaj wpisz e-mail lub nick"
+              ref={username}
+              autoFocus
+            />
+            <Form.Control
+              style={{ marginTop: "1%" }}
+              type="password"
+              placeholder="Tutaj wpisz hasło"
+              ref={password}
+              autoFocus
+            />
+          </Form.Group>
+        </Form>
+        <Button
           style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            fontFamily: "Montserrat",
+            fontWeight: "600",
+            fontSize: "18px",
+            lineHeight: "25px",
+            color: "white",
+            borderRadius: "13px",
           }}
+          variant="success"
+          onClick={handleClick}
         >
-          <paragraph>
-            Nie masz konta?
+          ZALOGUJ
+        </Button>
+      </Modal.Body>
+      <Modal.Footer
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <paragraph>
+          Nie masz konta?
+          <paragraph style={{ textDecoration: "underline", marginLeft: "3px" }}>
             <paragraph
-              style={{ textDecoration: "underline", marginLeft: "3px" }}
+              style={{
+                textDecoration: "underline",
+                marginLeft: "3px",
+                cursor: "pointer",
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsLoginOpen(false);
+                setIsRegisterOpen(true);
+              }}
             >
-              <Register_popup />
+              Zarejestruj się
             </paragraph>
           </paragraph>
-        </Modal.Footer>
-      </Modal>
-    </>
+        </paragraph>
+      </Modal.Footer>
+    </Modal>
   );
 }
 

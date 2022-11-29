@@ -4,11 +4,13 @@ import * as React from 'react';
 // Project specific files
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
+import {GeoAlt, CalendarCheck, CheckCircleFill, CheckCircle} from "react-bootstrap-icons";
 
 // CSS files
 import cup_logo from "../../assets/cup.svg";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
+import RangTick from "../common/Buttons/rang_tick";
+import InfoPanel from "../common/info_panel";
 
 
 export const CalendarCard = (props) => {
@@ -19,7 +21,7 @@ export const CalendarCard = (props) => {
             <Container fluid="md">
                 <Row>
                     <Col sm={2}>
-                        {props.view.screen === 'calendar' ? <h2>YES</h2>:<h2>NO</h2>}
+                        {/*{props.view.screen === 'calendar' ? <h2>YES</h2>:<h2>NO</h2>}*/}
                           <div style={{
                               display: "flex",
                               justifyContent: "center",
@@ -27,43 +29,21 @@ export const CalendarCard = (props) => {
                               height: "100%",
                               alignItems: "center"
                           }}>
-                              <img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />
+                              <img src={cup_logo} alt={""} />
                           </div>
-
-                        {/*<img src={cup_logo} alt={""} style={{ minHeight: "50%" }} />*/}
                     </Col>
                     <Col sm={5}>
-                        <Container>
-                            <Row>
-                                <Button >Click to get tournament card</Button>
-                            </Row>
-                            <Row className="justify-content-md-center">
-                                <Col>
-                                    <h5>{props.name}</h5>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <div><GeoAlt/>&nbsp; {props.place}</div>
-                            </Row>
-                            <Row>
-                                <div>
-                                <CalendarCheck/>&nbsp; od {props.from}
-                                </div>
-                            </Row>
-                            <Row>
-                                <div>
-                                    <CalendarCheck/>&nbsp; do {props.to}
-                                </div>
-                            </Row>
-                            <Row>
-                                <Col sm="auto">
-                                    <Button variant="success" disabled={true}>OPEN</Button>
-                                </Col>
-                            </Row>
-                        </Container>
+                        <Row className="justify-content-md-center">
+                            <h5>
+                                {props.name} &nbsp;
+                                <RangTick {...props}/>
+                            </h5>
+                        </Row>
+
+                        <InfoPanel {...props}/>
                     </Col>
-                    <Col sm={4}>
-                        {props.user.role === '3' ?
+                    <Col sm={2}>
+                        {props.user.role === '2' ?
                         <Card.Text>
                             <div style={{ textAlign: "center"}}>
                                 Użytkownik zaprosił cię do gry w tym turnieju
@@ -72,10 +52,12 @@ export const CalendarCard = (props) => {
                                 <Button variant="success" style={{margin: "5%"}}>TAK</Button>
                                 <Button variant="danger" style={{margin: "5%"}}>NIE</Button>
                             </div>
-                        </Card.Text>:null}
+                        </Card.Text>
+                            :null
+                        }
                     </Col>
-                    <Col sm={1} >
-                        {/*<ThreeDotsVertical/>*/}
+                    <Col sm={3} >
+                        <Row>
                         <Dropdown>
                             <Dropdown.Toggle variant="secondary">
                                 ...
@@ -90,11 +72,15 @@ export const CalendarCard = (props) => {
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
+                        </Row>
+                        <br/>
+                        <Row>
+                            <Button href={"tournament"+"?id="+props.id} >Informacje</Button>
+                        </Row>
                     </Col>
                 </Row>
             </Container>
         </Card>
-
     );
 }
 

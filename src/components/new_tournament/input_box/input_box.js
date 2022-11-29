@@ -36,11 +36,25 @@ function InputBox() {
       ranked.current.value = "FALSE";
     }
 
-    if (places.current.value == "8") {
-      pointsForTournament.value = "20";
+    if (
+      places.current.value == "8" &&
+      categotry.current.value == "CHALLENGER"
+    ) {
+      pointsForTournament.value = "250";
+    } else if (
+      places.current.value == "16" &&
+      categotry.current.value == "CHALLENGER"
+    ) {
+      pointsForTournament.value = "500";
+    } else if (
+      places.current.value == "8" &&
+      categotry.current.value == "MASTER"
+    ) {
+      pointsForTournament.value = "500";
     } else {
-      pointsForTournament.value = "50";
+      pointsForTournament.value = "1000";
     }
+
     fetch("https://dragonmaster.pl/inz/tournament", {
       headers: {
         Authorization: "Bearer " + Token,
@@ -51,7 +65,6 @@ function InputBox() {
         typeOfLadder: typeOfLadder.current.value,
         pointsForTournament: "4",
         places: "2",
-        // roles: "dupa",
         ranked: ranked.current.value,
         place: place.current.value,
         from: from.current.value,
@@ -96,21 +109,21 @@ function InputBox() {
         color: "var(--dark_grey)",
       }}
     >
-      <button
-        style={{
-          fontFamily: "Montserrat",
-          fontWeight: "600",
-          fontSize: "18px",
-          lineHeight: "25px",
-          color: "white",
-          float: "right",
-          marginRight: "5%",
-        }}
-        type="button"
-        className="btn btn-success"
-      >
-        STWÓRZ SZABLON TURNIEJU
-      </button>
+      {/*<button*/}
+      {/*  style={{*/}
+      {/*    fontFamily: "Montserrat",*/}
+      {/*    fontWeight: "600",*/}
+      {/*    fontSize: "18px",*/}
+      {/*    lineHeight: "25px",*/}
+      {/*    color: "white",*/}
+      {/*    float: "right",*/}
+      {/*    marginRight: "5%",*/}
+      {/*  }}*/}
+      {/*  type="button"*/}
+      {/*  className="btn btn-success"*/}
+      {/*>*/}
+      {/*  STWÓRZ SZABLON TURNIEJU*/}
+      {/*</button>*/}
 
       <label
         style={{ display: "block", textAlign: "left", width: "33%" }}
@@ -199,7 +212,7 @@ function InputBox() {
         </label>
         <select
           style={{ width: "33%" }}
-          className="form-control"
+          className="form-select"
           id="sel1"
           ref={rang}
         >
@@ -218,7 +231,7 @@ function InputBox() {
         </label>
         <select
           style={{ width: "33%" }}
-          className="form-control"
+          className="form-select"
           id="sel1"
           ref={typeOfLadder}
         >

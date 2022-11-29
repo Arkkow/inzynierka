@@ -4,25 +4,26 @@
 import CalendarCard from "./calendar_card";
 import {connect} from "react-redux";
 import {Col, Row} from "react-bootstrap";
-import {Button} from "react-bootstrap";
+import {useEffect} from "react";
 
 // CSS files
 
 
 export const Calendar_controller = (props) => {
+
+    useEffect(() => {
+
+            props.handleDownloadCalendar();
+            props.handleDownloadUser();
+
+        },
+    []
+    )
+
+
     return (
         <Row className="justify-content-md-center">
             <Col sm={6} >
-                {/*{props.calendar_list === 'calendar' && props.user.role === '3'? none:none}*/}
-                <Button onClick={() => {
-                    props.handleDownloadCalendar();
-                    props.handleDownloadUser();
-                }
-                }>ODŚWIEŻ</Button>
-                <Button onClick={() => {props.handleGOTO('tournament');}}>TOURNAMENT</Button>
-
-
-
                 {props.calendar_list.length === 0 ?
                   <h5>no results available</h5> :
                   props.calendar_list.map((card)=>(
@@ -78,7 +79,24 @@ const mapDispatchToProps = (dispatch) => {
               )
               .catch((err) => {console.log(err)});
         },
+        handleDownloadMyInvites: () => {
+            //    API z kalendarza
+            fetch('https://dragonmaster.pl/inz/' + "user", {
+                headers: {
+                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7")
+                },
+                method: "GET",
+            })
+                .then((res) => res.json())
+                .then( res => {
+                        console.log(res)
+                        return dispatch({type: "DOWNLOAD_USER", payload: {data: res}});
+                    }
+                )
+                .catch((err) => {console.log(err)});
+        },
         handleGOTO: (props) => {
+
             return dispatch({type: "ROUTE_STATE", payload: {data: props}});
         }
     }

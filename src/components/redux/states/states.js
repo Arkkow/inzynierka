@@ -27,7 +27,9 @@ export const user_content = (state = default_state.user_content, action) => {
 export const view_content = (state = default_state.view_content, action) => {
   switch(action.type){
     case "ROUTE_STATE":
+
       return {
+
         ...state,
         data: {screen: action.payload.data}
       };
