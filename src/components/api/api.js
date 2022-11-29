@@ -232,7 +232,7 @@ export function postImage(id, image) {
   }
   */
 export function getUserById(id) {
-  return makeReq("user/byId?id=" + id, "POST", null);
+  return makeReq("user/byId?id=" + id, "GET", null);
 }
 /*
   OUTPUT
