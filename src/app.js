@@ -20,6 +20,7 @@ import "./styles/index.css";
 import "./styles/App.css";
 import Login_popup from "./components/popups/login_popup";
 import Register_popup from "./components/popups/register_popup";
+import T_registration_popup from "./components/popups/T_registration_popup";
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -34,6 +35,11 @@ function App() {
         setIsRegisterOpen={setIsRegisterOpen}
       />
       <Routes>
+        <Route
+          path="tournamentRegistration"
+          element={<T_registration_popup />}
+          exact={true}
+        />
         <Route path="/#" element={<CalendarRoute />} exact={true} />
         <Route path="/calendar" element={<CalendarRoute />} exact={true} />
         <Route path="/profile" element={<ProfileRoute />} exact={true} />
