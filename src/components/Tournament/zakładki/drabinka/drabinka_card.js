@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
 
 // CSS files
-import cup_logo from "../../../assets/cup.svg";
+import cup_logo from "../../../../assets/cup.svg";
 import {Container, Row, Col, Form} from "react-bootstrap";
 
 

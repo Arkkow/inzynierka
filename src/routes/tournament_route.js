@@ -6,16 +6,17 @@ import * as React from "react";
 // CSS files
 import "../styles/index.css";
 import "../styles/App.css";
-import TournamentContent from "../components/Tournament/tournament_controller";
-import TournamentHeader from "../components/Tournament/navbar/tournament_header";
+import {Tournament_controller} from "../components/Tournament/tournament_controller";
+import TournamentHeader from "../components/Tournament/tournament_header";
 import {connect} from "react-redux";
+import TournamentNavbar from "../components/Tournament/common/tournament_navbar";
 
 
 function TournamentRoute(props) {
     return (
         <div style={{minHeight: "94vh"}}>
             <TournamentHeader {...props}/>
-            <TournamentContent {...props}/>
+            <Tournament_controller {...props}/>
         </div>
     );
 }
