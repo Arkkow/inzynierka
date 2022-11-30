@@ -14,8 +14,7 @@ import InfoPanel from "../common/info_panel";
 
 
 export const CalendarCard = (props) => {
-    console.log("Kartka z kalendarza")
-    console.log(props)
+
     return (
         <Card border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%"}} >
             <Container fluid="md">

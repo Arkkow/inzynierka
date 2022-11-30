@@ -12,8 +12,7 @@ import {Container, Row, Col} from "react-bootstrap";
 
 
 export const TournamentHeader = (props) => {
-    console.log("HEADER")
-    console.log(props)
+
     return (
         <Container fluid style={{background: "#99D17B", minHeight: "30vh", paddingTop: "2%", paddingBottom: "3%"}}>
             <Row>

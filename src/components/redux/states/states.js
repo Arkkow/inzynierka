@@ -29,7 +29,6 @@ export const view_content = (state = default_state.view_content, action) => {
     case "ROUTE_STATE":
 
       return {
-
         ...state,
         data: {screen: action.payload.data}
       };
@@ -37,7 +36,7 @@ export const view_content = (state = default_state.view_content, action) => {
     case "TOURNAMENT":
       return{
         ...state,
-        data: { screen: action.payload.data }
+        data: { tournament_tab: action.payload.data }
       }
     default:
       return state;

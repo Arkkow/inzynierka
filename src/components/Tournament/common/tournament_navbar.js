@@ -14,9 +14,27 @@ import {Container, Row, Col, ButtonGroup} from "react-bootstrap";
 export const TournamentNavbar = (props) => {
     return (
         <ButtonGroup style={{marginTop: "0.25%"}}>
-            <Button variant="light" style={{border: "1px solid black"}}>Informacje</Button>
-            <Button variant="light" style={{border: "1px solid black"}}>Zapisy</Button>
-            <Button variant="light" style={{border: "1px solid black"}}>Wyniki</Button>
+
+            <Button
+                    onClick={() => props.handleGOTO("info")}
+                    variant="light"
+                    style={{border: "1px solid black"}}>
+                Informacje
+            </Button>
+
+            <Button
+                    onClick={() => props.handleGOTO("zapisy")}
+                    variant="light"
+                    style={{border: "1px solid black"}}>
+                Zapisy
+            </Button>
+
+            <Button
+                onClick={() => props.handleGOTO("wyniki")}
+                variant="light"
+                style={{border: "1px solid black"}}>
+                Wyniki
+            </Button>
         </ButtonGroup>
     );
 }

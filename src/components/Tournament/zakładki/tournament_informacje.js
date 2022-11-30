@@ -9,8 +9,7 @@ import Button from "react-bootstrap/Button";
 // CSS files
 
 export const TournamentInfo = (props) => {
-    console.log("Kartka z kalendarza")
-    console.log(props)
+
     return (
         <Container style={{background: "white"}}>
             <Row style={{borderBottom: "1px solid black", paddingLeft: "5%", paddingRight: "5%", marginTop: "0.25%", paddingTop: "0.5%"}}>

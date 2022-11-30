@@ -13,7 +13,6 @@ import NewTournamentRoute from "./routes/new_tournament";
 import EditTournamentRoute from "./routes/edit_tournament";
 import NewTemplateRoute from "./routes/new_template.js";
 import TournamentRoute from "./routes/tournament_route.js";
-import TournamentPlayRoute from "./routes/tournament_play_route.js";
 
 // CSS files
 import "./styles/index.css";
@@ -59,12 +58,8 @@ function App() {
           exact={true}
         />
         <Route path="/tournament" element={<TournamentRoute />} exact={true} />
-        <Route
-          path="/tournamentPlay"
-          element={<TournamentPlayRoute />}
-          exact={true}
-        />
       </Routes>
+
       <Login_popup
         isLoginOpen={isLoginOpen}
         setIsLoginOpen={setIsLoginOpen}
@@ -75,6 +70,7 @@ function App() {
         setIsLoginOpen={setIsLoginOpen}
         setIsRegisterOpen={setIsRegisterOpen}
       />
+
       <Footer />
     </div>
   );

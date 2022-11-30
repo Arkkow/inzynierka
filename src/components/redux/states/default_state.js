@@ -30,7 +30,8 @@ const default_state = {
   },
   view_content: {
     data: {
-      screen: "calendar"
+      screen: "calendar",
+      tournament_tab: "info"
     }
   }
 };

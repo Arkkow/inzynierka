@@ -9,7 +9,6 @@ import "../styles/App.css";
 import {Tournament_controller} from "../components/Tournament/tournament_controller";
 import TournamentHeader from "../components/Tournament/tournament_header";
 import {connect} from "react-redux";
-import TournamentNavbar from "../components/Tournament/common/tournament_navbar";
 
 
 function TournamentRoute(props) {
@@ -52,6 +51,10 @@ const mapDispatchToProps = (dispatch) => {
                 )
                 .catch((err) => {console.log(err)});
         },
+        handleGOTO: (tab) => {
+
+            return dispatch({type: "TOURNAMENT", payload: {data: tab}});
+        }
     }
 }
 
