@@ -14,6 +14,7 @@ import EditTournamentRoute from "./routes/edit_tournament";
 import NewTemplateRoute from "./routes/new_template.js";
 import TournamentRoute from "./routes/tournament_route.js";
 import TournamentPlayRoute from "./routes/tournament_play_route.js";
+import AdminUsers from "./routes/adminUsers.js";
 
 // CSS files
 import "./styles/index.css";
@@ -62,6 +63,11 @@ function App() {
         <Route
           path="/tournamentPlay"
           element={<TournamentPlayRoute />}
+          exact={true}
+        />
+        <Route
+          path="/AdminUsers"
+          element={<AdminUsers />}
           exact={true}
         />
       </Routes>
