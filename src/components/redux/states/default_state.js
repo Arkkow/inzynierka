@@ -33,6 +33,20 @@ const default_state = {
       screen: "calendar",
       tournament_tab: "info"
     }
+  },
+  tournament_content: {
+    data: {
+      players: {
+        id: "10"
+      },
+      pairs: {
+        id: "simpleID",
+        inAtype: "info",
+        inA: "",
+        inBtype: "",
+      }
+    },
+
   }
 };
 export default default_state

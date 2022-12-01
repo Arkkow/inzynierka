@@ -26,7 +26,8 @@ const mapStateToProps = (state) => {
     return {
         calendar_list: state.calendar_content.data,
         user: state.user_content.data,
-        view: state.view_content.data
+        view: state.view_content.data,
+        tournament_list: state.tournament_content.data,
     }
 }
 
@@ -54,7 +55,37 @@ const mapDispatchToProps = (dispatch) => {
         handleGOTO: (tab) => {
 
             return dispatch({type: "TOURNAMENT", payload: {data: tab}});
-        }
+        },
+        handleDownloadTournament: (tournament_id) => {
+            //    API z kalendarza
+            fetch('https://dragonmaster.pl/inz/' + "ladders/raw" + "?tournamentid=" + tournament_id, {
+                headers: {
+                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
+                },
+                method: "GET",
+            })
+                .then((res) => res.json())
+                .then( res => {
+                        return dispatch({type: "DOWNLOAD_TOURNAMENT", payload: {data: res}});
+                    }
+                )
+                .catch((err) => {console.log(err)});
+        },
+        handleDownloadPlayers: (tournament_id) => {
+            //    API z kalendarza
+            fetch('https://dragonmaster.pl/inz/' + "registrations" + "?id=" + tournament_id, {
+                headers: {
+                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
+                },
+                method: "GET",
+            })
+                .then((res) => res.json())
+                .then( res => {
+                        return dispatch({type: "DOWNLOAD_PLAYERS", payload: {data: res}});
+                    }
+                )
+                .catch((err) => {console.log(err)});
+        },
     }
 }
 

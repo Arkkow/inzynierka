@@ -4,7 +4,6 @@ import * as React from 'react';
 // Project specific files
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import {GeoAlt, CalendarCheck, CheckCircleFill, CheckCircle} from "react-bootstrap-icons";
 
 // CSS files
 import cup_logo from "../../assets/cup.svg";

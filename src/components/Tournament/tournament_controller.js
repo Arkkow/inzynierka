@@ -2,14 +2,14 @@
 import * as React from 'react';
 
 // Project specific files
-import Button from 'react-bootstrap/Button';
 
 // CSS files
-import {Container, Row, Col, ButtonGroup} from "react-bootstrap";
+import {Container, Row, Col} from "react-bootstrap";
 import {useEffect} from "react";
 import TournamentInfo from "./zakładki/tournament_informacje";
 import TournamentNavbar from "./common/tournament_navbar";
 import Drabinka from "./zakładki/drabinka/drabinka";
+import Zapisy from "./zakładki/zapisy/zapisy";
 
 
 export const Tournament_controller = (props) => {
@@ -18,6 +18,8 @@ export const Tournament_controller = (props) => {
     useEffect(() =>
         {
             props.handleDownloadCalendarCard(id);
+            props.handleDownloadTournament(id);
+            props.handleDownloadPlayers(id);
         }, [])
 
     return (
@@ -30,7 +32,7 @@ export const Tournament_controller = (props) => {
                         props.view.tournament_tab === "info"?
                             <TournamentInfo {...props}/>:
                         props.view.tournament_tab === "zapisy"?
-                            <div>Zapisy</div>:
+                            <Zapisy {...props}/>:
                         props.view.tournament_tab === "wyniki"?
                             <Drabinka {...props}/>:
                             null

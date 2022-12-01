@@ -42,3 +42,23 @@ export const view_content = (state = default_state.view_content, action) => {
       return state;
   }
 };
+
+export const tournament_content = (state = default_state.tournament_content, action) => {
+  switch(action.type){
+    case "DOWNLOAD_TOURNAMENT":
+
+      return {
+        ...state,
+        data: {pairs: action.payload.data}
+      };
+
+    case "DOWNLOAD_PLAYERS":
+      return {
+        ...state,
+        data: {players: action.payload.data}
+      };
+
+    default:
+      return state;
+  }
+};
