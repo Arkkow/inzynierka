@@ -13,8 +13,8 @@ import NewTournamentRoute from "./routes/new_tournament";
 import EditTournamentRoute from "./routes/edit_tournament";
 import NewTemplateRoute from "./routes/new_template.js";
 import TournamentRoute from "./routes/tournament_route.js";
-import TournamentPlayRoute from "./routes/tournament_play_route.js";
 import AdminUsers from "./routes/adminUsers.js";
+import RankingRoute from "./routes/ranking_route.js";
 
 // CSS files
 import "./styles/index.css";
@@ -61,17 +61,16 @@ function App() {
         />
         <Route path="/tournament" element={<TournamentRoute />} exact={true} />
         <Route
-          path="/tournamentPlay"
-          element={<TournamentPlayRoute />}
-          exact={true}
-        />
-        <Route
           path="/AdminUsers"
           element={<AdminUsers />}
           exact={true}
         />
+        <Route
+          path="/Ranking"
+          element={<RankingRoute />}
+          exact={true}
+        />
       </Routes>
-
       <Login_popup
         isLoginOpen={isLoginOpen}
         setIsLoginOpen={setIsLoginOpen}
