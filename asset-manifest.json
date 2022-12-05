@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.30ed0938.css",
+    "main.js": "/static/js/main.3cbb1da4.js",
+    "static/media/PFP_LOGO.png": "/static/media/PFP_LOGO.da8e4fcb742dcc4efa76.png",
+    "static/media/cup.svg": "/static/media/cup.7203b3b20892e0aab4042177f76b6029.svg",
+    "index.html": "/index.html",
+    "main.30ed0938.css.map": "/static/css/main.30ed0938.css.map",
+    "main.3cbb1da4.js.map": "/static/js/main.3cbb1da4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30ed0938.css",
+    "static/js/main.3cbb1da4.js"
+  ]
+}
