@@ -1,7 +1,7 @@
 // General React imports
 import * as React from "react";
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // Project specific files
 import Header from "./components/common/header";
@@ -36,6 +36,7 @@ function App() {
         setIsRegisterOpen={setIsRegisterOpen}
       />
       <Routes>
+        <Route path="/" element={<Navigate to="calendar" />} />
         <Route
           path="tournamentRegistration"
           element={<T_registration_popup />}
@@ -60,16 +61,8 @@ function App() {
           exact={true}
         />
         <Route path="/tournament" element={<TournamentRoute />} exact={true} />
-        <Route
-          path="/AdminUsers"
-          element={<AdminUsers />}
-          exact={true}
-        />
-        <Route
-          path="/Ranking"
-          element={<RankingRoute />}
-          exact={true}
-        />
+        <Route path="/AdminUsers" element={<AdminUsers />} exact={true} />
+        <Route path="/Ranking" element={<RankingRoute />} exact={true} />
       </Routes>
       <Login_popup
         isLoginOpen={isLoginOpen}
