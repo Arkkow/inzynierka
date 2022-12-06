@@ -12,7 +12,7 @@ import ZapisyCard from "./features/zapisy_card";
 export const Zapisy = (props) => {
     return (
         <Container fluid style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
-            {/*<div>DIV: {props.tournament_list.data}</div>*/}
+            {/*<div>DIV: {props.pairs_list.data}</div>*/}
             <Row className="justify-content-md-center" >
                 <Col sm={12} style={{paddingLeft: 0, paddingRight:0}}>
                     <Container>
@@ -26,12 +26,12 @@ export const Zapisy = (props) => {
                         </Row>
                         <Row style={{background: "white"}}>
                             DIV: &nbsp;
-                            {props.tournament_list.players.length}
+                            {props.pairs_list.pairs.length}
                             &nbsp;
 
-                            {props.tournament_list.players.length === 0 ?
+                            {props.pairs_list.pairs.length === 0 ?
                                 <h5>no results available</h5> :
-                                props.tournament_list.players.map((card)=>(
+                                props.pairs_list.pairs.map((card)=>(
                                     <ZapisyCard {...card}/>
                                 ))
                             }

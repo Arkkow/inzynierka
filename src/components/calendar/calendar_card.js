@@ -56,20 +56,23 @@ export const CalendarCard = (props) => {
                     </Col>
                     <Col sm={3} >
                         <Row>
-                        <Dropdown>
-                            <Dropdown.Toggle variant="secondary">
-                                ...
-                            </Dropdown.Toggle>
+                            {props.user.id === props.creator?
+                            <Dropdown>
+                                <Dropdown.Toggle variant="secondary">
+                                    ...
+                                </Dropdown.Toggle>
 
-                            <Dropdown.Menu variant="secondary">
-                                <Dropdown.Item>
-                                    Action 1
-                                </Dropdown.Item>
-                                <Dropdown.Item>
-                                    Action 2
-                                </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                                <Dropdown.Menu variant="secondary">
+                                    <Dropdown.Item {...props} href={"edit"+"?id="+props.id}>
+                                        Edytuj
+                                    </Dropdown.Item>
+                                    <Dropdown.Item>
+                                        Action 2
+                                    </Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>:
+                            null
+                        }
                         </Row>
                         <br/>
                         <Row>

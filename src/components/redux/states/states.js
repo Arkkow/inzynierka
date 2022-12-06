@@ -33,7 +33,7 @@ export const view_content = (state = default_state.view_content, action) => {
         data: {screen: action.payload.data}
       };
 
-    case "TOURNAMENT":
+    case "TOURNAMENT_VIEW":
       return{
         ...state,
         data: { tournament_tab: action.payload.data }
@@ -43,19 +43,26 @@ export const view_content = (state = default_state.view_content, action) => {
   }
 };
 
-export const tournament_content = (state = default_state.tournament_content, action) => {
+export const ladders_content = (state = default_state.ladders_content, action) => {
   switch(action.type){
-    case "DOWNLOAD_TOURNAMENT":
-
+    case "DOWNLOAD_LADDERS":
       return {
         ...state,
-        data: {pairs: action.payload.data}
+        data: {ladders: action.payload.data}
       };
 
-    case "DOWNLOAD_PLAYERS":
+    default:
+      return state;
+  }
+};
+
+export const pairs_content = (state = default_state.pairs_content, action) => {
+  switch(action.type){
+
+    case "DOWNLOAD_PAIRS":
       return {
         ...state,
-        data: {players: action.payload.data}
+        data: {pairs: action.payload.data, ladders: state.ladders}
       };
 
     default:
