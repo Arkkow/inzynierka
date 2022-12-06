@@ -9,6 +9,9 @@ import {Container, Row, Col, Form} from "react-bootstrap";
 
 
 export const ZapisyCard = (props) => {
+    // Struktura propów:
+    // props.   - players content
+
     return (
         <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%"}} >
             <Container fluid="md">
@@ -17,21 +20,21 @@ export const ZapisyCard = (props) => {
                 <Row>
                     <Col sm={1}>
                         <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
-                            1.
-                            {props.id}
-                            {/*{props.tournament_list.id}*/}
+                            1. {props.id}
                         </div>
                     </Col>
                     <Col sm={5}>
                         <Container>
                             <Row>
                                 <Col>
-                                    <h5>Adam Kowalski</h5>
+                                    <h5>
+                                        {props.userid}
+                                    </h5>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col>
-                                    <h5>Adam Kowalski</h5>
+                                    <h5>{props.partner}</h5>
                                 </Col>
                             </Row>
                         </Container>

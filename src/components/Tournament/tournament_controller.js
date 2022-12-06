@@ -18,7 +18,7 @@ export const Tournament_controller = (props) => {
     useEffect(() =>
         {
             props.handleDownloadCalendarCard(id);
-            props.handleDownloadTournament(id);
+            props.handleDownloadLadders(id);
             props.handleDownloadPlayers(id);
         }, [])
 
