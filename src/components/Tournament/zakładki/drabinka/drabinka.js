@@ -3,11 +3,9 @@ import * as React from 'react';
 
 // Project specific files
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
 
 // CSS files
-import {Container, Row, Col, Form, ButtonGroup} from "react-bootstrap";
+import {Container, Row, Col} from "react-bootstrap";
 import DrabinkaCard from "./drabinka_card";
 import "./x.css";
 

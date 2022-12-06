@@ -29,7 +29,6 @@ export const view_content = (state = default_state.view_content, action) => {
     case "ROUTE_STATE":
 
       return {
-
         ...state,
         data: {screen: action.payload.data}
       };
@@ -37,8 +36,28 @@ export const view_content = (state = default_state.view_content, action) => {
     case "TOURNAMENT":
       return{
         ...state,
-        data: { screen: action.payload.data }
+        data: { tournament_tab: action.payload.data }
       }
+    default:
+      return state;
+  }
+};
+
+export const tournament_content = (state = default_state.tournament_content, action) => {
+  switch(action.type){
+    case "DOWNLOAD_TOURNAMENT":
+
+      return {
+        ...state,
+        data: {pairs: action.payload.data}
+      };
+
+    case "DOWNLOAD_PLAYERS":
+      return {
+        ...state,
+        data: {players: action.payload.data}
+      };
+
     default:
       return state;
   }
