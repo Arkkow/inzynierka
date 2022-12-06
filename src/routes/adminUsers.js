@@ -25,7 +25,7 @@ export default function AdminUsers () {
                             <Card border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%"}} >
             <Container fluid="md">
                 <Row>
-				{`id:${card.id}`}
+				{`id:${card.id} name:${card.name} surname:${card.surname}`}
 				 <Form.Check 
             type={'radio'}
 			name={`${card.id}`}

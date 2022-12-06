@@ -32,12 +32,11 @@ function Header({ setIsLoginOpen }) {
               <my_h4>Kalendarz turniejów</my_h4>
             </Nav.Link>
             <Nav.Link
-              href="#"
+              href="ranking"
               style={{ paddingLeft: "50px", paddingRight: "30px" }}
             >
               <my_h4>Ranking</my_h4>
             </Nav.Link>
-            {/*<Nav.Link href="profile" style={{paddingLeft:"50px", paddingRight:"30px"}}><my_h4>Profil</my_h4></Nav.Link>*/}
           </Nav>
           <Button
             style={{
@@ -85,12 +84,11 @@ function Header({ setIsLoginOpen }) {
               <my_h4>Kalendarz turniejów</my_h4>
             </Nav.Link>
             <Nav.Link
-              href="#"
+              href="ranking"
               style={{ paddingLeft: "50px", paddingRight: "30px" }}
             >
               <my_h4>Ranking</my_h4>
             </Nav.Link>
-            {/*<Nav.Link href="profile" style={{paddingLeft:"50px", paddingRight:"30px"}}><my_h4>Profil</my_h4></Nav.Link>*/}
             <Nav.Link
               href="profile"
               style={{ paddingLeft: "50px", paddingRight: "30px" }}

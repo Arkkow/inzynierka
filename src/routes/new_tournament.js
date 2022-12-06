@@ -12,7 +12,7 @@ import TournamentForm from "../components/new_tournament/tournament_form/tournam
 export default function NewTournamentRoute() {
   return (
     <div>
-      <TournamentForm></TournamentForm>
+        <TitlePage></TitlePage>
     </div>
   );
 }
