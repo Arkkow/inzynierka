@@ -15,6 +15,7 @@ import NewTemplateRoute from "./routes/new_template.js";
 import TournamentRoute from "./routes/tournament_route.js";
 import AdminUsers from "./routes/adminUsers.js";
 import RankingRoute from "./routes/ranking_route.js";
+import Drabinka from "./routes/drabinka_route.js";
 
 // CSS files
 import "./styles/index.css";
@@ -58,6 +59,11 @@ function App() {
         <Route
           path="/new_template"
           element={<NewTemplateRoute />}
+          exact={true}
+        />
+		<Route
+          path="/drabinka"
+          element={<Drabinka />}
           exact={true}
         />
         <Route path="/tournament" element={<TournamentRoute />} exact={true} />
