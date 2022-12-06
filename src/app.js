@@ -70,7 +70,6 @@ function App() {
         setIsLoginOpen={setIsLoginOpen}
         setIsRegisterOpen={setIsRegisterOpen}
       />
-
       <Footer />
     </div>
   );
