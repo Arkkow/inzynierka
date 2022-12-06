@@ -15,6 +15,7 @@ import NewTemplateRoute from "./routes/new_template.js";
 import TournamentRoute from "./routes/tournament_route.js";
 import AdminUsers from "./routes/adminUsers.js";
 import RankingRoute from "./routes/ranking_route.js";
+import Drabinka from "./routes/drabinka_route.js";
 
 // CSS files
 import "./styles/index.css";
@@ -60,6 +61,11 @@ function App() {
           element={<NewTemplateRoute />}
           exact={true}
         />
+		<Route
+          path="/drabinka"
+          element={<Drabinka />}
+          exact={true}
+        />
         <Route path="/tournament" element={<TournamentRoute />} exact={true} />
         <Route path="/AdminUsers" element={<AdminUsers />} exact={true} />
         <Route path="/Ranking" element={<RankingRoute />} exact={true} />
@@ -74,7 +80,6 @@ function App() {
         setIsLoginOpen={setIsLoginOpen}
         setIsRegisterOpen={setIsRegisterOpen}
       />
-
       <Footer />
     </div>
   );

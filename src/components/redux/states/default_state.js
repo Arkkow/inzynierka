@@ -13,7 +13,7 @@ const default_state = {
         "to": "27 listopada 2023",
         "rang": "rang1",
         "entryFee": "5",
-        "director": "name",
+        "creator": "name",
         "phone": "123123",
         "entriesTo": "string",
         "additionalInformations": "info",
@@ -34,19 +34,23 @@ const default_state = {
       tournament_tab: "info"
     }
   },
-  tournament_content: {
+  ladders_content: {
     data: {
-      players: {
-        id: "10"
-      },
-      pairs: {
+      ladders: {
         id: "simpleID",
         inAtype: "info",
         inA: "",
         inBtype: "",
-      }
+      },
     },
-
+  },
+  pairs_content: {
+    data: {
+      pairs: {
+        id: "10",
+        userid: "",
+      },
+    }
   }
 };
 export default default_state

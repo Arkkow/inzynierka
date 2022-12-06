@@ -2,13 +2,10 @@
 import * as React from 'react';
 
 // Project specific files
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
 
 // CSS files
-import cup_logo from "../../../../assets/cup.svg";
-import {Container, Row, Col, Form} from "react-bootstrap";
+import {Container, Row, Col} from "react-bootstrap";
 
 
 export const DrabinkaCard = (props) => {
@@ -18,10 +15,14 @@ export const DrabinkaCard = (props) => {
                 <Row>
                     <Col sm={8}>
                         <h5>
-                            Adam Kowalski 1
+                            {/*TO JEST ID TURNIEJU, NIE UCZESTNIKÓW*/}
+                            User 1: {props.inA}
+                            User 2: {props.partner}
+
+                            {/*{props.inA === props.pairs.userid}*/}
                         </h5>
                         <h5>
-                            Paweł Iksiński 17
+                            {/*User 2: {props.partner}*/}
                         </h5>
                     </Col>
                     <Col sm={4}>
@@ -33,10 +34,10 @@ export const DrabinkaCard = (props) => {
                 <Row style={{border: "1px solid black"}}>
                     <Col sm={8}>
                         <h5>
-                            Artur Kowalski 3
+
                         </h5>
                         <h5>
-                            Maciek Bezkitu 10
+
                         </h5>
                     </Col>
                     <Col sm={4} >
