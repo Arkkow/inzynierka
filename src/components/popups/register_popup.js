@@ -53,7 +53,7 @@ const Register_popup = ({
   return (
     <Modal show={isRegisterOpen} onHide={() => setIsRegisterOpen(false)}>
       <Modal.Header closeButton>
-        <img src={PFP_LOGO} style={{ marginLeft: "auto" }} alt="LOGO" />
+        <img src={PFP_LOGO} style={{ marginLeft: "auto", height:"8vh" }} alt="LOGO" />
       </Modal.Header>
       <Modal.Body
         style={{

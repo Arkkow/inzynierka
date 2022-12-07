@@ -9,6 +9,7 @@ import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
 // CSS files
 import cup_logo from "../../assets/cup.svg";
 import {Container, Row, Col} from "react-bootstrap";
+import T_registration_popup from "../popups/T_registration_popup";
 
 
 export const TournamentHeader = (props) => {
@@ -45,7 +46,7 @@ export const TournamentHeader = (props) => {
                 </Col>
                 <Col sm={4} style={{ }}>
                     <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
-                        <Button variant="success" style={{height: "15vh", width: "30vh" , borderRadius: "100px"}}><h2>ZAPISZ SIĘ</h2></Button>
+                        <T_registration_popup></T_registration_popup>
                     </div>
                 </Col>
             </Row>

@@ -41,12 +41,14 @@ function T_registration_popup() {
     <>
       <Button
         style={{
+            height: "15vh",
+            width: "40vh" ,
+            borderRadius: "20px",
           fontFamily: "Montserrat",
           fontWeight: "600",
-          fontSize: "18px",
-          lineHeight: "25px",
+          fontSize: "34px",
+          lineHeight: "41.45px",
           color: "white",
-          borderRadius: "15px",
           paddingRight: "1.5%",
           paddingLeft: "1.5%",
           paddingBottom: "0.5%",
@@ -56,11 +58,11 @@ function T_registration_popup() {
         variant="success"
         onClick={handleShow}
       >
-        ZAPISZ SIĘ NA TURNIEJ
+        ZAPISZ SIĘ!
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <img src={PFP_LOGO} style={{ marginLeft: "auto" }} alt="LOGO" />
+          <img src={PFP_LOGO} style={{ marginLeft: "auto", height:"8vh" }} alt="LOGO" />
         </Modal.Header>
         <Modal.Body
           style={{
