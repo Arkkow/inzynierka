@@ -53,6 +53,7 @@ export const CalendarNavbar = (props) => {
           MOJE
         </Button>
 
+        MOM!
         <Button
           variant="success"
           style={{ float: "right", margin: "1%", marginRight: "3%" }}
