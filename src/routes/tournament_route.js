@@ -96,6 +96,28 @@ const mapDispatchToProps = (dispatch) => {
                 .catch((err) => {console.log(err)});
         },
 
+        // DOWNLOAD_PAIRS
+        PostPayedUsingCash: (id) => {
+            //    API z kalendarza
+            fetch('https://dragonmaster.pl/inz/' + "registration/payedUsingCash", {
+                headers: {
+                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
+                },
+                body: {
+                    id: id,
+                    ownerOrInvited: "owner"
+                },
+                method: "POST",
+            })
+                .then((res) => res.json())
+                .then( res => {
+                        return dispatch({type: "DOWNLOAD_PAIRS", payload: {data: res}});
+                    }
+                )
+                .catch((err) => {console.log(err)});
+        },
+
+
 
         // putLadder(  {
         //                 "tournamentid": "string",

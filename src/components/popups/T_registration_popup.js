@@ -6,7 +6,7 @@ import PFP_LOGO from "../../assets/PFP_LOGO.png";
 import { getUser, getUserById, putRegistration } from "../api/api";
 import "../../styles/App.css";
 
-function T_registration_popup() {
+function T_registration_popup () {
   const [show, setShow] = useState(false);
   const userData = getUser();
   let testId = "0";
@@ -23,6 +23,8 @@ function T_registration_popup() {
     const userChecker = getUserById(id.current.value);
     const otherUserId = await userChecker;
     getUserById(id.current.value);
+
+    // <Register  {...props}/>
 
     if (userId.id == id.current.value) {
       alert("Nie mozesz wyslac zaproszenia do siebie!");

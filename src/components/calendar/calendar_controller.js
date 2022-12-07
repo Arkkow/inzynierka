@@ -15,7 +15,6 @@ export const Calendar_controller = (props) => {
 
             props.handleDownloadCalendar();
             props.handleDownloadUser();
-
         },
     []
     )

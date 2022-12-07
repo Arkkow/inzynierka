@@ -11,6 +11,8 @@ import {Container, Row, Col, Form} from "react-bootstrap";
 export const ZapisyCard = (props) => {
     // Struktura propów:
     // props.   - players content
+    // props.user
+    // props.view
 
     return (
         <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%"}} >
@@ -20,7 +22,7 @@ export const ZapisyCard = (props) => {
                 <Row>
                     <Col sm={1}>
                         <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
-                            1. {props.id}
+                            {props.id}
                         </div>
                     </Col>
                     <Col sm={5}>
@@ -28,28 +30,35 @@ export const ZapisyCard = (props) => {
                             <Row>
                                 <Col>
                                     <h5>
-                                        {props.userid}
+                                        {props.name1} {props.surname1}
                                     </h5>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col>
-                                    <h5>{props.partner}</h5>
+                                    <h5>{props.name2} &nbsp; {props.surname2}</h5>
                                 </Col>
                             </Row>
                         </Container>
                     </Col>
                     <Col sm={2}>
                         <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
-                            SR: 15
+                            SR: {props.rankingsum}
                         </div>
                     </Col>
                     <Col sm={4}>
                         <Container>
                             <Row>
                                 <Form>
+                                    {props.paymentstatus === "DONE"?
+                                    <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis opłacony" reverse/>:
                                     <Form.Check type="switch" label="Zapis opłacony" reverse/>
-                                    <Form.Check type="switch" label="Zapis opłacony" reverse/>
+                                    }
+
+                                    {props.paymentstatus2 === "DONE"?
+                                        <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis opłacony" reverse/>:
+                                        <Form.Check type="switch" label="Zapis opłacony" reverse onClick={() => props.PostPayedUsingCash(props.id)}/>
+                                    }
                                 </Form>
                             </Row>
                         </Container>

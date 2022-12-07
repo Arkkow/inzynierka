@@ -47,8 +47,20 @@ const default_state = {
   pairs_content: {
     data: {
       pairs: {
-        id: "10",
-        userid: "",
+        id:"344",
+        userid:"806",
+        tournamentid:"41008",
+        paymenttype:"btc",
+        paymentstatus:"DONE",
+        paymenttype2:"",
+        paymentstatus2:"",
+        approval:"0",
+        partner:"102",
+        name1:"Adam",
+        surname1:"Kowalski",
+        name2:"Łukasik",
+        surname2:"Paweł",
+        rankingsum:"1272",
       },
     }
   }
