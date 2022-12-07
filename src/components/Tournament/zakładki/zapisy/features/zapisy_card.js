@@ -50,12 +50,12 @@ export const ZapisyCard = (props) => {
                                 <Form>
                                     <Form.Check type="switch" label="Zapis opłacony" reverse/>
                                     <Form.Check type="switch" label="Zapis opłacony" reverse/>
-									{props.approval=="1" &&((props.userid == props.user.id && props.paymentstatus !="DONE" && props.paymentstatus !="PENDING") || (props.partner == props.user.id&& props.paymentstatus2 !="DONE" && props.paymentstatus2 !="PENDING")) ?
-									<PaymentMethod_popup rid ={props.id} /> :
-                                <div/>
-                            }
                                 </Form>
                             </Row>
+                            <Row><div>{props.approval=="1" &&((props.userid == props.user.id && props.paymentstatus !="DONE" && props.paymentstatus !="PENDING") || (props.partner == props.user.id&& props.paymentstatus2 !="DONE" && props.paymentstatus2 !="PENDING")) ?
+                                <PaymentMethod_popup rid ={props.id} /> :
+                                <div/>
+                            }</div></Row>
                         </Container>
                     </Col>
                 </Row>
