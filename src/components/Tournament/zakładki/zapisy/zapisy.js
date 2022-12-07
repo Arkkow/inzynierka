@@ -7,9 +7,15 @@ import Button from 'react-bootstrap/Button';
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
 import ZapisyCard from "./features/zapisy_card";
+import {getUser} from '../../../api/api.js';
+import { useState }  from 'react';
 
 
 export const Zapisy = (props) => {
+			  const [user, setUser] = useState({"fetched":false,data:[]});
+	  if(user.fetched === false){
+		  getUser().then((dane)=>{setUser({"fetched":true,data:dane});})
+	  }
     return (
         <Container fluid style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
             {/*<div>DIV: {props.pairs_list.data}</div>*/}
@@ -31,9 +37,10 @@ export const Zapisy = (props) => {
 
                             {props.pairs_list.pairs.length === 0 ?
                                 <h5>no results available</h5> :
-                                props.pairs_list.pairs.map((card)=>(
-                                    <ZapisyCard {...card}/>
-                                ))
+                                props.pairs_list.pairs.map((card)=>{
+								card.user =user.data;
+                                    return <ZapisyCard {...card}/>
+                                })
                             }
                         </Row>
                     </Container>

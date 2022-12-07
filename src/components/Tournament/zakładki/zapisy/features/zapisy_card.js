@@ -3,6 +3,7 @@ import * as React from 'react';
 
 // Project specific files
 import Card from 'react-bootstrap/Card';
+import PaymentMethod_popup from '../../../../popups/payment_method_popup.js';
 
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";
@@ -11,7 +12,6 @@ import {Container, Row, Col, Form} from "react-bootstrap";
 export const ZapisyCard = (props) => {
     // Struktura propów:
     // props.   - players content
-
     return (
         <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%"}} >
             <Container fluid="md">
@@ -50,6 +50,10 @@ export const ZapisyCard = (props) => {
                                 <Form>
                                     <Form.Check type="switch" label="Zapis opłacony" reverse/>
                                     <Form.Check type="switch" label="Zapis opłacony" reverse/>
+									{props.approval=="1" &&((props.userid == props.user.id && props.paymentstatus !="DONE" && props.paymentstatus !="PENDING") || (props.partner == props.user.id&& props.paymentstatus2 !="DONE" && props.paymentstatus2 !="PENDING")) ?
+									<PaymentMethod_popup rid ={props.id} /> :
+                                <div/>
+                            }
                                 </Form>
                             </Row>
                         </Container>
