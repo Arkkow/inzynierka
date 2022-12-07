@@ -9,6 +9,7 @@ import "../styles/App.css";
 import {Tournament_controller} from "../components/Tournament/tournament_controller";
 import TournamentHeader from "../components/Tournament/tournament_header";
 import {connect} from "react-redux";
+import {getladders, getRegistrations, getTournamentById} from "../components/api/api";
 
 
 function TournamentRoute(props) {
@@ -36,16 +37,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     const id = window.location.href.split('?')[1].split('=')[1]
     return {
-
         handleDownloadCalendarCard: (id) => {
             //    API z kalendarza
-            fetch('https://dragonmaster.pl/inz/' + "tournament" + "?id=" + id, {
-                headers: {
-                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
-                },
-                method: "GET",
-            })
-                .then((res) => res.json())
+            getTournamentById(id)
                 .then( res => {
                         return dispatch({type: "DOWNLOAD_CALENDAR", payload: {data: res}});
                     }
@@ -58,13 +52,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         handleDownloadTournament: (tournament_id) => {
             //    API z kalendarza
-            fetch('https://dragonmaster.pl/inz/' + "ladders/raw" + "?tournamentid=" + tournament_id, {
-                headers: {
-                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
-                },
-                method: "GET",
-            })
-                .then((res) => res.json())
+            getladders(tournament_id)
                 .then( res => {
                         return dispatch({type: "DOWNLOAD_TOURNAMENT", payload: {data: res}});
                     }
@@ -73,13 +61,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         handleDownloadPlayers: (tournament_id) => {
             //    API z kalendarza
-            fetch('https://dragonmaster.pl/inz/' + "registrations" + "?id=" + tournament_id, {
-                headers: {
-                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
-                },
-                method: "GET",
-            })
-                .then((res) => res.json())
+            getRegistrations(id)
                 .then( res => {
                         return dispatch({type: "DOWNLOAD_PLAYERS", payload: {data: res}});
                     }

@@ -5,6 +5,7 @@ import CalendarCard from "./calendar_card";
 import { connect } from "react-redux";
 import { Col, Row } from "react-bootstrap";
 import { useEffect } from "react";
+import {getPendingApprovals, getTournaments, getUser} from "../api/api";
 // import { getPendingApprovals } from "../api/api";
 
 // CSS files
@@ -49,15 +50,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleDownloadCalendar: () => {
       //    API z kalendarza
-      fetch("https://dragonmaster.pl/inz/" + "tournaments", {
-        headers: {
-          Authorization:
-            "Bearer " +
-            "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7",
-        },
-        method: "GET",
-      })
-        .then((res) => res.json())
+        getTournaments()
         .then((res) => {
           return dispatch({
             type: "DOWNLOAD_CALENDAR",
@@ -68,37 +61,22 @@ const mapDispatchToProps = (dispatch) => {
           console.log(err);
         });
     },
+
     handleDownloadUser: () => {
       //    API z kalendarza
-      fetch("https://dragonmaster.pl/inz/" + "user", {
-        headers: {
-          Authorization:
-            "Bearer " +
-            "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7",
-        },
-        method: "GET",
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          console.log(res);
-          return dispatch({ type: "DOWNLOAD_USER", payload: { data: res } });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      getUser()
+          .then((res) => {
+            console.log(res);
+            return dispatch({ type: "DOWNLOAD_USER", payload: { data: res } });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
     },
 
     getPendingApprovals: () => {
       //    API z kalendarza
-      fetch("https://dragonmaster.pl/inz/" + "pendingApprovals", {
-        headers: {
-          Authorization:
-              "Bearer " +
-              "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"
-        },
-        method: "GET",
-      })
-          .then((res) => res.json())
+        getPendingApprovals()
           .then((res) => {
             console.log(res);
             return dispatch({ type: "DOWNLOAD_MY_TOURNAMENTS", payload: { data: res } });
@@ -107,19 +85,6 @@ const mapDispatchToProps = (dispatch) => {
             console.log(err);
           });
     },
-
-    // getPendingApprovals: () => {
-    //   //    API z kalendarza
-    //   fetch(getPendingApprovals())
-    //       .then((res) => res.json())
-    //       .then((res) => {
-    //         console.log(res);
-    //         return dispatch({ type: "DOWNLOAD_MY_TOURNAMENTS", payload: { data: res } });
-    //       })
-    //       .catch((err) => {
-    //         console.log(err);
-    //       });
-    // },
 
     handleGOTO: (props) => {
       return dispatch({ type: "ROUTE_STATE", payload: { data: props } });
