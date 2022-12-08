@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";
-import { postAcceptProposal, postPayForRegistration, postTournaments } from "../../../../api/api";
+import { postAcceptProposal, postPayedUsingCash, postPayForRegistration, postTournaments } from "../../../../api/api";
 import Button from "react-bootstrap/Button";
 import { string } from "prop-types";
 
@@ -54,33 +54,31 @@ export const ZapisyCard = (props) => {
                         <Container>
                             <Row>
                                 <Form>
-                                    {props.paymentstatus === "DONE"?
-                                    <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis opłacony" reverse/>:
-                                    <Form.Check type="switch" label="Zapis opłacony" reverse/>
+                                    {props.user.role === "2" || props.user.role === '3'?
+                                        props.paymentstatus === "DONE"?
+                                          <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis opłacony" reverse/>:
+                                          <Form.Check type="switch" label="Zapis opłacony" reverse
+                                                      onClick={() => {
+                                                          postPayedUsingCash({
+                                                              '"id"': String(props.id) ,
+                                                              '"ownerOrInvited"': "owner"
+                                                          }).then(r =>console.log(r));
+                                                      }
+                                                      }/>:null
                                     }
 
                                     {props.paymentstatus2 === "DONE"?
                                         <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis opłacony" reverse/>:
-                                        <Form.Check type="switch" label="Zapis opłacony" reverse onClick={() => props.PostPayedUsingCash(props.id)}/>
+                                        <Form.Check type="switch" label="Zapis opłacony" reverse
+                                                    onClick={() => {
+                                                        postPayedUsingCash({
+                                                            '"id"': String(props.id) ,
+                                                            '"ownerOrInvited"': "invited"
+                                                        }).then(r =>console.log(r));
+                                                    }
+                                        }/>
                                     }
                                 </Form>
-                            </Row>
-                            <Row>
-                                {/*TODO POST POD BUTTON - SPRÓBOWAĆ WPIĄĆ SIĘ Z API*/}
-                                {(props.user.role === "2" || props.user.role === '3')?
-                                    <Button onClick={() => {
-                                        postPayForRegistration({
-                                            '"id"': String(props.id) ,
-                                            '"paymentmethod"': "cash"
-                                        }).then(r =>console.log(r));
-                                        props.handleDownloadPlayers();
-                                    }
-                                    }>
-                                        SUBMIT POST PAYMENT
-                                    </Button>
-                                  :null
-                                }
-                                HI MOM {props}
                             </Row>
                         </Container>
                     </Col>
