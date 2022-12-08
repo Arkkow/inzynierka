@@ -6,6 +6,8 @@ import Card from 'react-bootstrap/Card';
 
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";
+import { postAcceptProposal, postPayForRegistration, postTournaments } from "../../../../api/api";
+import Button from "react-bootstrap/Button";
 
 
 export const ZapisyCard = (props) => {
@@ -13,6 +15,7 @@ export const ZapisyCard = (props) => {
     // props.   - players content
     // props.user
     // props.view
+    // props
 
     return (
         <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%"}} >
@@ -60,6 +63,12 @@ export const ZapisyCard = (props) => {
                                         <Form.Check type="switch" label="Zapis opłacony" reverse onClick={() => props.PostPayedUsingCash(props.id)}/>
                                     }
                                 </Form>
+                            </Row>
+                            <Row>
+                                {/*TODO POST POD BUTTON - SPRÓBOWAĆ WPIĄĆ SIĘ Z API*/}
+                                {/*TEST {props.pairs_list.id}*/}
+                                <Button onClick={() => postPayForRegistration(props.id)}>SUBMIT POST PAYMENT</Button>
+                                {/*{postTournaments(props.id)}*/}
                             </Row>
                         </Container>
                     </Col>
