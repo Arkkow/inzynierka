@@ -65,11 +65,12 @@ const script = document.createElement('script');
                 lineHeight: "25px",
                 color: "white",
                 borderRadius: "15px",
-                paddingRight: "1.5%",
-                paddingLeft: "1.5%",
-                paddingBottom: "0.5%",
-                paddingTop: "0.5%",
-                marginRight: "1%"
+                paddingRight: "8px",
+                paddingLeft: "8px",
+                paddingBottom: "6px",
+                paddingTop: "6px",
+                marginLeft:"45%",
+                marginTop:"10px"
             }} variant="success" onClick={handleShow}>
                 PŁATNOŚĆ
             </Button>
