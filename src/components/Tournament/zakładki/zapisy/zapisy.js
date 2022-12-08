@@ -37,10 +37,9 @@ export const Zapisy = (props) => {
 
                             {props.pairs_list.pairs.length === 0 ?
                                 <h5>no results available</h5> :
-                                props.pairs_list.pairs.map((card)=>{
-								card.user =user.data;
-                                    return <ZapisyCard {...card}/>
-                                })
+                                props.pairs_list.pairs.map((card)=>(
+                                    <ZapisyCard {...card} user = {props.user} view = {props.view}/>
+                                ))
                             }
                         </Row>
                     </Container>

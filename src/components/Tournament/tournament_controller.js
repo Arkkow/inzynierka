@@ -20,6 +20,7 @@ export const Tournament_controller = (props) => {
             props.handleDownloadCalendarCard(id);
             props.handleDownloadLadders(id);
             props.handleDownloadPlayers(id);
+            props.handleDownloadUser();
         }, [])
 
     return (
@@ -32,7 +33,7 @@ export const Tournament_controller = (props) => {
                         props.view.tournament_tab === "info"?
                             <TournamentInfo {...props}/>:
                         props.view.tournament_tab === "zapisy"?
-                            <Zapisy {...props}/>:
+                            <Zapisy {...props} user = {props.user}/>:
                         props.view.tournament_tab === "wyniki"?
                             <Drabinka {...props}/>:
                             null
