@@ -9,39 +9,36 @@ import "../../styles/App.css";
 function T_registration_popup() {
 
     const [userId, setId] = useState({"fetched":false,data:[]});
+    const [ifExist, checkIfExist] = useState({"fetched":false,data:[]});
     if(userId.fetched === false){
-        getUsersAdmin().then((dane)=>{setId({"fetched":true,data:dane});})
+        getUser().then((dane)=>{setId({"fetched":true,data:dane});})
     }
 
   const [show, setShow] = useState(false);
-  const userData = getUser();
-  console.log(userData + "test")
   const id_tournament = window.location.href.split('?')[1].split('=')[1];
   console.log(id_tournament + "dupa")
 
+    console.log(getUserById("12341234124"))
+
   const id = useRef(null);
-  const checkIfIdIsValid = async () => {
-    const sendInvitation = () => {putRegistration({
-      tournament: id_tournament,
-      partner: id.current.value,
-        })};
 
-    const userId = await userData;
-    console.log(userId + "Dupa")
-    const userChecker = getUserById(id.current.value);
-    const otherUserId = await userChecker;
-    console.log(otherUserId)
-    await getUserById(id.current.value);
-
-    if (userId.id === id.current.value) {
+    const checkIfIdIsValid =  () => {
+        getUserById(id.current.value).then((dane)=>{checkIfExist({"fetched":true,data:dane});})
+        console.log(ifExist.data)
+    if (userId.data.id == id.current.value) {
       alert("Nie mozesz wyslac zaproszenia do siebie!");
-    } else if (otherUserId == null) {
+    } else if (ifExist == false) {
       alert("Uzytkownik o podanym id nie istnieje!");
     } else {
-      let partnerId = id.current.value;
-      console.log(partnerId);
+        const sendInvitation = () => {putRegistration({
+            tournament: id_tournament,
+            partner: id.current.value,
+        })
+        setShow(false)};
       sendInvitation();
     }
+
+
   };
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
