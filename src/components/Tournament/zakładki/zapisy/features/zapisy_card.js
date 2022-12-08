@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import {Container, Row, Col, Form} from "react-bootstrap";
 import { postAcceptProposal, postPayForRegistration, postTournaments } from "../../../../api/api";
 import Button from "react-bootstrap/Button";
+import { string } from "prop-types";
 
 
 export const ZapisyCard = (props) => {
@@ -66,9 +67,20 @@ export const ZapisyCard = (props) => {
                             </Row>
                             <Row>
                                 {/*TODO POST POD BUTTON - SPRÓBOWAĆ WPIĄĆ SIĘ Z API*/}
-                                {/*TEST {props.pairs_list.id}*/}
-                                <Button onClick={() => postPayForRegistration(props.id)}>SUBMIT POST PAYMENT</Button>
-                                {/*{postTournaments(props.id)}*/}
+                                {(props.user.role === "2" || props.user.role === '3')?
+                                    <Button onClick={() => {
+                                        postPayForRegistration({
+                                            '"id"': String(props.id) ,
+                                            '"paymentmethod"': "cash"
+                                        }).then(r =>console.log(r));
+                                        props.handleDownloadPlayers();
+                                    }
+                                    }>
+                                        SUBMIT POST PAYMENT
+                                    </Button>
+                                  :null
+                                }
+                                HI MOM {props}
                             </Row>
                         </Container>
                     </Col>

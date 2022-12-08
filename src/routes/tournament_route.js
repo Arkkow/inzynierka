@@ -56,6 +56,23 @@ const mapDispatchToProps = (dispatch) => {
                 .catch((err) => {console.log(err)});
         },
 
+        handleDownloadUser: () => {
+            //    API z kalendarza
+            fetch('https://dragonmaster.pl/inz/' + "user", {
+                headers: {
+                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7")
+                },
+                method: "GET",
+            })
+              .then((res) => res.json())
+              .then( res => {
+                    console.log(res)
+                    return dispatch({type: "DOWNLOAD_USER", payload: {data: res}});
+                }
+              )
+              .catch((err) => {console.log(err)});
+        },
+
         // TOURNAMENT_VIEW
         handleGOTO: (tab) => {
 
