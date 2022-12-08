@@ -9,12 +9,12 @@ import Card from "react-bootstrap/Card";
 import cup_logo from "../../assets/cup.svg";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import RangTick from "../common/Buttons/rang_tick";
-import { getPendingApprovals } from "../api/api";
+import { getPendingApprovals, postAcceptInvite, postRejectInvite } from "../api/api";
 import InfoPanel from "../common/info_panel";
 
-console.log(getPendingApprovals());
+
+
 const invitation = getPendingApprovals();
-console.log(invitation);
 invitation.then((value) => {
   for (let i = 0; i < value.length; i++) {
     console.log(value[i]);
@@ -29,6 +29,16 @@ export const CalendarCard = (props) => {
     });
   }
 
+
+  // function acceptInvintation(e) {
+  //   e.preventDefault();
+  //   console.log('You clicked submit.');
+  // }
+  //
+  // function rejectInvintation(e) {
+  //   e.preventDefault();
+  //   console.log('You clicked submit.');
+  // }
   console.log(getPendingApprovals());
   return (
     <Card
@@ -77,10 +87,10 @@ export const CalendarCard = (props) => {
                       Użytkownik {invitation.inviter} cię do gry w tym turnieju
                     </div>
                     <div style={{ textAlign: "center" }}>
-                      <Button variant="success" style={{ margin: "5%" }}>
+                      <Button variant="success" style={{ margin: "5%" }} onClick={() => postAcceptInvite(invitation.id)}>
                         TAK
                       </Button>
-                      <Button variant="danger" style={{ margin: "5%" }}>
+                      <Button variant="danger" style={{ margin: "5%" }} onClick={() => postRejectInvite(invitation.id)}>
                         NIE
                       </Button>
                     </div>
