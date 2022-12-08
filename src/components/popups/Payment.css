@@ -1,0 +1,79 @@
+
+.dot {
+  width: 24px;
+  height: 24px;
+  background: #007c36;
+  border-radius: 100%;
+  display: inline-block;
+  animation: slide 1s infinite;
+}
+.dot:nth-child(1) {
+  animation-delay: 0.1s;
+  background: #007846;
+}
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+  background: #008c5a;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.3s;
+  background: #00a06e;
+}
+.dot:nth-child(4) {
+  animation-delay: 0.4s;
+  background: #00b482;
+}
+.dot:nth-child(5) {
+  animation-delay: 0.5s;
+  background: #00c896;
+}
+@-moz-keyframes slide {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes slide {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-o-keyframes slide {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes slide {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+  

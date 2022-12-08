@@ -1,8 +1,19 @@
 import React, { useState, useRef } from "react";
 import "../input_box/input_box.css";
 import PFP_LOGO from "../../../assets/PFP_LOGO.png";
+import {getTournaments} from "../../api/api";
 
 function InputBox() {
+
+
+
+  const [tournament, getTournament] = useState({"fetched":false,data:[]});
+  if(tournament.fetched === false){
+    getTournaments().then((dane)=>{getTournament({"fetched":true,data:dane});})
+  }
+
+
+  const id = window.location.href.split('?')[1].split('=')[1];
   const [error, setError] = useState(null);
   const [isSended, setIsSended] = useState(false);
   const [response, setResponse] = useState([]);
@@ -54,13 +65,15 @@ function InputBox() {
       roles.value = "16";
     }
 
+    const id = window.location.href.split('?')[1].split('=')[1]
+
     fetch("https://dragonmaster.pl/inz/tournament", {
       headers: {
         Authorization: "Bearer " + Token,
       },
       method: "POST",
       body: JSON.stringify({
-        id: "41040",
+        id: id,
         name: name.current.value,
         typeOfLadder: typeOfLadder.current.value,
         pointsForTournament: pointsForTournament.value,
@@ -86,17 +99,27 @@ function InputBox() {
           setIsSended(true);
           setResponse(result);
           console.log(result);
+          window.location.href = "http://localhost:3000/calendar"
         },
         (error) => {
           setIsSended(true);
           setError(error);
         }
       );
+
     if (error) {
       console.log("Coś poszło nie tak: " + error.message);
     }
+
   };
+
+
   return (
+      <>
+      {tournament.fetched === false ?
+            <h5>no results available</h5> :
+            tournament.data.map((data)=>(
+
     <div
       className="mb-3"
       style={{
@@ -109,6 +132,7 @@ function InputBox() {
         color: "var(--dark_grey)",
       }}
     >
+
       <label
         style={{ display: "block", textAlign: "left", width: "33%" }}
         htmlFor="exampleFormControlInput1"
@@ -121,7 +145,7 @@ function InputBox() {
         type="text"
         className="form-control"
         id="exampleFormControlInput1"
-        defaultValue="Turniej majowy 22"
+        defaultValue={data.name}
         ref={name}
       ></input>
 
@@ -397,7 +421,7 @@ function InputBox() {
           EDYTUJ TURNIEJ
         </button>
       </div>
-    </div>
+    </div>))}</>
   );
 }
 

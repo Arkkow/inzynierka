@@ -85,7 +85,7 @@ export const CalendarCard = (props) => {
                 <Dropdown.Toggle variant="secondary">...</Dropdown.Toggle>
 
                                 <Dropdown.Menu variant="secondary">
-                                    <Dropdown.Item {...props} href={"edit"+"?id="+props.id}>
+                                    <Dropdown.Item {...props} href={"edit_tournament"+"?id="+props.id}>
                                         Edytuj
                                     </Dropdown.Item>
                                     <Dropdown.Item>
