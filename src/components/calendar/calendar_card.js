@@ -29,6 +29,11 @@ export const CalendarCard = (props) => {
     >
       <Container fluid="md">
         <Row>
+          {/*HI MOM! 1. {props.id} 2. {props.my_tournaments.tournamnet} &nbsp;*/}
+          {/*{console.log("TOURNAMNET")}*/}
+          {/*{console.log(props.my_tournaments.tournamnet)}*/}
+          {/*{props.my_tournaments.some(x => x.tournamnet === props.id)?"HIIII":"NOPE"}*/}
+
           <Col sm={2}>
             {/*{props.view.screen === 'calendar' ? <h2>YES</h2>:<h2>NO</h2>}*/}
             <div
