@@ -3,36 +3,42 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import PFP_LOGO from "../../assets/PFP_LOGO.png";
-import { getUser, getUserById, putRegistration } from "../api/api";
+import {getUser, getUserById, getUsersAdmin, putRegistration} from "../api/api";
 import "../../styles/App.css";
 
 function T_registration_popup() {
+
+    const [userId, setId] = useState({"fetched":false,data:[]});
+    const [ifExist, checkIfExist] = useState({"fetched":false,data:[]});
+    if(userId.fetched === false){
+        getUser().then((dane)=>{setId({"fetched":true,data:dane});})
+    }
+
   const [show, setShow] = useState(false);
-  const userData = getUser();
-  let testId = "0";
+  const id_tournament = window.location.href.split('?')[1].split('=')[1];
+  console.log(id_tournament + "dupa")
+
+    console.log(getUserById("12341234124"))
 
   const id = useRef(null);
 
-  const checkIfIdIsValid = async () => {
-    const sendInvitation = putRegistration({
-      tournament: "41042",
-      partner: id.current.value,
-    });
-
-    const userId = await userData;
-    const userChecker = getUserById(id.current.value);
-    const otherUserId = await userChecker;
-    getUserById(id.current.value);
-
-    if (userId.id == id.current.value) {
+    const checkIfIdIsValid =  () => {
+        getUserById(id.current.value).then((dane)=>{checkIfExist({"fetched":true,data:dane});})
+        console.log(ifExist.data)
+    if (userId.data.id == id.current.value) {
       alert("Nie mozesz wyslac zaproszenia do siebie!");
-    } else if (otherUserId == null) {
+    } else if (ifExist == false) {
       alert("Uzytkownik o podanym id nie istnieje!");
     } else {
-      let partnerId = id.current.value;
-      console.log(partnerId);
+        const sendInvitation = () => {putRegistration({
+            tournament: id_tournament,
+            partner: id.current.value,
+        })
+        setShow(false)};
       sendInvitation();
     }
+
+
   };
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -41,12 +47,14 @@ function T_registration_popup() {
     <>
       <Button
         style={{
+            height: "15vh",
+            width: "40vh" ,
+            borderRadius: "20px",
           fontFamily: "Montserrat",
           fontWeight: "600",
-          fontSize: "18px",
-          lineHeight: "25px",
+          fontSize: "34px",
+          lineHeight: "41.45px",
           color: "white",
-          borderRadius: "15px",
           paddingRight: "1.5%",
           paddingLeft: "1.5%",
           paddingBottom: "0.5%",
@@ -56,11 +64,11 @@ function T_registration_popup() {
         variant="success"
         onClick={handleShow}
       >
-        ZAPISZ SIĘ NA TURNIEJ
+        ZAPISZ SIĘ!
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <img src={PFP_LOGO} style={{ marginLeft: "auto" }} alt="LOGO" />
+          <img src={PFP_LOGO} style={{ marginLeft: "auto", height:"8vh" }} alt="LOGO" />
         </Modal.Header>
         <Modal.Body
           style={{
