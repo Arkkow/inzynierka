@@ -38,7 +38,7 @@ const mapStateToProps = (state) => {
     calendar_list: state.calendar_content.data,
     user: state.user_content.data,
     view: state.view_content.data,
-    my_tournament_list: state.my_tournaments_content.data,
+    // my_tournament_list: state.my_tournaments_content.data,
   };
 };
 
