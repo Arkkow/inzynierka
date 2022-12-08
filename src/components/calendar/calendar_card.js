@@ -1,6 +1,6 @@
 // General React imports
 import * as React from "react";
-
+import { useState } from "react";
 // Project specific files
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -22,6 +22,14 @@ invitation.then((value) => {
 });
 
 export const CalendarCard = (props) => {
+  const [invitations, setInvitations] = useState({ fetched: false, data: [] });
+  if (invitations.fetched === false) {
+    getPendingApprovals().then((dane) => {
+      setInvitations({ fetched: true, data: dane });
+    });
+  }
+
+  console.log(getPendingApprovals());
   return (
     <Card
       border={"dark"}
@@ -58,23 +66,29 @@ export const CalendarCard = (props) => {
 
             <InfoPanel {...props} />
           </Col>
-          <Col sm={2}>
-            {invitation.tournamnet == "41042" ? (
-              <Card.Text>
-                <div style={{ textAlign: "center" }}>
-                  Użytkownik zaprosił cię do gry w tym turnieju
-                </div>
-                <div style={{ textAlign: "center" }}>
-                  <Button variant="success" style={{ margin: "5%" }}>
-                    TAK
-                  </Button>
-                  <Button variant="danger" style={{ margin: "5%" }}>
-                    NIE
-                  </Button>
-                </div>
-              </Card.Text>
-            ) : null}
-          </Col>
+          {invitations.fetched === false ? (
+            <h5>Brak zaproszeń na ten turniej</h5>
+          ) : (
+            invitations.data.map((invitation) => (
+              <Col sm={2}>
+                {invitation.tournament == props.id ? (
+                  <Card.Text>
+                    <div style={{ textAlign: "center" }}>
+                      Użytkownik {invitation.inviter} cię do gry w tym turnieju
+                    </div>
+                    <div style={{ textAlign: "center" }}>
+                      <Button variant="success" style={{ margin: "5%" }}>
+                        TAK
+                      </Button>
+                      <Button variant="danger" style={{ margin: "5%" }}>
+                        NIE
+                      </Button>
+                    </div>
+                  </Card.Text>
+                ) : null}
+              </Col>
+            ))
+          )}
           <Col sm={3}>
             <Row>
               <Dropdown>
