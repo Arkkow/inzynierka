@@ -7,7 +7,13 @@ import PaymentMethod_popup from '../../../../popups/payment_method_popup.js';
 
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";
-import { postAcceptProposal, postPayedUsingCash, postPayForRegistration, postTournaments } from "../../../../api/api";
+import {
+    postAcceptProposal,
+    postPayedUsingCash,
+    postPayForRegistration,
+    postRegistrationApprove,
+    postTournaments
+} from "../../../../api/api";
 import Button from "react-bootstrap/Button";
 import { string } from "prop-types";
 
@@ -53,9 +59,9 @@ export const ZapisyCard = (props) => {
                     </Col>
                     <Col sm={1}>
                         <Row>
-                            {props.approval === "1"?
+                            {props.approval === "0"?
                                 <Button onClick={() => {
-                                    postAcceptProposal(String(props.id)).then(r =>console.log(r))
+                                    postRegistrationApprove(String(props.id)).then(r =>console.log(r))
                                 }
                                 }>A</Button>:
                                 null
