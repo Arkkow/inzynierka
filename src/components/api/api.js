@@ -345,7 +345,7 @@ OUTPUT
 */
 export function postAcceptProposal(id) {
   return makeAuthedReq("proposal/approve","POST",JSON.stringify({
-  "id": id.toString()
+  '"id"': id.toString()
 }));
 }
 

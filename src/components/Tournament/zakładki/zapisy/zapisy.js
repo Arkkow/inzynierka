@@ -32,8 +32,8 @@ export const Zapisy = (props) => {
                         </Row>
                         <Row style={{background: "white"}}>
                             DIV: &nbsp;
-                            {props.pairs_list.pairs.length}
-                            &nbsp;
+                            {/*{props.pairs_list.pairs.length}*/}
+                            {/*&nbsp;*/}
 
                             {props.pairs_list.pairs.length === 0 ?
                                 <h5>no results available</h5> :

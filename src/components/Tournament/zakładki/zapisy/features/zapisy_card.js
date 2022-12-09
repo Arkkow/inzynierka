@@ -30,7 +30,7 @@ export const ZapisyCard = (props) => {
                             {props.id}
                         </div>
                     </Col>
-                    <Col sm={5}>
+                    <Col sm={4}>
                         <Container>
                             <Row>
                                 <Col>
@@ -50,6 +50,17 @@ export const ZapisyCard = (props) => {
                         <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
                             SR: {props.rankingsum}
                         </div>
+                    </Col>
+                    <Col sm={1}>
+                        <Row>
+                            {props.approval === "1"?
+                                <Button onClick={() => {
+                                    postAcceptProposal(String(props.id)).then(r =>console.log(r))
+                                }
+                                }>A</Button>:
+                                null
+                            }
+                        </Row>
                     </Col>
                     <Col sm={4}>
                         <Container>

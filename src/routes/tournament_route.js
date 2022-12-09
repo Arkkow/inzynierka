@@ -9,7 +9,7 @@ import "../styles/App.css";
 import {Tournament_controller} from "../components/Tournament/tournament_controller";
 import TournamentHeader from "../components/Tournament/tournament_header";
 import {connect} from "react-redux";
-import {getladders, getRegistrations, getTournamentById} from "../components/api/api";
+import {getladders, getRegistrations, getTournamentById, getUser} from "../components/api/api";
 
 
 function TournamentRoute(props) {
@@ -53,13 +53,7 @@ const mapDispatchToProps = (dispatch) => {
 
         handleDownloadUser: () => {
             //    API z kalendarza
-            fetch('https://dragonmaster.pl/inz/' + "user", {
-                headers: {
-                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7")
-                },
-                method: "GET",
-            })
-              .then((res) => res.json())
+            getUser()
               .then( res => {
                     console.log(res)
                     return dispatch({type: "DOWNLOAD_USER", payload: {data: res}});
@@ -97,25 +91,25 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         // DOWNLOAD_PAIRS
-        PostPayedUsingCash: (id) => {
-            //    API z kalendarza
-            fetch('https://dragonmaster.pl/inz/' + "registration/payedUsingCash", {
-                headers: {
-                    Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
-                },
-                body: {
-                    id: id,
-                    ownerOrInvited: "owner"
-                },
-                method: "POST",
-            })
-                .then((res) => res.json())
-                .then( res => {
-                        return dispatch({type: "DOWNLOAD_PAIRS", payload: {data: res}});
-                    }
-                )
-                .catch((err) => {console.log(err)});
-        },
+        // PostPayedUsingCash: (id) => {
+        //     //    API z kalendarza
+        //     fetch('https://dragonmaster.pl/inz/' + "registration/payedUsingCash", {
+        //         headers: {
+        //             Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
+        //         },
+        //         body: {
+        //             id: id,
+        //             ownerOrInvited: "owner"
+        //         },
+        //         method: "POST",
+        //     })
+        //         .then((res) => res.json())
+        //         .then( res => {
+        //                 return dispatch({type: "DOWNLOAD_PAIRS", payload: {data: res}});
+        //             }
+        //         )
+        //         .catch((err) => {console.log(err)});
+        // },
 
 
 
