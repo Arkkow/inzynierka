@@ -43,7 +43,7 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
   return (
     <Modal show={isLoginOpen} onHide={() => setIsLoginOpen(false)}>
       <Modal.Header closeButton>
-        <img src={PFP_LOGO} style={{ marginLeft: "auto" }} alt="LOGO" />
+        <img src={PFP_LOGO} style={{ marginLeft: "auto", height:"8vh"}} alt="LOGO" />
       </Modal.Header>
       <Modal.Body
         style={{

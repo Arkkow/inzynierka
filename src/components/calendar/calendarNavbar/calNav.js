@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import {Col, Form, Row} from "react-bootstrap";
 
 
-function Header() {
+export const Header = (props) => {
     return (
         <Navbar bg="light" expand="lg" >
             <Navbar.Toggle aria-controls="basic-navbar-nav" style={{marginLeft: "7%"}}/>

@@ -1,18 +1,33 @@
 // General React imports
-import * as React from 'react';
-
+import * as React from "react";
+import { useState } from "react";
 // Project specific files
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 // CSS files
 import cup_logo from "../../assets/cup.svg";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import RangTick from "../common/Buttons/rang_tick";
+import { getPendingApprovals, postAcceptInvite, postRejectInvite } from "../api/api";
 import InfoPanel from "../common/info_panel";
 
 
+
+const invitation = getPendingApprovals();
+invitation.then((value) => {
+  for (let i = 0; i < value.length; i++) {
+    console.log(value[i]);
+  }
+});
+
 export const CalendarCard = (props) => {
+  const [invitations, setInvitations] = useState({ fetched: false, data: [] });
+  if (invitations.fetched === false) {
+    getPendingApprovals().then((dane) => {
+      setInvitations({ fetched: true, data: dane });
+    });
+  }
 
     return (
         <Card border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%"}} >
@@ -38,32 +53,39 @@ export const CalendarCard = (props) => {
                             </h5>
                         </Row>
 
-                        <InfoPanel {...props}/>
-                    </Col>
-                    <Col sm={2}>
-                        {props.user.role === '2' ?
-                        <Card.Text>
-                            <div style={{ textAlign: "center"}}>
-                                Użytkownik zaprosił cię do gry w tym turnieju
-                            </div>
-                            <div style={{textAlign: "center"}}>
-                                <Button variant="success" style={{margin: "5%"}}>TAK</Button>
-                                <Button variant="danger" style={{margin: "5%"}}>NIE</Button>
-                            </div>
-                        </Card.Text>
-                            :null
-                        }
-                    </Col>
-                    <Col sm={3} >
-                        <Row>
-                            {props.user.id === props.creator?
-                            <Dropdown>
-                                <Dropdown.Toggle variant="secondary">
-                                    ...
-                                </Dropdown.Toggle>
+            <InfoPanel {...props} />
+          </Col>
+          {invitations.fetched === false ? (
+            <h5>Brak zaproszeń na ten turniej</h5>
+          ) : (
+            invitations.data.map((invitation) => (
+              <Col sm={2}>
+                {invitation.tournament == props.id ? (
+                  <Card.Text>
+                    <div style={{ textAlign: "center" }}>
+                      Użytkownik {invitation.inviter} cię do gry w tym turnieju
+                    </div>
+                    <div style={{ textAlign: "center" }}>
+                      <Button variant="success" style={{ margin: "5%" }} onClick={() => postAcceptInvite(invitation.id)}>
+                        TAK
+                      </Button>
+                      <Button variant="danger" style={{ margin: "5%" }} onClick={() => postRejectInvite(invitation.id)}>
+                        NIE
+                      </Button>
+                    </div>
+                  </Card.Text>
+                ) : null}
+              </Col>
+            ))
+          )}
+          <Col sm={3}>
+            <Row>
+                {props.user.id === props.creator?
+              <Dropdown>
+                <Dropdown.Toggle variant="secondary">...</Dropdown.Toggle>
 
                                 <Dropdown.Menu variant="secondary">
-                                    <Dropdown.Item {...props} href={"edit"+"?id="+props.id}>
+                                    <Dropdown.Item {...props} href={"edit_tournament"+"?id="+props.id}>
                                         Edytuj
                                     </Dropdown.Item>
                                     <Dropdown.Item>
