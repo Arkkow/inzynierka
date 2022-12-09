@@ -59,7 +59,7 @@ export const ZapisyCard = (props) => {
                     </Col>
                     <Col sm={1}>
                         <Row>
-                            {props.approval === "0"?
+                            {props.approval === "0" && (props.user.role === "2" || props.user.role === "3")?
                                 <Button onClick={() => {
                                     postRegistrationApprove(String(props.id)).then(r =>console.log(r))
                                 }
@@ -74,28 +74,31 @@ export const ZapisyCard = (props) => {
                                 <Form>
                                     {props.user.role === "2" || props.user.role === '3'?
                                         props.paymentstatus === "DONE"?
-                                          <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis opłacony" reverse/>:
-                                          <Form.Check type="switch" label="Zapis opłacony" reverse
+                                          <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis 1. opłacony" reverse/>:
+                                          <Form.Check type="switch" label="Zapis 1. opłacony" reverse
                                                       onClick={() => {
                                                           postPayedUsingCash({
-                                                              '"id"': String(props.id) ,
-                                                              '"ownerOrInvited"': "owner"
+                                                              "id": String(props.id) ,
+                                                              "ownerOrInvited": "owner"
                                                           }).then(r =>console.log(r));
                                                       }
                                                       }/>:null
                                     }
 
-                                    {props.paymentstatus2 === "DONE"?
-                                        <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis opłacony" reverse/>:
-                                        <Form.Check type="switch" label="Zapis opłacony" reverse
+                                    {props.user.role === "2" || props.user.role === '3'?
+                                    props.paymentstatus2 === "DONE"?
+                                        <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis 2 opłacony" reverse/>:
+                                        <Form.Check type="switch" label="Zapis 2 opłacony" reverse
                                                     onClick={() => {
                                                         postPayedUsingCash({
-                                                            '"id"': String(props.id) ,
-                                                            '"ownerOrInvited"': "invited"
+                                                            "id": String(props.id) ,
+                                                            "ownerOrInvited": "invited"
                                                         }).then(r =>console.log(r));
                                                     }
-                                        }/>
+                                        }/>:null
                                     }
+
+                                    {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?"Zapis zatwierdzony":null}
                                 </Form>
                             </Row>
                             {props.approval=="1" &&((props.userid == props.user.id && props.paymentstatus !="DONE" && props.paymentstatus !="PENDING") || (props.partner == props.user.id&& props.paymentstatus2 !="DONE" && props.paymentstatus2 !="PENDING")) ?
