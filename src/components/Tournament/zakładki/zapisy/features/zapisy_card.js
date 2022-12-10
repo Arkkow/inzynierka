@@ -97,7 +97,7 @@ export const ZapisyCard = (props) => {
                                     {props.partner === props.user.id && props.paymentstatus === "PENDING"?"Oczekuje na płatność partnera":null}
                                 </Form>
                             </Row>
-                            {props.approval==="1" &&((props.userid === props.user.id && props.paymentstatus !=="DONE" && props.paymentstatus !=="PENDING") || (props.partner === props.user.id&& props.paymentstatus2 !=="DONE" && props.paymentstatus2 !=="PENDING")) ?
+                            {props.approval=="1" &&((props.userid == props.user.id && props.paymentstatus !="DONE" && props.paymentstatus !="PENDING") || (props.partner == props.user.id&& props.paymentstatus2 !="DONE" && props.paymentstatus2 !="PENDING")) ?
                                 <Row>
                                     <div>
                                         <PaymentMethod_popup rid ={props.id} />
