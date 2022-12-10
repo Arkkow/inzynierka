@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import Button from "react-bootstrap/Button";
+import {getElement} from "bootstrap/js/src/util";
 
 function InputBox() {
   const [error, setError] = useState(null);
@@ -11,7 +12,7 @@ function InputBox() {
   const pointsForTournament = useRef(1);
   const places = useRef("1");
   // const roles = useRef("1");
-  const ranked = useRef("0");
+  const ranked = useRef("FALSE");
   const place = useRef("1");
   const from = useRef("1");
   const to = useRef("1");
@@ -22,15 +23,15 @@ function InputBox() {
   const entriesTo = useRef("1");
   const additionalInformations = useRef("1");
   const categotry = useRef("OPEN");
-  const visibility = useRef("TRUE");
+  const visibility = useRef("FALSE");
   const handleClick = () => {
-    if (visibility.current.value === "on") {
+    if (visibility.current.value == "on") {
       visibility.current.value = "TRUE";
     } else {
       visibility.current.value = "FALSE";
     }
 
-    if (ranked.current.value === "on") {
+    if (ranked.current.value == "on") {
       ranked.current.value = "TRUE";
     } else {
       ranked.current.value = "FALSE";
@@ -76,7 +77,7 @@ function InputBox() {
         entriesTo: entriesTo.current.value,
         additionalInformations: additionalInformations.current.value,
         categotry: categotry.current.value,
-        visibility: "TRUE",
+        visibility: visibility.current.value,
       }),
     })
       .then((res) => res.json())
@@ -356,7 +357,9 @@ function InputBox() {
           role="switch"
           id="flexSwitchCheckDefault"
           ref={visibility}
-        ></input>
+          // defaultValue={false}
+          // defaultChecked={true}
+        />
       </div>
 
 
@@ -378,7 +381,6 @@ function InputBox() {
           role="switch"
           id="flexSwitchCheckDefault"
           ref={ranked}
-          defaultChecked={true}
         />
       </div>
 
