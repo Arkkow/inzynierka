@@ -1,19 +1,19 @@
 import React, { useState, useRef } from "react";
 import "../input_box/input_box.css";
 import PFP_LOGO from "../../../assets/PFP_LOGO.png";
-import {getTournaments} from "../../api/api";
+import {getTournamentById} from "../../api/api";
 
 function InputBox() {
+  const id = window.location.href.split('?')[1].split('=')[1];
 
 
 
   const [tournament, getTournament] = useState({"fetched":false,data:[]});
   if(tournament.fetched === false){
-    getTournaments().then((dane)=>{getTournament({"fetched":true,data:dane});})
+    getTournamentById(id).then((dane)=>{getTournament({"fetched":true,data:dane});})
   }
 
 
-  const id = window.location.href.split('?')[1].split('=')[1];
   const [error, setError] = useState(null);
   const [isSended, setIsSended] = useState(false);
   const [response, setResponse] = useState([]);
