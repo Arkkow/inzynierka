@@ -54,7 +54,7 @@ export const ZapisyCard = (props) => {
                     <Col sm={1}>
                         <Row>
                             {/*TODO show only if props.partnerzaakceptował dla obydwu graczy TODO*/}
-                            {props.approval === "0" && (props.user.role === "2" || props.user.role === "3")?
+                            {props.approval === "0" && props.partnerAcceptance === "1" && (props.user.role === "2" || props.user.role === "3")?
                                 <Button onClick={() => {
                                     postRegistrationApprove(String(props.id)).then(r =>console.log(r))
                                 }
@@ -82,6 +82,7 @@ export const ZapisyCard = (props) => {
 
                                     {props.user.role === "2" || props.user.role === '3'?
                                     props.paymentstatus2 === "DONE"?
+                                        // TODO testy
                                         <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "CASH"} label="Zapis 2 opłacony" reverse/>:
                                         <Form.Check type="switch" label="Zapis 2 opłacony" reverse
                                                     onClick={() => {

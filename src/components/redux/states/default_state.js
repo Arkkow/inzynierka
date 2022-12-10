@@ -61,6 +61,7 @@ const default_state = {
         name2:"Łukasik",
         surname2:"Paweł",
         rankingsum:"1272",
+        partnerAcceptance: "0",
       },
     }
   },
