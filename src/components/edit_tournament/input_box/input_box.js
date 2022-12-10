@@ -1,19 +1,19 @@
 import React, { useState, useRef } from "react";
 import "../input_box/input_box.css";
 import PFP_LOGO from "../../../assets/PFP_LOGO.png";
-import {getTournaments} from "../../api/api";
+import {getTournamentById} from "../../api/api";
 
 function InputBox() {
+  const id = window.location.href.split('?')[1].split('=')[1];
 
 
 
   const [tournament, getTournament] = useState({"fetched":false,data:[]});
   if(tournament.fetched === false){
-    getTournaments().then((dane)=>{getTournament({"fetched":true,data:dane});})
+    getTournamentById(id).then((dane)=>{getTournament({"fetched":true,data:dane});})
   }
 
 
-  const id = window.location.href.split('?')[1].split('=')[1];
   const [error, setError] = useState(null);
   const [isSended, setIsSended] = useState(false);
   const [response, setResponse] = useState([]);
@@ -109,17 +109,13 @@ function InputBox() {
 
     if (error) {
       console.log("Coś poszło nie tak: " + error.message);
+      alert("Coś nie tak")
     }
 
   };
 
 
   return (
-      <>
-      {tournament.fetched === false ?
-            <h5>no results available</h5> :
-            tournament.data.map((data)=>(
-
     <div
       className="mb-3"
       style={{
@@ -145,7 +141,7 @@ function InputBox() {
         type="text"
         className="form-control"
         id="exampleFormControlInput1"
-        defaultValue={data.name}
+        defaultValue={tournament.data.name}
         ref={name}
       ></input>
 
@@ -161,7 +157,7 @@ function InputBox() {
         type="date"
         className="form-control"
         id="exampleFormControlInput1"
-        defaultValue="2022-05-28"
+        defaultValue={tournament.data.from}
         ref={from}
       ></input>
       <label
@@ -176,7 +172,7 @@ function InputBox() {
         type="date"
         className="form-control"
         id="exampleFormControlInput1"
-        defaultValue="2022-05-29"
+        defaultValue={tournament.data.to}
         ref={to}
       ></input>
 
@@ -192,7 +188,7 @@ function InputBox() {
         type="text"
         className="form-control"
         id="exampleFormControlInput1"
-        defaultValue="Propadel, Warszawa"
+        defaultValue={tournament.data.place}
         ref={place}
       ></input>
 
@@ -207,7 +203,7 @@ function InputBox() {
         style={{ width: "10%", textAlign: "center" }}
         className="form-control"
         type="text"
-        value="OPEN"
+        value={tournament.data.categotry}
         aria-label="Disabled input example"
         ref={categotry}
         disabled
@@ -228,8 +224,8 @@ function InputBox() {
           id="sel1"
           ref={rang}
         >
-          <option selected>CHALLENGER</option>
-          <option value="1">MASTER</option>
+          {tournament.data.rang == "CHALLENGER" ? <option selected>CHALLENGER</option> : <option value="CHALLENGER">CHALLENGER</option>}
+          {tournament.data.rang == "MASTER" ? <option selected>MASTER</option> : <option value="MASTER">MASTER</option>}
         </select>
       </div>
 
@@ -247,9 +243,9 @@ function InputBox() {
           id="sel1"
           ref={typeOfLadder}
         >
-          <option selected>DRABINKA KLASYCZNA</option>
-          <option value="1">DRABINKA O MIEJSCA</option>
-          <option value="2">GRUPY + DRABINKA</option>
+          {tournament.data.typeOfLadder == "DRABINKA KLASYCZNA" ? <option selected>DRABINKA KLASYCZNA</option> : <option value="DRABINKA KLASYCZNA">DRABINKA KLASYCZNA</option>}
+          {tournament.data.typeOfLadder == "DRABINKA O MIEJSCA" ? <option selected>DRABINKA O MIEJSCA</option> : <option value="DRABINKA O MIEJSCA">DRABINKA O MIEJSCA</option>}
+          {tournament.data.typeOfLadder == "GRUPY + DRABINKA" ? <option selected>GRUPY + DRABINKA</option> : <option value="GRUPY + DRABINKA">GRUPY + DRABINKA</option>}
         </select>
       </div>
 
@@ -267,8 +263,8 @@ function InputBox() {
           id="sel1"
           ref={places}
         >
-          <option selected>8</option>
-          <option value="1">16</option>
+          {tournament.data.places == "8" ? <option selected>8</option> : <option value="8">8</option>}
+          {tournament.data.places == "16" ? <option selected>16</option> : <option value="16">16</option>}
         </select>
       </div>
 
@@ -284,7 +280,7 @@ function InputBox() {
         type="number"
         className="form-control"
         id="exampleFormControlInput1"
-        defaultValue="80"
+        defaultValue={tournament.data.entryFee}
         ref={entryFee}
       ></input>
 
@@ -300,7 +296,7 @@ function InputBox() {
         type="text"
         className="form-control"
         id="exampleFormControlInput1"
-        defaultValue="Adam Kowalski"
+        defaultValue={tournament.data.director}
         ref={director}
       ></input>
 
@@ -316,7 +312,7 @@ function InputBox() {
         type="tel"
         className="form-control"
         id="exampleFormControlInput1"
-        defaultValue="605432123"
+        defaultValue={tournament.data.phone}
         ref={phone}
       ></input>
 
@@ -332,7 +328,7 @@ function InputBox() {
         type="date"
         className="form-control"
         id="exampleFormControlInput1"
-        defaultValue="2022-05-20"
+        defaultValue={tournament.data.entriesTo}
         ref={entriesTo}
       ></input>
 
@@ -348,7 +344,7 @@ function InputBox() {
         className="form-control"
         id="exampleFormControlTextarea1"
         rows="3"
-        defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tortor lectus, pretium sed nibh sed, interdum euismod orci. Maecenas feugiat, nisi a viverra volutpat, nulla enim cursus enim, nec mollis augue dui eget magna. Mauris non rhoncus sem. Proin rhoncus lobortis neque, non fringilla magna gravida eget. Integer vehicula suscipit arcu nec tincidunt. Integer malesuada lorem sit amet massa ullamcorper, et faucibus est venenatis. Sed maximus pellentesque mauris, eget malesuada risus eleifend vitae. Duis sollicitudin sit amet metus suscipit lobortis. Integer massa erat, ultrices non augue eu, suscipit ultricies nisl. Donec ultricies augue eu enim laoreet, in tristique nulla pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec rutrum mauris. Aliquam congue ligula eu dictum lobortis. Aenean suscipit pulvinar diam at ultrices. In vestibulum sagittis libero, id ultrices ante placerat sed. Ut porttitor commodo tincidunt. Aliquam eu neque eget nulla tempor feugiat at vitae velit. Donec eleifend venenatis eleifend. Cras mi ex, scelerisque cursus dignissim ac, commodo eu elit. In hac habitasse platea dictumst. Vestibulum sed urna id magna venenatis ornare ut in erat. Nulla nulla justo, porttitor ut tempus egestas, vestibulum eget diam. In non orci enim."
+        defaultValue={tournament.data.additionalInformations}
         ref={additionalInformations}
       ></textarea>
 
@@ -368,7 +364,7 @@ function InputBox() {
           type="checkbox"
           role="switch"
           id="flexSwitchCheckDefault"
-          defaultChecked={true}
+          defaultChecked={tournament.data.visibility}
           ref={visibility}
         ></input>
       </div>
@@ -421,7 +417,7 @@ function InputBox() {
           EDYTUJ TURNIEJ
         </button>
       </div>
-    </div>))}</>
+    </div>
   );
 }
 
