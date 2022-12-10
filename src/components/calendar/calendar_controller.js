@@ -1,14 +1,15 @@
 // General react imports
+import { useEffect } from "react";
+import { connect } from "react-redux";
+
 
 // Project specific files
 import CalendarCard from "./calendar_card";
-import { connect } from "react-redux";
-import { Col, Row } from "react-bootstrap";
-import { useEffect } from "react";
 import {getPendingApprovals, getTournaments, getUser} from "../api/api";
-// import { getPendingApprovals } from "../api/api";
 
 // CSS files
+import { Col, Row } from "react-bootstrap";
+
 
 export const Calendar_controller = (props) => {
   useEffect(() => {
@@ -24,7 +25,7 @@ export const Calendar_controller = (props) => {
           <h5>no results available</h5>
         ) : (
           props.calendar_list.map((card) => (
-            <CalendarCard {...card} user={props.user} view={props.view} my_tournaments={props.my_tournament_list}/>
+            <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournaments={props.my_tournament_list} />
           ))
         )}
       </Col>

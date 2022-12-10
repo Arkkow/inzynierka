@@ -1,15 +1,16 @@
 // General React imports
 import * as React from 'react';
+import {useEffect} from "react";
 
 // Project specific files
-
-// CSS files
-import {Container, Row, Col} from "react-bootstrap";
-import {useEffect} from "react";
 import TournamentInfo from "./zakładki/tournament_informacje";
 import TournamentNavbar from "./common/tournament_navbar";
 import Drabinka from "./zakładki/drabinka/drabinka";
 import Zapisy from "./zakładki/zapisy/zapisy";
+
+// CSS files
+import {Container, Row, Col} from "react-bootstrap";
+
 
 
 export const Tournament_controller = (props) => {
@@ -24,7 +25,7 @@ export const Tournament_controller = (props) => {
         }, [])
 
     return (
-        <Container fluid style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
+        <Container fluid="true" style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
             <Row className="justify-content-md-center" >
                 <Col sm={6} style={{paddingLeft: 0, paddingRight:0}}>
                     <TournamentNavbar {...props}/>

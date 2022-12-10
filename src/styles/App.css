@@ -48,7 +48,7 @@
 
 paragraph{
   color: black;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -56,7 +56,7 @@ paragraph{
 }
 
 my_h4{
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;

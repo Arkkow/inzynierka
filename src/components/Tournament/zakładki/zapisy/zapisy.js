@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
-import ZapisyCard from "./features/zapisy_card";
+import ZapisyCard from "./features/zapisy_card/zapisy_card";
 import {getUser} from '../../../api/api.js';
 import { useState }  from 'react';
 
@@ -17,12 +17,12 @@ export const Zapisy = (props) => {
 		  getUser().then((dane)=>{setUser({"fetched":true,data:dane});})
 	  }
     return (
-        <Container fluid style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
+        <Container fluid="true" style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
             {/*<div>DIV: {props.pairs_list.data}</div>*/}
             <Row className="justify-content-md-center" >
                 <Col sm={12} style={{paddingLeft: 0, paddingRight:0}}>
                     <Container>
-                        <Row fluid style={{backgroundColor: "transparent", marginTop: "1%", marginBottom: "0.5%"}}>
+                        <Row fluid="true" style={{backgroundColor: "transparent", marginTop: "1%", marginBottom: "0.5%"}}>
                             <Col sm={4} style={{paddingRight: 0}}>
                                 <Button variant="outline-light" style={{ float: "right"}}> Zaakceptowanych par: 8</Button>
                             </Col>
@@ -32,8 +32,8 @@ export const Zapisy = (props) => {
                         </Row>
                         <Row style={{background: "white"}}>
                             DIV: &nbsp;
-                            {props.pairs_list.pairs.length}
-                            &nbsp;
+                            {/*{props.pairs_list.pairs.length}*/}
+                            {/*&nbsp;*/}
 
                             {props.pairs_list.pairs.length === 0 ?
                                 <h5>no results available</h5> :

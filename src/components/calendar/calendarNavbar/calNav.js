@@ -5,13 +5,13 @@ import Button from 'react-bootstrap/Button';
 import {Col, Form, Row} from "react-bootstrap";
 
 
-export const Header = (props) => {
+export const Header = () => {
     return (
         <Navbar bg="light" expand="lg" >
             <Navbar.Toggle aria-controls="basic-navbar-nav" style={{marginLeft: "7%"}}/>
             <Navbar.Collapse id="basic-navbar-nav" >
 
-                <Container fluid>
+                <Container fluid="true">
                     <Nav className="me-auto">
                         <Container>
                             <Row style={{marginTop: "1%"}}>

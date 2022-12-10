@@ -3,14 +3,16 @@ import * as React from 'react';
 
 // Project specific files
 import { useState }  from 'react';
-import Container from "react-bootstrap/Container";
-import {Col, Row,Form,Button } from "react-bootstrap";
-import Card from 'react-bootstrap/Card';
+import {getleaderboard} from "../components/api/api.js"
+
 
 // CSS files
+import Container from "react-bootstrap/Container";
+import {Col, Row} from "react-bootstrap";
+import Card from 'react-bootstrap/Card';
 import '../styles/index.css';
 import '../styles/App.css';
-import {getleaderboard} from "../components/api/api.js"
+
 export default function RankingRoute () {
 		  const [cart, setCart] = useState({"fetched":false,data:[]});
 	  if(cart.fetched === false){
@@ -18,7 +20,7 @@ export default function RankingRoute () {
 	  }
 		
     return (
-        <Container fluid style={{background: "#c2d1b8", minHeight: "94vh", paddingTop: "2%"}}>
+        <Container fluid="true" style={{background: "#c2d1b8", minHeight: "94vh", paddingTop: "2%"}}>
             <Row className="justify-content-md-center">
 <Row className="justify-content-md-center">
             <Col sm={6} >

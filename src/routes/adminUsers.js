@@ -20,7 +20,7 @@ export default function AdminUsers() {
   }
   return (
     <Container
-      fluid
+      fluid="true"
       style={{ background: "#c2d1b8", minHeight: "94vh", paddingTop: "2%" }}
     >
       <Row className="justify-content-md-center">

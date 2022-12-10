@@ -1,7 +1,6 @@
 // General React imports
 import * as React from 'react';
-import {Col, Container, Row} from "react-bootstrap";
-import TournamentNavbar from "../common/tournament_navbar";
+import {Container, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
 // Project specific files
@@ -54,7 +53,7 @@ export const TournamentInfo = (props) => {
                 <div style={{marginBottom: "1%"}}>
                     <h5 style={{marginBottom:"0"}}>Kategorie</h5>
                     <div>
-                        <Button variant="success" disabled="true" style={{paddingTop: "0", paddingBottom: "0", marginTop: "1%"}}>OPEN</Button>
+                        <Button variant="success" disabled={true} style={{paddingTop: "0", paddingBottom: "0", marginTop: "1%"}}>OPEN</Button>
                     </div>
                 </div>
                 <div style={{marginBottom: "1%"}}>
