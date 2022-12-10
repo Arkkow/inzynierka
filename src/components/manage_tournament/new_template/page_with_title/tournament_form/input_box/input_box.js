@@ -1,5 +1,4 @@
 import React from "react";
-import "../input_box/input_box.css";
 
 function InputBox() {
     return (

@@ -1,6 +1,6 @@
 import React from "react";
-import TournamentForm from "../tournament_form/tournament_form";
-import "../page_with_title/page_with_title.css";
+import TournamentForm from "./tournament_form/tournament_form";
+import "./page_with_title.css";
 
 
 function TitlePage() {

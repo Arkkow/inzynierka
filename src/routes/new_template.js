@@ -6,7 +6,7 @@ import * as React from "react";
 // CSS files
 import "../styles/index.css";
 import "../styles/App.css";
-import TitlePage from "../components/new_template/page_with_title/page_with_title";
+import TitlePage from "../components/manage_tournament/new_template/page_with_title/page_with_title";
 
 
 export default function NewTemplateRoute() {

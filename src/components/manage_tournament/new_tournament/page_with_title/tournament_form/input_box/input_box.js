@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import "../input_box/input_box.css";
 import Button from "react-bootstrap/Button";
 
 function InputBox() {
@@ -12,7 +11,7 @@ function InputBox() {
   const pointsForTournament = useRef(1);
   const places = useRef("1");
   // const roles = useRef("1");
-  const ranked = useRef("1");
+  const ranked = useRef("0");
   const place = useRef("1");
   const from = useRef("1");
   const to = useRef("1");
@@ -94,9 +93,11 @@ function InputBox() {
       );
     if (error) {
       alert("Coś poszło nie tak: " + error.message);
-    } else {
-      window.location.href="calendar";
     }
+    // else {
+    //   window.location.href="calendar";
+    //   console.log("śmiag pięknie")
+    // }
   };
 
   return (
@@ -333,6 +334,11 @@ function InputBox() {
         ref={additionalInformations}
       ></textarea>
 
+      {/** **************** **/}
+      {/** SLIDERY **/}
+      {/** **************** **/}
+
+      {/*Widoczność*/}
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
         htmlFor="exampleFormControlTextarea1"
@@ -353,6 +359,8 @@ function InputBox() {
         ></input>
       </div>
 
+
+      {/*Rankingowość*/}
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
         htmlFor="exampleFormControlTextarea1"
@@ -370,7 +378,8 @@ function InputBox() {
           role="switch"
           id="flexSwitchCheckDefault"
           ref={ranked}
-        ></input>
+          defaultChecked={true}
+        />
       </div>
 
       <label
@@ -402,7 +411,6 @@ function InputBox() {
           ANULUJ
         </Button>
         <Button
-            // href={"calendar"}
             style={{
               fontFamily: "Montserrat",
               fontWeight: "600",
