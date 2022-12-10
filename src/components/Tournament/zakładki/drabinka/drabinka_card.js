@@ -11,7 +11,7 @@ import {Container, Row, Col} from "react-bootstrap";
 export const DrabinkaCard = (props) => {
     return (
         <Card border={"dark"} style={{ width: '95%', margin: "auto", padding: "1%", borderRadius: 0}} >
-            <Container fluid="md">
+            <Container fluid="true">
                 <Row>
                     <Col sm={8}>
                         <h5>

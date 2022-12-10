@@ -8,13 +8,11 @@ import Button from 'react-bootstrap/Button';
 import {Container, Row, Col} from "react-bootstrap";
 import DrabinkaCard from "./drabinka_card";
 import "./x.css";
-import CalendarCard from "../../../calendar/calendar_card";
-import ZapisyCard from "../zapisy/features/zapisy_card";
 
 
 export const Drabinka = (props) => {
     return (
-        <Container fluid style={{background: "#188FA7", paddingTop: "1%"}}>
+        <Container fluid="true" style={{background: "#188FA7", paddingTop: "1%"}}>
             <Row>
                 <Col sm={6}>
                     <Row>

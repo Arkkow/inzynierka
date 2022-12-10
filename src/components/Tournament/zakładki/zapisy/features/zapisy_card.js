@@ -8,14 +8,10 @@ import PaymentMethod_popup from '../../../../popups/payment_method_popup.js';
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";
 import {
-    postAcceptProposal,
     postPayedUsingCash,
-    postPayForRegistration,
     postRegistrationApprove,
-    postTournaments
 } from "../../../../api/api";
 import Button from "react-bootstrap/Button";
-import { string } from "prop-types";
 
 
 export const ZapisyCard = (props) => {
@@ -28,8 +24,6 @@ export const ZapisyCard = (props) => {
     return (
         <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%"}} >
             <Container fluid="md">
-                {/*{console.log("HIIII")}*/}
-                {/*{console.log(props.id)}*/}
                 <Row>
                     <Col sm={1}>
                         <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
@@ -99,9 +93,11 @@ export const ZapisyCard = (props) => {
                                     }
 
                                     {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?"Zapis zatwierdzony":null}
+                                    {props.userid === props.user.id && props.paymentstatus2 === "PENDING"?"Oczekuje na płatność partnera":null}
+                                    {props.partner === props.user.id && props.paymentstatus === "PENDING"?"Oczekuje na płatność partnera":null}
                                 </Form>
                             </Row>
-                            {props.approval=="1" &&((props.userid == props.user.id && props.paymentstatus !="DONE" && props.paymentstatus !="PENDING") || (props.partner == props.user.id&& props.paymentstatus2 !="DONE" && props.paymentstatus2 !="PENDING")) ?
+                            {props.approval==="1" &&((props.userid === props.user.id && props.paymentstatus !=="DONE" && props.paymentstatus !=="PENDING") || (props.partner === props.user.id&& props.paymentstatus2 !=="DONE" && props.paymentstatus2 !=="PENDING")) ?
                                 <Row>
                                     <div>
                                         <PaymentMethod_popup rid ={props.id} />

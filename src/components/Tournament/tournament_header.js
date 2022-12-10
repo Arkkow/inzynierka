@@ -2,20 +2,18 @@
 import * as React from 'react';
 
 // Project specific files
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
-
-// CSS files
-import cup_logo from "../../assets/cup.svg";
 import {Container, Row, Col} from "react-bootstrap";
 import T_registration_popup from "../popups/T_registration_popup";
+
+// CSS files
+import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";
+import cup_logo from "../../assets/cup.svg";
 
 
 export const TournamentHeader = (props) => {
 
     return (
-        <Container fluid style={{background: "#99D17B", minHeight: "30vh", paddingTop: "2%", paddingBottom: "3%"}}>
+        <Container fluid="true" style={{background: "#99D17B", minHeight: "30vh", paddingTop: "2%", paddingBottom: "3%"}}>
             <Row>
                 <Col sm={3}>
                     <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
@@ -46,7 +44,7 @@ export const TournamentHeader = (props) => {
                 </Col>
                 <Col sm={4} style={{ }}>
                     <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
-                        <T_registration_popup></T_registration_popup>
+                        <T_registration_popup/>
                     </div>
                 </Col>
             </Row>
