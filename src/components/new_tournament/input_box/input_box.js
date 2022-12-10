@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import "../input_box/input_box.css";
+import Button from "react-bootstrap/Button";
 
 function InputBox() {
   const [error, setError] = useState(null);
@@ -24,31 +25,31 @@ function InputBox() {
   const categotry = useRef("OPEN");
   const visibility = useRef("TRUE");
   const handleClick = () => {
-    if (visibility.current.value == "on") {
+    if (visibility.current.value === "on") {
       visibility.current.value = "TRUE";
     } else {
       visibility.current.value = "FALSE";
     }
 
-    if (ranked.current.value == "on") {
+    if (ranked.current.value === "on") {
       ranked.current.value = "TRUE";
     } else {
       ranked.current.value = "FALSE";
     }
 
     if (
-      places.current.value == "8" &&
-      categotry.current.value == "CHALLENGER"
+      places.current.value === "8" &&
+      categotry.current.value === "CHALLENGER"
     ) {
       pointsForTournament.value = "250";
     } else if (
-      places.current.value == "16" &&
-      categotry.current.value == "CHALLENGER"
+      places.current.value === "16" &&
+      categotry.current.value === "CHALLENGER"
     ) {
       pointsForTournament.value = "500";
     } else if (
-      places.current.value == "8" &&
-      categotry.current.value == "MASTER"
+      places.current.value === "8" &&
+      categotry.current.value === "MASTER"
     ) {
       pointsForTournament.value = "500";
     } else {
@@ -93,6 +94,8 @@ function InputBox() {
       );
     if (error) {
       alert("Coś poszło nie tak: " + error.message);
+    } else {
+      window.location.href="calendar";
     }
   };
 
@@ -385,34 +388,36 @@ function InputBox() {
       ></input>
 
       <div style={{ marginTop: "3%" }}>
-        <button
-          style={{
-            marginRight: "2%",
-            fontFamily: "Montserrat",
-            fontWeight: "600",
-            fontSize: "18px",
-            lineHeight: "25px",
-            color: "white",
-          }}
-          type="button"
-          className="btn btn-secondary"
+        <Button
+            href={"calendar"}
+            style={{
+              fontFamily: "Montserrat",
+              fontWeight: "600",
+              fontSize: "18px",
+              lineHeight: "25px",
+              color: "white",
+            }}
+            className="btn btn-secondary"
         >
           ANULUJ
-        </button>
-        <button
-          style={{
-            fontFamily: "Montserrat",
-            fontWeight: "600",
-            fontSize: "18px",
-            lineHeight: "25px",
-            color: "white",
-          }}
-          type="button"
-          className="btn btn-success"
-          onClick={handleClick}
+        </Button>
+        <Button
+            // href={"calendar"}
+            style={{
+              fontFamily: "Montserrat",
+              fontWeight: "600",
+              fontSize: "18px",
+              lineHeight: "25px",
+              color: "white",
+            }}
+            className="btn btn-success"
+            onClick={() => {
+              handleClick();
+            }
+        }
         >
           STWÓRZ TURNIEJ
-        </button>
+        </Button>
       </div>
     </div>
   );

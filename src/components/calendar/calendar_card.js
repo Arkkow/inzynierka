@@ -55,12 +55,12 @@ export const CalendarCard = (props) => {
 
             <InfoPanel {...props} />
           </Col>
-          {invitations.fetched === false ? (
+          {invitations.fetched == false ? (
             <h5>Brak zaproszeń na ten turniej</h5>
           ) : (
             invitations.data.map((invitation) => (
               <Col sm={2}>
-                {invitation.tournament == props.id ? (
+                {invitation.tournament === props.id ? (
                   <Card.Text>
                     <div style={{ textAlign: "center" }}>
                       Użytkownik {invitation.inviter} cię do gry w tym turnieju
