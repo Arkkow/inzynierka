@@ -8,7 +8,8 @@ const default_state = {
         pointsForTournament: "string",
         places: "Poznań",
         roles: "string",
-        approved: "string",
+        // approved to rankingowość
+        approved: "FALSE",
         from: "24 listopada 2023",
         to: "27 listopada 2023",
         rang: "rang1",
@@ -18,7 +19,7 @@ const default_state = {
         entriesTo: "string",
         additionalInformations: "info",
         categotry: "cat1",
-        visibility: "TRUE",
+        visibility: "FALSE",
       },
     ],
   },
