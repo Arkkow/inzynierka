@@ -12,7 +12,6 @@ function InputBox() {
   const pointsForTournament = useRef(1);
   const places = useRef("1");
   // const roles = useRef("1");
-  const ranked = useRef("FALSE");
   const place = useRef("1");
   const from = useRef("1");
   const to = useRef("1");
@@ -23,18 +22,22 @@ function InputBox() {
   const entriesTo = useRef("1");
   const additionalInformations = useRef("1");
   const categotry = useRef("OPEN");
-  const visibility = useRef("FALSE");
+  let visibility = "";
+  let ranked = "";
+
+
+
   const handleClick = () => {
-    if (visibility.current.value == "on") {
-      visibility.current.value = "TRUE";
+    if (document.getElementById("visibility_var").checked) {
+      visibility = "TRUE";
     } else {
-      visibility.current.value = "FALSE";
+      visibility = "FALSE";
     }
 
-    if (ranked.current.value == "on") {
-      ranked.current.value = "TRUE";
+    if (document.getElementById("ranked_var").checked) {
+      ranked = "TRUE";
     } else {
-      ranked.current.value = "FALSE";
+      ranked = "FALSE";
     }
 
     if (
@@ -66,7 +69,7 @@ function InputBox() {
         typeOfLadder: typeOfLadder.current.value,
         pointsForTournament: "4",
         places: "2",
-        ranked: ranked.current.value,
+        ranked: ranked,
         place: place.current.value,
         from: from.current.value,
         to: to.current.value,
@@ -77,7 +80,7 @@ function InputBox() {
         entriesTo: entriesTo.current.value,
         additionalInformations: additionalInformations.current.value,
         categotry: categotry.current.value,
-        visibility: visibility.current.value,
+        visibility: visibility,
       }),
     })
       .then((res) => res.json())
@@ -355,10 +358,7 @@ function InputBox() {
           className="form-check-input"
           type="checkbox"
           role="switch"
-          id="flexSwitchCheckDefault"
-          ref={visibility}
-          // defaultValue={false}
-          // defaultChecked={true}
+          id="visibility_var"
         />
       </div>
 
@@ -379,8 +379,7 @@ function InputBox() {
           className="form-check-input"
           type="checkbox"
           role="switch"
-          id="flexSwitchCheckDefault"
-          ref={ranked}
+          id="ranked_var"
         />
       </div>
 

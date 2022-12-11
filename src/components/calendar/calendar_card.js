@@ -78,6 +78,21 @@ export const CalendarCard = (props) => {
               </Col>
             ))
           )}
+            <Col sm={2}>
+                <Card.Text>
+                    <div style={{ textAlign: "center" }}>
+                        Czy wyrażasz zgodę, by ten turniej był rankingowy?
+                    </div>
+                    <div style={{ textAlign: "center" }}>
+                        <Button variant="success" style={{ margin: "5%" }} onClick={() => postAcceptInvite(invitation.id)}>
+                            TAK
+                        </Button>
+                        <Button variant="danger" style={{ margin: "5%" }} onClick={() => postRejectInvite(invitation.id)}>
+                            NIE
+                        </Button>
+                    </div>
+                </Card.Text>
+            </Col>
           <Col sm={3}>
             <Row>
                 {props.user.id === props.creator?
