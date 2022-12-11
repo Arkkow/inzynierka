@@ -2,15 +2,14 @@
 import * as React from 'react';
 
 // Project specific files
-import PaymentMethod_popup from '../../../../../../../popups/payment_method_popup.js';
+import PaymentMethod_popup from '../../../../../popups/payment_method_popup.js';
+import {postRegistrationApprove} from "../../../../../api/tournament_registration_api";
+import {postPayedUsingCash} from "../../../../../api/payment_api";
 
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";
-import {
-    postPayedUsingCash,
-    postRegistrationApprove,
-} from "../../../../../../../api/api";
 import Button from "react-bootstrap/Button";
+
 
 
 export const ZapisyConditionals = (props) => {

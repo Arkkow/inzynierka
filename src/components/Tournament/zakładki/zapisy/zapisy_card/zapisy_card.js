@@ -3,16 +3,10 @@ import * as React from 'react';
 
 // Project specific files
 import Card from 'react-bootstrap/Card';
-import PaymentMethod_popup from '../../../../../popups/payment_method_popup.js';
 
 // CSS files
-import {Container, Row, Col, Form} from "react-bootstrap";
-import {
-    postPayedUsingCash,
-    postRegistrationApprove,
-} from "../../../../../api/api";
-import Button from "react-bootstrap/Button";
-import ZapisyConditionals from "./features/zapisy_conditionals/zapisy_conditionals";
+import {Container, Row, Col} from "react-bootstrap";
+import ZapisyConditionals from "./zapisy_conditionals/zapisy_conditionals";
 
 
 export const ZapisyCard = (props) => {

@@ -1,12 +1,12 @@
-function getToken(){
+export function getToken(){
 return JSON.parse(localStorage.getItem("token")).token;
 }
-function makeReq(endpoint, method,body){
+export function makeReq(endpoint, method,body){
 	return new Promise(function(resolve) {
 	   var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
-    if (this.readyState == 4) {
-		if(this.status == 200){
+    if (this.readyState === 4) {
+		if(this.status === 200){
 		try{
         resolve(JSON.parse(xhttp.responseText));
 		}catch(e){
@@ -22,12 +22,12 @@ xhttp.send(body);
 
   });
 }
-function makeAuthedReq(endpoint, method,body){
+export function makeAuthedReq(endpoint, method,body){
 		return new Promise(function(resolve) {
 	   var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
-    if (this.readyState == 4) {
-		if(this.status == 200){
+    if (this.readyState === 4) {
+		if(this.status === 200){
 		try{
         resolve(JSON.parse(xhttp.responseText));
 		}catch(e){

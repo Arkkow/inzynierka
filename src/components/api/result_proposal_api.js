@@ -1,5 +1,4 @@
-import makeReq from "./api.js"
-import makeAuthedReq from "./api.js"
+import {makeAuthedReq} from "./api.js"
 
 
 /*

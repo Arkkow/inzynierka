@@ -4,8 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import "../../styles/App.css"
 import PFP_LOGO from "../../assets/PFP_LOGO.png";
-import {postPayForRegistration,getRegistrationPaymentStatus} from '../api/api.js';
-import './Payment.css'; 
+import './Payment.css';
+import {getRegistrationPaymentStatus, postPayForRegistration} from "../api/payment_api";
 var couter = 0; 
 
 function PaymentMethod_popup(props) {

@@ -1,5 +1,4 @@
-import makeReq from "./api.js"
-import makeAuthedReq from "./api.js"
+import {makeAuthedReq} from "./api.js"
 
 /*
 ID
@@ -37,6 +36,5 @@ OUTPUT
 }
 */
 export function postPayForRegistration(input) {
-    return makeAuthedReq("payForRegistration" ,"POST",JSON.stringify(input));
+    return makeAuthedReq("payForRegistration","POST",JSON.stringify(input));
 }
-
