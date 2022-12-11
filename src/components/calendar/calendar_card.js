@@ -52,7 +52,7 @@ export const CalendarCard = (props) => {
                         (
                             invitations.data.map((invitation) => (
                                 <Col sm={2}>
-                                    {invitation.tournament === props.id ? (
+                                    {invitation.tournament == props.id ? (
                                         <Card.Text>
                                             <div style={{ textAlign: "center" }}>
                                                 Użytkownik {invitation.inviter} cię do gry w tym turnieju
@@ -71,20 +71,7 @@ export const CalendarCard = (props) => {
                             ))
                         )}
                     <Col sm={2}>
-                        {/*TODO przerobić request na turniej rankingowy*/}
-                        {/*<Card.Text>*/}
-                        {/*    <div style={{ textAlign: "center" }}>*/}
-                        {/*        Czy wyrażasz zgodę, by ten turniej był rankingowy?*/}
-                        {/*    </div>*/}
-                        {/*    <div style={{ textAlign: "center" }}>*/}
-                        {/*        <Button variant="success" style={{ margin: "5%" }} onClick={() => postAcceptInvite(user.id)}>*/}
-                        {/*            TAK*/}
-                        {/*        </Button>*/}
-                        {/*        <Button variant="danger" style={{ margin: "5%" }} onClick={() => postRejectInvite(user.id)}>*/}
-                        {/*            NIE*/}
-                        {/*        </Button>*/}
-                        {/*    </div>*/}
-                        {/*</Card.Text>*/}
+                    {/*    TODO przerobić request na turniej czy rankingowy*/}
                     </Col>
                     <Col sm={3}>
                         <Row>
