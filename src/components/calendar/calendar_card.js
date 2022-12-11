@@ -3,7 +3,6 @@ import * as React from "react";
 
 // Project specific files
 import InfoPanel from "../common/info_panel";
-import PlayerInvitation from "./calendar_players_invitation/calendar_player_invitation";
 import RangTick from "../common/Buttons/rang_tick";
 
 
@@ -12,8 +11,18 @@ import cup_logo from "../../assets/cup.svg";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import {useState} from "react";
+import {getPendingApprovals} from "../api/api";
+import {postAcceptInvite, postRejectInvite} from "../api/user_interaction/invitation_api";
 
 export const CalendarCard = (props) => {
+    const [invitations, setInvitations] = useState({ fetched: false, data: [] });
+    if (invitations.fetched === false) {
+        getPendingApprovals().then((dane) => {
+            setInvitations({ fetched: true, data: dane });
+        });
+    }
+
     return (
         <Card border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%"}} >
             <Container fluid="md">
@@ -39,7 +48,28 @@ export const CalendarCard = (props) => {
                         </Row>
                         <InfoPanel {...props} />
                     </Col>
-                    <PlayerInvitation/>
+                    {invitations.fetched === false ? null:
+                        (
+                            invitations.data.map((invitation) => (
+                                <Col sm={2}>
+                                    {invitation.tournament === props.id ? (
+                                        <Card.Text>
+                                            <div style={{ textAlign: "center" }}>
+                                                Użytkownik {invitation.inviter} cię do gry w tym turnieju
+                                            </div>
+                                            <div style={{ textAlign: "center" }}>
+                                                <Button variant="success" style={{ margin: "5%" }} onClick={() => postAcceptInvite(invitation.id)}>
+                                                    TAK
+                                                </Button>
+                                                <Button variant="danger" style={{ margin: "5%" }} onClick={() => postRejectInvite(invitation.id)}>
+                                                    NIE
+                                                </Button>
+                                            </div>
+                                        </Card.Text>
+                                    ) : null}
+                                </Col>
+                            ))
+                        )}
                     <Col sm={2}>
                         {/*TODO przerobić request na turniej rankingowy*/}
                         {/*<Card.Text>*/}
