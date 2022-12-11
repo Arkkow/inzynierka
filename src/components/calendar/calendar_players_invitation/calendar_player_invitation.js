@@ -3,7 +3,7 @@ import * as React from 'react';
 import {useState} from "react";
 
 // Project specific files
-import {postAcceptInvite, postRejectInvite} from "../../api/invitation_api";
+import {postAcceptInvite, postRejectInvite} from "../../api/user_interaction/invitation_api";
 import {getPendingApprovals} from "../../api/api";
 
 // CSS files

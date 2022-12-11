@@ -1,6 +1,6 @@
 import React from "react";
-import InputBox from "../profile_input_box/input_box";
-import "../profile_form/profile_form.css";
+import InputBox from "./profile_input_box/input_box";
+import "./profile_form.css";
 
 function ProfileForm() {
     return (

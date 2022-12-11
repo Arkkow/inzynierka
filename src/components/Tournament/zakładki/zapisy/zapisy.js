@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
 import ZapisyCard from "./zapisy_card/zapisy_card";
-import {getUser} from '../../../api/user_api.js';
+import {getUser} from '../../../api/user_interaction/user_api.js';
 import { useState }  from 'react';
 
 

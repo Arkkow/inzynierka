@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "../profile_input_box/input_box.css";
+import "./input_box.css";
 
 import { useEffect, useState } from "react";
 

@@ -3,8 +3,8 @@ import * as React from 'react';
 
 // Project specific files
 import PaymentMethod_popup from '../../../../../popups/payment_method_popup.js';
-import {postRegistrationApprove} from "../../../../../api/tournament_registration_api";
-import {postPayedUsingCash} from "../../../../../api/payment_api";
+import {postRegistrationApprove} from "../../../../../api/tournament/tournament_registration_api";
+import {postPayedUsingCash} from "../../../../../api/user_interaction/payment_api";
 
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";

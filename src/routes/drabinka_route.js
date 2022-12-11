@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState }  from 'react';
 
 // Project specific files
-import {getladders} from "../components/api/ladders_api";
+import {getladders} from "../components/api/tournament/ladders_api";
 
 // CSS files
 import '../styles/index.css';

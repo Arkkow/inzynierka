@@ -5,9 +5,9 @@ import {connect} from "react-redux";
 
 // Project specific files
 import { getTournamentById} from "../components/api/api";
-import {getUser} from "../components/api/user_api";
-import {getladders} from "../components/api/ladders_api";
-import {getRegistrations} from "../components/api/tournament_registration_api";
+import {getUser} from "../components/api/user_interaction/user_api";
+import {getladders} from "../components/api/tournament/ladders_api";
+import {getRegistrations} from "../components/api/tournament/tournament_registration_api";
 import {Tournament_controller} from "../components/Tournament/tournament_controller";
 import TournamentHeader from "../components/Tournament/tournament_header";
 
@@ -86,7 +86,7 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         // DOWNLOAD_PAIRS
-        handleDownloadPlayers: (tournament_id) => {
+        handleDownloadPlayers: (id) => {
             //    API z kalendarza
             getRegistrations(id)
                 .then( res => {
