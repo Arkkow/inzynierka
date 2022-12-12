@@ -9,6 +9,9 @@ import {postPayedUsingCash} from "../../../../../api/user_interaction/payment_ap
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Calendar_invitation, {
+    CalendarInvitation
+} from "../../../../../calendar/calendar_card/conditionals/calendar_invitation";
 
 
 
@@ -23,10 +26,7 @@ export const ZapisyConditionals = (props) => {
         <>
             <Col sm={1}>
                 <Row>
-                    {/*TODO do usunięcia*/}
-                    {props.paymentstatus}
-                    {props.paymenttype}
-                    {"\n" + (props.paymentstatus !== "DONE" && props.paymenttype === "CASH")}
+
 
 
                     {props.approval === "0" && props.partnerAcceptance === "1" && (props.user.role === "2" || props.user.role === "3")?
@@ -55,7 +55,11 @@ export const ZapisyConditionals = (props) => {
                                                 }/>:null
                             }
 
-                            <Form.Check disabled={(props.paymentstatus === "DONE" || props.paymenttype !== "CASH")} defaultChecked={props.paymentstatus === "DONE"}/>
+
+
+                            <CalendarInvitation{...props}/>
+
+                            {/*<Form.Check disabled={(props.paymentstatus === "DONE" || props.paymenttype !== "CASH")} defaultChecked={props.paymentstatus === "DONE"}/>*/}
 
 
                             {props.user.role === "2" || props.user.role === '3'?

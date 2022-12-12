@@ -38,8 +38,6 @@ export const Tournament_controller = (props) => {
                             <Zapisy {...props} user = {props.user}/>:
                         props.view.tournament_tab === "wyniki"?
                             <Drabinka {...props}/>:
-                            props.view.tournament_tab === "Zaproszenia na turniej"?
-                                <Calendar_invitation {...props}/>:
                             null
                     }
                 </Col>
