@@ -12,12 +12,24 @@ import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CalendarPhoto from "./assets/calendarPhoto";
-import CalendarInvitation from "./conditionals/calendar_invitation";
+// import CalendarInvitation from "./conditionals/calendar_invitation";
 import CalendarAdminDropdown from "./conditionals/calendar_admin_dropdown";
+import {useState} from "react";
+import {getPendingApprovals} from "../../api/api";
 
 export const CalendarCard = (props) => {
+    const [invitations, setInvitations] = useState({ fetched: false, data: [] });
+    if (invitations.fetched === false) {
+        getPendingApprovals().then((dane) => {
+            setInvitations({ fetched: true, data: dane });
+        });
+    }
 
     return (
+        <>
+        {invitations.fetched === false ? null:
+                (
+                    invitations.data.map((invitation) => (
         <Card border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%"}} >
             <Container fluid="md">
                 <Row>
@@ -33,8 +45,9 @@ export const CalendarCard = (props) => {
                         </Row>
                         <InfoPanel {...props} />
                     </Col>
-                    <CalendarInvitation {...props}/>
+                    {/*<CalendarInvitation {...props}/>*/}
                     <Col sm={2}>
+                        {invitation.tournament == props.id ? ("Masz zaproszenie na ten turniej!") : null}
                     {/*    TODO przerobić request na turniej czy rankingowy*/}
                     </Col>
                     <Col sm={3}>
@@ -47,7 +60,7 @@ export const CalendarCard = (props) => {
                 </Row>
             </Container>
         </Card>
-    );
+    )))}</>)
 }
 
 export default CalendarCard;

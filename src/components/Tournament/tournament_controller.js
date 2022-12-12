@@ -5,6 +5,7 @@ import {useEffect} from "react";
 // Project specific files
 import TournamentInfo from "./zakładki/tournament_informacje";
 import TournamentNavbar from "./common/tournament_navbar";
+import Calendar_invitation from "../calendar/calendar_card/conditionals/calendar_invitation";
 import Drabinka from "./zakładki/drabinka/drabinka";
 import Zapisy from "./zakładki/zapisy/zapisy";
 
@@ -37,6 +38,8 @@ export const Tournament_controller = (props) => {
                             <Zapisy {...props} user = {props.user}/>:
                         props.view.tournament_tab === "wyniki"?
                             <Drabinka {...props}/>:
+                            props.view.tournament_tab === "Zaproszenia na turniej"?
+                                <Calendar_invitation {...props}/>:
                             null
                     }
                 </Col>

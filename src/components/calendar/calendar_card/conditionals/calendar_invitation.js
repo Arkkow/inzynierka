@@ -13,8 +13,9 @@ import {getPendingApprovals} from "../../../api/api";
 
 
 
-export const CalendarInvitation = (props) => {
+export const CalendarInvitation = () => {
     const [invitations, setInvitations] = useState({ fetched: false, data: [] });
+    const id = window.location.href.split('?')[1].split('=')[1];
     if (invitations.fetched === false) {
         getPendingApprovals().then((dane) => {
             setInvitations({ fetched: true, data: dane });
@@ -27,7 +28,7 @@ export const CalendarInvitation = (props) => {
                 (
                     invitations.data.map((invitation) => (
                         <Col sm={2}>
-                            {invitation.tournament == props.id ? (
+                            {invitation.tournament == id ? (
                                 <Card.Text>
                                     <div style={{ textAlign: "center" }}>
                                         Użytkownik {invitation.inviter} cię do gry w tym turnieju

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import Button from "react-bootstrap/Button";
-import {getElement} from "bootstrap/js/src/util";
+// import {getElement} from "bootstrap/js/src/util";
 
 function InputBox() {
   const [error, setError] = useState(null);
