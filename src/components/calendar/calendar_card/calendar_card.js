@@ -18,7 +18,7 @@ import CalendarAdminDropdown from "./conditionals/calendar_admin_dropdown";
 export const CalendarCard = (props) => {
 
     return (
-        <Card border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%", borderRadius:"20px"}} >
+        <Card style={{ minWidth: '40%', margin: "2%", padding: "2%", borderRadius:"20px", borderColor:"var(--medium_grey)"}} >
             <Container fluid="md">
                 <Row>
                     <Col sm={2}>
@@ -41,7 +41,21 @@ export const CalendarCard = (props) => {
                         <CalendarAdminDropdown {...props}/>
                           <br/>
                           <Row>
-                              <Button href={"tournament"+"?id="+props.id} >Informacje</Button>
+                                  <Button
+                                      style={{
+                                          fontFamily: "Montserrat",
+                                          fontWeight: "600",
+                                          fontSize: "18px",
+                                          lineHeight: "25px",
+                                          color: "white",
+                                          borderRadius: "15px",
+                                          paddingBottom:"3%",
+                                          paddingTop:"3%",
+                                          width:"80%"
+                                      }}
+                                      variant="success"
+                                      href={"tournament"+"?id="+props.id}
+                                  >INFORMACJE</Button>
                           </Row>
                       </Col>
                 </Row>
