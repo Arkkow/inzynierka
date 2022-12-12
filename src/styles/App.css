@@ -3,6 +3,7 @@
 :root {
   --black: #282828;
   --dark_grey: #828282;
+  --medium_grey: #AFAFAF;
   --light_grey: #EBEBEB;
   --pfp_green: #007C36;
 }
@@ -62,4 +63,5 @@ my_h4{
   font-size: 18px;
   line-height: 22px;
 }
+
 

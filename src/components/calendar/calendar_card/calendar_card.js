@@ -18,7 +18,7 @@ import CalendarAdminDropdown from "./conditionals/calendar_admin_dropdown";
 export const CalendarCard = (props) => {
 
     return (
-        <Card border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%"}} >
+        <Card border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%", borderRadius:"20px"}} >
             <Container fluid="md">
                 <Row>
                     <Col sm={2}>
