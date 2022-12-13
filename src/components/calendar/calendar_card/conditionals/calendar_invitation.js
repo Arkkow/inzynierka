@@ -30,7 +30,6 @@ export const CalendarInvitation = (props) => {
                 (
                     invitations.data.map((invitation) => (
                         <Col sm={12}>
-                            {console.log(invitation.id + "dupa")}
                             {invitation.id === props.id ? (
 
                                 <Card.Text>
