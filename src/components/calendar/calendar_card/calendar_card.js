@@ -14,6 +14,7 @@ import Card from "react-bootstrap/Card";
 import CalendarPhoto from "./assets/calendarPhoto";
 import CalendarInvitation from "./conditionals/calendar_invitation";
 import CalendarAdminDropdown from "./conditionals/calendar_admin_dropdown";
+import TournamentRanked from "./conditionals/tournament_ranked";
 
 export const CalendarCard = (props) => {
     return (
@@ -33,8 +34,8 @@ export const CalendarCard = (props) => {
                         <InfoPanel {...props} />
                     </Col>
                     <CalendarInvitation {...props}/>
-                    <Col sm={2}>
-                    {/*    TODO przerobić request na turniej czy rankingowy*/}
+                    <Col sm={4}>
+                        <TournamentRanked {...props}/>
                     </Col>
                     <Col sm={3}>
                         <CalendarAdminDropdown {...props}/>

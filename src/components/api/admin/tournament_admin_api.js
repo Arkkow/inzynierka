@@ -73,3 +73,13 @@ export function approveTournamentAdmin(id) {
         "id": id
     }));
 }
+
+/*
+ID
+tournament id
+*/
+export function rejectTournamentAdmin(id) {
+    return makeAuthedReq("admin/rejectTurnament","POST",JSON.stringify({
+        "id": id
+    }));
+}
