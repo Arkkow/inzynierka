@@ -23,10 +23,6 @@ export const ZapisyConditionals = (props) => {
         <>
             <Col sm={1}>
                 <Row>
-                    {/*TODO do usunięcia*/}
-                    {props.paymentstatus}
-                    {props.paymenttype}
-                    {"\n" + (props.paymentstatus !== "DONE" && props.paymenttype === "CASH")}
 
 
                     {props.approval === "0" && props.partnerAcceptance === "1" && (props.user.role === "2" || props.user.role === "3")?
@@ -42,6 +38,7 @@ export const ZapisyConditionals = (props) => {
                 <Container>
                     <Row>
                         <Form>
+
                             {props.user.role === "2" || props.user.role === '3'?
                                 props.paymentstatus === "DONE"?
                                     <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis 1. opłacony" reverse/>:
@@ -54,9 +51,6 @@ export const ZapisyConditionals = (props) => {
                                                 }
                                                 }/>:null
                             }
-
-                            <Form.Check disabled={(props.paymentstatus === "DONE" || props.paymenttype !== "CASH")} defaultChecked={props.paymentstatus === "DONE"}/>
-
 
                             {props.user.role === "2" || props.user.role === '3'?
                                 props.paymentstatus2 === "DONE"?
