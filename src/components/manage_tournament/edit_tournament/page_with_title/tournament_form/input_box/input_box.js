@@ -381,7 +381,39 @@ function InputBox() {
         type="file"
         id="formFile"
       ></input>
+		<button onClick={()=>{
+					  if(document.getElementById("formFile").files.length !=0){
+		  var reader = new FileReader();
+  reader.onload = function() {
+    var arrayBuffer = this.result;
+				var xhttp = new XMLHttpRequest();
+				xhttp.upload.addEventListener('progress', function(e) {
+	let percent_complete = (e.loaded / e.total)*100;
+	
+	// percentage of upload completed
+	document.getElementById("uploadmsg").innerText=percent_complete;
+});
+xhttp.onreadystatechange = function() {
+    if (this.readyState === 4) {
+		if(this.status === 200){
+				document.getElementById("uploadmsg").innerText="done";	
+    }else{
+	}
+	}
+};
+xhttp.responseType = "blob";
+xhttp.open("POST", "https://dragonmaster.pl/inz/tournament/image?id="+window.location.href.split('?')[1].split('=')[1]);
+xhttp.setRequestHeader("Authorization","Bearer "+Token); 
+xhttp.send(arrayBuffer);
 
+  }
+  reader.readAsArrayBuffer(document.getElementById("formFile").files[0]);
+		  }
+
+		}}>
+		upload image
+		</button>
+		<div id="uploadmsg"></div>
       <div style={{ borderStyle: "solid", marginTop: "1%", width: "110px" }}>
         <img src={PFP_LOGO} style={{ width: "100px", height: "100px" }} />
       </div>
