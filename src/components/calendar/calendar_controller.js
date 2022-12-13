@@ -9,6 +9,7 @@ import {getPendingApprovals} from "../api/api";
 import {getTournaments} from "../api/tournament/tournament_CRUD_api";
 import {getUser} from "../api/user_interaction/user_api";
 import { Col, Row } from "react-bootstrap";
+import Header from "./calendarNavbar/calNav";
 
 
 export const Calendar_controller = (props) => {
