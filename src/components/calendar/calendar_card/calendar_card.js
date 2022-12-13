@@ -22,7 +22,7 @@ export const CalendarCard = (props) => {
             <Container fluid="md">
                 <Row>
                     <Col sm={2}>
-                        <CalendarPhoto/>
+                        <CalendarPhoto {...props}/>
                     </Col>
                     <Col sm={5}>
                         <Row className="justify-content-md-center">

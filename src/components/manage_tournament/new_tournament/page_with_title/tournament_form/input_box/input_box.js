@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import Button from "react-bootstrap/Button";
-import {getElement} from "bootstrap/js/src/util";
+import {postImage} from "../../../../../api/tournament/tournament_CRUD_api.js";
+//import {getElement} from "bootstrap/js/src/util";
 
 function InputBox() {
   const [error, setError] = useState(null);
@@ -89,6 +90,16 @@ function InputBox() {
           setIsSended(true);
           setResponse(result);
           console.log(result);
+		  //usefulll link https://usefulangle.com/post/67/pure-javascript-ajax-file-upload-showing-progess-percent
+		  if(document.getElementById("formFile").files.length !=0){
+		  var id =result.id;
+		  var reader = new FileReader();
+  reader.onload = function() {
+    var arrayBuffer = this.result;
+	postImage(id,arrayBuffer);
+  }
+  reader.readAsArrayBuffer(document.getElementById("formFile").files[0]);
+		  }
         },
         (error) => {
           setIsSended(true);
