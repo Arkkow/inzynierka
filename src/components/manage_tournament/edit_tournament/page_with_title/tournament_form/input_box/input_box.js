@@ -36,11 +36,14 @@ function InputBox() {
   let ranked = "";
   let visibility = "";
   const handleClick = () => {
-    if (document.getElementById("visibility_var").checked) {
-      visibility = "TRUE";
-    } else {
-      visibility = "FALSE";
+    if (document.getElementById("visibility_var") != undefined){
+      if (document.getElementById("visibility_var").checked) {
+        visibility = "TRUE";
+      } else {
+        visibility = "FALSE";
+      }
     }
+
 
 
     if (
@@ -396,12 +399,12 @@ function InputBox() {
 	let percent_complete = (e.loaded / e.total)*100;
 	
 	// percentage of upload completed
-	document.getElementById("uploadmsg").innerText=percent_complete;
+	document.getElementById("uploadmsg").innerText="PRZESYŁANIE";
 });
 xhttp.onreadystatechange = function() {
     if (this.readyState === 4) {
 		if(this.status === 200){
-				document.getElementById("uploadmsg").innerText="done";	
+				document.getElementById("uploadmsg").innerText="PRZESŁANO";
     }else{
 	}
 	}
@@ -416,12 +419,12 @@ xhttp.send(arrayBuffer);
 		  }
 
 		}}>
-		upload image
+		ZAŁADUJ NOWE ZDJĘCIE
 		</button>
 		<div id="uploadmsg"></div>
-      <div style={{ borderStyle: "solid", marginTop: "1%", width: "110px" }}>
-        <img src={PFP_LOGO} style={{ width: "100px", height: "100px" }} />
-      </div>
+      {/*<div style={{ borderStyle: "solid", marginTop: "1%", width: "110px" }}>*/}
+      {/*  <img src={PFP_LOGO} style={{ width: "100px", height: "100px" }} />*/}
+      {/*</div>*/}
 
       <div style={{ marginTop: "3%" }}>
         <button

@@ -44,7 +44,7 @@ export const Header = (props) => {
                                         null}
                                 </Col>
                                 <Col sm={6} style={{marginTop: "2%"}}>
-                                    {props.user.role === "1" || props.user.role === "2" || props.user.role === "3"?
+                                    {props.user.role === "2" || props.user.role === "3"?
                                         <div style={{float: "right", marginRight:"15%"}}>
                                             <Button
                                                 style={{
