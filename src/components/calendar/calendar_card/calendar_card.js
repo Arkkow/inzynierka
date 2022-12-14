@@ -12,11 +12,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CalendarPhoto from "./assets/calendarPhoto";
-import CalendarInvitation from "./conditionals/calendar_invitation";
 import CalendarAdminDropdown from "./conditionals/calendar_admin_dropdown";
 import TournamentRanked from "./conditionals/tournament_ranked";
-import {useState} from "react";
-import {getPendingApprovals} from "../../api/api";
 import {CalendarInvitation2} from "./conditionals/calendar_invitation_checker";
 import CalendarInvitation from "./conditionals/calendar_invitation";
 
@@ -40,9 +37,7 @@ export const CalendarCard = (props) => {
                     <CalendarInvitation {...props}/>
                     <Col sm={4}>
                         <TournamentRanked {...props}/>
-                    <CalendarInvitation2{...props}/>
-                    <Col sm={2}>
-                    {/*    TODO przerobić request na turniej czy rankingowy*/}
+                        <CalendarInvitation2{...props}/>
                     </Col>
                     <Col sm={3}>
                         <CalendarAdminDropdown {...props}/>
