@@ -20,13 +20,13 @@ import CalendarInvitation from "./conditionals/calendar_invitation";
 export const CalendarCard = (props) => {
     return (
         <Card style={{ minWidth: '40%', margin: "2%", padding: "2%", borderRadius:"20px", borderColor:"var(--medium_grey)"}} >
-            <Container fluid="md">
+            <Container fluid="lg">
                 <Row>
                     <Col sm={2}>
                         <CalendarPhoto {...props}/>
                     </Col>
-                    <Col sm={5}>
-                        <Row className="justify-content-md-center">
+                    <Col sm={4}>
+                        <Row className="justify-content-sm-center">
                             <h5>
                                 {props.name} &nbsp;
                                 <RangTick {...props}/>
@@ -34,10 +34,9 @@ export const CalendarCard = (props) => {
                         </Row>
                         <InfoPanel {...props} />
                     </Col>
-                    <CalendarInvitation {...props}/>
-                    <Col sm={4}>
+                    <Col sm={3}>
+                        <CalendarInvitation {...props}/>
                         <TournamentRanked {...props}/>
-                        <CalendarInvitation2{...props}/>
                     </Col>
                     <Col sm={3}>
                         <CalendarAdminDropdown {...props}/>
