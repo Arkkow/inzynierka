@@ -36,9 +36,9 @@ function InputBox() {
     }
 
     if (document.getElementById("ranked_var").checked) {
-      ranked = "TRUE";
+      ranked = "1";
     } else {
-      ranked = "FALSE";
+      ranked = "0";
     }
 
     if (
