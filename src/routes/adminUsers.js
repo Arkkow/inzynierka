@@ -3,11 +3,8 @@ import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import { Col, Row, Form, Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import {
-  getUsersAdmin,
-  postUserAdmin,
-  deleteUserAdmin,
-} from "../components/api/api.js";
+import {deleteUserAdmin, getUsersAdmin, postUserAdmin} from "../components/api/admin/user_admin_manageroles_api";
+
 
 // Project specific files
 

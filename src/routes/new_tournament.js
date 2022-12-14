@@ -6,13 +6,12 @@ import * as React from "react";
 // CSS files
 import "../styles/index.css";
 import "../styles/App.css";
-import TitlePage from "../components/new_tournament/page_with_title/page_with_title";
-import TournamentForm from "../components/new_tournament/tournament_form/tournament_form";
+import TitlePage from "../components/manage_tournament/new_tournament/page_with_title/page_with_title";
 
 export default function NewTournamentRoute() {
   return (
     <div>
-        <TitlePage></TitlePage>
+        <TitlePage/>
     </div>
   );
 }

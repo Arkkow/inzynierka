@@ -1,15 +1,21 @@
 // General React imports
 import * as React from "react";
+import {connect} from "react-redux";
+
 
 // Project specific files
+import { getTournamentById} from "../components/api/api";
+import {getUser} from "../components/api/user_interaction/user_api";
+import {getladders} from "../components/api/tournament/ladders_api";
+import {getRegistrations} from "../components/api/tournament/tournament_registration_api";
+import {Tournament_controller} from "../components/Tournament/tournament_controller";
+import TournamentHeader from "../components/Tournament/tournament_header";
 
 // CSS files
 import "../styles/index.css";
 import "../styles/App.css";
-import {Tournament_controller} from "../components/Tournament/tournament_controller";
-import TournamentHeader from "../components/Tournament/tournament_header";
-import {connect} from "react-redux";
-import {getladders, getRegistrations, getTournamentById, getUser} from "../components/api/api";
+
+
 
 
 function TournamentRoute(props) {
@@ -80,7 +86,7 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         // DOWNLOAD_PAIRS
-        handleDownloadPlayers: (tournament_id) => {
+        handleDownloadPlayers: (id) => {
             //    API z kalendarza
             getRegistrations(id)
                 .then( res => {
@@ -89,51 +95,6 @@ const mapDispatchToProps = (dispatch) => {
                 )
                 .catch((err) => {console.log(err)});
         },
-
-        // DOWNLOAD_PAIRS
-        // PostPayedUsingCash: (id) => {
-        //     //    API z kalendarza
-        //     fetch('https://dragonmaster.pl/inz/' + "registration/payedUsingCash", {
-        //         headers: {
-        //             Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
-        //         },
-        //         body: {
-        //             id: id,
-        //             ownerOrInvited: "owner"
-        //         },
-        //         method: "POST",
-        //     })
-        //         .then((res) => res.json())
-        //         .then( res => {
-        //                 return dispatch({type: "DOWNLOAD_PAIRS", payload: {data: res}});
-        //             }
-        //         )
-        //         .catch((err) => {console.log(err)});
-        // },
-
-
-
-        // putLadder(  {
-        //                 "tournamentid": "string",
-        //                 "inAtype": "R",
-        //                 "inA": "string",
-        //                 "inBtype": "R",
-        //                 "inB": "string",
-        //                 "round": "string"
-        //             }) {
-        //     fetch('https://dragonmaster.pl/inz/' + "registrations" + "?id=" + tournament_id, {
-        //         headers: {
-        //             Authorization: ("Bearer " + "kdmVPQQI53atDhT3EAt8OFsxpRBL3RUIA6AL10KsMAs11itgw1WxODvamH4OO3E1b6WuzXsamXvbJLZ7"),
-        //         },
-        //         method: "PUT",
-        //     })
-        //         .then((res) => res.json())
-        //         .then( res => {
-        //                 return dispatch({type: "DOWNLOAD_PAIRS", payload: {data: res}});
-        //             }
-        //         )
-        //         .catch((err) => {console.log(err)});
-        // }
     }
 }
 

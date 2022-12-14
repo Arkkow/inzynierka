@@ -65,7 +65,16 @@ export const TournamentInfo = (props) => {
                 <div style={{marginBottom: "1%"}}>
                     <h5 style={{marginBottom:"0"}}>Czy rankingowy</h5>
                     <div>
-                        TODO czy rankingowy
+                        {props.calendar_list.approved === "3"?
+                        "NIE":
+                            props.calendar_list.approved === "2"?
+                                "TAK":
+                                props.calendar_list.approved === "1"?
+                                    "OCZEKUJE NA ZGODĘ ADMINISTRATORA":
+                                    props.calendar_list.approved === "0"?
+                                        "NIE":
+                                        null
+                        }
                     </div>
                 </div>
                 <div style={{marginBottom: "1%"}}>

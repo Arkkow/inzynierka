@@ -3,14 +3,14 @@ import * as React from 'react';
 import { useState }  from 'react';
 
 // Project specific files
-import Container from "react-bootstrap/Container";
-import {Col, Row} from "react-bootstrap";
-import Card from 'react-bootstrap/Card';
-import {getladders} from "../components/api/api.js"
+import {getladders} from "../components/api/tournament/ladders_api";
 
 // CSS files
 import '../styles/index.css';
 import '../styles/App.css';
+import Container from "react-bootstrap/Container";
+import {Col, Row} from "react-bootstrap";
+import Card from 'react-bootstrap/Card';
 
 export default function Drabinka () {
 		  const [drabinka, setDrabinka] = useState({"fetched":false,data:[]});

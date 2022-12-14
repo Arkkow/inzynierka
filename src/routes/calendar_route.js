@@ -15,7 +15,7 @@ import Container from "react-bootstrap/Container";
 
 export default function CalendarRoute() {
   return (
-        <Container fluid="true" style={{background: "#c2d1b8", minHeight: "94vh", paddingTop: "2%"}}>
+      <Container fluid="true" style={{background: "#689F82", minHeight: "94vh", paddingTop: "2%"}}>
             <Row className="justify-content-md-center">
                 <Col sm="6">
                     <CalNav/>
@@ -24,6 +24,11 @@ export default function CalendarRoute() {
             <Row className="justify-content-md-center">
                 <Calendar_controller />
             </Row>
+            <div style={{width: "100%", minHeight:"8vh", textAlign: "left", paddingTop:"1%", paddingLeft:"0.5%"}}>
+                <paragraph style={{color:"white"}}>Masz jakiś problem lub coś nie działa tak jak powinno?</paragraph><br/>
+                <paragraph style={{color:"white"}}>Skontaktuj się z nami - padeltournamentsystems@gmail.com</paragraph>
+            </div>
         </Container>
+
   );
 }

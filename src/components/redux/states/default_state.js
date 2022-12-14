@@ -20,6 +20,7 @@ const default_state = {
         additionalInformations: "info",
         categotry: "cat1",
         visibility: "FALSE",
+        creator: ""
       },
     ],
   },

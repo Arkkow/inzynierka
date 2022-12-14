@@ -6,6 +6,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 // Project specific files
 import Header from "./components/common/header";
 import Footer from "./components/common/footer";
+
 // Routes
 import CalendarRoute from "./routes/calendar_route";
 import ProfileRoute from "./routes/profile_route";
