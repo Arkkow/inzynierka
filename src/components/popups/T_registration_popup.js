@@ -53,7 +53,7 @@ function T_registration_popup(props) {
                     borderRadius: "20px",
                     fontFamily: "Montserrat",
                     fontWeight: "600",
-                    fontSize: "34px",
+                    fontSize: "24px",
                     lineHeight: "41.45px",
                     color: "white",
                     paddingRight: "1.5%",
@@ -64,7 +64,7 @@ function T_registration_popup(props) {
                 }}
                 variant="success"
             >
-                {"ZALOGUJ SIĘ"}
+                {"ABY ZAPISAĆ SIĘ NA TURNIEJ MUSISZ BYĆ ZALOGOWANY"}
             </Button>:
             <Button
             style={{
