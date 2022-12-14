@@ -43,7 +43,7 @@ xhttp.send();
                 height: "100%",
                 alignItems: "center"
             }}>
-<img id={"tid_"+props.id} src={cup_logo} alt={""} />
+<img id={"tid_"+props.id} style={{height: "80px", width: "80px"}} src={cup_logo} alt={""} />
             </div>
         </>
     );

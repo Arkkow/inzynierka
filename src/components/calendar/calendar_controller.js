@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 // Project specific files
 import CalendarCard from "./calendar_card/calendar_card";
 import {getPendingApprovals} from "../api/api";
-import {getTournaments} from "../api/tournament/tournament_CRUD_api";
+import {getAuthedTournaments, getTournaments} from "../api/tournament/tournament_CRUD_api";
 import {getUser} from "../api/user_interaction/user_api";
 import { Col, Row } from "react-bootstrap";
 import Header from "./calendarNavbar/calNav";
@@ -14,10 +14,23 @@ import Header from "./calendarNavbar/calNav";
 
 export const Calendar_controller = (props) => {
   useEffect(() => {
-    props.handleDownloadCalendar();
     props.handleDownloadUser();
     props.getPendingApprovals();
+
+    if (props.user.role !== "default") {
+        console.log("authed")
+        props.handleDownloadAuthedCalendar();
+    }
+    else {
+        console.log("unauthed")
+        props.handleDownloadCalendar();
+    }
+
   }, []);
+
+  useEffect(() => {
+
+  })
 
   return (
     <Row className="justify-content-md-center">
@@ -62,6 +75,20 @@ const mapDispatchToProps = (dispatch) => {
         .catch((err) => {
           console.log(err);
         });
+    },
+
+    handleDownloadAuthedCalendar: () => {
+      //    API z kalendarza
+      getAuthedTournaments()
+          .then((res) => {
+              return dispatch({
+                  type: "DOWNLOAD_CALENDAR",
+                  payload: { data: res },
+              });
+          })
+          .catch((err) => {
+              console.log(err);
+          });
     },
 
     handleDownloadUser: () => {

@@ -70,7 +70,7 @@ tournament id
 */
 export function approveTournamentAdmin(id) {
     return makeAuthedReq("admin/approveTurnament","POST",JSON.stringify({
-        "id": id
+        "id": String(id)
     }));
 }
 
@@ -80,6 +80,6 @@ tournament id
 */
 export function rejectTournamentAdmin(id) {
     return makeAuthedReq("admin/rejectTurnament","POST",JSON.stringify({
-        "id": id
+        "id": String(id)
     }));
 }
