@@ -17,7 +17,6 @@ function T_registration_popup() {
 
   const [show, setShow] = useState(false);
   const id_tournament = window.location.href.split('?')[1].split('=')[1];
-  console.log(id_tournament + "dupa")
 
     console.log(getUserById("12341234124"))
 
@@ -89,6 +88,7 @@ function T_registration_popup() {
               textAlign: "center",
             }}
           >
+
             Zapisy na turniej
           </h2>
           <Form style={{ width: "100%" }}>

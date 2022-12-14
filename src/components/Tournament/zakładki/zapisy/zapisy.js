@@ -31,7 +31,7 @@ export const Zapisy = (props) => {
                             </Col>
                         </Row>
                         <Row style={{background: "white"}}>
-                            DIV: &nbsp;
+                            {/*DIV: &nbsp;*/}
                             {/*{props.pairs_list.pairs.length}*/}
                             {/*&nbsp;*/}
 
