@@ -7,7 +7,7 @@ import "../../styles/App.css";
 import {getUser, getUserById} from "../api/user_interaction/user_api";
 import {putRegistration} from "../api/tournament/tournament_registration_api";
 
-function T_registration_popup(props) {
+function T_registration_popup() {
 
     const [userId, setId] = useState({"fetched":false,data:[]});
     const [ifExist, checkIfExist] = useState({"fetched":false,data:[]});

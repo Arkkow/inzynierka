@@ -37,56 +37,32 @@ export const Header = (props) => {
                                 </Col>
                             </Row>
                             <Row style={{marginTop: "2%", marginBottom: "2%"}}>
-                                <Col sm ={4} style={{marginTop: "2%"}}>
-                                    <Button variant="secondary" >WSZYSTKIE</Button>
-
-                                    {props.user.role === "1" || props.user.role === "2" || props.user.role === "3"?
-                                    <Button variant="outline-secondary">MOJE</Button>:
-                                        null
-                                    }
-                                </Col>
                                 <Col sm ={6} style={{marginTop: "2%"}}>
                                     <Button className="btn btn-primary" style={{marginLeft:"20%", marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}><my_h4>WSZYSTKIE</my_h4></Button>
-                                    <Button className="btn btn-primary" style={{borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)"}}><my_h4>MOJE</my_h4></Button>
+                                    {props.user.role === "1" || props.user.role === "2" || props.user.role === "3"?
+                                        <Button className="btn btn-primary" style={{borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)"}}><my_h4>MOJE</my_h4></Button>:
+                                        null}
                                 </Col>
                                 <Col sm={6} style={{marginTop: "2%"}}>
-                                    <div style={{float: "right", marginRight:"15%"}}>
-                                        <Button
-                                            style={{
-                                                fontFamily: "Montserrat",
-                                                fontWeight: "600",
-                                                fontSize: "18px",
-                                                lineHeight: "25px",
-                                                color: "white",
-                                                borderRadius: "15px",
-                                                paddingBottom:"3%",
-                                                paddingTop:"3%",
-                                                paddingRight:"20px",
-                                                paddingLeft:"20px"
-                                            }}
-                                            variant="success"
-                                            href="new_tournament"
-                                           >STWÓRZ NOWY TURNIEJ</Button>
-                                    </div>
-                                </Col>
-                                <Col sm={8} style={{marginTop: "2%"}}>
                                     {props.user.role === "1" || props.user.role === "2" || props.user.role === "3"?
-                                        <div style={{float: "right"}}>
+                                        <div style={{float: "right", marginRight:"15%"}}>
                                             <Button
                                                 style={{
                                                     fontFamily: "Montserrat",
                                                     fontWeight: "600",
                                                     fontSize: "18px",
                                                     lineHeight: "25px",
-                                                    color: "white"
+                                                    color: "white",
+                                                    borderRadius: "15px",
+                                                    paddingBottom:"3%",
+                                                    paddingTop:"3%",
+                                                    paddingRight:"20px",
+                                                    paddingLeft:"20px"
                                                 }}
-                                                type="button"
-                                                className="btn btn-success"
+                                                variant="success"
                                                 href="new_tournament"
                                             >STWÓRZ NOWY TURNIEJ</Button>
-                                        </div>:
-                                    null
-                                    }
+                                        </div>:null}
                                 </Col>
                             </Row>
                         </Container>
@@ -100,7 +76,7 @@ export const Header = (props) => {
 };
 
 // Przypisanie do Calendar_controller.props stanów
- const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         calendar_list: state.calendar_content.data,
         user: state.user_content.data,
@@ -111,7 +87,7 @@ export const Header = (props) => {
 
 //Wywołanie zmiany stanu (obsługa w store)
 // Przekazanie data z API do stanu Calendar_controller
- const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     // let token =
     // let token = JSON.parse(localStorage.getItem("token")).token
     return {

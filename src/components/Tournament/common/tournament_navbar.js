@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 
 // CSS files
 import { ButtonGroup} from "react-bootstrap";
+import {useState} from "react";
+import {getPendingApprovals} from "../../api/api";
 
 
 export const TournamentNavbar = (props) => {

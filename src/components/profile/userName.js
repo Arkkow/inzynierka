@@ -33,8 +33,13 @@ function UserName() {
       );
   }, []);
 
+  function refreshPage() {
+    window.location.href="calendar";
+  }
+
   if (error) {
-    return <div>Error: {error.message}</div>;
+    localStorage.removeItem("token");
+    refreshPage();
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
