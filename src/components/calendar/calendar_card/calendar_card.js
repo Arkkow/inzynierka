@@ -13,7 +13,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CalendarPhoto from "./assets/calendarPhoto";
 import CalendarAdminDropdown from "./conditionals/calendar_admin_dropdown";
-import TournamentRanked from "./conditionals/tournament_ranked";
+import TournamentRanked from "./conditionals/calendar_tournament_ranked";
 import {CalendarInvitation2} from "./conditionals/calendar_invitation_checker";
 import CalendarInvitation from "./conditionals/calendar_invitation";
 
