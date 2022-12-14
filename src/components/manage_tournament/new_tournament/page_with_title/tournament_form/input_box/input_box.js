@@ -109,10 +109,9 @@ function InputBox() {
     if (error) {
       alert("Coś poszło nie tak: " + error.message);
     }
-    // else {
-    //   window.location.href="calendar";
-    //   console.log("śmiag pięknie")
-    // }
+    else {
+      window.location.href="calendar";
+    }
   };
 
   return (
