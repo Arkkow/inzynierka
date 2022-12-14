@@ -22,7 +22,6 @@ function InputBox() {
   const pointsForTournament = useRef("50");
   const places = useRef("1");
   const roles = useRef("1");
-  const ranked = useRef("1");
   const place = useRef("1");
   const from = useRef("1");
   const to = useRef("1");
@@ -33,13 +32,16 @@ function InputBox() {
   const entriesTo = useRef("1");
   const additionalInformations = useRef("1");
   const categotry = useRef("OPEN");
-  const visibility = useRef("TRUE");
+
+  let ranked = "";
+  let visibility = "";
   const handleClick = () => {
-    if (visibility.current.value == "on") {
-      visibility.current.value = "TRUE";
+    if (document.getElementById("visibility_var").checked) {
+      visibility = "TRUE";
     } else {
-      visibility.current.value = "FALSE";
+      visibility = "FALSE";
     }
+
 
     if (
       places.current.value == "8" &&
@@ -78,7 +80,7 @@ function InputBox() {
         pointsForTournament: pointsForTournament.value,
         places: places.current.value,
         roles: roles.value,
-        ranked: ranked.current.value,
+        ranked: ranked,
         place: place.current.value,
         from: from.current.value,
         to: to.current.value,
@@ -89,7 +91,7 @@ function InputBox() {
         entriesTo: entriesTo.current.value,
         additionalInformations: additionalInformations.current.value,
         categotry: categotry.current.value,
-        visibility: visibility.current.value,
+        visibility: visibility,
       }),
     })
       .then((res) => res.json())
@@ -347,26 +349,29 @@ function InputBox() {
         ref={additionalInformations}
       ></textarea>
 
-      <label
-        style={{ display: "block", textAlign: "left", marginTop: "1%" }}
-        htmlFor="exampleFormControlTextarea1"
-        className="form-label"
-      >
-        Widoczność turnieju
-      </label>
-      <div
-        style={{ display: "block", textAlign: "left" }}
-        className="form-check form-switch"
-      >
-        <input
-          className="form-check-input"
-          type="checkbox"
-          role="switch"
-          id="flexSwitchCheckDefault"
-          defaultChecked={tournament.data.visibility}
-          ref={visibility}
-        ></input>
-      </div>
+      {visibility === "FALSE"?
+          <>
+            <label
+              style={{ display: "block", textAlign: "left", marginTop: "1%" }}
+              htmlFor="exampleFormControlTextarea1"
+              className="form-label"
+            >
+              Widoczność turnieju
+            </label>
+            <div
+              style={{ display: "block", textAlign: "left" }}
+              className="form-check form-switch"
+            >
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="visibility_var"
+              />
+            </div>
+          </>
+          :null
+      }
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
