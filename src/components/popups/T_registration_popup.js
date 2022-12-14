@@ -7,7 +7,7 @@ import "../../styles/App.css";
 import {getUser, getUserById} from "../api/user_interaction/user_api";
 import {putRegistration} from "../api/tournament/tournament_registration_api";
 
-function T_registration_popup() {
+function T_registration_popup(props) {
 
     const [userId, setId] = useState({"fetched":false,data:[]});
     const [ifExist, checkIfExist] = useState({"fetched":false,data:[]});
@@ -17,9 +17,6 @@ function T_registration_popup() {
 
   const [show, setShow] = useState(false);
   const id_tournament = window.location.href.split('?')[1].split('=')[1];
-  console.log(id_tournament + "dupa")
-
-    console.log(getUserById("12341234124"))
 
   const id = useRef(null);
 
@@ -46,27 +43,52 @@ function T_registration_popup() {
 
   return (
     <>
-      <Button
-        style={{
-            height: "15vh",
-            width: "40vh" ,
-            borderRadius: "20px",
-          fontFamily: "Montserrat",
-          fontWeight: "600",
-          fontSize: "34px",
-          lineHeight: "41.45px",
-          color: "white",
-          paddingRight: "1.5%",
-          paddingLeft: "1.5%",
-          paddingBottom: "0.5%",
-          paddingTop: "0.5%",
-          marginRight: "1%",
-        }}
-        variant="success"
-        onClick={handleShow}
-      >
-        ZAPISZ SIĘ!
-      </Button>
+        {props.role === "default"?
+            <Button
+                style={{
+                    backgroundColor: "gray",
+                    borderColor: "gray",
+                    height: "15vh",
+                    width: "40vh" ,
+                    borderRadius: "20px",
+                    fontFamily: "Montserrat",
+                    fontWeight: "600",
+                    fontSize: "34px",
+                    lineHeight: "41.45px",
+                    color: "white",
+                    paddingRight: "1.5%",
+                    paddingLeft: "1.5%",
+                    paddingBottom: "0.5%",
+                    paddingTop: "0.5%",
+                    marginRight: "1%",
+                }}
+                variant="success"
+            >
+                {"ZALOGUJ SIĘ"}
+            </Button>:
+            <Button
+            style={{
+                height: "15vh",
+                width: "40vh" ,
+                borderRadius: "20px",
+              fontFamily: "Montserrat",
+              fontWeight: "600",
+              fontSize: "34px",
+              lineHeight: "41.45px",
+              color: "white",
+              paddingRight: "1.5%",
+              paddingLeft: "1.5%",
+              paddingBottom: "0.5%",
+              paddingTop: "0.5%",
+              marginRight: "1%",
+            }}
+            variant="success"
+            onClick={handleShow}
+            >
+                ZAPISZ SIĘ!
+            </Button>
+
+        }
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <img src={PFP_LOGO} style={{ marginLeft: "auto", height:"8vh" }} alt="LOGO" />

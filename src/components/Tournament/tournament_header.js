@@ -44,7 +44,7 @@ export const TournamentHeader = (props) => {
                 </Col>
                 <Col sm={4} style={{ }}>
                     <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
-                        <T_registration_popup/>
+                        <T_registration_popup role = {props.user.role}/>
                     </div>
                 </Col>
             </Row>
