@@ -9,6 +9,7 @@ import {Container, Row, Col} from "react-bootstrap";
 import ZapisyCard from "./zapisy_card/zapisy_card";
 import {getUser} from '../../../api/user_interaction/user_api.js';
 import { useState }  from 'react';
+import {putLadder} from "../../../api/tournament/ladders_api";
 
 
 export const Zapisy = (props) => {
@@ -23,17 +24,30 @@ export const Zapisy = (props) => {
                 <Col sm={12} style={{paddingLeft: 0, paddingRight:0}}>
                     <Container>
                         <Row fluid="true" style={{backgroundColor: "transparent", marginTop: "1%", marginBottom: "0.5%"}}>
-                            <Col sm={4} style={{paddingRight: 0}}>
+                            <Col sm={5} style={{paddingRight: 0}}>
                                 <Button variant="outline-light" style={{ float: "right"}}> Zaakceptowanych par: {props.ladders_list.ladders.length}</Button>
                             </Col>
-                            <Col sm={3} style={{paddingRight:0}}>
-                                <Button variant="secondary" style={{float: "right"}}>Wygeneruj drabinkę</Button>
+                            <Col sm={4} style={{paddingRight:0}}>
+
+                                <Button variant="secondary" style={{float: "right"}}
+                                        onClick={() => {
+                                            props.pairs_list.pairs.map(
+                                                (card)=>(
+                                                    (card.paymentstatus === "DONE" && card.paymentstatus2 === "DONE")?
+                                                            // TODO STWORZYĆ LISTĘ GOTOWYCH ZAPISÓW, ŻEBY POTEM MÓC JE PARAMI PUTOWAĆ
+                                                            // putLadder(card.tournamentid, "R", card.id,  )
+                                                            console.log(card.id)
+                                                        :null
+                                                )
+                                            )
+                                        }
+                                }>
+                                    Send to Jesus
+                                </Button>
+
                             </Col>
                         </Row>
                         <Row style={{background: "white"}}>
-                            {/*DIV: &nbsp;*/}
-                            {/*{props.pairs_list.pairs.length}*/}
-                            {/*&nbsp;*/}
 
                             {props.pairs_list.pairs.length === 0 ?
                                 <h5>no results available</h5> :
