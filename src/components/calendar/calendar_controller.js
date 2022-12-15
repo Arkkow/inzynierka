@@ -34,7 +34,7 @@ export const Calendar_controller = (props) => {
 
   return (
     <Row className="justify-content-md-center">
-      <Col sm={6}>
+      <Col lg={6}>
         {props.calendar_list.length === 0 ? (
           <h5>no results available</h5>
         ) : (
