@@ -235,7 +235,7 @@ function InputBox() {
           ref={rang}
         >
           <option selected>CHALLENGER</option>
-          <option value="1">MASTER</option>
+          <option value="MASTER">MASTER</option>
         </select>
       </div>
 
