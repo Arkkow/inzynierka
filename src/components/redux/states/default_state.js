@@ -43,6 +43,7 @@ const default_state = {
         inAtype: "info",
         inA: "",
         inBtype: "",
+
       },
     },
   },

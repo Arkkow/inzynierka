@@ -24,7 +24,7 @@ export const Zapisy = (props) => {
                     <Container>
                         <Row fluid="true" style={{backgroundColor: "transparent", marginTop: "1%", marginBottom: "0.5%"}}>
                             <Col sm={4} style={{paddingRight: 0}}>
-                                <Button variant="outline-light" style={{ float: "right"}}> Zaakceptowanych par: 8</Button>
+                                <Button variant="outline-light" style={{ float: "right"}}> Zaakceptowanych par: {props.ladders_list.ladders.length}</Button>
                             </Col>
                             <Col sm={3} style={{paddingRight:0}}>
                                 <Button variant="secondary" style={{float: "right"}}>Wygeneruj drabinkę</Button>

@@ -14,7 +14,7 @@ export const Drabinka = (props) => {
     return (
         <Container fluid="true" style={{background: "#188FA7", paddingTop: "1%"}}>
             <Row>
-                <Col sm={6}>
+                <Col sm={12}>
                     <Row>
                         <Button variant="success" style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>PIERWSZA RUNDA</Button>
                     </Row>
@@ -25,23 +25,22 @@ export const Drabinka = (props) => {
                             <DrabinkaCard {...card}/>
                         ))
                     }
-
                 </Col>
-                <Col sm={6}>
-                    <Button variant="success" style={{background: "green", minWidth: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>DRUGA RUNDA</Button>
-                    <Row className={"round-2"}>
-                        <DrabinkaCard/>
-                    </Row>
-                    <Row className={"round-2"}>
-                        <DrabinkaCard/>
-                    </Row>
-                    <Row className={"round-2"}>
-                        <DrabinkaCard/>
-                    </Row>
-                    <Row className={"round-2"}>
-                        <DrabinkaCard/>
-                    </Row>
-                </Col>
+                {/*<Col sm={6}>*/}
+                {/*    <Button variant="success" style={{background: "green", minWidth: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>DRUGA RUNDA</Button>*/}
+                {/*    <Row className={"round-2"}>*/}
+                {/*        <DrabinkaCard/>*/}
+                {/*    </Row>*/}
+                {/*    <Row className={"round-2"}>*/}
+                {/*        <DrabinkaCard/>*/}
+                {/*    </Row>*/}
+                {/*    <Row className={"round-2"}>*/}
+                {/*        <DrabinkaCard/>*/}
+                {/*    </Row>*/}
+                {/*    <Row className={"round-2"}>*/}
+                {/*        <DrabinkaCard/>*/}
+                {/*    </Row>*/}
+                {/*</Col>*/}
                 {/*<Col sm={3}>*/}
                 {/*    <Button variant="success" style={{background: "green", minWidth: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>TRZECIA RUNDA</Button>*/}
                 {/*</Col>*/}
