@@ -56,6 +56,13 @@ export const CalendarCard = (props) => {
                                       variant="success"
                                       href={"tournament"+"?id="+props.id}
                                   >INFORMACJE</Button>
+                              {/*TODO do usunięcia po naprawieniu props.handleGOTO is not a function*/}
+                              <Button
+                                  onClick={() => props.handleGOTO("info")}
+                                  variant="light"
+                                  style={{border: "1px solid black"}}>
+                                  Informacje
+                              </Button>
                           </Row>
                       </Col>
                 </Row>

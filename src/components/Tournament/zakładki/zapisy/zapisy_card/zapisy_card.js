@@ -44,9 +44,15 @@ export const ZapisyCard = (props) => {
                     </Col>
                     <Col sm={2}>
                         {/*TODO  props.handleGOTO is not a function*/}
-                        {/*<Button variant="danger" onClick={() => props.handleReadyList(props)}>*/}
-                        {/*    SEND NUKES*/}
-                        {/*</Button>*/}
+                        <Button variant="danger" onClick={() => props.handleReadyList()}>
+                            SEND NUKES
+                        </Button>
+                        <Button
+                            onClick={() => props.handleGOTO("info")}
+                            variant="light"
+                            style={{border: "1px solid black"}}>
+                            Informacje
+                        </Button>
                         {/*<Button variant="danger" onClick={() => props.handleGOTO("info")}>*/}
                         {/*    SEND NUDES*/}
                         {/*</Button>*/}
