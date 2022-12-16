@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
 import ZapisyConditionals from "./zapisy_conditionals/zapisy_conditionals";
+import Button from "react-bootstrap/Button";
 
 
 export const ZapisyCard = (props) => {
@@ -42,6 +43,16 @@ export const ZapisyCard = (props) => {
                         </Container>
                     </Col>
                     <Col sm={2}>
+                        {/*TODO  props.handleGOTO is not a function*/}
+                        {/*<Button variant="danger" onClick={() => props.handleReadyList(props)}>*/}
+                        {/*    SEND NUKES*/}
+                        {/*</Button>*/}
+                        {/*<Button variant="danger" onClick={() => props.handleGOTO("info")}>*/}
+                        {/*    SEND NUDES*/}
+                        {/*</Button>*/}
+
+                        {/*{() => props.handleGOTO("info")}*/}
+
                         <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
                             SR: {props.rankingsum}
                         </div>
