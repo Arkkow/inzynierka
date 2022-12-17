@@ -26,27 +26,6 @@ export const Drabinka = (props) => {
                         ))
                     }
                 </Col>
-                {/*<Col sm={6}>*/}
-                {/*    <Button variant="success" style={{background: "green", minWidth: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>DRUGA RUNDA</Button>*/}
-                {/*    <Row className={"round-2"}>*/}
-                {/*        <DrabinkaCard/>*/}
-                {/*    </Row>*/}
-                {/*    <Row className={"round-2"}>*/}
-                {/*        <DrabinkaCard/>*/}
-                {/*    </Row>*/}
-                {/*    <Row className={"round-2"}>*/}
-                {/*        <DrabinkaCard/>*/}
-                {/*    </Row>*/}
-                {/*    <Row className={"round-2"}>*/}
-                {/*        <DrabinkaCard/>*/}
-                {/*    </Row>*/}
-                {/*</Col>*/}
-                {/*<Col sm={3}>*/}
-                {/*    <Button variant="success" style={{background: "green", minWidth: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>TRZECIA RUNDA</Button>*/}
-                {/*</Col>*/}
-                {/*<Col sm={3}>*/}
-                {/*    <Button variant="success" style={{background: "green", minWidth: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>CZWARTA RUNDA</Button>*/}
-                {/*</Col>*/}
             </Row>
         </Container>
     );

@@ -11,35 +11,38 @@ import {Container, Row, Col} from "react-bootstrap";
 export const DrabinkaCard = (props) => {
     return (
         <Card border={"dark"} >
-            <Container style={{paddingLeft: "30px"}}>
+            <Container>
                 <Row>
-                    hi {props.id} !
-                </Row>
-                <Row>&nbsp;</Row>
-                <Row>
-                    <Col sm={8}>
-                        <Row>
-                            {props.inAname1} {props.inAsurname1}
-                        </Row>
-                        <Row>
-                            {props.inAname2} {props.inAsurname2}
-                        </Row>
+                    <Col sm={1}>
+                        {props.id}
                     </Col>
-                    <Col sm={4}>
-                        6 3 6
-                    </Col>
-                </Row>
-                <Row>
-                    <Col sm={8}>
+                    <Col sm={11}>
                         <Row>
-                            {props.inBname1} {props.inBsurname1}
+                            <Col sm={8}>
+                                <Row>
+                                    {props.inAname1} {props.inAsurname1}
+                                </Row>
+                                <Row>
+                                    {props.inAname2} {props.inAsurname2}
+                                </Row>
+                            </Col>
+                            <Col sm={4}>
+                                6 3 6
+                            </Col>
                         </Row>
                         <Row>
-                            {props.inBname2} {props.inBsurname2}
+                            <Col sm={8}>
+                                <Row>
+                                    {props.inBname1} {props.inBsurname1}
+                                </Row>
+                                <Row>
+                                    {props.inBname2} {props.inBsurname2}
+                                </Row>
+                            </Col>
+                            <Col sm={4}>
+                                6 3 6
+                            </Col>
                         </Row>
-                    </Col>
-                    <Col sm={4}>
-                        6 3 6
                     </Col>
                 </Row>
             </Container>
