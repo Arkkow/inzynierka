@@ -13,10 +13,14 @@ import {putLadder} from "../../../api/tournament/ladders_api";
 
 
 export const Zapisy = (props) => {
-			  const [user, setUser] = useState({"fetched":false,data:[]});
+    const [user, setUser] = useState({"fetched":false,data:[]});
 	  if(user.fetched === false){
 		  getUser().then((dane)=>{setUser({"fetched":true,data:dane});})
 	  }
+
+    let ready_list = props.pairs_list.pairs.filter( (e) =>
+        e.paymentstatus === "DONE" && e.paymentstatus2 === "DONE" );
+
     return (
         <Container fluid="true" style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
             {/*<div>DIV: {props.pairs_list.data}</div>*/}
@@ -25,21 +29,27 @@ export const Zapisy = (props) => {
                     <Container>
                         <Row fluid="true" style={{backgroundColor: "transparent", marginTop: "1%", marginBottom: "0.5%"}}>
                             <Col sm={5} style={{paddingRight: 0}}>
-                                <Button variant="outline-light" style={{ float: "right"}}> Zaakceptowanych par: {props.ladders_list.ladders.length}</Button>
+                                <Button variant="outline-light" style={{ float: "right"}}>
+                                    Zaakceptowanych par: {ready_list.length}
+                                </Button>
+                                hi! {props.calendar_list.id}
                             </Col>
                             <Col sm={4} style={{paddingRight:0}}>
-
                                 <Button variant="secondary" style={{float: "right"}}
                                         onClick={() => {
-                                            props.pairs_list.pairs.map(
-                                                (card)=>(
-                                                    (card.paymentstatus === "DONE" && card.paymentstatus2 === "DONE")?
-                                                            // TODO STWORZYĆ LISTĘ GOTOWYCH ZAPISÓW, ŻEBY POTEM MÓC JE PARAMI PUTOWAĆ
-                                                            // putLadder(card.tournamentid, "R", card.id,  )
-                                                            console.log(card.id)
-                                                        :null
-                                                )
-                                            )
+                                            ready_list.sort(() => Math.random() - 0.5)
+                                            for (let i = 0; i < props.calendar_list.places; i += 2) {
+                                                putLadder(
+                                                    {
+                                                        "tournamentid": String(props.calendar_list.id),
+                                                        "inAtype": "R",
+                                                        "inA": String(ready_list[i].id),
+                                                        "inBtype": "R",
+                                                        "inB": String(ready_list[i + 1].id),
+                                                        "round": "0"
+                                                    }
+                                                ).then(r => console.log(r))
+                                            }
                                         }
                                 }>
                                     Send to Jesus

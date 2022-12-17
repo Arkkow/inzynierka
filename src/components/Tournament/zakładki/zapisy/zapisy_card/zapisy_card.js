@@ -43,22 +43,6 @@ export const ZapisyCard = (props) => {
                         </Container>
                     </Col>
                     <Col sm={2}>
-                        {/*TODO  props.handleGOTO is not a function*/}
-                        <Button variant="danger" onClick={() => props.handleReadyList()}>
-                            SEND NUKES
-                        </Button>
-                        <Button
-                            onClick={() => props.handleGOTO("info")}
-                            variant="light"
-                            style={{border: "1px solid black"}}>
-                            Informacje
-                        </Button>
-                        {/*<Button variant="danger" onClick={() => props.handleGOTO("info")}>*/}
-                        {/*    SEND NUDES*/}
-                        {/*</Button>*/}
-
-                        {/*{() => props.handleGOTO("info")}*/}
-
                         <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
                             SR: {props.rankingsum}
                         </div>
