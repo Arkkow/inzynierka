@@ -32,7 +32,6 @@ export const Zapisy = (props) => {
                                 <Button variant="outline-light" style={{ float: "right"}}>
                                     Zaakceptowanych par: {ready_list.length}
                                 </Button>
-                                hi! {props.calendar_list.id}
                             </Col>
                             <Col sm={4} style={{paddingRight:0}}>
                                 <Button variant="secondary" style={{float: "right"}}
@@ -54,7 +53,6 @@ export const Zapisy = (props) => {
                                 }>
                                     Send to Jesus
                                 </Button>
-
                             </Col>
                         </Row>
                         <Row style={{background: "white"}}>
