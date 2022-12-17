@@ -27,8 +27,8 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
           setIsLoaded(true);
           setResponse(result);
           localStorage.setItem("token", JSON.stringify(result));
-          setIsLoginOpen(false);
-          window.location.reload(false);
+			setTimeout(()=>{          setIsLoginOpen(false);
+window.location.reload()},1000);
         },
         (error) => {
           setIsLoaded(true);
