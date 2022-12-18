@@ -8,6 +8,7 @@ import {getUser} from "../../api/user_interaction/user_api";
 import {getPendingApprovals} from "../../api/api";
 import {connect} from "react-redux";
 import {useEffect} from "react";
+import MatchResult_popup from "../../popups/match_result_popup";
 
 
 export const Header = (props) => {
@@ -62,6 +63,7 @@ export const Header = (props) => {
                                                 variant="success"
                                                 href="new_tournament"
                                             >STWÓRZ NOWY TURNIEJ</Button>
+                                            <MatchResult_popup/>
                                         </div>:null}
                                 </Col>
                             </Row>
