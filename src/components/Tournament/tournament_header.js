@@ -16,7 +16,7 @@ export const TournamentHeader = (props) => {
             <Row>
                 <Col sm={3}>
                     <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
-                        <img src={(props.calendar_list.hasImage == 0 ?cup_logo:"https://dragonmaster.pl/inz/tournament/image?id="+props.calendar_list.id)} alt={""} style={{height: "100%", width: "auto", maxWidth: "40vh"}}/>
+                        <img src={(props.calendar_list.hasImage == 0 ?cup_logo:"https://dragonmaster.pl/inz/tournament/image?id="+props.calendar_list.id)} alt={""} style={{height: "240px", width: "240px"}}/>
                     </div>
                 </Col>
                 <Col sm={5}>
