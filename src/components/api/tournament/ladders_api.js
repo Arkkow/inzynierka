@@ -13,7 +13,8 @@ OUTPUT
 "ok"
 */
 export function putLadder(input) {
-    return makeAuthedReq("ladder","PUT",JSON.stringify(input));
+    return makeAuthedReq("ladder","PUT",JSON.stringify(input)
+    );
 }
 
 /*

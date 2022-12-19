@@ -24,18 +24,21 @@ const default_state = {
       },
     ],
   },
+
   user_content: {
     data: {
       role: "default",
       //"tu będzie puste na razie, to jest default, to się nadpisze"
     },
   },
+
   view_content: {
     data: {
       screen: "calendar",
       tournament_tab: "info",
     },
   },
+
   ladders_content: {
     data: {
       ladders: {
@@ -43,9 +46,11 @@ const default_state = {
         inAtype: "info",
         inA: "",
         inBtype: "",
+
       },
     },
   },
+
   pairs_content: {
     data: {
       pairs: {
@@ -67,12 +72,25 @@ const default_state = {
       },
     }
   },
+
   my_tournaments_content: {
     data: {
       id: "1",
       inviter: "1",
       tournamnet: "1"
     },
+  },
+
+  tournament_ready_content: {
+    data: [
+        {
+          idA: "1",
+          nameA: "Adam",
+          surnameA: "Kowalski",
+          idB: "1",
+        }
+    ]
   }
+
 };
 export default default_state
