@@ -5,14 +5,11 @@ import * as React from 'react';
 import PaymentMethod_popup from '../../../../../popups/payment_method_popup.js';
 import {postRegistrationApprove} from "../../../../../api/tournament/tournament_registration_api";
 import {postPayedUsingCash} from "../../../../../api/user_interaction/payment_api";
+import {CalendarInvitation} from "../../../../../calendar/calendar_card/conditionals/calendar_invitation";
 
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Calendar_invitation, {
-    CalendarInvitation
-} from "../../../../../calendar/calendar_card/conditionals/calendar_invitation";
-import {postRejectInvite} from "../../../../../api/user_interaction/invitation_api";
 
 
 
@@ -26,11 +23,22 @@ export const ZapisyConditionals = (props) => {
     return (
         <>
             <Col sm={1}>
+                {/*hi {accepted_count}*/}
+
                 <Row>
-                    {props.approval === "0" && props.partnerAcceptance === "1" && (props.user.role === "2" || props.user.role === "3")?
-                        <Button variant="warning" onClick={() => {
-                            postRegistrationApprove(String(props.id)).then(r =>console.log(r))
-                        }
+                    {/** Button akceptacji zapisu **/}
+                    {props.approval === "0" && props.partnerAcceptance === "1" &&
+                    (props.user.role === "2" || props.user.role === "3") &&
+
+                    //     TODO do decyzji, czy chcemy taki warunek, czy stawiamy go dalej, czy zostawiamy losowość
+                    //     Jeżeli są wolne miejsca, wyświetl "A"
+                    props.calendar_list.places - props.pairs_list.pairs.filter( (e) =>
+                        e.approval === "1").length > 0?
+
+                        <Button variant="warning"
+                                onClick={() => {
+                                    postRegistrationApprove(String(props.id)).then(r =>console.log(r))
+                                }
                         }>A</Button>:
                         null
                     }
@@ -40,8 +48,8 @@ export const ZapisyConditionals = (props) => {
                 <Container>
                     <Row>
                         <Form>
+                            {/** Slider "1 Zapis opłacony" **/}
                             {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?"Zapis zatwierdzony":
-
                                 props.user.role === "2" || props.user.role === '3'?
                                     props.paymentstatus === "DONE"?
                                         <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis 1. opłacony" reverse/>:
@@ -56,8 +64,10 @@ export const ZapisyConditionals = (props) => {
 
                             }
 
+                            {/** Button "Użytkownik zaprosił cię do gry" **/}
                             <CalendarInvitation{...props}/>
 
+                            {/** Slider "Zapis 2 opłacony" **/}
                             {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?null:
                                 props.user.role === "2" || props.user.role === '3'?
                                     props.paymentstatus2 === "DONE"?
@@ -74,11 +84,14 @@ export const ZapisyConditionals = (props) => {
                             }
 
 
+                            {/** Komunikaty dla zawodników **/}
                             {props.userid === props.user.id && props.paymentstatus2 === "PENDING"?"Oczekuje na płatność partnera":null}
                             {props.partner === props.user.id && props.paymentstatus === "PENDING"?"Oczekuje na płatność partnera":null}
                         </Form>
 
                     </Row>
+
+                    {/** Button "Płatność" **/}
                     {
                         props.approval==="1" &&
                         (
