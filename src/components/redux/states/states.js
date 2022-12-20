@@ -85,3 +85,16 @@ export const my_tournaments_content = (
       return state;
   }
 };
+
+export const tournament_ready_content = (state = default_state.tournament_ready_content, action) => {
+  switch (action.type) {
+    case "READY_LIST":
+      return {
+        ...state,
+        data: { screen: action.payload.data },
+      };
+
+    default:
+      return state;
+  }
+};
