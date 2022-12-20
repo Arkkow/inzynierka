@@ -65,13 +65,13 @@ export const TournamentInfo = (props) => {
                 <div style={{marginBottom: "1%"}}>
                     <h5 style={{marginBottom:"0"}}>Czy rankingowy</h5>
                     <div>
-                        {props.calendar_list.approved === "3"?
+                        {props.calendar_list.approved === 3?
                         "NIE":
-                            props.calendar_list.approved === "2"?
+                            props.calendar_list.approved === 2?
                                 "TAK":
-                                props.calendar_list.approved === "1"?
+                                props.calendar_list.approved === 1?
                                     "OCZEKUJE NA ZGODĘ ADMINISTRATORA":
-                                    props.calendar_list.approved === "0"?
+                                    props.calendar_list.approved === 0?
                                         "NIE":
                                         null
                         }
