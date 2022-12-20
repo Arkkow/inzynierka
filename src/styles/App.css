@@ -64,4 +64,9 @@ my_h4{
   line-height: 22px;
 }
 
-
+.tester {
+  display: flex;
+  justifyContent: center;
+  margin: auto;
+  alignItems: center;
+}
