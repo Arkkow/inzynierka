@@ -42,11 +42,23 @@ const default_state = {
   ladders_content: {
     data: {
       ladders: {
-        id: "simpleID",
-        inAtype: "info",
-        inA: "",
-        inBtype: "",
-
+        "id": "string",
+        "inAtype": "R",
+        "inA": "string",
+        "inBtype": "R",
+        "inB": "string",
+        "round": "string",
+        "winner": "string",
+        "scores": "string",
+        "tournamentid": "string",
+        "inAname1": "string",
+        "inAsurname1": "string",
+        "inAname2": "string",
+        "inAsurname2": "string",
+        "inBname1": "string",
+        "inBsurname1": "string",
+        "inBname2": "string",
+        "inBsurname2": "string"
       },
     },
   },
