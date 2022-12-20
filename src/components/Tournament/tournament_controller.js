@@ -28,19 +28,18 @@ export const Tournament_controller = (props) => {
     return (
         <Container fluid="true" style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
             <Row className="justify-content-md-center" >
-                <Col sm={6} style={{paddingLeft: 0, paddingRight:0}}>
-                    <TournamentNavbar {...props}/>
-
-                    {
-                        props.view.tournament_tab === "info"?
-                            <TournamentInfo {...props}/>:
-                        props.view.tournament_tab === "zapisy"?
-                            <Zapisy {...props} user = {props.user}/>:
-                        props.view.tournament_tab === "wyniki"?
-                            <Drabinka {...props}/>:
-                            null
-                    }
-                </Col>
+                <TournamentNavbar {...props}/>
+            </Row>
+            <Row className="justify-content-md-center">
+                {
+                    props.view.tournament_tab === "info"?
+                        <TournamentInfo {...props}/>:
+                    props.view.tournament_tab === "zapisy"?
+                        <Zapisy {...props} user = {props.user}/>:
+                    props.view.tournament_tab === "wyniki"?
+                        <Drabinka {...props}/>:
+                        null
+                }
             </Row>
         </Container>
     );
