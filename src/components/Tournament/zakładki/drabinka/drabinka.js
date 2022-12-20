@@ -8,11 +8,13 @@ import Button from 'react-bootstrap/Button';
 import {Container, Row, Col} from "react-bootstrap";
 import DrabinkaCard from "./drabinka_card";
 import "./x.css";
+import End_tournament_popup from "../../../popups/end_tournament_popup";
 
 
 export const Drabinka = (props) => {
     return (
         <Container fluid="true" style={{background: "#188FA7", paddingTop: "1%"}}>
+            <End_tournament_popup/>
             <Row>
                 <Col sm={12}>
                     <Row>
