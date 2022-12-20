@@ -37,7 +37,10 @@ export const CalendarCard = (props) => {
                         <CalendarInvitation {...props}/>
                         <TournamentRanked {...props}/>
                     </Col>
-                    <Col sm={3}>
+                    <Col sm={3} style={{display: "flex",
+                        justifyContent: "center",
+                        margin: "auto",
+                        alignItems: "center"}}>
                         <CalendarAdminDropdown {...props}/>
                           <br/>
                           <Row>
@@ -49,9 +52,9 @@ export const CalendarCard = (props) => {
                                           lineHeight: "25px",
                                           color: "white",
                                           borderRadius: "15px",
-                                          paddingBottom:"3%",
-                                          paddingTop:"3%",
-                                          width:"80%"
+                                          paddingBottom:"7px",
+                                          paddingTop:"7px",
+                                          width:"100%"
                                       }}
                                       variant="success"
                                       href={"tournament"+"?id="+props.id}
