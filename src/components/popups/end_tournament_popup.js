@@ -37,16 +37,18 @@ function EndTournament_popup() {
                     backgroundColor: "#EBEBEB"
                 }}>
                     <Row style={{backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px", marginRight:"10px"}}>
-                    <Col className="col-9" style={{display:"flex", alignItems:"center"}}>
+                    <Col className="col-9" style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
                         <my_h4>Jarosław Cebulszczykiewicz</my_h4> {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
+                        <my_h4>Cebulak Jarosławiecki</my_h4>
                     </Col>
                     <Col className="col-3">
                         <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}} type="number" className="form-control" id="exampleFormControlInput1" defaultValue="0"></input>
                     </Col>
                     </Row>
                     <Row style={{marginTop:"10px", backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px", marginRight:"10px"}}>
-                        <Col className="col-9" style={{display:"flex", alignItems:"center"}}>
-                            <my_h4>Adam Nowak</my_h4> {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
+                        <Col className="col-9" style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
+                            <my_h4>Jarosław Cebulszczykiewicz</my_h4> {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
+                            <my_h4>Cebulak Jarosławiecki</my_h4>
                         </Col>
                         <Col className="col-3">
                             <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}} type="number" className="form-control" id="exampleFormControlInput1" defaultValue="0"></input>
