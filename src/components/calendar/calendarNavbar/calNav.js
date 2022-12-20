@@ -63,7 +63,6 @@ export const Header = (props) => {
                                                 variant="success"
                                                 href="new_tournament"
                                             >STWÓRZ NOWY TURNIEJ</Button>
-                                            <MatchResult_popup/>
                                         </div>:null}
                                 </Col>
                             </Row>
