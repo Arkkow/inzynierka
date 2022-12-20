@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
+import Match_result_popup from "../../../popups/match_result_popup";
 
 
 export const DrabinkaCard = (props) => {
@@ -16,7 +17,7 @@ export const DrabinkaCard = (props) => {
                     <Col sm={1}>
                         {props.id}
                     </Col>
-                    <Col sm={11}>
+                    <Col sm={9}>
                         <Row>
                             <Col sm={8}>
                                 <Row>
@@ -43,6 +44,12 @@ export const DrabinkaCard = (props) => {
                                 6 3 6
                             </Col>
                         </Row>
+                    </Col>
+                    <Col sm={2} style={{display: "flex",
+                        justifyContent: "center",
+                        margin: "auto",
+                        alignItems: "center"}}>
+                        <Match_result_popup/>
                     </Col>
                 </Row>
             </Container>
