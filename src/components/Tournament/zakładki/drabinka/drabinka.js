@@ -24,7 +24,7 @@ export const Drabinka = (props) => {
                             </Button>
                         </Row>
 
-                        {props.ladders_list.ladders.length === 0 ?
+                        {props.ladders_list.ladders.filter((e) => e.round_number === "1").length === 0 ?
                             <h5>no results available</h5> :
                             props.ladders_list.ladders.map((card)=>(
                                 <DrabinkaCard {...card} tournamentID = {props.calendar_list.id}/>
