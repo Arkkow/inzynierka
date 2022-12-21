@@ -21,15 +21,26 @@ export const Drabinka = (props) => {
                         <Button variant="success" style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>PIERWSZA RUNDA</Button>
                     </Row>
 
-                    {props.ladders_list.ladders.length === 0 ?
-                        <h5>no results available</h5> :
-                        props.ladders_list.ladders.map((card)=>(
-                            <DrabinkaCard {...card}/>
-                        ))
-                    }
-                </Col>
-            </Row>
-        </Container>
+                        {props.ladders_list.ladders.filter((e) => e.round_number === "1").length === 0 ?
+                            <h5>no results available</h5> :
+                            props.ladders_list.ladders.map((card)=>(
+                                <DrabinkaCard {...card} tournamentID = {props.calendar_list.id}/>
+                            ))
+                        }
+                    </Col>
+                    <Col sm={4}>
+                        <Row>
+                            <Button variant="success"
+                                    style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}
+                                    onClick={() => console.log("hi!")}
+                            >
+                                DRUGA RUNDA
+                            </Button>
+                        </Row>
+                    </Col>
+                </Row>
+            </Container>
+        </Col>
     );
 }
 

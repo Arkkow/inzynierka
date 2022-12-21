@@ -27,17 +27,12 @@ export const ZapisyConditionals = (props) => {
 
                 <Row>
                     {/** Button akceptacji zapisu **/}
-                    {props.approval === "0" && props.partnerAcceptance === "1" &&
-                    (props.user.role === "2" || props.user.role === "3") &&
-
-                    //     TODO do decyzji, czy chcemy taki warunek, czy stawiamy go dalej, czy zostawiamy losowość
-                    //     Jeżeli są wolne miejsca, wyświetl "A"
-                    props.calendar_list.places - props.pairs_list.pairs.filter( (e) =>
-                        e.approval === "1").length > 0?
+                    {props.approval === "0" && props.partnerAcceptance === 1 &&
+                    (props.user.role === "2" || props.user.role === "3")?
 
                         <Button variant="warning"
                                 onClick={() => {
-                                    postRegistrationApprove(String(props.id)).then(r =>console.log(r))
+                                    postRegistrationApprove(String(props.id)).then(r =>console.log(r)).then(() => window.location.reload(false))
                                 }
                         }>A</Button>:
                         null
@@ -53,7 +48,7 @@ export const ZapisyConditionals = (props) => {
                                 props.user.role === "2" || props.user.role === '3'?
                                     props.paymentstatus === "DONE"?
                                         <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis 1. opłacony" reverse/>:
-                                        <Form.Check type="switch" label="Zapis 1. opłacony" reverse disabled={props.paymenttype !== "CASH"}
+                                        <Form.Check type="switch" label="Zapis 1. opłacony" reverse disabled={props.paymenttype !== "cash"}
                                                     onClick={() => {
                                                         postPayedUsingCash({
                                                             "id": String(props.id) ,
@@ -72,7 +67,7 @@ export const ZapisyConditionals = (props) => {
                                 props.user.role === "2" || props.user.role === '3'?
                                     props.paymentstatus2 === "DONE"?
                                         <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "CASH"} label="Zapis 2 opłacony" reverse/>:
-                                        <Form.Check type="switch" disabled={props.paymenttype !== "CASH"} label="Zapis 2 opłacony" reverse
+                                        <Form.Check type="switch" disabled={props.paymenttype !== "cash"} label="Zapis 2 opłacony" reverse
                                                     onClick={() => {
                                                         postPayedUsingCash({
                                                             "id": String(props.id) ,
