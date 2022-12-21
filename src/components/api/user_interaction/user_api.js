@@ -12,7 +12,7 @@ OUTPUT
 }
 */
 export function getUserById(id) {
-    return makeReq("user/byId?id="+id,"POST",null);
+    return makeReq("user/byId?id="+id,"GET");
 }
 /*
 OUTPUT
@@ -29,6 +29,10 @@ OUTPUT
 export function getUser() {
     return makeAuthedReq("user","GET",null);
 }
+
+/* INPUT
+{token}
+*/
 
 export function postToken(token) {
     return makeReq("user/verifymail","POST",JSON.stringify(
