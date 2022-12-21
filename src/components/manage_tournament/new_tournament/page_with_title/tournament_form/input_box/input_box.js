@@ -267,9 +267,9 @@ function InputBox() {
         >
           Liczba par
         </label>
-        <select style={{ width: "33%" }} className="form-select" id="sel1">
+        <select style={{ width: "33%" }} className="form-select" id="sel1" ref={places}>
           <option selected>8</option>
-          <option value="1">16</option>
+          <option>16</option>
         </select>
       </div>
 
