@@ -30,6 +30,11 @@ export function getUser() {
     return makeAuthedReq("user","GET",null);
 }
 
+export function postToken(token) {
+    return makeReq("user/verifymail","POST",JSON.stringify(
+        {"token": token}));
+}
+
 /*
 OUTPUT
 {}
