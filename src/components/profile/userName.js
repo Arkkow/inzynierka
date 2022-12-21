@@ -38,8 +38,8 @@ function UserName() {
   }
 
   if (error) {
-    localStorage.removeItem("token");
-    refreshPage();
+    //localStorage.removeItem("token");
+    //refreshPage();
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {

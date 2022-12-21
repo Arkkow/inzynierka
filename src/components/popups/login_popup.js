@@ -28,8 +28,8 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
           setResponse(result);
 		  if(result.token!=undefined){
           localStorage.setItem("token", JSON.stringify(result));
-			setTimeout(()=>{          setIsLoginOpen(false);
-window.location.reload()},1000);
+			setIsLoginOpen(false);
+			window.location.reload();
 			}else{
 			document.getElementById("errormsg").style.display="block";	
 			}},
