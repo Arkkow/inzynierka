@@ -9,12 +9,14 @@ import {Container, Row, Col} from "react-bootstrap";
 import DrabinkaCard from "./drabinka_card";
 import "./x.css";
 import End_tournament_popup from "../../../popups/end_tournament_popup";
+import LadderAdmin from "./ladder_admin/ladder_admin";
 
 
 export const Drabinka = (props) => {
     return (
         <Container fluid="true" style={{background: "#188FA7", paddingTop: "1%"}}>
-            <End_tournament_popup/>
+            {/*<End_tournament_popup/>*/}
+            {/*<LadderAdmin/>*/}
             <Row>
                 <Col sm={4}>
                     <Row>
@@ -23,7 +25,7 @@ export const Drabinka = (props) => {
 
                         {props.ladders_list.ladders.filter((e) => e.round_number === "1").length === 0 ?
                             <h5>no results available</h5> :
-                            props.ladders_list.ladders.map((card)=>(
+                            props.ladders_list.ladders.filter((e) => e.round_number === "1").map((card)=>(
                                 <DrabinkaCard {...card} tournamentID = {props.calendar_list.id}/>
                             ))
                         }

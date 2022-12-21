@@ -18,7 +18,7 @@ export const SetTournament = (props) => {
     let accepted_count = props.pairs_list.pairs.filter( (e) =>
         e.approval === "1");
 
-    let accepted_difference = props.calendar_list.places - accepted_count.length;
+    let accepted_difference = props.calendar_list.places - ready_list.length;
 
     return (
         <Row fluid="true" style={{backgroundColor: "transparent", marginTop: "2%", marginBottom: "2%", margin: "auto"}}>
@@ -41,11 +41,13 @@ export const SetTournament = (props) => {
             <Col sm={3}>
                 <Button variant="secondary"
                         style={{float: "right"}}
-                        disabled={accepted_difference > 0}
+                        disabled={accepted_difference !== 0 || props.ladders_list.ladders.length !== 0}
                         onClick={() => {
                             ready_list.sort(() => Math.random() - 0.5)
                             for (let i = 0; i < props.calendar_list.places; i += 2) {
-                                putLadder(
+                                putLadder
+                                // console.log
+                                (
                                     {
                                         "tournamentid": String(props.calendar_list.id),
                                         "inAtype": "R",
@@ -54,10 +56,11 @@ export const SetTournament = (props) => {
                                         "inB": String(ready_list[i + 1].id),
                                         "round": "1"
                                     }
-                                ).then(r => console.log(r))
+                                )
+                                    // .then(r => console.log(r))
                             }
-                            closeRegistrations(props.calendar_list.id).then(r => console.log(r))
-                            startTournament(props.calendar_list.id).then(r => console.log(r))
+                            // startTournament(props.calendar_list.id).then(r => console.log(r))
+                            //     .then(() => closeRegistrations(props.calendar_list.id).then(r => console.log(r)))
                         }
                         }>
                     Załóż turniej
