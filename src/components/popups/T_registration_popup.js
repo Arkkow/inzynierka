@@ -31,7 +31,7 @@ function T_registration_popup(props) {
         const sendInvitation = () => {putRegistration({
             tournament: id_tournament,
             partner: id.current.value,
-        })
+        }).then(() => window.location.reload(false))
         setShow(false)};
       sendInvitation();
     }

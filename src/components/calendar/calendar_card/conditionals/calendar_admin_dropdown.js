@@ -5,6 +5,8 @@ import * as React from 'react';
 
 // CSS files
 import { Dropdown, Row} from "react-bootstrap";
+import {deleteTournaments} from "../../../api/tournament/tournament_CRUD_api";
+import {deleteTournamentAdmin} from "../../../api/admin/tournament_admin_api";
 
 
 
@@ -19,8 +21,8 @@ export const CalendarAdminDropdown = (props) => {
                         <Dropdown.Item {...props} href={"edit_tournament"+"?id="+props.id}>
                             Edytuj
                         </Dropdown.Item>
-                        <Dropdown.Item>
-                            Action 2
+                        <Dropdown.Item onClick={() => deleteTournamentAdmin(String(props.id)).then(() => window.location.reload(false))}>
+                            Usuń turniej
                         </Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>:
