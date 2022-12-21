@@ -16,7 +16,7 @@ export const Drabinka = (props) => {
         <Container fluid="true" style={{background: "#188FA7", paddingTop: "1%"}}>
             <End_tournament_popup/>
             <Row>
-                <Col sm={12}>
+                <Col sm={4}>
                     <Row>
                         <Button variant="success" style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>PIERWSZA RUNDA</Button>
                     </Row>
@@ -40,7 +40,6 @@ export const Drabinka = (props) => {
                     </Col>
                 </Row>
             </Container>
-        </Col>
     );
 }
 
