@@ -47,7 +47,7 @@ const default_state = {
         "inA": "string",
         "inBtype": "R",
         "inB": "string",
-        "round": "string",
+        "round_number": "string",
         "winner": "string",
         "scores": "string",
         "tournamentid": "string",

@@ -11,7 +11,7 @@ function InputBox() {
   const name = useRef("1");
   const typeOfLadder = useRef("1");
   const pointsForTournament = useRef(1);
-  const places = useRef("1");
+  let places = useRef("8");
   // const roles = useRef("1");
   const place = useRef("1");
   const from = useRef("1");
@@ -69,7 +69,7 @@ function InputBox() {
         name: name.current.value,
         typeOfLadder: typeOfLadder.current.value,
         pointsForTournament: "4",
-        places: "2",
+        places: places.current.value,
         ranked: ranked,
         place: place.current.value,
         from: from.current.value,
