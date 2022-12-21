@@ -59,25 +59,6 @@ export const SetTournament = (props) => {
                                 )
                                     .then(r => console.log(r))
                             }
-                            getladders(props.tournamentID).then(() => console.log("DONE"))
-                                .then(() => {
-                                    for (let i = 0; i < props.places; i += 2) {
-                                        putLadder
-                                            // console.log
-                                            (
-                                                {
-                                                    "tournamentid": String(props.tournamentID),
-                                                    "inAtype": "R",
-                                                    "inA": String(ready_list[i].id),
-                                                    "inBtype": "R",
-                                                    "inB": String(ready_list[i + 1].id),
-                                                    "round": "1"
-                                                }
-                                            )
-                                            .then(r => console.log(r))
-                                    }
-                                }
-                                )
                             // startTournament(props.calendar_list.id).then(r => console.log(r))
                             //     .then(() => closeRegistrations(props.calendar_list.id).then(r => console.log(r)))
                         }
@@ -85,6 +66,40 @@ export const SetTournament = (props) => {
                     Załóż turniej
                 </Button>
             </Col>
+
+            {/*/!** Załóż II rundę: **!/*/}
+            {/*<Col sm={3}>*/}
+            {/*    <Button variant="secondary"*/}
+            {/*            style={{float: "right"}}*/}
+            {/*            disabled={accepted_difference !== 0 || props.ladders_length === 0}*/}
+            {/*            onClick={() => {*/}
+            {/*                getladders(props.tournamentID)*/}
+            {/*                    .then(() => {*/}
+            {/*                        ready_list = props.pairs_list.pairs*/}
+            {/*                            .filter( (e) => e.paymentstatus === "DONE" && e.paymentstatus2 === "DONE" )*/}
+            {/*                            .filter((e) => e.round_number === "2");*/}
+            {/*                })*/}
+            {/*                ready_list.sort(() => Math.random() - 0.5)*/}
+            {/*                for (let i = 0; i < props.places; i += 2) {*/}
+            {/*                    // putLadder*/}
+            {/*                        console.log*/}
+            {/*                        (*/}
+            {/*                            {*/}
+            {/*                                "tournamentid": String(props.tournamentID),*/}
+            {/*                                "inAtype": "R",*/}
+            {/*                                "inA": String(ready_list[i].id),*/}
+            {/*                                "inBtype": "R",*/}
+            {/*                                "inB": String(ready_list[i + 1].id),*/}
+            {/*                                "round": "1"*/}
+            {/*                            }*/}
+            {/*                        )*/}
+            {/*                        // .then(r => console.log(r))*/}
+            {/*                }*/}
+            {/*            }*/}
+            {/*            }>*/}
+            {/*        Załóż II rundę*/}
+            {/*    </Button>*/}
+            {/*</Col>*/}
         </Row>
 
     )
