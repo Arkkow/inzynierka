@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 // Project specific files
 import { getTournamentById} from "../components/api/api";
 import {getUser} from "../components/api/user_interaction/user_api";
-import {getladders} from "../components/api/tournament/ladders_api";
+import {getladders, getLaddersSolved} from "../components/api/tournament/ladders_api";
 import {getRegistrations} from "../components/api/tournament/tournament_registration_api";
 import {Tournament_controller} from "../components/Tournament/tournament_controller";
 import TournamentHeader from "../components/Tournament/tournament_header";
@@ -78,6 +78,17 @@ const mapDispatchToProps = (dispatch) => {
         handleDownloadLadders: (tournament_id) => {
             //    API z kalendarza
             getladders(tournament_id)
+                .then( res => {
+                        return dispatch({type: "DOWNLOAD_LADDERS", payload: {data: res}});
+                    }
+                )
+                .catch((err) => {console.log(err)});
+        },
+
+        // DOWNLOAD_LADDERS
+        handleDownloadLaddersSolved: (tournament_id) => {
+            //    API z kalendarza
+            getLaddersSolved(tournament_id)
                 .then( res => {
                         return dispatch({type: "DOWNLOAD_LADDERS", payload: {data: res}});
                     }

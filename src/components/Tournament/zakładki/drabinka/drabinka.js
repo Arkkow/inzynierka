@@ -17,6 +17,12 @@ export const Drabinka = (props) => {
         <Container fluid="true" style={{background: "#188FA7", paddingTop: "1%"}}>
             {/*<End_tournament_popup/>*/}
             {/*<LadderAdmin/>*/}
+            <Button onClick={() => {
+                console.log(props.calendar_list.id)
+                props.handleDownloadLaddersSolved(props.calendar_list.id)
+
+            }}>
+                Refresh</Button>
             <Row>
                 <Col sm={4}>
                     <Row>

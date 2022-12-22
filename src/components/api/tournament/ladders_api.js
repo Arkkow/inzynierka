@@ -86,5 +86,5 @@ OUTPUT
 }
 */
 export function getLaddersSolved(id) {
-    return makeAuthedReq("ladders/raw?id ="+id ,"GET",null);
+    return makeAuthedReq("ladders/solved?id="+id,"GET",null);
 }
