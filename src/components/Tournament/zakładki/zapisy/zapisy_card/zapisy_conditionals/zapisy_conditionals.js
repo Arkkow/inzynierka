@@ -66,8 +66,8 @@ export const ZapisyConditionals = (props) => {
                             {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?null:
                                 props.user.role === "2" || props.user.role === '3'?
                                     props.paymentstatus2 === "DONE"?
-                                        <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "CASH"} label="Zapis 2 opłacony" reverse/>:
-                                        <Form.Check type="switch" disabled={props.paymenttype !== "cash"} label="Zapis 2 opłacony" reverse
+                                        <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "cash"} label="Zapis 2 opłacony" reverse/>:
+                                        <Form.Check type="switch" disabled={false} label="Zapis 2 opłacony" reverse
                                                     onClick={() => {
                                                         postPayedUsingCash({
                                                             "id": String(props.id) ,

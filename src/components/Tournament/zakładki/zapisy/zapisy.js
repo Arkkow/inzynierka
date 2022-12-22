@@ -24,7 +24,13 @@ export const Zapisy = (props) => {
                     <Col sm={12} style={{paddingLeft: 0, paddingRight:0}}>
                         <Container>
 
-                            <SetTournament {...props}/>
+                            <SetTournament
+                                {...props}
+                                tournamentID = {props.calendar_list.id}
+                                places = {props.calendar_list.places}
+                                pairs_list = {props.pairs_list}
+                                ladders_length = {props.ladders_list.ladders.length}
+                            />
 
                             <Row style={{background: "white"}}>
 

@@ -31,7 +31,7 @@ OUTPUT
 }
 */
 export function putRegistration(input) {
-    return makeAuthedReq("registration" ,"PUT",JSON.stringify(input));
+    return makeAuthedReq("registration","PUT",JSON.stringify(input));
 }
 
 
