@@ -9,9 +9,11 @@ import ZapisyCard from "./zapisy_card/zapisy_card";
 import {getUser} from '../../../api/user_interaction/user_api.js';
 import { useState }  from 'react';
 import SetTournament from "./set_tournament/set_tournament";
+import Button from "react-bootstrap/Button";
 
 
 export const Zapisy = (props) => {
+
     const [user, setUser] = useState({"fetched":false,data:[]});
 	  if(user.fetched === false){
 		  getUser().then((dane)=>{setUser({"fetched":true,data:dane});})
@@ -23,6 +25,7 @@ export const Zapisy = (props) => {
                 <Row className="justify-content-md-center" >
                     <Col sm={12} style={{paddingLeft: 0, paddingRight:0}}>
                         <Container>
+                            {/*{console.log(props.handleDownloadLadders(props.id))}*/}
 
                             <SetTournament
                                 {...props}

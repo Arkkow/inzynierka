@@ -22,10 +22,10 @@ export const DrabinkaCard = (props) => {
                         <Row>
                             <Col sm={8}>
                                 <Row>
-                                    {props.inAname1} {props.inAsurname1}
+                                    &nbsp; {props.inA} {props.inAname1} {props.inAsurname1}
                                 </Row>
                                 <Row>
-                                    {props.inAname2} {props.inAsurname2}
+                                    &nbsp; {props.inA} {props.inAname2} {props.inAsurname2}
                                 </Row>
                             </Col>
                             <Col sm={4}>
@@ -40,10 +40,10 @@ export const DrabinkaCard = (props) => {
                         <Row>
                             <Col sm={8}>
                                 <Row>
-                                    {props.inBname1} {props.inBsurname1}
+                                    &nbsp; {props.inB} {props.inBname1} {props.inBsurname1}
                                 </Row>
                                 <Row>
-                                    {props.inBname2} {props.inBsurname2}
+                                    &nbsp; {props.inB} {props.inBname2} {props.inBsurname2}
                                 </Row>
                             </Col>
                             <Col sm={4}>
