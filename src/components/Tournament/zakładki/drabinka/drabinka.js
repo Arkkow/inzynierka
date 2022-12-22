@@ -14,19 +14,24 @@ import LadderAdmin from "./ladder_admin/ladder_admin";
 
 export const Drabinka = (props) => {
     return (
-        <Container fluid="true" style={{background: "#188FA7", paddingTop: "1%"}}>
+        <Container fluid="true" style={{background: "#188FA7", paddingTop: "1%", margin: "2%"}}>
             {/*<End_tournament_popup/>*/}
             {/*<LadderAdmin/>*/}
             <Button onClick={() => {
                 console.log(props.calendar_list.id)
-                props.handleDownloadLaddersSolved(props.calendar_list.id)
-
+                props.handleDownloadLaddersSolved(164)
+                props.handleDownloadLaddersSolved(165)
+                console.log("DONE")
             }}>
-                Refresh</Button>
+                Refresh
+            </Button>
             <Row>
                 <Col sm={4}>
                     <Row>
-                        <Button variant="success" style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>PIERWSZA RUNDA</Button>
+                        <Button variant="success"
+                                style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>
+                            PIERWSZA RUNDA
+                        </Button>
                     </Row>
 
                         {props.ladders_list.ladders.filter((e) => e.round_number === "1").length === 0 ?

@@ -8,21 +8,34 @@ import Card from 'react-bootstrap/Card';
 import {Container, Row, Col} from "react-bootstrap";
 import Match_result_popup from "../../../popups/match_result_popup/match_result_popup";
 import {CheckCircleFill, XCircleFill} from "react-bootstrap-icons";
+import {getLaddersSolved} from "../../../api/tournament/ladders_api";
+import {useEffect, useState} from "react";
 
 
 export const DrabinkaCard = (props) => {
+
+    const [card, setCard] = useState('');
+
+    useEffect(() =>
+    {
+        getLaddersSolved(props.id).then((r) => {
+            setCard(r);
+        });
+    }, [])
+
     return (
         <Card border={"dark"}>
+            {/*<Button variant="warning" onClick={() => console.log(me)}>X</Button>*/}
             <Container>
                 <Row>
                     <Col sm={1} style={{ padding: 0, margin: "auto"}}>
-                        {props.id}
+                        {card.id}
                     </Col>
                     <Col sm={8}>
                         <Row>
                             <Col sm={8}>
                                 <Row>
-                                    &nbsp; {props.inA} {props.inAname1} {props.inAsurname1}
+                                    {card.inA} {props.inAname1} {props.inAsurname1}
                                 </Row>
                                 <Row>
                                     &nbsp; {props.inA} {props.inAname2} {props.inAsurname2}

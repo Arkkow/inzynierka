@@ -47,9 +47,7 @@ export const SetTournament = (props) => {
                             onClick={() => {
                                 ready_list.sort(() => Math.random() - 0.5);
                                 for (let i = 0; i < props.places; i += 2) {
-                                    putLadder
-                                    // console.log
-                                    (
+                                    putLadder(
                                         {
                                             "tournamentid": String(props.tournamentID),
                                             "inAtype": "R",

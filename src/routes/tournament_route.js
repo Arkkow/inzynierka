@@ -86,9 +86,9 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         // DOWNLOAD_LADDERS
-        handleDownloadLaddersSolved: (tournament_id) => {
+        handleDownloadLaddersSolved: (ladder_id) => {
             //    API z kalendarza
-            getLaddersSolved(tournament_id)
+            getLaddersSolved(ladder_id)
                 .then( res => {
                         return dispatch({type: "DOWNLOAD_LADDERS", payload: {data: res}});
                     }
