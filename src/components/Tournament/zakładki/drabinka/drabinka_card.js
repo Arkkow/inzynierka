@@ -35,10 +35,10 @@ export const DrabinkaCard = (props) => {
                         <Row>
                             <Col sm={8}>
                                 <Row>
-                                    {card.inA} {props.inAname1} {props.inAsurname1}
+                                    {card.inA} {card.inAname1} {card.inAsurname1}
                                 </Row>
                                 <Row>
-                                    &nbsp; {props.inA} {props.inAname2} {props.inAsurname2}
+                                    &nbsp; {card.inA} {card.inAname2} {card.inAsurname2}
                                 </Row>
                             </Col>
                             <Col sm={4}>
@@ -53,10 +53,10 @@ export const DrabinkaCard = (props) => {
                         <Row>
                             <Col sm={8}>
                                 <Row>
-                                    &nbsp; {props.inB} {props.inBname1} {props.inBsurname1}
+                                    &nbsp; {card.inB} {card.inBname1} {card.inBsurname1}
                                 </Row>
                                 <Row>
-                                    &nbsp; {props.inB} {props.inBname2} {props.inBsurname2}
+                                    &nbsp; {card.inB} {card.inBname2} {card.inBsurname2}
                                 </Row>
                             </Col>
                             <Col sm={4}>
@@ -73,7 +73,7 @@ export const DrabinkaCard = (props) => {
                         justifyContent: "center",
                         margin: "auto",
                         alignItems: "center"}}>
-                        <Match_result_popup {...props}/>
+                        <Match_result_popup {...card}/>
                     </Col>
                 </Row>
             </Container>
