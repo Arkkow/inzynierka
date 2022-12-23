@@ -16,7 +16,7 @@ OUTPUT
 ]
 */
 export function getRegistrations(id) {
-    return makeAuthedReq("registrations?id="+id ,"GET",null);
+    return makeAuthedReq("registrations?id="+id,"GET",null);
 }
 
 /*
