@@ -24,27 +24,24 @@ export const Zapisy = (props) => {
             <Container fluid="true" style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
                 <Row className="justify-content-md-center" >
                     <Col sm={12} style={{paddingLeft: 0, paddingRight:0}}>
-                        <Container>
-                            {/*{console.log(props.handleDownloadLadders(props.id))}*/}
 
-                            <SetTournament
-                                {...props}
-                                tournamentID = {props.calendar_list.id}
-                                places = {props.calendar_list.places}
-                                pairs_list = {props.pairs_list}
-                                ladders_length = {props.ladders_list.ladders.length}
-                            />
+                        <SetTournament
+                            {...props}
+                            tournamentID = {props.calendar_list.id}
+                            places = {props.calendar_list.places}
+                            pairs_list = {props.pairs_list}
+                            ladders_length = {props.ladders_list.ladders.length}
+                        />
 
-                            <Row style={{background: "white"}}>
+                        <Row style={{background: "white"}}>
 
-                                {props.pairs_list.pairs.length === 0 ?
-                                    <h5>Zaloguj się, aby zobaczyć zapisanych użytkowników</h5> :
-                                    props.pairs_list.pairs.map((card)=>(
-                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
-                                    ))
-                                }
-                            </Row>
-                        </Container>
+                            {props.pairs_list.pairs.length === 0 ?
+                                <h5>Zaloguj się, aby zobaczyć zapisanych użytkowników</h5> :
+                                props.pairs_list.pairs.map((card)=>(
+                                    <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
+                                ))
+                            }
+                        </Row>
                     </Col>
                 </Row>
             </Container>

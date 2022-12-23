@@ -5,16 +5,14 @@ import * as React from 'react';
 import Button from 'react-bootstrap/Button';
 
 // CSS files
-import {Container, Row, Col} from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import DrabinkaCard from "./drabinka_card";
 import "./x.css";
-import End_tournament_popup from "../../../popups/end_tournament_popup";
-import LadderAdmin from "./ladder_admin/ladder_admin";
 
 
 export const Drabinka = (props) => {
     return (
-        <Container fluid="true" style={{background: "#188FA7", paddingTop: "1%", margin: "2%"}}>
+        <>
             {/*<End_tournament_popup/>*/}
             {/*<LadderAdmin/>*/}
 
@@ -72,7 +70,7 @@ export const Drabinka = (props) => {
                     </Col>
 
                 </Row>
-            </Container>
+        </>
     );
 }
 
