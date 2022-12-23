@@ -41,24 +41,25 @@ export const CalendarCard = (props) => {
                         justifyContent: "center",
                         margin: "auto",
                         alignItems: "center"}}>
-                        <CalendarAdminDropdown {...props}/>
-                          <br/>
-                          <Row>
-                                  <Button
-                                      style={{
-                                          fontFamily: "Montserrat",
-                                          fontWeight: "600",
-                                          fontSize: "18px",
-                                          lineHeight: "25px",
-                                          color: "white",
-                                          borderRadius: "15px",
-                                          paddingBottom:"7px",
-                                          paddingTop:"7px",
-                                          width:"100%"
-                                      }}
-                                      variant="success"
-                                      href={"tournament"+"?id="+props.id}
-                                  >INFORMACJE</Button>
+                        <Row>
+                            <CalendarAdminDropdown {...props}/>
+                        </Row>
+                        <Row>
+                            <Button
+                                style={{
+                                    fontFamily: "Montserrat",
+                                    fontWeight: "600",
+                                    fontSize: "18px",
+                                    lineHeight: "25px",
+                                    color: "white",
+                                    borderRadius: "15px",
+                                    paddingBottom:"7px",
+                                    paddingTop:"7px",
+                                    width:"100%"
+                            }}
+                              variant="success"
+                              href={"tournament"+"?id="+props.id}
+                            >INFORMACJE</Button>
                           </Row>
                       </Col>
                 </Row>

@@ -21,67 +21,70 @@ export const SetTournament = (props) => {
 
     return (
         <>
-            <Row fluid="true" style={{backgroundColor: "transparent", marginTop: "2%", marginBottom: "2%", margin: "auto"}}>
+            {props.user.role === 3?
+            <>
+                <Row fluid="true" style={{backgroundColor: "transparent", marginTop: "2%", marginBottom: "2%", margin: "auto"}}>
 
-                {/** Zaakceptowanych par: **/}
-                <Col sm={5} style={{padding: 0}}>
-                    <Button variant="outline-light" style={{ float: "right"}}>
-                        Zaakceptowanych par: {accepted_count.length} / {props.places}
-                    </Button>
-                </Col>
+                    {/** Zaakceptowanych par: **/}
+                    <Col sm={5} style={{padding: 0}}>
+                        <Button variant="outline-light" style={{ float: "right"}}>
+                            Zaakceptowanych par: {accepted_count.length} / {props.places}
+                        </Button>
+                    </Col>
 
-                {/** Gotowych par: **/}
-                <Col sm={4}>
-                    <Button variant="outline-light" style={{ float: "right"}}>
-                        Gotowych par: {ready_list.length}
-                    </Button>
-                </Col>
-            </Row>
-            <Row>
+                    {/** Gotowych par: **/}
+                    <Col sm={4}>
+                        <Button variant="outline-light" style={{ float: "right"}}>
+                            Gotowych par: {ready_list.length}
+                        </Button>
+                    </Col>
+                </Row>
+                <Row>
 
-                {/** Załóż turniej: **/}
-                <Col sm={3}>
-                    <Button variant="secondary"
-                            style={{float: "right"}}
-                            // disabled={accepted_difference !== 0 || props.ladders_length !== 0}
-                            onClick={() => {
-                                ready_list.sort(() => Math.random() - 0.5);
-                                for (let i = 0; i < props.places; i += 2) {
-                                    putLadder(
-                                        {
-                                            "tournamentid": String(props.tournamentID),
-                                            "inAtype": "R",
-                                            "inA": String(ready_list[i].id),
-                                            "inBtype": "R",
-                                            "inB": String(ready_list[i + 1].id),
-                                            "round": "1"
-                                        }
-                                    )
-                                        .then(r => console.log(r))
-                                };
+                    {/** Załóż turniej: **/}
+                    <Col sm={3}>
+                        <Button variant="secondary"
+                                style={{float: "right"}}
+                                // disabled={accepted_difference !== 0 || props.ladders_length !== 0}
+                                onClick={() => {
+                                    ready_list.sort(() => Math.random() - 0.5);
+                                    for (let i = 0; i < props.places; i += 2) {
+                                        putLadder(
+                                            {
+                                                "tournamentid": String(props.tournamentID),
+                                                "inAtype": "R",
+                                                "inA": String(ready_list[i].id),
+                                                "inBtype": "R",
+                                                "inB": String(ready_list[i + 1].id),
+                                                "round": "1"
+                                            }
+                                        )
+                                            .then(r => console.log(r))
+                                    };
 
 
-                                /** TU PRZEKLEJ RUNDY 2+ **/
+                                    /** TU PRZEKLEJ RUNDY 2+ **/
 
-                            }
+                                }
 
-                                // startTournament(props.calendar_list.id).then(r => console.log(r))
-                                //     .then(() => closeRegistrations(props.calendar_list.id).then(r => console.log(r)))
+                                    // startTournament(props.calendar_list.id).then(r => console.log(r))
+                                    //     .then(() => closeRegistrations(props.calendar_list.id).then(r => console.log(r)))
 
-                            }>
-                        Załóż turniej
-                    </Button>
-                </Col>
+                                }>
+                            Załóż turniej
+                        </Button>
+                    </Col>
 
-                {/** Załóż II rundę: **/}
-                <Col sm={3}>
-                    <SetRounds {...props} accepted_difference={accepted_difference} current_round = {2} text={"Załóż II rundę"}/>
-                </Col>
-                {/** Załóż III rundę: **/}
-                <Col sm={3}>
-                    <SetRounds {...props} accepted_difference={accepted_difference} current_round = {3} text={"Załóż III rundę"}/>
-                </Col>
-            </Row>
+                    {/** Załóż II rundę: **/}
+                    <Col sm={3}>
+                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {2} text={"Załóż II rundę"}/>
+                    </Col>
+                    {/** Załóż III rundę: **/}
+                    <Col sm={3}>
+                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {3} text={"Załóż III rundę"}/>
+                    </Col>
+                </Row>
+            </> :null}
         </>
     )
 }

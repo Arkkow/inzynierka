@@ -38,7 +38,7 @@ export const Zapisy = (props) => {
                             <Row style={{background: "white"}}>
 
                                 {props.pairs_list.pairs.length === 0 ?
-                                    <h5>no results available</h5> :
+                                    <h5>Zaloguj się, aby zobaczyć zapisanych użytkowników</h5> :
                                     props.pairs_list.pairs.map((card)=>(
                                         <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
                                     ))
