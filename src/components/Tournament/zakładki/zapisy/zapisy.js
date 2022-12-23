@@ -9,7 +9,6 @@ import ZapisyCard from "./zapisy_card/zapisy_card";
 import {getUser} from '../../../api/user_interaction/user_api.js';
 import { useState }  from 'react';
 import SetTournament from "./set_tournament/set_tournament";
-import Button from "react-bootstrap/Button";
 
 
 export const Zapisy = (props) => {
@@ -27,7 +26,7 @@ export const Zapisy = (props) => {
 
                         <SetTournament
                             {...props}
-                            tournamentID = {props.calendar_list.id}
+                            tournament = {props.calendar_list}
                             places = {props.calendar_list.places}
                             pairs_list = {props.pairs_list}
                             ladders_length = {props.ladders_list.ladders.length}

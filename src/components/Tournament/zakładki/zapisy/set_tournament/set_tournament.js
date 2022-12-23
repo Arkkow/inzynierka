@@ -21,7 +21,7 @@ export const SetTournament = (props) => {
 
     return (
         <>
-            {props.user.role === 3?
+            {props.user.role === "3"?
             <>
                 <Row fluid="true" style={{backgroundColor: "transparent", marginTop: "2%", marginBottom: "2%", margin: "auto"}}>
 
@@ -51,7 +51,7 @@ export const SetTournament = (props) => {
                                     for (let i = 0; i < props.places; i += 2) {
                                         putLadder(
                                             {
-                                                "tournamentid": String(props.tournamentID),
+                                                "tournamentid": String(props.tournament.id),
                                                 "inAtype": "R",
                                                 "inA": String(ready_list[i].id),
                                                 "inBtype": "R",
@@ -77,11 +77,11 @@ export const SetTournament = (props) => {
 
                     {/** Załóż II rundę: **/}
                     <Col sm={3}>
-                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {2} text={"Załóż II rundę"}/>
+                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {2} text={"Załóż II rundę"} tournament = {props.tournament}/>
                     </Col>
                     {/** Załóż III rundę: **/}
                     <Col sm={3}>
-                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {3} text={"Załóż III rundę"}/>
+                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {3} text={"Załóż III rundę"} tournament = {props.tournament}/>
                     </Col>
                 </Row>
             </> :null}
