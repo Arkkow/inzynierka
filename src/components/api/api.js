@@ -1,4 +1,7 @@
 export function getToken(){
+	if(localStorage.getItem("token") ===null){
+		return null;
+	}
 return JSON.parse(localStorage.getItem("token")).token;
 }
 export function makeReq(endpoint, method,body){
@@ -37,8 +40,13 @@ xhttp.onreadystatechange = function() {
 	}
 	}
 };
+var token =getToken();
+if(token ===null){
+	resolve([]);
+	return;
+}
 xhttp.open(method, "https://dragonmaster.pl/inz/"+endpoint);
-xhttp.setRequestHeader("Authorization","Bearer "+getToken()); 
+xhttp.setRequestHeader("Authorization","Bearer "+token); 
 xhttp.send(body); 
 
   });

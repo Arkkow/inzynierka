@@ -16,7 +16,7 @@ OUTPUT
 ]
 */
 export function getRegistrations(id) {
-    return makeAuthedReq("registrations?id="+id ,"GET",null);
+    return makeAuthedReq("registrations?id="+id,"GET",null);
 }
 
 /*
@@ -31,7 +31,7 @@ OUTPUT
 }
 */
 export function putRegistration(input) {
-    return makeAuthedReq("registration" ,"PUT",JSON.stringify(input));
+    return makeAuthedReq("registration","PUT",JSON.stringify(input));
 }
 
 

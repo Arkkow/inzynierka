@@ -1,4 +1,4 @@
-import {makeAuthedReq} from "../api.js"
+import {makeAuthedReq, makeReq} from "../api.js"
 /*
 INPUT
 {
@@ -13,7 +13,8 @@ OUTPUT
 "ok"
 */
 export function putLadder(input) {
-    return makeAuthedReq("ladder","PUT",JSON.stringify(input));
+    return makeAuthedReq("ladder","PUT",JSON.stringify(input)
+    );
 }
 
 /*
@@ -66,7 +67,7 @@ OUTPUT
 ]
 */
 export function getladders(tournamentid) {
-    return makeAuthedReq("ladders/raw?tournamentid="+tournamentid,"GET",null);
+    return makeReq("ladders/raw?tournamentid="+tournamentid,"GET",null);
 }
 /*
 tournamentid
@@ -85,5 +86,5 @@ OUTPUT
 }
 */
 export function getLaddersSolved(id) {
-    return makeAuthedReq("ladders/raw?id ="+id ,"GET",null);
+    return makeReq("ladders/solved?id="+id,"GET",null);
 }

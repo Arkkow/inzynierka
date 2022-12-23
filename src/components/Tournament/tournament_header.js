@@ -11,13 +11,12 @@ import cup_logo from "../../assets/cup.svg";
 
 
 export const TournamentHeader = (props) => {
-
     return (
         <Container fluid="true" style={{background: "#99D17B", minHeight: "30vh", paddingTop: "2%", paddingBottom: "3%"}}>
             <Row>
                 <Col sm={3}>
                     <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
-                        <img src={cup_logo} alt={""} style={{height: "100%", width: "auto", maxWidth: "40vh"}}/>
+                        <img src={(props.calendar_list.hasImage == 0 ?cup_logo:"https://dragonmaster.pl/inz/tournament/image?id="+props.calendar_list.id)} alt={""} style={{height: "240px", width: "240px"}}/>
                     </div>
                 </Col>
                 <Col sm={5}>

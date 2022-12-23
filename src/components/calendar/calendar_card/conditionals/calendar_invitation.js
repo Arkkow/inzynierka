@@ -39,10 +39,10 @@ export const CalendarInvitation = (props) => {
                                         {/*{(getUserById(invitation.inviter).then()=>setUsers)}*/}
                                     </div>
                                     <div style={{ textAlign: "center" }}>
-                                        <Button variant="success" style={{ margin: "5%" }} onClick={() => postAcceptInvite(invitation.id)}>
+                                        <Button variant="success" style={{ margin: "5%" }} onClick={() => postAcceptInvite(invitation.id).then(() => window.location.reload(false))}>
                                             TAK
                                         </Button>
-                                        <Button variant="danger" style={{ margin: "5%" }} onClick={() => postRejectInvite(invitation.id)}>
+                                        <Button variant="danger" style={{ margin: "5%" }} onClick={() => postRejectInvite(invitation.id).then(() => window.location.reload(false))}>
                                             NIE
                                         </Button>
                                     </div>

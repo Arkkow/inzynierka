@@ -20,10 +20,10 @@ export const TournamentRanked = (props) => {
                         Czy chcesz uczynić turniej rankingowym?
                     </div>
                     <div style={{ textAlign: "center" }}>
-                        <Button variant="success" style={{ margin: "5%" }} onClick={() => approveTournamentAdmin(props.id)}>
+                        <Button variant="success" style={{ margin: "5%" }} onClick={() => approveTournamentAdmin(props.id).then(() => window.location.reload(false))}>
                             TAK
                         </Button>
-                        <Button variant="danger" style={{ margin: "5%" }} onClick={() => rejectTournamentAdmin(props.id)}>
+                        <Button variant="danger" style={{ margin: "5%" }} onClick={() => rejectTournamentAdmin(props.id).then(() => window.location.reload(false))}>
                             NIE
                         </Button>
                     </div>

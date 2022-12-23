@@ -11,7 +11,7 @@ function InputBox() {
   const name = useRef("1");
   const typeOfLadder = useRef("1");
   const pointsForTournament = useRef(1);
-  const places = useRef("1");
+  let places = useRef("8");
   // const roles = useRef("1");
   const place = useRef("1");
   const from = useRef("1");
@@ -69,7 +69,7 @@ function InputBox() {
         name: name.current.value,
         typeOfLadder: typeOfLadder.current.value,
         pointsForTournament: "4",
-        places: "2",
+        places: places.current.value,
         ranked: ranked,
         place: place.current.value,
         from: from.current.value,
@@ -235,7 +235,7 @@ function InputBox() {
           ref={rang}
         >
           <option selected>CHALLENGER</option>
-          <option value="1">MASTER</option>
+          <option value="MASTER">MASTER</option>
         </select>
       </div>
 
@@ -267,9 +267,9 @@ function InputBox() {
         >
           Liczba par
         </label>
-        <select style={{ width: "33%" }} className="form-select" id="sel1">
+        <select style={{ width: "33%" }} className="form-select" id="sel1" ref={places}>
           <option selected>8</option>
-          <option value="1">16</option>
+          <option>16</option>
         </select>
       </div>
 

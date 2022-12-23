@@ -56,6 +56,15 @@ paragraph{
   line-height: 17px;
 }
 
+paragraph_sb{
+  font-family: 'Montserrat', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+
 my_h4{
   font-family: 'Montserrat', serif;
   font-style: normal;
@@ -64,4 +73,9 @@ my_h4{
   line-height: 22px;
 }
 
-
+.tester {
+  display: flex;
+  justifyContent: center;
+  margin: auto;
+  alignItems: center;
+}

@@ -5,13 +5,11 @@ import * as React from 'react';
 import PaymentMethod_popup from '../../../../../popups/payment_method_popup.js';
 import {postRegistrationApprove} from "../../../../../api/tournament/tournament_registration_api";
 import {postPayedUsingCash} from "../../../../../api/user_interaction/payment_api";
+import {CalendarInvitation} from "../../../../../calendar/calendar_card/conditionals/calendar_invitation";
 
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Calendar_invitation, {
-    CalendarInvitation
-} from "../../../../../calendar/calendar_card/conditionals/calendar_invitation";
 
 
 
@@ -25,14 +23,17 @@ export const ZapisyConditionals = (props) => {
     return (
         <>
             <Col sm={1}>
+                {/*hi {accepted_count}*/}
+
                 <Row>
+                    {/** Button akceptacji zapisu **/}
+                    {props.approval === "0" && props.partnerAcceptance === 1 &&
+                    (props.user.role === "2" || props.user.role === "3")?
 
-
-
-                    {props.approval === "0" && props.partnerAcceptance === "1" && (props.user.role === "2" || props.user.role === "3")?
-                        <Button onClick={() => {
-                            postRegistrationApprove(String(props.id)).then(r =>console.log(r))
-                        }
+                        <Button variant="warning"
+                                onClick={() => {
+                                    postRegistrationApprove(String(props.id)).then(r =>console.log(r))
+                                }
                         }>A</Button>:
                         null
                     }
@@ -42,46 +43,50 @@ export const ZapisyConditionals = (props) => {
                 <Container>
                     <Row>
                         <Form>
+                            {/** Slider "1 Zapis opłacony" **/}
+                            {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?"Zapis zatwierdzony":
+                                props.user.role === "2" || props.user.role === '3'?
+                                    props.paymentstatus === "DONE"?
+                                        <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis 1. opłacony" reverse/>:
+                                        <Form.Check type="switch" label="Zapis 1. opłacony" reverse disabled={props.paymenttype !== "cash"}
+                                                    onClick={() => {
+                                                        postPayedUsingCash({
+                                                            "id": String(props.id) ,
+                                                            "ownerOrInvited": "owner"
+                                                        }).then(r =>console.log(r));
+                                                    }
+                                                    }/>:null
 
-                            {props.user.role === "2" || props.user.role === '3'?
-                                props.paymentstatus === "DONE"?
-                                    <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis 1. opłacony" reverse/>:
-                                    <Form.Check type="switch" label="Zapis 1. opłacony" reverse
-                                                onClick={() => {
-                                                    postPayedUsingCash({
-                                                        "id": String(props.id) ,
-                                                        "ownerOrInvited": "owner"
-                                                    }).then(r =>console.log(r));
-                                                }
-                                                }/>:null
                             }
 
-
-
+                            {/** Button "Użytkownik zaprosił cię do gry" **/}
                             <CalendarInvitation{...props}/>
 
-                            {/*<Form.Check disabled={(props.paymentstatus === "DONE" || props.paymenttype !== "CASH")} defaultChecked={props.paymentstatus === "DONE"}/>*/}
-
-
-                            {props.user.role === "2" || props.user.role === '3'?
-                                props.paymentstatus2 === "DONE"?
-                                    <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "CASH"} label="Zapis 2 opłacony" reverse/>:
-                                    <Form.Check type="switch" label="Zapis 2 opłacony" reverse
-                                                onClick={() => {
-                                                    postPayedUsingCash({
-                                                        "id": String(props.id) ,
-                                                        "ownerOrInvited": "invited"
-                                                    }).then(r =>console.log(r));
-                                                }
-                                                }/>
-                                :null
+                            {/** Slider "Zapis 2 opłacony" **/}
+                            {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?null:
+                                props.user.role === "2" || props.user.role === '3'?
+                                    props.paymentstatus2 === "DONE"?
+                                        <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "cash"} label="Zapis 2 opłacony" reverse/>:
+                                        <Form.Check type="switch" disabled={props.paymenttype2 !== "cash"} label="Zapis 2 opłacony" reverse
+                                                    onClick={() => {
+                                                        postPayedUsingCash({
+                                                            "id": String(props.id) ,
+                                                            "ownerOrInvited": "invited"
+                                                        }).then(r =>console.log(r));
+                                                    }
+                                                    }/>
+                                    :null
                             }
 
-                            {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?"Zapis zatwierdzony":null}
+
+                            {/** Komunikaty dla zawodników **/}
                             {props.userid === props.user.id && props.paymentstatus2 === "PENDING"?"Oczekuje na płatność partnera":null}
                             {props.partner === props.user.id && props.paymentstatus === "PENDING"?"Oczekuje na płatność partnera":null}
                         </Form>
+
                     </Row>
+
+                    {/** Button "Płatność" **/}
                     {
                         props.approval==="1" &&
                         (

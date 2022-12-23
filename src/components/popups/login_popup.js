@@ -26,10 +26,13 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
         (result) => {
           setIsLoaded(true);
           setResponse(result);
+		  if(result.token!=undefined){
           localStorage.setItem("token", JSON.stringify(result));
-          setIsLoginOpen(false);
-          window.location.reload(false);
-        },
+			setIsLoginOpen(false);
+			window.location.reload();
+			}else{
+			document.getElementById("errormsg").style.display="block";	
+			}},
         (error) => {
           setIsLoaded(true);
           setError(error);
@@ -104,6 +107,9 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
           alignItems: "center",
         }}
       >
+	  <div id={"errormsg"} style={{display:"none"}}>
+	  Wrong login or password
+	  </div>
         <paragraph>
           Nie masz konta?
           <paragraph style={{ textDecoration: "underline", marginLeft: "3px" }}>

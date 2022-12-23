@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 // Project specific files
 import { getTournamentById} from "../components/api/api";
 import {getUser} from "../components/api/user_interaction/user_api";
-import {getladders} from "../components/api/tournament/ladders_api";
+import {getladders, getLaddersSolved} from "../components/api/tournament/ladders_api";
 import {getRegistrations} from "../components/api/tournament/tournament_registration_api";
 import {Tournament_controller} from "../components/Tournament/tournament_controller";
 import TournamentHeader from "../components/Tournament/tournament_header";
@@ -36,6 +36,7 @@ const mapStateToProps = (state) => {
         view: state.view_content.data,
         pairs_list: state.pairs_content.data,
         ladders_list: state.ladders_content.data,
+        tournament_ready: state.tournament_ready_content.data,
     }
 }
 
@@ -70,7 +71,6 @@ const mapDispatchToProps = (dispatch) => {
 
         // TOURNAMENT_VIEW
         handleGOTO: (tab) => {
-
             return dispatch({type: "TOURNAMENT_VIEW", payload: {data: tab}});
         },
 
@@ -78,6 +78,17 @@ const mapDispatchToProps = (dispatch) => {
         handleDownloadLadders: (tournament_id) => {
             //    API z kalendarza
             getladders(tournament_id)
+                .then( res => {
+                        return dispatch({type: "DOWNLOAD_LADDERS", payload: {data: res}});
+                    }
+                )
+                .catch((err) => {console.log(err)});
+        },
+
+        // DOWNLOAD_LADDERS
+        handleDownloadLaddersSolved: (ladder_id) => {
+            //    API z kalendarza
+            getLaddersSolved(ladder_id)
                 .then( res => {
                         return dispatch({type: "DOWNLOAD_LADDERS", payload: {data: res}});
                     }
@@ -95,6 +106,12 @@ const mapDispatchToProps = (dispatch) => {
                 )
                 .catch((err) => {console.log(err)});
         },
+
+        //READY_LIST
+        handleReadyList: (props) => {
+            return dispatch({ type: "READY_LIST", payload: { data: props } });
+        },
+
     }
 }
 
