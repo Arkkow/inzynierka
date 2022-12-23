@@ -69,12 +69,14 @@ export const DrabinkaCard = (props) => {
                             </Col>
                         </Row>
                     </Col>
+
                     <Col sm={3} style={{display: "flex",
                         justifyContent: "center",
                         margin: "auto",
                         alignItems: "center"}}>
                         <Match_result_popup {...card}/>
                     </Col>
+
                 </Row>
             </Container>
         </Card>
