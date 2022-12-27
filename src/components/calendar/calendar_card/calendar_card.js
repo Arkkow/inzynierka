@@ -18,7 +18,7 @@ import CalendarInvitation from "./conditionals/calendar_invitation";
 
 export const CalendarCard = (props) => {
     return (
-        <Card style={{ minWidth: '40%', margin: "2%", padding: "2%", borderRadius:"20px", borderColor:"var(--medium_grey)"}} >
+        <Card style={{ minWidth: '40%', margin: "2%", padding: "2%", borderRadius:"20px", borderColor:"var(--medium_grey)"}}  >
             <Container fluid="lg">
                 <Row>
                     <Col sm={2}>
@@ -38,34 +38,34 @@ export const CalendarCard = (props) => {
                         <TournamentRanked {...props}/>
                     </Col>
 
-                    <Col sm={3} style={{
-                        display: "flex",
+                    <Col sm={3} style={{display: "flex",
                         justifyContent: "center",
                         margin: "auto",
-                        alignItems: "center"
-                    }}>
-                        {/*jak dam to co z drugiej kolumny i wszystko w jednym row to bedzie git*/}
-                        <Row style={{backgroundColor:"red"}}>
+                        alignItems: "center"}}>
+                        <Row style={{width:"100%"}}>
+
                             <CalendarAdminDropdown {...props}/>
+                            <Row style={{display:"flex", justifyContent:"end"}}>
+                                <Button
+                                    style={{
+                                        fontFamily: "Montserrat",
+                                        fontWeight: "600",
+                                        fontSize: "18px",
+                                        lineHeight: "25px",
+                                        color: "white",
+                                        borderRadius: "15px",
+                                        paddingBottom:"7px",
+                                        paddingTop:"7px",
+                                        width:"100%"
+                                    }}
+                                    variant="success"
+                                    href={"tournament"+"?id="+props.id}
+                                >INFORMACJE</Button>
+                            </Row>
+
                         </Row>
-                        <Row>
-                            <Button
-                                style={{
-                                    fontFamily: "Montserrat",
-                                    fontWeight: "600",
-                                    fontSize: "18px",
-                                    lineHeight: "25px",
-                                    color: "white",
-                                    borderRadius: "15px",
-                                    paddingBottom:"7px",
-                                    paddingTop:"7px",
-                                    width:"100%"
-                            }}
-                              variant="success"
-                              href={"tournament"+"?id="+props.id}
-                            >INFORMACJE</Button>
-                          </Row>
-                      </Col>
+
+                    </Col>
                 </Row>
             </Container>
         </Card>

@@ -20,8 +20,8 @@ export const Zapisy = (props) => {
 	  }
 
     return (
-        <Col sm={6}>
-            <Container fluid="true" style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
+        <Col sm={6} >
+            <Container fluid="true" style={{minHeight: "64vh", paddingTop: "0%"}}>
                 <Row className="justify-content-md-center" >
                     <Col sm={12} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
 
@@ -33,7 +33,7 @@ export const Zapisy = (props) => {
                             ladders_length = {props.ladders_list.ladders.length}
                         />
 
-                        <Row style={{background: "white", marginTop:"10px", borderRadius:"10px", width:"70%"}}>
+                        <Row style={{background: "white", marginTop:"10px", borderRadius:"10px", width:"100%"}}>
 
                             {props.pairs_list.pairs.length === 0 ?
                                 <my_h4 style={{display:"flex", alignItems:"center", justifyContent:"center", padding:"20px", color: "var(--black)"}}>

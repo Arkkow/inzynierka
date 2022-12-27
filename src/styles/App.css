@@ -64,6 +64,22 @@ paragraph_sb{
   line-height: 17px;
 }
 
+big_para_sb{
+  font-family: 'Montserrat', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+big_para{
+  font-family: 'Montserrat', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
 
 my_h4{
   font-family: 'Montserrat', serif;
@@ -71,6 +87,30 @@ my_h4{
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
+}
+
+my_h3{
+  font-family: 'Montserrat', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 42px;
+}
+
+my_h2{
+  font-family: 'Montserrat', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 41px;
+}
+
+my_h1{
+  font-family: 'Montserrat', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 59px;
 }
 
 .tester {
