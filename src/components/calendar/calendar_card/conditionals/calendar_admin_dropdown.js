@@ -15,7 +15,7 @@ export const CalendarAdminDropdown = (props) => {
         <Row>
             {props.user.role === "3" || (props.user.id === props.creator)?
                 <Dropdown>
-                    <Dropdown.Toggle variant="secondary">...</Dropdown.Toggle>
+                    <Dropdown.Toggle variant="secondary"></Dropdown.Toggle>
                     <Dropdown.Menu variant="secondary">
                         <Dropdown.Item {...props} href={"edit_tournament"+"?id="+props.id}>
                             Edytuj

@@ -37,11 +37,15 @@ export const CalendarCard = (props) => {
                         <CalendarInvitation {...props}/>
                         <TournamentRanked {...props}/>
                     </Col>
-                    <Col sm={3} style={{display: "flex",
+
+                    <Col sm={3} style={{
+                        display: "flex",
                         justifyContent: "center",
                         margin: "auto",
-                        alignItems: "center"}}>
-                        <Row>
+                        alignItems: "center"
+                    }}>
+                        {/*jak dam to co z drugiej kolumny i wszystko w jednym row to bedzie git*/}
+                        <Row style={{backgroundColor:"red"}}>
                             <CalendarAdminDropdown {...props}/>
                         </Row>
                         <Row>

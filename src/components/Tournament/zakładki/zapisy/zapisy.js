@@ -23,7 +23,7 @@ export const Zapisy = (props) => {
         <Col sm={6}>
             <Container fluid="true" style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
                 <Row className="justify-content-md-center" >
-                    <Col sm={12} style={{paddingLeft: 0, paddingRight:0}}>
+                    <Col sm={12} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
 
                         <SetTournament
                             {...props}
@@ -33,10 +33,11 @@ export const Zapisy = (props) => {
                             ladders_length = {props.ladders_list.ladders.length}
                         />
 
-                        <Row style={{background: "white"}}>
+                        <Row style={{background: "white", marginTop:"10px", borderRadius:"10px", width:"70%"}}>
 
                             {props.pairs_list.pairs.length === 0 ?
-                                <h5>Zaloguj się, aby zobaczyć zapisanych użytkowników</h5> :
+                                <my_h4 style={{display:"flex", alignItems:"center", justifyContent:"center", padding:"20px", color: "var(--black)"}}>
+                                    Aby zobaczyć zapisanych uczestników, musisz być zalogowany</my_h4> :
                                 props.pairs_list.pairs.map((card)=>(
                                     <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
                                 ))

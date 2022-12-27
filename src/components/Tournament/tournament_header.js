@@ -12,7 +12,7 @@ import cup_logo from "../../assets/cup.svg";
 
 export const TournamentHeader = (props) => {
     return (
-        <Container fluid="true" style={{background: "#99D17B", minHeight: "30vh", paddingTop: "2%", paddingBottom: "3%"}}>
+        <Container fluid="true" style={{background: "#0B4D39", minHeight: "30vh", paddingTop: "2%", paddingBottom: "3%", color:"white"}}>
             <Row>
                 <Col sm={3}>
                     <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
