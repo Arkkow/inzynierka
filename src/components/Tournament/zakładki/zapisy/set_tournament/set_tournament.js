@@ -11,12 +11,10 @@ import SetRounds from "./set_rounds/set_rounds";
 
 export const SetTournament = (props) => {
 
-    let ready_list = props.pairs_list.pairs["DONE"];
-
     let accepted_count = props.pairs_list.pairs["ALL"].filter( (e) =>
         e.approval === "1");
 
-    let accepted_difference = props.places - ready_list.length;
+    let accepted_difference = props.places - props.pairs_list.pairs["DONE"].length;
 
     return (
         <>
@@ -34,7 +32,7 @@ export const SetTournament = (props) => {
                     {/** Gotowych par: **/}
                     <Col sm={4}>
                         <Button variant="outline-light" style={{ float: "right"}}>
-                            Gotowych par: {ready_list.length}
+                            Gotowych par: {props.pairs_list.pairs["DONE"].length}
                         </Button>
                     </Col>
                 </Row>
@@ -46,15 +44,15 @@ export const SetTournament = (props) => {
                                 style={{float: "right"}}
                                 // disabled={accepted_difference !== 0 || props.ladders_length !== 0}
                                 onClick={() => {
-                                    ready_list.sort(() => Math.random() - 0.5);
+                                    props.pairs_list.pairs["DONE"].sort(() => Math.random() - 0.5);
                                     for (let i = 0; i < props.places; i += 2) {
                                         putLadder(
                                             {
                                                 "tournamentid": String(props.tournament.id),
                                                 "inAtype": "R",
-                                                "inA": String(ready_list[i].id),
+                                                "inA": String(props.pairs_list.pairs["DONE"][i].id),
                                                 "inBtype": "R",
-                                                "inB": String(ready_list[i + 1].id),
+                                                "inB": String(props.pairs_list.pairs["DONE"][i + 1].id),
                                                 "round": "1"
                                             }
                                         )

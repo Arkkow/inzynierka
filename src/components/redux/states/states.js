@@ -55,6 +55,7 @@ export const ladders_content = (state = default_state.ladders_content, action) =
         data: {
           ladders:
             {
+              ALL: action.payload.data,
               1:action.payload.data.filter((e) => e.round_number.length === 1),
               2:action.payload.data.filter((e) => e.round_number.length === 2),
               3:action.payload.data.filter((e) => e.round_number.length === 3),
