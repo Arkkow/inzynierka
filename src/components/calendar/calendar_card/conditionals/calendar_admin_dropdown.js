@@ -20,6 +20,14 @@ export const CalendarAdminDropdown = (props) => {
 
     return (
         <>
+            <style type="text/css">
+                {`
+    .dropdown-item:active {
+      background: var(--pfp_green);
+      color: white;
+    }
+    `}
+                </style>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title><></></Modal.Title>
