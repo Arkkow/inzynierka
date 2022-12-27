@@ -11,10 +11,9 @@ import SetRounds from "./set_rounds/set_rounds";
 
 export const SetTournament = (props) => {
 
-    let ready_list = props.pairs_list.pairs.filter( (e) =>
-        e.paymentstatus === "DONE" && e.paymentstatus2 === "DONE" );
+    let ready_list = props.pairs_list.pairs["DONE"];
 
-    let accepted_count = props.pairs_list.pairs.filter( (e) =>
+    let accepted_count = props.pairs_list.pairs["ALL"].filter( (e) =>
         e.approval === "1");
 
     let accepted_difference = props.places - ready_list.length;

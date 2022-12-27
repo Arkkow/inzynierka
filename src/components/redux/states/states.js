@@ -52,7 +52,8 @@ export const ladders_content = (state = default_state.ladders_content, action) =
       return {
         ...state,
         // data: {ladders: action.payload.data}
-        data: {ladders:
+        data: {
+          ladders:
             {
               1:action.payload.data.filter((e) => e.round_number.length === 1),
               2:action.payload.data.filter((e) => e.round_number.length === 2),
@@ -74,7 +75,15 @@ export const pairs_content = (state = default_state.pairs_content, action) => {
     case "DOWNLOAD_PAIRS":
       return {
         ...state,
-        data: {pairs: action.payload.data, ladders: state.ladders}
+        data: {
+          pairs:
+              {
+                DONE: action.payload.data.filter((e) => e.paymentstatus === "DONE" && e.paymentstatus2 === "DONE" ),
+                ALL: action.payload.data
+              }
+        }
+        // 4:action.payload.data.filter((e) => e.round_number.length === 4)
+
       };
     default:
       return state;
