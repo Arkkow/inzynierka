@@ -22,16 +22,17 @@ export const Zapisy = (props) => {
         <Col sm={6} >
             <Container fluid="true" style={{minHeight: "64vh", paddingTop: "0%"}}>
                 <Row className="justify-content-md-center" >
-                    <Col sm={12} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
+                    <Col sm={12} style={{alignItems:"center", justifyContent:"center"}}>
+                        <Row>
+                            <SetTournament
+                                {...props}
+                                tournament = {props.calendar_list}
+                                places = {props.calendar_list.places}
+                                pairs_list = {props.pairs_list}
+                                ladders_length = {props.ladders_list.ladders.length}
+                            />
 
-                        <SetTournament
-                            {...props}
-                            tournament = {props.calendar_list}
-                            places = {props.calendar_list.places}
-                            pairs_list = {props.pairs_list}
-                            ladders_length = {props.ladders_list.ladders.length}
-                        />
-
+                        </Row>
                         <Row style={{background: "white", marginTop:"10px", borderRadius:"10px", width:"100%"}}>
 
                             {props.pairs_list.pairs["ALL"].length === 0 ?
