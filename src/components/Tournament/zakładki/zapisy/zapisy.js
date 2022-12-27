@@ -36,7 +36,7 @@ export const Zapisy = (props) => {
 
                             {props.pairs_list.pairs["ALL"].length === 0 ?
                                 <h5>Zaloguj się, aby zobaczyć zapisanych użytkowników lub brak zapisów</h5> :
-                                props.pairs_list.pairs["DONE"].map((card)=>(
+                                props.pairs_list.pairs["ALL"].map((card)=>(
                                     <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
                                 ))
                             }

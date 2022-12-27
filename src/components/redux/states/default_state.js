@@ -49,23 +49,23 @@ const default_state = {
     data: {
       ladders: {
         0:{
-          "id": "string",
+          "id": "100",
           "inAtype": "R",
-          "inA": "string",
+          "inA": "100",
           "inBtype": "R",
-          "inB": "string",
-          "round_number": "string",
-          "winner": "string",
-          "scores": "string",
-          "tournamentid": "string",
-          "inAname1": "string",
-          "inAsurname1": "string",
-          "inAname2": "string",
-          "inAsurname2": "string",
-          "inBname1": "string",
-          "inBsurname1": "string",
-          "inBname2": "string",
-          "inBsurname2": "string"
+          "inB": "100",
+          "round_number": "1",
+          "winner": "A",
+          "scores": "000000",
+          "tournamentid": "1000",
+          "inAname1": "NameA1",
+          "inAsurname1": "SurnameA1",
+          "inAname2": "NameA2",
+          "inAsurname2": "SurnameA2",
+          "inBname1": "NameB1",
+          "inBsurname1": "SurnameB1",
+          "inBname2": "NameB2",
+          "inBsurname2": "SurnameB2"
       }
       },
     },
@@ -75,20 +75,20 @@ const default_state = {
     data: {
       pairs: {
         ALL: {
-          id: "344",
-          userid: "806",
-          tournamentid: "41008",
+          id: "0",
+          userid: "100",
+          tournamentid: "41000",
           paymenttype: "btc",
           paymentstatus: "DONE",
-          paymenttype2: "",
-          paymentstatus2: "",
+          paymenttype2: "cash",
+          paymentstatus2: "PENDING",
           approval: "0",
           partner: "102",
-          name1: "Adam",
-          surname1: "Kowalski",
-          name2: "Łukasik",
-          surname2: "Paweł",
-          rankingsum: "1272",
+          name1: "Name1",
+          surname1: "Surname1",
+          name2: "Name2",
+          surname2: "Surname2",
+          rankingsum: "1000",
           partnerAcceptance: "0",
         }
       },
@@ -103,16 +103,6 @@ const default_state = {
     },
   },
 
-  tournament_ready_content: {
-    data: [
-        {
-          idA: "1",
-          nameA: "Adam",
-          surnameA: "Kowalski",
-          idB: "1",
-        }
-    ]
-  }
 
 };
 export default default_state
