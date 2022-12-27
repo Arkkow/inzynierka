@@ -74,6 +74,7 @@ const default_state = {
   pairs_content: {
     data: {
       pairs: {
+        DONE: {},
         ALL: {
           id: "0",
           userid: "100",
@@ -90,7 +91,7 @@ const default_state = {
           surname2: "Surname2",
           rankingsum: "1000",
           partnerAcceptance: "0",
-        }
+        },
       },
     }
   },
