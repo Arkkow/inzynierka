@@ -26,9 +26,9 @@ export const Tournament_controller = (props) => {
         }, [])
 
     return (
-        <Container fluid="true" style={{background: "#188FA7", minHeight: "64vh", paddingTop: "0%"}}>
+        <Container fluid="true" style={{background: "#689F82", minHeight: "64vh", paddingTop: "0%"}}>
             <Row className="justify-content-md-center" >
-                <TournamentNavbar {...props}/>
+                <TournamentNavbar {...props} style={{backgroundColor:"red"}}/>
             </Row>
             <Row className="justify-content-md-center">
                 {

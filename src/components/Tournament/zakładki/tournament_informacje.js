@@ -11,83 +11,85 @@ export const TournamentInfo = (props) => {
 
     return (
         <Col sm={6}>
-            <Container style={{background: "white"}}>
-                <Row style={{borderBottom: "1px solid black", paddingLeft: "5%", paddingRight: "5%", marginTop: "0.25%", paddingTop: "0.5%"}}>
+            <Container style={{background: "white", borderRadius:"10px 10px 0px 0px"}}>
+                <Row style={{borderBottom: "1px solid var(--medium_grey)", paddingLeft: "5%", paddingRight: "5%", paddingTop: "1.5%", paddingBottom:"1.5%"}}>
 
-                    <h3>{props.calendar_list.name}</h3>
+                    <my_h2>{props.calendar_list.name}</my_h2>
 
                 </Row>
-                <Row style={{borderBottom: "1px solid black", paddingLeft: "5%", paddingRight: "5%"}}>
-                    <h4>{props.calendar_list.place}</h4>
+                <Row style={{borderBottom: "1px solid var(--medium_grey)", paddingLeft: "5%", paddingRight: "5%", paddingTop: "1%", paddingBottom:"1%"}}>
+                    <my_h3>{props.calendar_list.place}</my_h3>
                 </Row>
-                <Row style={{paddingLeft: "5%", paddingRight: "5%"}}>
+                <Row style={{paddingLeft: "5%", paddingRight: "5%", marginTop:"2%"}}>
                     <div style={{marginBottom: "1%"}}>
-                        <h5 style={{marginBottom:"0"}}>Od</h5>
+                        <big_para_sb style={{marginBottom:"0"}}>Od:</big_para_sb>
                         <div>
-                            {props.calendar_list.from}
+                            <big_para>
+                                {props.calendar_list.from}
+                            </big_para>
                         </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
-                        <h5 style={{marginBottom:"0"}}>Do</h5>
+                        <big_para_sb style={{marginBottom:"0"}}>Do:</big_para_sb>
                         <div>
-                            {props.calendar_list.to}
+                            <big_para>{props.calendar_list.to}</big_para>
                         </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
-                        <h5 style={{marginBottom:"0"}}>Wpisowe</h5>
+                        <big_para_sb style={{marginBottom:"0"}}>Wpisowe:</big_para_sb>
                         <div>
-                            {props.calendar_list.entryFee} zł/os
+                            <big_para>{props.calendar_list.entryFee} zł/os</big_para>
                         </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
-                        <h5 style={{marginBottom:"0"}}>Ranga</h5>
+                        <big_para_sb style={{marginBottom:"0"}}>Ranga:</big_para_sb>
                         <div>
-                            {props.calendar_list.rang}
+                            <big_para>{props.calendar_list.rang}</big_para>
                         </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
-                        <h5 style={{marginBottom:"0"}}>System turniejowy</h5>
+                        <big_para_sb style={{marginBottom:"0"}}>System turniejowy:</big_para_sb>
                         <div>
-                            {props.calendar_list.typeOfLadder}
+                            <big_para>{props.calendar_list.typeOfLadder}</big_para>
                         </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
-                        <h5 style={{marginBottom:"0"}}>Kategorie</h5>
+                        <big_para_sb style={{marginBottom:"0"}}>Kategorie:</big_para_sb>
                         <div>
-                            <Button variant="success" disabled={true} style={{paddingTop: "0", paddingBottom: "0", marginTop: "1%"}}>OPEN</Button>
+                            <big_para>OPEN</big_para>
                         </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
-                        <h5 style={{marginBottom:"0"}}>Zapisy do</h5>
+                        <big_para_sb style={{marginBottom:"0"}}>Zapisy do:</big_para_sb>
                         <div>
-                            {props.calendar_list.entriesTo}
+                            <big_para>{props.calendar_list.entriesTo}</big_para>
                         </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
-                        <h5 style={{marginBottom:"0"}}>Czy rankingowy</h5>
+                        <big_para_sb style={{marginBottom:"0"}}>Czy rankingowy:</big_para_sb>
                         <div>
                             {props.calendar_list.approved === 3?
-                            "NIE":
+                            <big_para>NIE</big_para>:
                                 props.calendar_list.approved === 2?
-                                    "TAK":
+                                    <big_para>TAK</big_para>:
                                     props.calendar_list.approved === 1?
-                                        "OCZEKUJE NA ZGODĘ ADMINISTRATORA":
+                                        <big_para>OCZEKUJE NA ZGODĘ ADMINISTRATORA</big_para>:
                                         props.calendar_list.approved === 0?
-                                            "NIE":
+                                            <big_para>NIE</big_para>:
                                             null
                             }
                         </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
-                        <h5 style={{marginBottom:"0"}}>Dyrektor turnieju</h5>
+                        <big_para_sb style={{marginBottom:"0"}}>Dyrektor turnieju:</big_para_sb>
                         <div>
-                            <div>{props.calendar_list.director}</div>
+                            <big_para>{props.calendar_list.director}</big_para>
                         </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
-                        <h5 style={{marginBottom:"0"}}>Dodatkowe informacje</h5>
+                        <big_para_sb style={{marginBottom:"0"}}>Dodatkowe informacje:</big_para_sb>
                         <div>
-                            {props.calendar_list.additionalInformations}
+                            <big_para>{props.calendar_list.additionalInformations}</big_para>
                         </div>
                     </div>
                 </Row>

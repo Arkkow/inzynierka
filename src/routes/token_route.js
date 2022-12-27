@@ -10,6 +10,7 @@ import '../styles/index.css';
 import '../styles/App.css';
 import {useEffect} from "react";
 import {postToken} from "../components/api/user_interaction/user_api";
+import Button from "react-bootstrap/Button";
 
 export default function TokenRoute () {
     let token = String(window.location.href.split('?')[1].split('=')[1])
@@ -20,13 +21,13 @@ export default function TokenRoute () {
     }, [])
 
     return (
-        <Container fluid="true" style={{background: "#c2d1b8", minHeight: "94vh", paddingTop: "2%"}}>
+        <Container fluid="true" style={{background: "#689F82", minHeight: "94vh", paddingTop: "2%"}}>
             <Row className="justify-content-md-center">
                 <Row className="justify-content-md-center">
-                    <Col sm={6} style={{background: "white"}}>
-                        <h5>
-                            Twój mail został zweryfikowany, teraz możesz się zalogować
-                        </h5>
+                    <Col sm={4}>
+                        <my_h4 style={{backgroundColor:"white", display:"flex", alignItems:"center", justifyContent:"center", borderRadius:"10px", height:"50px"}}>
+                            Twój mail został zweryfikowany, możesz się już zalogować
+                        </my_h4>
                     </Col>
                 </Row>
             </Row>
