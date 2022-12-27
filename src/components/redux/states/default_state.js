@@ -27,8 +27,14 @@ const default_state = {
 
   user_content: {
     data: {
+      id: 819,
+      name: "Name",
+      surname: "Surname",
       role: "default",
-      //"tu będzie puste na razie, to jest default, to się nadpisze"
+      login: "login",
+      phone: "phone",
+      mail: "adres@email.com",
+      ranking: 0
     },
   },
 
@@ -42,23 +48,25 @@ const default_state = {
   ladders_content: {
     data: {
       ladders: {
-        "id": "string",
-        "inAtype": "R",
-        "inA": "string",
-        "inBtype": "R",
-        "inB": "string",
-        "round_number": "string",
-        "winner": "string",
-        "scores": "string",
-        "tournamentid": "string",
-        "inAname1": "string",
-        "inAsurname1": "string",
-        "inAname2": "string",
-        "inAsurname2": "string",
-        "inBname1": "string",
-        "inBsurname1": "string",
-        "inBname2": "string",
-        "inBsurname2": "string"
+        0:{
+          "id": "string",
+          "inAtype": "R",
+          "inA": "string",
+          "inBtype": "R",
+          "inB": "string",
+          "round_number": "string",
+          "winner": "string",
+          "scores": "string",
+          "tournamentid": "string",
+          "inAname1": "string",
+          "inAsurname1": "string",
+          "inAname2": "string",
+          "inAsurname2": "string",
+          "inBname1": "string",
+          "inBsurname1": "string",
+          "inBname2": "string",
+          "inBsurname2": "string"
+      }
       },
     },
   },

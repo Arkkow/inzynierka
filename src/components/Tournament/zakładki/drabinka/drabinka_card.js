@@ -74,7 +74,9 @@ export const DrabinkaCard = (props) => {
                         justifyContent: "center",
                         margin: "auto",
                         alignItems: "center"}}>
+                        {props.role === "2" || props.role === "3"?
                         <Match_result_popup {...card}/>
+                        :null}
                     </Col>
 
                 </Row>

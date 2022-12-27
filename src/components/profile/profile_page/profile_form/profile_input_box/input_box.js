@@ -140,6 +140,7 @@ function InputBox() {
           readOnly
           className="form-control-plaintext"
           id="staticLogin"
+          disabled={true}
           defaultValue={userData.login}
         ></input>
 

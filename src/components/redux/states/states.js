@@ -51,7 +51,17 @@ export const ladders_content = (state = default_state.ladders_content, action) =
     case "DOWNLOAD_LADDERS":
       return {
         ...state,
-        data: {ladders: action.payload.data}
+        // data: {ladders: action.payload.data}
+        data: {ladders:
+            {
+              1:action.payload.data.filter((e) => e.round_number.length === 1),
+              2:action.payload.data.filter((e) => e.round_number.length === 2),
+              3:action.payload.data.filter((e) => e.round_number.length === 3),
+              4:action.payload.data.filter((e) => e.round_number.length === 4)
+            }
+
+        }
+
       };
     default:
       return state;
