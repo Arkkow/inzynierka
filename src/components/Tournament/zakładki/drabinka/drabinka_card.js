@@ -14,6 +14,15 @@ import {useEffect, useState} from "react";
 
 export const DrabinkaCard = (props) => {
 
+    let round_counted = 1;
+
+    for ( let i=0; i < props.round_number.length; i++ ){
+        let adder = 16/(2**i)
+        if(props.round_number[i] === "L"){
+            round_counted += adder
+        }
+    };
+
     const [card, setCard] = useState('');
 
     useEffect(() =>
@@ -25,7 +34,7 @@ export const DrabinkaCard = (props) => {
 
     return (
         <Card border={"dark"}>
-            {/*<Button variant="warning" onClick={() => console.log(me)}>X</Button>*/}
+            {round_counted} {props.round_number}
             <Container>
                 <Row>
                     <Col sm={1} style={{ padding: 0, margin: "auto"}}>

@@ -4,7 +4,7 @@ import * as React from "react";
 
 export const SetRounds = (props) => {
 
-    let ready_list_next = props.ladders_list.ladders;
+    let ready_list_next = props.ladders_list.ladders[props.current_round-1].sort();
 
     let num_of_matches = 0;
 
@@ -27,11 +27,6 @@ export const SetRounds = (props) => {
                     // getladders to props, and then from props to ready_list_next
 
                     props.handleDownloadLadders(props.tournament.id)
-
-                    ready_list_next = props.ladders_list.ladders
-                        .filter((e) => e.round_number === String(props.current_round-1)).sort();
-                    console.log(ready_list_next);
-
 
                     // PUT wszystkie drabinki główne
                     for (let i = 0; i < num_of_matches; i += 2) {

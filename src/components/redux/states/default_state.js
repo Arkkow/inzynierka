@@ -1,3 +1,4 @@
+
 const default_state = {
   calendar_content: {
     data: [
@@ -20,7 +21,8 @@ const default_state = {
         additionalInformations: "info",
         categotry: "cat1",
         visibility: "FALSE",
-        creator: ""
+        creator: "",
+
       },
     ],
   },
@@ -65,7 +67,7 @@ const default_state = {
           "inBname1": "NameB1",
           "inBsurname1": "SurnameB1",
           "inBname2": "NameB2",
-          "inBsurname2": "SurnameB2"
+          "inBsurname2": "SurnameB2",
       }
       },
     },
