@@ -2,82 +2,73 @@
 import * as React from 'react';
 
 // Project specific files
-import Button from 'react-bootstrap/Button';
 
 // CSS files
-import { Row, Col } from "react-bootstrap";
-import DrabinkaCard from "./drabinka_card";
-import "./x.css";
+import { Row } from "react-bootstrap";
+import DrabinkaRound from "./drabinka_round";
 
 
 export const Drabinka = (props) => {
 
+    // TODO Obsługa zmiany meczu
+    let chosen_match = 9;
+
+    let ladders = {
+        1: props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1" || e.round_number === "1W" || e.round_number === "1WW" || e.round_number === "1WWW"),
+        5: props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1W" || e.round_number === "1WL" || e.round_number === "1WLW"),
+        9: props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1L" || e.round_number === "1LW" || e.round_number === "1LWW"),
+    };
+
+    let min_round = ladders[chosen_match][0].round_number.length;
+    let max_round = ladders[chosen_match][ladders[chosen_match].length-1].round_number.length;
+    let numOfCols = max_round - min_round + 1
+
     return (
         <>
-            {/*{to_push = props.ladders_list.ladders.filter((e) => e.round_number[0] === "1")}*/}
-            {/*{console.log(to_push)}*/}
-            {/*<End_tournament_popup/>*/}
-            {/*<LadderAdmin/>*/}
-
             <Row>
-                <Col sm={4}>
-                    <Row>
-                        <Button variant="success"
-                                style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>
-                            PIERWSZA RUNDA
-                        </Button>
-                    </Row>
-                    <Row>
-                        &nbsp; hi! &nbsp;
-                        {props.ladders_list.ladders[1].filter((e) => e.round_counted === 1).length} brooo
-                    </Row>
-
-
-                        {props.ladders_list.ladders[1].length === 0 ?
-                            <h5>no results available</h5> :
-                            props.ladders_list.ladders[1].map((card)=>(
-                                <DrabinkaCard {...card} tournamentID = {props.calendar_list.id} role = {props.user.role}/>
-                            ))
-                        }
-                    </Col>
-                    <Col sm={4}>
-                        <Row>
-                            <Button variant="success"
-                                    style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}
-                                    onClick={() => console.log("hi!")}
-                            >
-                                DRUGA RUNDA
-                            </Button>
-                        </Row>
-
-                        {props.ladders_list.ladders[2].length === 0 ?
-                            <h5>no results available</h5> :
-                            props.ladders_list.ladders[2].map((card)=>(
-                                <DrabinkaCard {...card} tournamentID = {props.calendar_list.id} role = {props.user.role}/>
-                            ))
-                        }
-
-                    </Col>
-                    <Col sm={4}>
-                        <Row>
-                            <Button variant="success"
-                                    style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}
-                                    onClick={() => console.log("hi!")}
-                            >
-                                TRZECIA RUNDA
-                            </Button>
-                        </Row>
-
-                        {props.ladders_list.ladders[3].length === 0 ?
-                            <h5>no results available</h5> :
-                            props.ladders_list.ladders[3].map((card)=>(
-                                <DrabinkaCard {...card} tournamentID = {props.calendar_list.id} role = {props.user.role}/>
-                            ))
-                        }
-
-                    </Col>
-
-                </Row>
+                <DrabinkaRound
+                    net_round = {1}
+                    current_round={min_round}
+                    numOfCols={numOfCols}
+                    ladders = {ladders}
+                    chosen_match = {chosen_match}
+                    calendar_list = {props.calendar_list}
+                    user = {props.user}
+                />
+                {numOfCols >= 2?
+                    <DrabinkaRound
+                        net_round = {2}
+                        current_round={min_round + 1}
+                        numOfCols={numOfCols}
+                        ladders = {ladders}
+                        chosen_match = {chosen_match}
+                        calendar_list = {props.calendar_list}
+                        user = {props.user}
+                    />:null
+                }
+                {numOfCols >= 3?
+                    <DrabinkaRound
+                        net_round = {3}
+                        current_round={min_round + 2}
+                        numOfCols={numOfCols}
+                        ladders = {ladders}
+                        chosen_match = {chosen_match}
+                        calendar_list = {props.calendar_list}
+                        user = {props.user}
+                    />:null
+                }
+                {numOfCols >= 4?
+                    <DrabinkaRound
+                        net_round = {4}
+                        current_round={min_round + 3}
+                        numOfCols={numOfCols}
+                        ladders = {ladders}
+                        chosen_match = {chosen_match}
+                        calendar_list = {props.calendar_list}
+                        user = {props.user}
+                    />:null
+                }
+            </Row>
         </>
     );
 }
