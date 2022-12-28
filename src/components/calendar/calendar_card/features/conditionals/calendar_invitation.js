@@ -8,9 +8,9 @@ import {useState} from "react";
 import {Col} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import {postAcceptInvite, postRejectInvite} from "../../../api/user_interaction/invitation_api";
-import {getPendingApprovals} from "../../../api/api";
-import {getUserById} from "../../../api/user_interaction/user_api";
+import {postAcceptInvite, postRejectInvite} from "../../../../api/user_interaction/invitation_api";
+import {getPendingApprovals} from "../../../../api/api";
+import {getUserById} from "../../../../api/user_interaction/user_api";
 
 
 

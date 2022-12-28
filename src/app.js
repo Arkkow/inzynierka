@@ -5,7 +5,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 // Project specific files
 import Header from "./components/common/header";
-import Footer from "./components/common/footer";
 import Login_popup from "./components/common/popups/login_popup";
 import Register_popup from "./components/common/popups/register_popup";
 import T_registration_popup from "./components/common/popups/T_registration_popup";

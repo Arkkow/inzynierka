@@ -3,12 +3,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {Col, Form, Row} from "react-bootstrap";
-import {getTournaments} from "../../api/tournament/tournament_CRUD_api";
-import {getUser} from "../../api/user_interaction/user_api";
-import {getPendingApprovals} from "../../api/api";
+import {getTournaments} from "../../../api/tournament/tournament_CRUD_api";
+import {getUser} from "../../../api/user_interaction/user_api";
+import {getPendingApprovals} from "../../../api/api";
 import {connect} from "react-redux";
 import {useEffect} from "react";
-import MatchResult_popup from "../../common/popups/match_result_popup/match_result_popup";
+import MatchResult_popup from "../../../common/popups/match_result_popup/match_result_popup";
 
 
 export const Header = (props) => {

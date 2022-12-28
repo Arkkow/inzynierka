@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 
 // CSS files
 import { Dropdown, Row} from "react-bootstrap";
-import {deleteTournamentAdmin} from "../../../api/admin/tournament_admin_api";
+import {deleteTournamentAdmin} from "../../../../api/admin/tournament_admin_api";
 
 
 

@@ -5,7 +5,7 @@ import * as React from 'react';
 import PaymentMethod_popup from '../../../../../common/popups/payment_method_popup.js';
 import {postRegistrationApprove} from "../../../../../api/tournament/tournament_registration_api";
 import {postPayedUsingCash} from "../../../../../api/user_interaction/payment_api";
-import {CalendarInvitation} from "../../../../../calendar/calendar_card/conditionals/calendar_invitation";
+import {CalendarInvitation} from "../../../../../calendar/calendar_card/features/conditionals/calendar_invitation";
 
 // CSS files
 import {Container, Row, Col, Form} from "react-bootstrap";

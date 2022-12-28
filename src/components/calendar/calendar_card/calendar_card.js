@@ -3,7 +3,7 @@ import * as React from "react";
 
 
 // Project specific files
-import InfoPanel from "../../common/info_panel";
+import InfoPanel from "./assets/info_panel";
 import RangTick from "../../common/buttons/rang_tick";
 
 
@@ -12,9 +12,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CalendarPhoto from "./assets/calendarPhoto";
-import CalendarAdminDropdown from "./conditionals/calendar_admin_dropdown";
-import TournamentRanked from "./conditionals/calendar_tournament_ranked";
-import CalendarInvitation from "./conditionals/calendar_invitation";
+import CalendarAdminDropdown from "./features/conditionals/calendar_admin_dropdown";
+import TournamentRanked from "./features/conditionals/calendar_tournament_ranked";
+import CalendarInvitation from "./features/conditionals/calendar_invitation";
 
 export const CalendarCard = (props) => {
     return (

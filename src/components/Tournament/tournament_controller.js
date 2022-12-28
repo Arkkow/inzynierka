@@ -5,7 +5,7 @@ import {useEffect} from "react";
 // Project specific files
 import TournamentInfo from "./zakładki/tournament_informacje";
 import TournamentNavbar from "./common/tournament_navbar";
-import Calendar_invitation from "../calendar/calendar_card/conditionals/calendar_invitation";
+import Calendar_invitation from "../calendar/calendar_card/features/conditionals/calendar_invitation";
 import Drabinka from "./zakładki/drabinka/drabinka";
 import Zapisy from "./zakładki/zapisy/zapisy";
 
