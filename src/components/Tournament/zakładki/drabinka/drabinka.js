@@ -1,29 +1,19 @@
 // General React imports
 import * as React from 'react';
+import {useState} from "react";
 
 // Project specific files
+import DrabinkaRound from "./drabinka_round";
+import getLaddersFiltered from "./functions/getLadddersFiltered";
 
 // CSS files
 import { Row } from "react-bootstrap";
-import DrabinkaRound from "./drabinka_round";
-import {useState} from "react";
-
 
 export const Drabinka = (props) => {
 
+    const [chosen_match, set_chosen_match] = useState(() => { return 1; } );
 
-    const [chosen_match, set_chosen_match] = useState(() => {
-        const chosen_match = 1;
-        return chosen_match;
-    });
-
-    // let chosen_match = ladderValue;
-
-    let ladders = {
-        1: props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1" || e.round_number === "1W" || e.round_number === "1WW" || e.round_number === "1WWW"),
-        5: props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1W" || e.round_number === "1WL" || e.round_number === "1WLW"),
-        9: props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1L" || e.round_number === "1LW" || e.round_number === "1LWW"),
-    };
+    let ladders = getLaddersFiltered(props.calendar_list.places, props.ladders_list.ladders["ALL"])
 
     let min_round = ladders[chosen_match][0].round_number.length;
     let max_round = ladders[chosen_match][ladders[chosen_match].length-1].round_number.length;
@@ -36,7 +26,13 @@ export const Drabinka = (props) => {
                     <select value={chosen_match} onChange={(e) => set_chosen_match(e.target.value)}>
                         <option value="1">Drabinka główna</option>
                         <option value="5">5 miejsce</option>
-                        <option value="9">9 miejsce</option>
+                        {props.calendar_list.places === 16?
+                            <>
+                                <option value="9">9 miejsce</option>
+                                <option value="15">15 miejsce</option>
+                            </>
+                            :null
+                        }
                     </select>
                 </div>
             </Row>

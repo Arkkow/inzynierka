@@ -17,7 +17,7 @@ export const DrabinkaCard = (props) => {
     let round_counted = 1;
 
     for ( let i=0; i < props.round_number.length; i++ ){
-        let adder = 16/(2**i)
+        let adder = props.places/(2**i)
         if(props.round_number[i] === "L"){
             round_counted += adder
         }
