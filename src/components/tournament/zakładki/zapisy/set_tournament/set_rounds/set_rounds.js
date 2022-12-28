@@ -48,7 +48,6 @@ export const SetRounds = (props) => {
                         // PUT wszystkie drabinki przegranych
                         for (let i = 0; i < num_of_matches; i += 2) {
                             putLadder(
-                                // console.log(
                                 {
                                     "tournamentid": String(props.tournament.id),
                                     "inAtype": "L",

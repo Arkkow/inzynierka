@@ -1,15 +1,15 @@
 // General React imports
 import * as React from 'react';
+import {useEffect, useState} from "react";
 
 // Project specific files
-import Card from 'react-bootstrap/Card';
+import Match_result_popup from "../../../common/popups/match_result_popup/match_result_popup";
+import {getLaddersSolved} from "../../../api/tournament/ladders_api";
 
 // CSS files
+import Card from 'react-bootstrap/Card';
 import {Container, Row, Col} from "react-bootstrap";
-import Match_result_popup from "../../../common/popups/match_result_popup/match_result_popup";
 import {CheckCircleFill, XCircleFill} from "react-bootstrap-icons";
-import {getLaddersSolved} from "../../../api/tournament/ladders_api";
-import {useEffect, useState} from "react";
 
 
 export const DrabinkaCard = (props) => {

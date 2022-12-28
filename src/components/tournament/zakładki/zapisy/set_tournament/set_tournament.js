@@ -42,7 +42,7 @@ export const SetTournament = (props) => {
                     <Col sm={3}>
                         <Button variant="secondary"
                                 style={{float: "right"}}
-                                // disabled={accepted_difference !== 0 || props.ladders_length !== 0}
+                                disabled={accepted_difference !== 0 || props.ladders_length !== 0}
                                 onClick={() => {
                                     props.pairs_list.pairs["DONE"].sort(() => Math.random() - 0.5);
                                     for (let i = 0; i < props.places; i += 2) {
@@ -64,6 +64,7 @@ export const SetTournament = (props) => {
 
                                 }
 
+                                    // TODO obsługa start tournament
                                     // startTournament(props.calendar_list.id).then(r => console.log(r))
                                     //     .then(() => closeRegistrations(props.calendar_list.id).then(r => console.log(r)))
 
