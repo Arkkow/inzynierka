@@ -8,7 +8,6 @@ import {getUser} from "../../../api/user_interaction/user_api";
 import {getPendingApprovals} from "../../../api/api";
 import {connect} from "react-redux";
 import {useEffect} from "react";
-import MatchResult_popup from "../../../common/popups/match_result_popup/match_result_popup";
 
 
 export const Header = (props) => {
@@ -82,15 +81,13 @@ const mapStateToProps = (state) => {
         calendar_list: state.calendar_content.data,
         user: state.user_content.data,
         view: state.view_content.data,
-        // my_tournament_list: state.my_tournaments_content.data,
     };
 };
 
 //Wywołanie zmiany stanu (obsługa w store)
 // Przekazanie data z API do stanu Calendar_controller
 const mapDispatchToProps = (dispatch) => {
-    // let token =
-    // let token = JSON.parse(localStorage.getItem("token")).token
+
     return {
         handleDownloadCalendar: () => {
             //    API z kalendarza

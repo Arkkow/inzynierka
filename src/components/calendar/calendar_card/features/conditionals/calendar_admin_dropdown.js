@@ -1,14 +1,14 @@
 // General React imports
 import * as React from 'react';
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
 // Project specific files
+import {deleteTournamentAdmin} from "../../../../api/admin/tournament_admin_api";
 
 // CSS files
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import { Dropdown, Row} from "react-bootstrap";
-import {deleteTournamentAdmin} from "../../../../api/admin/tournament_admin_api";
 
 
 
@@ -81,7 +81,6 @@ export const CalendarAdminDropdown = (props) => {
                         {props.user.role === "3"?
                             <Dropdown.Item
                                 onClick={handleShow}>
-                                {/*onClick={() => deleteTournamentAdmin(String(props.id)).then(() => window.location.reload(false))}>*/}
                                 Usuń turniej
                             </Dropdown.Item>
                             :null

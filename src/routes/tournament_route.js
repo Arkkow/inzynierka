@@ -44,7 +44,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
 
         // DOWNLOAD_CALENDAR
-
         handleDownloadCalendarCard: (id) => {
             //    API z kalendarza
             getTournamentById(id)

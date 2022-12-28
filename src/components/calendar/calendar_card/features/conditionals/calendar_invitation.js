@@ -16,8 +16,7 @@ import {getUserById} from "../../../../api/user_interaction/user_api";
 
 export const CalendarInvitation = (props) => {
     const [invitations, setInvitations] = useState({ fetched: false, data: [] });
-    // const [users, setUsers] = useState({ fetched: false, data: [] });
-    // const id = window.location.href.split('?')[1].split('=')[1];
+
     if (invitations.fetched === false) {
         getPendingApprovals().then((dane) => {
             setInvitations({ fetched: true, data: dane });
@@ -35,9 +34,8 @@ export const CalendarInvitation = (props) => {
                                 <Card.Text>
                                     <div style={{ textAlign: "center" }}>
                                         {props.name1} {props.surname1} zaprosił cię do gry
-
-                                        {/*{(getUserById(invitation.inviter).then()=>setUsers)}*/}
                                     </div>
+
                                     <div style={{ textAlign: "center" }}>
                                         <Button variant="success" style={{ margin: "5%" }} onClick={() => postAcceptInvite(invitation.id).then(() => window.location.reload(false))}>
                                             TAK
