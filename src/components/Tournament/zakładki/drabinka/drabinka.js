@@ -6,12 +6,18 @@ import * as React from 'react';
 // CSS files
 import { Row } from "react-bootstrap";
 import DrabinkaRound from "./drabinka_round";
+import {useState} from "react";
 
 
 export const Drabinka = (props) => {
 
-    // TODO Obsługa zmiany meczu
-    let chosen_match = 9;
+
+    const [chosen_match, set_chosen_match] = useState(() => {
+        const chosen_match = 1;
+        return chosen_match;
+    });
+
+    // let chosen_match = ladderValue;
 
     let ladders = {
         1: props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1" || e.round_number === "1W" || e.round_number === "1WW" || e.round_number === "1WWW"),
@@ -25,6 +31,15 @@ export const Drabinka = (props) => {
 
     return (
         <>
+            <Row>
+                <div>
+                    <select value={chosen_match} onChange={(e) => set_chosen_match(e.target.value)}>
+                        <option value="1">Drabinka główna</option>
+                        <option value="5">5 miejsce</option>
+                        <option value="9">9 miejsce</option>
+                    </select>
+                </div>
+            </Row>
             <Row>
                 <DrabinkaRound
                     net_round = {1}

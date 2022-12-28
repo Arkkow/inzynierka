@@ -34,20 +34,16 @@ export const DrabinkaCard = (props) => {
 
     return (
         <Card border={"dark"}>
-            {round_counted} {props.round_number}
             <Container>
-                <Row>
-                    <Col sm={1} style={{ padding: 0, margin: "auto"}}>
-                        {card.id}
-                    </Col>
+                <Row style={{paddingLeft: "10px"}}>
                     <Col sm={8}>
                         <Row>
                             <Col sm={8}>
                                 <Row>
-                                    {card.inA} {card.inAname1} {card.inAsurname1}
+                                    {card.inAname1} {card.inAsurname1}
                                 </Row>
                                 <Row>
-                                    &nbsp; {card.inA} {card.inAname2} {card.inAsurname2}
+                                    {card.inAname2} {card.inAsurname2}
                                 </Row>
                             </Col>
                             <Col sm={4}>
@@ -62,10 +58,10 @@ export const DrabinkaCard = (props) => {
                         <Row>
                             <Col sm={8}>
                                 <Row>
-                                    &nbsp; {card.inB} {card.inBname1} {card.inBsurname1}
+                                    {card.inBname1} {card.inBsurname1}
                                 </Row>
                                 <Row>
-                                    &nbsp; {card.inB} {card.inBname2} {card.inBsurname2}
+                                    {card.inBname2} {card.inBsurname2}
                                 </Row>
                             </Col>
                             <Col sm={4}>
@@ -79,7 +75,7 @@ export const DrabinkaCard = (props) => {
                         </Row>
                     </Col>
 
-                    <Col sm={3} style={{display: "flex",
+                    <Col sm={4} style={{display: "flex",
                         justifyContent: "center",
                         margin: "auto",
                         alignItems: "center"}}>
