@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // Project specific files
-import PaymentMethod_popup from '../../../../../popups/payment_method_popup.js';
+import PaymentMethod_popup from '../../../../../common/popups/payment_method_popup.js';
 import {postRegistrationApprove} from "../../../../../api/tournament/tournament_registration_api";
 import {postPayedUsingCash} from "../../../../../api/user_interaction/payment_api";
 import {CalendarInvitation} from "../../../../../calendar/calendar_card/conditionals/calendar_invitation";

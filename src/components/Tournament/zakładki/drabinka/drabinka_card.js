@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
-import Match_result_popup from "../../../popups/match_result_popup/match_result_popup";
+import Match_result_popup from "../../../common/popups/match_result_popup/match_result_popup";
 import {CheckCircleFill, XCircleFill} from "react-bootstrap-icons";
 import {getLaddersSolved} from "../../../api/tournament/ladders_api";
 import {useEffect, useState} from "react";

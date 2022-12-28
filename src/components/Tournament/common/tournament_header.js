@@ -3,7 +3,7 @@ import * as React from 'react';
 
 // Project specific files
 import {Container, Row, Col} from "react-bootstrap";
-import T_registration_popup from "../../popups/T_registration_popup";
+import T_registration_popup from "../../common/popups/T_registration_popup";
 
 // CSS files
 import { GeoAlt, CalendarCheck } from "react-bootstrap-icons";

@@ -2,10 +2,10 @@ import React, { useState, useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import PFP_LOGO from "../../assets/PFP_LOGO.png";
-import "../../styles/App.css";
-import {getUser, getUserById} from "../api/user_interaction/user_api";
-import {putRegistration} from "../api/tournament/tournament_registration_api";
+import PFP_LOGO from "../../../assets/PFP_LOGO.png";
+import "../../../styles/App.css";
+import {getUser, getUserById} from "../../api/user_interaction/user_api";
+import {putRegistration} from "../../api/tournament/tournament_registration_api";
 
 function T_registration_popup(props) {
 

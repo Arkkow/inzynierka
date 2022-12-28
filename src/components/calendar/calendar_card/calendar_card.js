@@ -4,7 +4,7 @@ import * as React from "react";
 
 // Project specific files
 import InfoPanel from "../../common/info_panel";
-import RangTick from "../../common/Buttons/rang_tick";
+import RangTick from "../../common/buttons/rang_tick";
 
 
 // CSS files

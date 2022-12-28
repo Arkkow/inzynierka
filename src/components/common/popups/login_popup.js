@@ -2,8 +2,8 @@ import React, { useState, useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import PFP_LOGO from "../../assets/PFP_LOGO.png";
-import "../../styles/App.css";
+import PFP_LOGO from "../../../assets/PFP_LOGO.png";
+import "../../../styles/App.css";
 
 function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
   const [error, setError] = useState(null);
