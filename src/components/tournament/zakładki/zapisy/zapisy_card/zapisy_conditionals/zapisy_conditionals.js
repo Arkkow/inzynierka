@@ -18,6 +18,9 @@ export const ZapisyConditionals = (props) => {
             <Container>
                 <Row>
                     <Form>
+                        {/** Button "Użytkownik zaprosił cię do gry" **/}
+                        <CalendarInvitation{...props}/>
+
                         {/** Slider "1 Zapis opłacony" **/}
                         {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?"Zapis zatwierdzony":
                             (props.user.role === "2" && props.creator === props.user.id) || props.user.role === '3'?
@@ -33,10 +36,6 @@ export const ZapisyConditionals = (props) => {
                                                 }/>:null
 
                         }
-
-                        {/** Button "Użytkownik zaprosił cię do gry" **/}
-                        <CalendarInvitation{...props}/>
-
                         {/** Slider "Zapis 2 opłacony" **/}
                         {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?null:
                             (props.user.role === "2" && props.creator === props.user.id) || props.user.role === '3'?
@@ -52,7 +51,6 @@ export const ZapisyConditionals = (props) => {
                                                 }/>
                                 :null
                         }
-
 
                         {/** Komunikaty dla zawodników **/}
                         {props.userid === props.user.id && props.paymentstatus2 === "PENDING"?"Oczekuje na płatność partnera":null}
