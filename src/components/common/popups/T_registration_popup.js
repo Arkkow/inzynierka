@@ -43,7 +43,7 @@ function T_registration_popup(props) {
 
   return (
     <>
-        {props.role === "default"?
+        {props.role === "default" || localStorage.getItem("token") === null ?
             <Button
                 style={{
                     backgroundColor: "gray",

@@ -8,8 +8,8 @@ import { getTournamentById} from "../components/api/api";
 import {getUser} from "../components/api/user_interaction/user_api";
 import {getladders} from "../components/api/tournament/ladders_api";
 import {getRegistrations} from "../components/api/tournament/tournament_registration_api";
-import {Tournament_controller} from "../components/tournament/tournament_controller";
-import TournamentHeader from "../components/tournament/common/tournament_header";
+import {Tournament_controller} from "../components/Tournament/tournament_controller";
+import TournamentHeader from "../components/Tournament/common/tournament_header";
 
 // CSS files
 import "../styles/index.css";

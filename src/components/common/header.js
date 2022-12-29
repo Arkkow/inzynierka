@@ -2,7 +2,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import PFP_LOGO from "../../assets/PFP_LOGO.png";
 import Button from "react-bootstrap/Button";
-import Logout from "./buttons/log_out";
+import Logout from "./Buttons/log_out";
 import UserName from "../profile/userName";
 
 function Header({ setIsLoginOpen }) {
