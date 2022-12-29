@@ -91,15 +91,13 @@ export const pairs_content = (state = default_state.pairs_content, action) => {
   }
 };
 
-export const my_tournaments_content = (
-  state = default_state.my_tournaments_content,
-  action
-) => {
+export const my_tournaments_content = (state = default_state.my_tournaments_content, action) => {
   switch (action.type) {
+
     case "DOWNLOAD_MY_TOURNAMENTS":
       return {
         ...state,
-        data: action.payload.data,
+        data: action.payload.data
       };
     default:
       return state;

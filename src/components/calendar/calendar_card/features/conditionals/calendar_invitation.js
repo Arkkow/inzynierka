@@ -1,6 +1,6 @@
 // General React imports
 import * as React from 'react';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 // Project specific files
 
@@ -10,15 +10,18 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import {postAcceptInvite, postRejectInvite} from "../../../../api/user_interaction/invitation_api";
 import {getPendingApprovals} from "../../../../api/api";
-import {getUserById} from "../../../../api/user_interaction/user_api";
 
 
 
 export const CalendarInvitation = (props) => {
     const [invitations, setInvitations] = useState({ fetched: false, data: [] });
 
+    // useEffect(() => props.getAllPendingApprovals(),[])
+
+
     if (invitations.fetched === false) {
-        getPendingApprovals().then((dane) => {
+        getPendingApprovals()
+            .then((dane) => {
             setInvitations({ fetched: true, data: dane });
         });
     }

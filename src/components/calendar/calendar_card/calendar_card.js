@@ -8,7 +8,6 @@ import RangTick from "../../common/buttons/rang_tick";
 import CalendarPhoto from "./assets/calendarPhoto";
 import CalendarAdminDropdown from "./features/conditionals/calendar_admin_dropdown";
 import TournamentRanked from "./features/conditionals/calendar_tournament_ranked";
-import CalendarInvitation from "./features/conditionals/calendar_invitation";
 
 // CSS files
 import { Container, Row, Col } from "react-bootstrap";
@@ -33,7 +32,8 @@ export const CalendarCard = (props) => {
                         <InfoPanel {...props} />
                     </Col>
                     <Col sm={3}>
-                        <CalendarInvitation {...props}/>
+                        {props.my_tournament_list.filter(e => e.tournament === String(props.id)).length !== 0?
+                            "Masz zaproszenie na ten turniej!": null}
                         <TournamentRanked {...props}/>
                     </Col>
 

@@ -15,7 +15,6 @@ export const Header = (props) => {
     useEffect(() => {
         props.handleDownloadCalendar();
         props.handleDownloadUser();
-        props.getPendingApprovals();
     }, []);
 
     return (
@@ -40,7 +39,11 @@ export const Header = (props) => {
                                 <Col sm ={6} style={{marginTop: "2%"}}>
                                     <Button className="btn btn-primary" style={{marginLeft:"20%", marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}><my_h4>WSZYSTKIE</my_h4></Button>
                                     {props.user.role === "1" || props.user.role === "2" || props.user.role === "3"?
-                                        <Button className="btn btn-primary" style={{borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)"}}><my_h4>MOJE</my_h4></Button>:
+                                        <Button className="btn btn-primary"
+                                                style={{borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)"}}
+                                                onClick={() => props.getAllPendingApprovals()}>
+                                            <my_h4>MOJE</my_h4>
+                                        </Button>:
                                         null}
                                 </Col>
                                 <Col sm={6} style={{marginTop: "2%"}}>
@@ -115,7 +118,7 @@ const mapDispatchToProps = (dispatch) => {
                 });
         },
 
-        getPendingApprovals: () => {
+        getAllPendingApprovals: () => {
             //    API z kalendarza
             getPendingApprovals()
                 .then((res) => {
