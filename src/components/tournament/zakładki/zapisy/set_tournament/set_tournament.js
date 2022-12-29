@@ -68,7 +68,6 @@ export const SetTournament = (props) => {
 
 
                                     /** TU PRZEKLEJ RUNDY 2+ **/
-
                                 }
 
                                     // TODO obsługa start tournament

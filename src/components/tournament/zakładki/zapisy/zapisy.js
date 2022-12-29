@@ -47,10 +47,16 @@ export const Zapisy = (props) => {
 
                                     <>
                                         {props.pairs_list.pairs["ALL"].filter((e) => e.partner === props.user.id || e.userid === props.user.id).map((card)=>(
-                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
+                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                                        isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
                                         ))}
-                                        {props.pairs_list.pairs["ALL"].filter((e) => e.partner !== props.user.id || e.userid !== props.user.id).map((card)=>(
-                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
+                                        {props.pairs_list.pairs["ALL"].filter((e) => (e.partner !== props.user.id && e.userid !== props.user.id) && (e.paymentstatus === "DONE" && e.paymentstatus2 === "DONE")).map((card)=>(
+                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                                        isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
+                                        ))}
+                                        {props.pairs_list.pairs["ALL"].filter((e) => (e.partner !== props.user.id && e.userid !== props.user.id) && (e.paymentstatus !== "DONE" || e.paymentstatus2 !== "DONE")).map((card)=>(
+                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                                        isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
                                         ))}
                                     </>
                             }
