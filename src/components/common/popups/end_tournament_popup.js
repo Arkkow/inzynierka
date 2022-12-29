@@ -19,13 +19,13 @@ function EndTournament_popup(props) {
     let winnerID =
         (props.ladders_list.ladders["ALL"].filter((e)=>e.round_number == "1WW")[0].winner == "A" ? (props.ladders_list.ladders["ALL"].filter((e)=>e.round_number == "1WW")[0].inA) : (props.ladders_list.ladders["ALL"].filter((e)=>e.round_number == "1WW")[0].inB));
 
+    // TODO zrobic dla 16 par, dla 8 juz dziala zliczanie
     return (
 
 
 
 
         <>
-            {console.log(winnerID)}
             <Button style={{
                 fontFamily: 'Montserrat',
                 fontWeight: "600",
