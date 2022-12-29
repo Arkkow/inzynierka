@@ -24,7 +24,7 @@ export const Drabinka = (props) => {
     return (
         <>
             <Row>
-                { props.calendar_list.approved == 2 ? <EndUnrankedTournament_popup/> :  <EndUnrankedTournament_popup/>}
+                { props.calendar_list.approved == 2 ? <EndTournament_popup{...props}/> :  <EndUnrankedTournament_popup/>}
                 <div>
                     <select value={chosen_match} onChange={(e) => set_chosen_match(e.target.value)}>
                         <option value="1">Drabinka główna</option>
