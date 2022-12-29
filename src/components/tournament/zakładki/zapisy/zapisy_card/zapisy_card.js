@@ -2,12 +2,15 @@
 import * as React from 'react';
 
 // Project specific files
-import Card from 'react-bootstrap/Card';
+import ZapisyConditionals from "./zapisy_conditionals/zapisy_conditionals";
+
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
-import ZapisyConditionals from "./zapisy_conditionals/zapisy_conditionals";
+import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/Button";
+import {postRegistrationApprove} from "../../../../api/tournament/tournament_registration_api";
+
 
 
 export const ZapisyCard = (props) => {
@@ -46,6 +49,27 @@ export const ZapisyCard = (props) => {
                         <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
                             SR: {props.rankingsum}
                         </div>
+                    </Col>
+                    <Col sm={1}>
+                        <Row>
+                            {/** Button akceptacji zapisu **/}
+                            {/*Jeżeli para się zgodziła*/}
+                            {
+                                // Jeżeli para się zgodziła
+                                (props.approval === "0" && props.partnerAcceptance === 1) &&
+                                // Jeżeli jesteś organizatorem tego turnieju lub adminem
+                                ((props.user.role === "2" && props.creator === props.user.id) || props.user.role === "3") &&
+                                // Jeżeli liczba zaakceptowanych par jest mniejsza niż max
+                                props.isFull === true?
+
+                                <Button variant="warning"
+                                        onClick={() => {
+                                            postRegistrationApprove(String(props.id)).then(r =>console.log(r))
+                                        }
+                                        }>A</Button>:
+                                null
+                            }
+                        </Row>
                     </Col>
                     <ZapisyConditionals {...props}/>
                 </Row>
