@@ -14,11 +14,6 @@ import Button from "react-bootstrap/Button";
 
 
 export const ZapisyConditionals = (props) => {
-    // Struktura propów:
-    // props.   - players content
-    // props.user
-    // props.view
-    // props
 
     return (
         <>
@@ -28,8 +23,8 @@ export const ZapisyConditionals = (props) => {
                 <Row>
                     {/** Button akceptacji zapisu **/}
                     {props.approval === "0" && props.partnerAcceptance === 1 &&
-                    (props.user.role === "2" || props.user.role === "3")?
-
+                    ((props.user.role === "2" && props.creator === props.user.id)
+                        || props.user.role === "3")?
                         <Button variant="warning"
                                 onClick={() => {
                                     postRegistrationApprove(String(props.id)).then(r =>console.log(r))
@@ -45,7 +40,7 @@ export const ZapisyConditionals = (props) => {
                         <Form>
                             {/** Slider "1 Zapis opłacony" **/}
                             {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?"Zapis zatwierdzony":
-                                props.user.role === "2" || props.user.role === '3'?
+                                (props.user.role === "2" && props.creator === props.user.id) || props.user.role === '3'?
                                     props.paymentstatus === "DONE"?
                                         <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis 1. opłacony" reverse/>:
                                         <Form.Check type="switch" label="Zapis 1. opłacony" reverse disabled={props.paymenttype !== "cash"}
@@ -64,7 +59,7 @@ export const ZapisyConditionals = (props) => {
 
                             {/** Slider "Zapis 2 opłacony" **/}
                             {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?null:
-                                props.user.role === "2" || props.user.role === '3'?
+                                (props.user.role === "2" && props.creator === props.user.id) || props.user.role === '3'?
                                     props.paymentstatus2 === "DONE"?
                                         <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "cash"} label="Zapis 2 opłacony" reverse/>:
                                         <Form.Check type="switch" disabled={props.paymenttype2 !== "cash"} label="Zapis 2 opłacony" reverse

@@ -13,7 +13,8 @@ export const Drabinka = (props) => {
 
     const [chosen_match, set_chosen_match] = useState(() => { return 1; } );
 
-    let ladders = getLaddersFiltered(props.calendar_list.places, props.ladders_list.ladders["ALL"])
+    let ladders = [{id:0}]
+    ladders = getLaddersFiltered(props.calendar_list.places, props.ladders_list.ladders["ALL"])
 
 
     let min_round = ladders[chosen_match][0].round_number.length;
@@ -22,6 +23,7 @@ export const Drabinka = (props) => {
 
     return (
         <>
+            {console.log(ladders)}
             <Row>
                 <div>
                     <select value={chosen_match} onChange={(e) => set_chosen_match(e.target.value)}>

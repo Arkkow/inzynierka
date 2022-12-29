@@ -2,12 +2,13 @@
 import * as React from 'react';
 
 // Project specific files
-import Card from 'react-bootstrap/Card';
+import ZapisyConditionals from "./zapisy_conditionals/zapisy_conditionals";
+
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
-import ZapisyConditionals from "./zapisy_conditionals/zapisy_conditionals";
-import Button from "react-bootstrap/Button";
+import Card from 'react-bootstrap/Card';
+
 
 
 export const ZapisyCard = (props) => {
