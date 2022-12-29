@@ -22,6 +22,13 @@ export const SetTournament = (props) => {
             <>
                 <Row fluid="true" style={{backgroundColor: "transparent", marginTop: "2%", marginBottom: "2%", margin: "auto"}}>
 
+                    {/** Zaproszonych par: **/}
+                    <Col sm={3} style={{padding: 0}}>
+                        <Button variant="outline-light" style={{ float: "right"}}>
+                            Zaproszonych par: {props.pairs_list.pairs["ALL"].length}
+                        </Button>
+                    </Col>
+
                     {/** Zaakceptowanych par: **/}
                     <Col sm={5} style={{padding: 0}}>
                         <Button variant="outline-light" style={{ float: "right"}}>

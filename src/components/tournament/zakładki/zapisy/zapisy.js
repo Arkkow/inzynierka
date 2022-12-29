@@ -38,9 +38,15 @@ export const Zapisy = (props) => {
                             {props.pairs_list.pairs["ALL"].length === 0 ?
                                 <my_h4 style={{display:"flex", alignItems:"center", justifyContent:"center", padding:"20px", color: "var(--black)"}}>
                                     Aby zobaczyć zapisanych uczestników, musisz być zalogowany</my_h4> :
-                                props.pairs_list.pairs["ALL"].map((card)=>(
-                                    <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
-                                ))
+                                <>
+                                    {/*TODO*/}
+                                    {props.pairs_list.pairs["ALL"].filter((e) => e.partner === props.user.id).map((card)=>(
+                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
+                                    ))}
+                                    {props.pairs_list.pairs["ALL"].map((card)=>(
+                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
+                                    ))}
+                                </>
                             }
                         </Row>
                     </Col>

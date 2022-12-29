@@ -15,6 +15,7 @@ export const Drabinka = (props) => {
 
     let ladders = getLaddersFiltered(props.calendar_list.places, props.ladders_list.ladders["ALL"])
 
+
     let min_round = ladders[chosen_match][0].round_number.length;
     let max_round = ladders[chosen_match][ladders[chosen_match].length-1].round_number.length;
     let numOfCols = max_round - min_round + 1
