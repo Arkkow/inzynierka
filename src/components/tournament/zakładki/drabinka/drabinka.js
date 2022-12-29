@@ -8,6 +8,8 @@ import getLaddersFiltered from "./functions/getLadddersFiltered";
 
 // CSS files
 import { Row } from "react-bootstrap";
+import EndTournament_popup from "../../../common/popups/end_tournament_popup";
+import EndUnrankedTournament_popup from "../../../common/popups/end_unranked_tournament_popup";
 
 export const Drabinka = (props) => {
 
@@ -22,6 +24,7 @@ export const Drabinka = (props) => {
     return (
         <>
             <Row>
+                { props.calendar_list.approved == 2 ? <EndUnrankedTournament_popup/> :  <EndUnrankedTournament_popup/>}
                 <div>
                     <select value={chosen_match} onChange={(e) => set_chosen_match(e.target.value)}>
                         <option value="1">Drabinka główna</option>

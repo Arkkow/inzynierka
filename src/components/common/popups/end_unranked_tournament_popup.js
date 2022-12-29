@@ -4,12 +4,17 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import "../../../styles/App.css"
 import {Col, Row} from "react-bootstrap";
+import {endTournament} from "../../api/tournament/tournament_CRUD_api";
 
 
-function EndTournament_popup(props) {
+function EndUnrankedTournament_popup() {
     const [show, setShow] = useState(false);
-
+    const id_tournament = window.location.href.split('?')[1].split('=')[1];
     const handleClose = () => setShow(false);
+    const handleEndTournament = () => {
+        endTournament(id_tournament).then(setShow(false),
+        window.location.href="calendar");
+    }
     const handleShow = () => setShow(true);
 
     return (
@@ -36,24 +41,7 @@ function EndTournament_popup(props) {
                 <Modal.Body style={{
                     backgroundColor: "#EBEBEB"
                 }}>
-                    <Row style={{backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px", marginRight:"10px"}}>
-                    <Col className="col-9" style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
-                        <my_h4>Jarosław Cebulszczykiewicz</my_h4> {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
-                        <my_h4>Cebulak Jarosławiecki</my_h4>
-                    </Col>
-                    <Col className="col-3">
-                        <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}} type="number" className="form-control" id="exampleFormControlInput1" defaultValue="0"></input>
-                    </Col>
-                    </Row>
-                    <Row style={{marginTop:"10px", backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px", marginRight:"10px"}}>
-                        <Col className="col-9" style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
-                            <my_h4>Jarosław Cebulszczykiewicz</my_h4> {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
-                            <my_h4>Cebulak Jarosławiecki</my_h4>
-                        </Col>
-                        <Col className="col-3">
-                            <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}} type="number" className="form-control" id="exampleFormControlInput1" defaultValue="0"></input>
-                        </Col>
-                    </Row>
+                    Czy na pewno chcesz zakończyć turniej?
 
 
 
@@ -69,8 +57,23 @@ function EndTournament_popup(props) {
                         margin: "auto",
                         alignItems: "center",
                         marginTop:"20px"
+                    }} variant="success" onClick={handleEndTournament}>
+                        Tak
+                    </Button>
+                    <Button style={{
+                        fontFamily: 'Montserrat',
+                        fontWeight: "600",
+                        fontSize: "18px",
+                        lineHeight: "25px",
+                        color: "white",
+                        borderRadius: "13px",
+                        display: "flex",
+                        justifyContent: "center",
+                        margin: "auto",
+                        alignItems: "center",
+                        marginTop:"20px"
                     }} variant="success" onClick={handleClose}>
-                        ZAKOŃCZ TURNIEJ
+                        Nie
                     </Button>
                 </Modal.Body>
                 <Modal.Footer style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
@@ -81,7 +84,7 @@ function EndTournament_popup(props) {
 }
 
 
-export default EndTournament_popup;
+export default EndUnrankedTournament_popup;
 
 
 
