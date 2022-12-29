@@ -82,13 +82,19 @@ export const SetTournament = (props) => {
 
                     {/** Załóż II rundę: **/}
                     <Col sm={3}>
-                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {2} text={"Załóż II rundę"} tournament = {props.tournament}/>
+                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {2} text={"Załóż II rundę"} tournament = {props.tournament} isEmpty = {props.ladders_list.ladders[1].length === 0}/>
                     </Col>
                     {/** Załóż III rundę: **/}
                     <Col sm={3}>
-                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {3} text={"Załóż III rundę"} tournament = {props.tournament}/>
+                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {3} text={"Załóż III rundę"} tournament = {props.tournament} isEmpty = {props.ladders_list.ladders[2].length === 0}/>
                     </Col>
+                    {props.places === 16?
+                        <Col sm={3}>
+                            <SetRounds {...props} accepted_difference={accepted_difference} current_round = {4} text={"Załóż IV rundę"} tournament = {props.tournament} isEmpty = {props.ladders_list.ladders[3].length === 0}/>
+                        </Col>:null
+                    }
                 </Row>
+
             </> :null}
         </>
     )

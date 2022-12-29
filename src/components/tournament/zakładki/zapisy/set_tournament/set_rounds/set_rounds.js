@@ -17,7 +17,7 @@ export const SetRounds = (props) => {
     return (
         <Button variant="secondary"
                 style={{float: "right"}}
-                disabled={props.accepted_difference !== 0 || props.ladders_length === 0}
+                disabled={props.accepted_difference !== 0 || props.ladders_length === 0 || props.isEmpty === true || props.ladders_list.ladders[props.current_round].length !== 0}
                 onClick={() => {
 
                     // FOR ALL ROUNDS >=2
@@ -60,7 +60,6 @@ export const SetRounds = (props) => {
                                 .then(r => console.log(r))
                         } // Koniec for
                     }
-
                 } //Koniec funkcji "OnClick"
                 }>
             {props.text}

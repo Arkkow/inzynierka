@@ -29,7 +29,7 @@ export const Zapisy = (props) => {
                                 tournament = {props.calendar_list}
                                 places = {props.calendar_list.places}
                                 pairs_list = {props.pairs_list}
-                                ladders_length = {props.ladders_list.ladders.length}
+                                ladders_length = {props.ladders_list.ladders["ALL"].length}
                             />
 
                         </Row>
