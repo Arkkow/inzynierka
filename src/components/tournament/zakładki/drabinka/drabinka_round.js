@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 
 export const DrabinkaRound = (props) => {
 
-    let titles = ["PIERWSZA", "DRUGA", "TRZECIA"];
+    let titles = ["PIERWSZA", "DRUGA", "TRZECIA", "CZWARTA"];
 
 
     return (

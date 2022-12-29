@@ -100,10 +100,12 @@ const default_state = {
 
   my_tournaments_content: {
     data: {
-      id: "1",
-      inviter: "1",
-      tournamnet: "1"
-    },
+          0: {
+            id: "1",
+            inviter: "1",
+            tournament: "1"
+          }
+          },
   },
 
 

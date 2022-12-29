@@ -29,18 +29,36 @@ export const Zapisy = (props) => {
                                 tournament = {props.calendar_list}
                                 places = {props.calendar_list.places}
                                 pairs_list = {props.pairs_list}
-                                ladders_length = {props.ladders_list.ladders.length}
+                                ladders_length = {props.ladders_list.ladders["ALL"].length}
                             />
 
                         </Row>
                         <Row style={{background: "white", marginTop:"10px", borderRadius:"10px", width:"100%"}}>
 
-                            {props.pairs_list.pairs["ALL"].length === 0 ?
+                            {props.role === "default" || localStorage.getItem("token") === null ?
                                 <my_h4 style={{display:"flex", alignItems:"center", justifyContent:"center", padding:"20px", color: "var(--black)"}}>
-                                    Aby zobaczyć zapisanych uczestników, musisz być zalogowany</my_h4> :
-                                props.pairs_list.pairs["ALL"].map((card)=>(
-                                    <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}/>
-                                ))
+                                    Zaloguj się, aby zobaczyć zapisanych uczestników
+                                </my_h4>:
+
+                                props.pairs_list.pairs["ALL"].length === 0 ?
+                                    <my_h4 style={{display:"flex", alignItems:"center", justifyContent:"center", padding:"20px", color: "var(--black)"}}>
+                                        Na ten turniej nie ma jeszcze zapisanych użytkowników
+                                    </my_h4> :
+
+                                    <>
+                                        {props.pairs_list.pairs["ALL"].filter((e) => e.partner === props.user.id || e.userid === props.user.id).map((card)=>(
+                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                                        isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
+                                        ))}
+                                        {props.pairs_list.pairs["ALL"].filter((e) => (e.partner !== props.user.id && e.userid !== props.user.id) && (e.paymentstatus === "DONE" && e.paymentstatus2 === "DONE")).map((card)=>(
+                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                                        isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
+                                        ))}
+                                        {props.pairs_list.pairs["ALL"].filter((e) => (e.partner !== props.user.id && e.userid !== props.user.id) && (e.paymentstatus !== "DONE" || e.paymentstatus2 !== "DONE")).map((card)=>(
+                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                                        isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
+                                        ))}
+                                    </>
                             }
                         </Row>
                     </Col>
