@@ -36,7 +36,7 @@ export const CalendarInvitation = (props) => {
 
                                 <Card.Text>
                                     <div style={{ textAlign: "center" }}>
-                                        {props.name1} {props.surname1} zaprosił cię do gry
+                                        {props.name1} {props.surname1} zaprosił/a cię do gry
                                     </div>
 
                                     <div style={{ textAlign: "center" }}>
