@@ -4,7 +4,7 @@ import * as React from "react";
 
 // Project specific files
 import InfoPanel from "./assets/info_panel";
-import RangTick from "../../common/Buttons/rang_tick";
+import RangTick from "../../common/buttons/rang_tick";
 import CalendarPhoto from "./assets/calendarPhoto";
 import CalendarAdminDropdown from "./features/conditionals/calendar_admin_dropdown";
 import TournamentRanked from "./features/conditionals/calendar_tournament_ranked";
@@ -13,7 +13,6 @@ import TournamentRanked from "./features/conditionals/calendar_tournament_ranked
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import {useEffect} from "react";
 
 export const CalendarCard = (props) => {
 

@@ -28,20 +28,26 @@ export const Drabinka = (props) => {
             <Row>
                 { props.calendar_list.approved == 2 ? <EndTournament_popup{...props}/> :  <EndUnrankedTournament_popup/>}
                 <div>
-                    <select value={chosen_match} onChange={(e) => set_chosen_match(e.target.value)}>
-                        <option value="1">Drabinka główna</option>
-                        <option value="3">3 miejsce</option>
-                        <option value="5">5 miejsce</option>
-                        <option value="7">7 miejsce</option>
+                    {props.calendar_list.typeOfLadder === "DRABINKA KLASYCZNA"?
+                        <select value={chosen_match} onChange={(e) => set_chosen_match(e.target.value)}>
+                            <option value="1">Drabinka główna</option>
+                                <option value="3">3 miejsce</option>
+                                <option value="5">5 miejsce</option>
+                                <option value="7">7 miejsce</option>
+                            {props.calendar_list.places === 16?
+                                <>
+                                    <option value="9">9 miejsce</option>
+                                    <option value="11">11 miejsce</option>
+                                    <option value="13">13 miejsce</option>
+                                    <option value="15">15 miejsce</option>
+                                </>
 
-                        {props.calendar_list.places === 16?
-                            <>
-                                <option value="9">9 miejsce</option>
-                                <option value="15">15 miejsce</option>
-                            </>
-                            :null
-                        }
-                    </select>
+                                :null
+                            }
+
+                        </select>
+                        :null
+                    }
                 </div>
             </Row>
             <Row>
