@@ -6,14 +6,26 @@ import "../../../styles/App.css"
 import {Col, Row} from "react-bootstrap";
 
 
+
 function EndTournament_popup(props) {
     const [show, setShow] = useState(false);
+
+
+    // props.ladders_list.ladders.map((card)=>(console.log(card)))
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    let winnerID =
+        (props.ladders_list.ladders["ALL"].filter((e)=>e.round_number == "1WW")[0].winner == "A" ? (props.ladders_list.ladders["ALL"].filter((e)=>e.round_number == "1WW")[0].inA) : (props.ladders_list.ladders["ALL"].filter((e)=>e.round_number == "1WW")[0].inB));
+
     return (
+
+
+
+
         <>
+            {console.log(winnerID)}
             <Button style={{
                 fontFamily: 'Montserrat',
                 fontWeight: "600",
@@ -37,15 +49,31 @@ function EndTournament_popup(props) {
                     backgroundColor: "#EBEBEB"
                 }}>
 
-                    <Row style={{backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px", marginRight:"10px"}}>
-                    <Col className="col-9" style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
-                        <my_h4>Jarosław Cebulszczykiewicz</my_h4> {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
-                        <my_h4>Cebulak Jarosławiecki</my_h4>
-                    </Col>
-                    <Col className="col-3">
-                        <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}} type="number" className="form-control" id="exampleFormControlInput1" defaultValue="0"></input>
-                    </Col>
-                    </Row>
+                    {props.pairs_list.pairs["DONE"].map((card) => (
+                        <Row style={{backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px", marginRight:"10px", border:"solid"}}>
+                            <Col sm={9} style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
+                                Id Pary {card.id}
+                                <br/>
+                                {card.name1} {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
+                                {card.surname1}
+                                <br/>
+                                {card.name2} {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
+                                {card.surname2}
+                            </Col>
+                            <Col className="col-3">
+
+                                <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}}
+                                       type="number" className="form-control" id="exampleFormControlInput1"
+                                       defaultValue={props.ladders_list.ladders["ALL"].filter((e) =>
+                                           e.inA === String(card.id) ||  e.inB === String(card.id)).length +
+                                           (card.id == winnerID ? 1 : 0)
+                                }>
+                                </input>
+
+                            </Col>
+                        </Row>
+
+                    ))}
 
 
 
