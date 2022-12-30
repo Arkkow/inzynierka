@@ -117,7 +117,13 @@ export const Drabinka = (props) => {
             </Row> :
                 <Row className="justify-content-md-center">
                     <Col sm={6}>
-                        <h5>Brak meczy do wyświetlenia</h5>
+
+                        <Row style={{background: "white", marginTop:"10px", borderRadius:"10px", width:"100%"}}>
+                            <my_h4 style={{display:"flex", alignItems:"center", justifyContent:"center", padding:"20px", color: "var(--black)"}}>
+                                Brak meczów do wyświetlenia
+                            </my_h4>
+                        </Row>
+
                     </Col>
                 </Row>
                 }
