@@ -15,6 +15,8 @@ export const DrabinkaRound = (props) => {
 
     return (
         <Col sm={12/props.numOfCols}>
+            {props.ladders[props.chosen_match].length !== 0 ?
+                <>
             <Row>
                 <Button variant="success"
                         style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>
@@ -22,10 +24,12 @@ export const DrabinkaRound = (props) => {
                 </Button>
             </Row>
 
-            {props.ladders[props.chosen_match].length !== 0 ?
-                props.ladders[props.chosen_match].filter((e) => e.round_number.length === props.current_round).map((card)=>(
+
+            {props.ladders[props.chosen_match].filter((e) => e.round_number.length === props.current_round).map((card)=>(
                     <DrabinkaCard {...card} tournamentID = {props.calendar_list.id} role = {props.user.role}/>
-                )):
+                ))}
+                </>:
+
                 <h5>no results available</h5>
             }
         </Col>
