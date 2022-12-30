@@ -70,6 +70,7 @@ export const Drabinka = (props) => {
             </Row>
                 :null}
 
+            {props.ladders_list.ladders["ALL"].length !== 0 ?
             <Row>
                 <DrabinkaRound
                     net_round = {1}
@@ -113,7 +114,13 @@ export const Drabinka = (props) => {
                         user = {props.user}
                     />:null
                 }
-            </Row>
+            </Row> :
+                <Row className="justify-content-md-center">
+                    <Col sm={6}>
+                        <h5>Brak meczy do wyświetlenia</h5>
+                    </Col>
+                </Row>
+                }
         </>
     );
 }
