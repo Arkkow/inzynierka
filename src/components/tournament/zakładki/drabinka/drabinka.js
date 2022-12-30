@@ -31,6 +31,7 @@ export const Drabinka = (props) => {
 
     return (
         <>
+            {ladders[chosen_match][0] !== undefined?
             <Row>
                 { props.calendar_list.approved === 2 ? <EndTournament_popup{...props}/> :  <EndUnrankedTournament_popup/>}
                 <div>
@@ -56,6 +57,8 @@ export const Drabinka = (props) => {
                     }
                 </div>
             </Row>
+                :null}
+
             <Row>
                 <DrabinkaRound
                     net_round = {1}
