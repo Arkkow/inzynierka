@@ -27,7 +27,7 @@ export const Drabinka = (props) => {
         max_round = ladders[chosen_match][ladders[chosen_match].length-1].round_number.length;
     }
 
-    let numOfCols = max_round - min_round + 1
+    let numOfCols = Math.log2(props.calendar_list.places)
 
     return (
         <>
