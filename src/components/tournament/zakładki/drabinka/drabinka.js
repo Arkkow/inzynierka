@@ -26,7 +26,7 @@ export const Drabinka = (props) => {
     return (
         <>
             <Row>
-                { props.calendar_list.approved == 2 ? <EndTournament_popup{...props}/> :  <EndUnrankedTournament_popup/>}
+                { props.calendar_list.approved === 2 ? <EndTournament_popup{...props}/> :  <EndUnrankedTournament_popup/>}
                 <div>
                     {props.calendar_list.typeOfLadder === "DRABINKA KLASYCZNA"?
                         <select value={chosen_match} onChange={(e) => set_chosen_match(e.target.value)}>
