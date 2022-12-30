@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import "../../../styles/App.css"
 import {Col, Row} from "react-bootstrap";
@@ -10,21 +9,16 @@ import {Col, Row} from "react-bootstrap";
 function EndTournament_popup(props) {
     const [show, setShow] = useState(false);
 
-
-    // props.ladders_list.ladders.map((card)=>(console.log(card)))
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    let winnerID =
-        (props.ladders_list.ladders["ALL"].filter((e)=>e.round_number == "1WW")[0].winner == "A" ? (props.ladders_list.ladders["ALL"].filter((e)=>e.round_number == "1WW")[0].inA) : (props.ladders_list.ladders["ALL"].filter((e)=>e.round_number == "1WW")[0].inB));
+    let winnerID = 0
 
+    if(props.ladders_list.ladders["ALL"].filter((e)=>e.round_number === "1WW").length !== 0) {
+        winnerID = (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WW")[0].winner === "A" ? (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WW")[0].inA) : (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WW")[0].inB));
+    }
     // TODO zrobic dla 16 par, dla 8 juz dziala zliczanie
     return (
-
-
-
-
         <>
             <Button style={{
                 fontFamily: 'Montserrat',

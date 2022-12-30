@@ -19,8 +19,14 @@ export const Drabinka = (props) => {
     ladders = getLaddersFiltered(props.calendar_list.places, props.ladders_list.ladders["ALL"])
 
 
-    let min_round = ladders[chosen_match][0].round_number.length;
-    let max_round = ladders[chosen_match][ladders[chosen_match].length-1].round_number.length;
+    let min_round = 0;
+    let max_round = 0;
+
+    if(ladders[chosen_match][0] !== undefined) {
+        min_round = ladders[chosen_match][0].round_number.length;
+        max_round = ladders[chosen_match][ladders[chosen_match].length-1].round_number.length;
+    }
+
     let numOfCols = max_round - min_round + 1
 
     return (
@@ -28,7 +34,7 @@ export const Drabinka = (props) => {
             <Row>
                 { props.calendar_list.approved === 2 ? <EndTournament_popup{...props}/> :  <EndUnrankedTournament_popup/>}
                 <div>
-                    {props.calendar_list.typeOfLadder === "DRABINKA KLASYCZNA"?
+                    {props.calendar_list.typeOfLadder === "DRABINKA O MIEJSCA"?
                         <select value={chosen_match} onChange={(e) => set_chosen_match(e.target.value)}>
                             <option value="1">Drabinka główna</option>
                                 <option value="3">3 miejsce</option>
