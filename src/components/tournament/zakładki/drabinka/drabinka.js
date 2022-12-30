@@ -7,9 +7,11 @@ import DrabinkaRound from "./drabinka_round";
 import getLaddersFiltered from "./functions/getLadddersFiltered";
 
 // CSS files
-import { Row } from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import EndTournament_popup from "../../../common/popups/end_tournament_popup";
 import EndUnrankedTournament_popup from "../../../common/popups/end_unranked_tournament_popup";
+import Button from "react-bootstrap/Button";
+import {deleteLadder} from "../../../api/tournament/ladders_api";
 
 export const Drabinka = (props) => {
 
@@ -33,7 +35,6 @@ export const Drabinka = (props) => {
         <>
             {ladders[chosen_match][0] !== undefined?
             <Row>
-                { props.calendar_list.approved === 2 ? <EndTournament_popup{...props}/> :  <EndUnrankedTournament_popup/>}
                 <div>
                     {props.calendar_list.typeOfLadder === "DRABINKA O MIEJSCA"?
                         <select value={chosen_match} onChange={(e) => set_chosen_match(e.target.value)}>
@@ -56,6 +57,16 @@ export const Drabinka = (props) => {
                         :null
                     }
                 </div>
+                <div>
+                    <Button variant="danger" onClick={ () => {
+                        for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){
+                            deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))
+                        }
+                    }}>
+                        Usuń drabinki
+                    </Button>
+                </div>
+                { props.calendar_list.approved === 2 ?<div><EndTournament_popup{...props}/></div> :  <div><EndUnrankedTournament_popup/></div>}
             </Row>
                 :null}
 

@@ -73,7 +73,6 @@ export const SetTournament = (props) => {
                                     // TODO obsługa start tournament
                                     // startTournament(props.calendar_list.id).then(r => console.log(r))
                                     //     .then(() => closeRegistrations(props.calendar_list.id).then(r => console.log(r)))
-
                                 }>
                             Załóż turniej
                         </Button>
