@@ -1,13 +1,18 @@
+import {pointsForTournamentsClassicLadder} from '../../tournament/pointsCalculator';
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "../../../styles/App.css"
 import {Col, Row} from "react-bootstrap";
 
+pointsForTournamentsClassicLadder(1,"CHALLANGER", 8)
 
 
 function EndTournament_popup(props) {
     const [show, setShow] = useState(false);
+
+    let rang = String(props.calendar_list.rang);
+    let places = String(props.calendar_list.places);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -16,6 +21,9 @@ function EndTournament_popup(props) {
 
     if(props.ladders_list.ladders["ALL"].filter((e)=>e.round_number === "1WW").length !== 0) {
         winnerID = (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WW")[0].winner === "A" ? (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WW")[0].inA) : (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WW")[0].inB));
+    }
+    else if(props.ladders_list.ladders["ALL"].filter((e)=>e.round_number === "1WWW").length !== 0) {
+        winnerID = (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WWW")[0].winner === "A" ? (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WWW")[0].inA) : (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WWW")[0].inB));
     }
     // TODO zrobic dla 16 par, dla 8 juz dziala zliczanie
     return (
@@ -58,10 +66,11 @@ function EndTournament_popup(props) {
 
                                 <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}}
                                        type="number" className="form-control" id="exampleFormControlInput1"
-                                       defaultValue={props.ladders_list.ladders["ALL"].filter((e) =>
-                                           e.inA === String(card.id) ||  e.inB === String(card.id)).length +
-                                           (card.id == winnerID ? 1 : 0)
+                                       defaultValue={pointsForTournamentsClassicLadder((props.ladders_list.ladders["ALL"].filter((e) =>
+                                               e.inA === String(card.id) ||  e.inB === String(card.id)).length +
+                                           (card.id == winnerID ? 1 : 0)), rang, places)
                                 }>
+
                                 </input>
 
                             </Col>

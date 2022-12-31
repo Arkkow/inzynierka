@@ -1,5 +1,5 @@
-function pointsForTournamentsClassicLadder(numberOfPairGames, rang, numberOfPairs){
-    if (rang == "Master" && numberOfPairs == "8")
+export function pointsForTournamentsClassicLadder(numberOfPairGames, rang, numberOfPairs){
+    if (rang == "MASTER" && numberOfPairs === "8")
     {
         if (numberOfPairGames == 1){
             return 50
@@ -14,7 +14,7 @@ function pointsForTournamentsClassicLadder(numberOfPairGames, rang, numberOfPair
             return 500
         }
     }
-    else if (rang == "Master" && numberOfPairs == "16")
+    else if (rang === "MASTER" && numberOfPairs === "16")
     {
         if (numberOfPairGames == 1){
             return 50
@@ -32,22 +32,22 @@ function pointsForTournamentsClassicLadder(numberOfPairGames, rang, numberOfPair
             return 1000
         }
     }
-    else if (rang == "CHALLANGER" && numberOfPairs == "8")
+    else if (rang === "CHALLENGER" && numberOfPairs === "8")
     {
-        if (numberOfPairGames == 1){
+        if (numberOfPairGames === 1){
             return 25
         }
-        else if (numberOfPairGames == 2){
+        else if (numberOfPairGames === 2){
             return 50
         }
-        else if (numberOfPairGames == 3){
+        else if (numberOfPairGames === 3){
             return 125
         }
-        else if (numberOfPairGames == 4){
+        else if (numberOfPairGames === 4){
             return 250
         }
     }
-    else if (rang == "CHALLANGER" && numberOfPairs == "16")
+    else if (rang === "CHALLENGER" && numberOfPairs === "16")
     {
         if (numberOfPairGames == 1){
             return 25
@@ -65,9 +65,11 @@ function pointsForTournamentsClassicLadder(numberOfPairGames, rang, numberOfPair
             return 500
         }
     }
+    else
+    {return null}
 }
 
-function pointsForTournamentsLadderOfPlace(place, rang, numberOfPairs){
+export function pointsForTournamentsLadderOfPlace(place, rang, numberOfPairs){
     if (rang == "Master" && numberOfPairs == "8")
     {
         if (place == 1){
