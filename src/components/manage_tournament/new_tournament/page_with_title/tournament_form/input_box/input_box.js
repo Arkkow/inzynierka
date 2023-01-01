@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import Button from "react-bootstrap/Button";
 import {postImage} from "../../../../../api/tournament/tournament_CRUD_api.js";
+import {wait} from "@testing-library/user-event/dist/utils";
 //import {getElement} from "bootstrap/js/src/util";
 
 function InputBox() {
@@ -110,7 +111,7 @@ function InputBox() {
       alert("Coś poszło nie tak: " + error.message);
     }
     else {
-      window.location.href="calendar";
+      wait(20000).then(window.location.href="calendar")
     }
   };
 

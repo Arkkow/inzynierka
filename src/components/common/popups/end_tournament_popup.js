@@ -5,9 +5,6 @@ import Modal from 'react-bootstrap/Modal';
 import "../../../styles/App.css"
 import {Col, Row} from "react-bootstrap";
 
-pointsForTournamentsClassicLadder(1,"CHALLANGER", 8)
-
-
 function EndTournament_popup(props) {
     const [show, setShow] = useState(false);
 
