@@ -4,14 +4,21 @@ import PFP_LOGO from "../../assets/PFP_LOGO.png";
 import Button from "react-bootstrap/Button";
 import Logout from "./buttons/log_out";
 import UserName from "../profile/userName";
+import {getUser} from "../api/user_interaction/user_api";
+import {useState} from "react";
 
 function Header({ setIsLoginOpen }) {
+    const [userId, setId] = useState({"fetched":false,data:[]});
+    if(userId.fetched === false){
+        getUser().then((dane)=>{setId({"fetched":true,data:dane});})
+    }
+
   if (localStorage.getItem("token") == null) {
     return (
       // ponizej uzytkownicy do dodania dla admnina
       // <Nav.Link href="#" style={{paddingLeft:"50px", paddingRight:"30px"}}><my_h4>Użytkownicy</my_h4></Nav.Link>
       <Navbar expand="lg" >
-        <a className="navbar-brand" href="calendar">
+          <a className="navbar-brand" href="calendar">
           <img
             src={PFP_LOGO}
             height="60px"
@@ -95,6 +102,13 @@ function Header({ setIsLoginOpen }) {
             >
               <UserName />
             </Nav.Link>
+              { userId.data.role == "3" ?<Nav.Link
+                  href="AdminUsers"
+                  style={{ paddingLeft: "50px", paddingRight: "30px" }}
+              >
+                  <my_h4>Uzytkownicy</my_h4>
+              </Nav.Link> : null}
+
           </Nav>
 
           <Logout />
