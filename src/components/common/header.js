@@ -1,17 +1,31 @@
+// General react imports
+import {useState} from "react";
+
+// Project specific files
+import Logout from "./buttons/log_out";
+import UserName from "../profile/userName";
+import {getUser} from "../api/user_interaction/user_api";
+import {getAuthedTournaments} from "../api/tournament/tournament_CRUD_api";
+
+// CSS files
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import PFP_LOGO from "../../assets/PFP_LOGO.png";
 import Button from "react-bootstrap/Button";
-import Logout from "./Buttons/log_out";
-import UserName from "../profile/userName";
+
 
 function Header({ setIsLoginOpen }) {
+    const [userId, setId] = useState({"fetched":false,data:[]});
+    if(userId.fetched === false){
+        getUser().then((dane)=>{setId({"fetched":true,data:dane});})
+    }
+
   if (localStorage.getItem("token") == null) {
     return (
       // ponizej uzytkownicy do dodania dla admnina
       // <Nav.Link href="#" style={{paddingLeft:"50px", paddingRight:"30px"}}><my_h4>Użytkownicy</my_h4></Nav.Link>
-      <Navbar expand="lg" style={{ boxShadow: "0px 2px 5px #999" }}>
-        <a className="navbar-brand" href="calendar">
+      <Navbar expand="lg" >
+          <a className="navbar-brand" href="calendar">
           <img
             src={PFP_LOGO}
             height="60px"
@@ -62,7 +76,7 @@ function Header({ setIsLoginOpen }) {
     );
   } else {
     return (
-      <Navbar expand="lg" style={{ boxShadow: "0px 2px 5px #999" }}>
+      <Navbar expand="lg">
         <a className="navbar-brand" href="calendar">
           <img
             src={PFP_LOGO}
@@ -95,6 +109,13 @@ function Header({ setIsLoginOpen }) {
             >
               <UserName />
             </Nav.Link>
+              { userId.data.role === "3" ?<Nav.Link
+                  href="AdminUsers"
+                  style={{ paddingLeft: "50px", paddingRight: "30px" }}
+              >
+                  <my_h4>Użytkownicy</my_h4>
+              </Nav.Link> : null}
+
           </Nav>
 
           <Logout />

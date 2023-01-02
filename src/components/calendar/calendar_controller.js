@@ -1,5 +1,5 @@
 // General react imports
-import { useEffect } from "react";
+import {useEffect, useState} from "react";
 import { connect } from "react-redux";
 
 
@@ -9,13 +9,13 @@ import {getPendingApprovals} from "../api/api";
 import {getAuthedTournaments, getTournaments} from "../api/tournament/tournament_CRUD_api";
 import {getUser} from "../api/user_interaction/user_api";
 import { Col, Row } from "react-bootstrap";
-import Header from "./calendarNavbar/calNav";
+import {checkNode} from "@testing-library/jest-dom/dist/utils";
 
 
 export const Calendar_controller = (props) => {
   useEffect(() => {
     props.handleDownloadUser();
-    props.getPendingApprovals();
+    props.getAllPendingApprovals();
 
     if (props.user.role !== "default") {
         console.log("authed")
@@ -28,22 +28,17 @@ export const Calendar_controller = (props) => {
 
   }, []);
 
-  useEffect(() => {
-
-  })
-
   return (
-    <Row className="justify-content-md-center">
-      <Col lg={6}>
-        {props.calendar_list.length === 0 ? (
-          <h5>no results available</h5>
-        ) : (
-          props.calendar_list.map((card) => (
-            <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournaments={props.my_tournament_list} />
-          ))
-        )}
-      </Col>
-    </Row>
+      <Row className="justify-content-md-center">
+          <Col lg={6}>
+              {props.calendar_list.length === 0 ?
+                  <h5>no results available</h5> :
+                      props.calendar_list.map(card =>
+                          <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />
+                      )
+              }
+          </Col>
+      </Row>
   );
 };
 
@@ -53,7 +48,7 @@ const mapStateToProps = (state) => {
     calendar_list: state.calendar_content.data,
     user: state.user_content.data,
     view: state.view_content.data,
-    // my_tournament_list: state.my_tournaments_content.data,
+    my_tournament_list: state.my_tournaments_content.data,
   };
 };
 
@@ -103,7 +98,7 @@ const mapDispatchToProps = (dispatch) => {
           });
     },
 
-    getPendingApprovals: () => {
+    getAllPendingApprovals: () => {
       //    API z kalendarza
         getPendingApprovals()
           .then((res) => {

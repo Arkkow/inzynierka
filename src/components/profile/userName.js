@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import {wait} from "@testing-library/user-event/dist/utils";
 
 function UserName() {
   const [error, setError] = useState(null);
@@ -38,8 +39,9 @@ function UserName() {
   }
 
   if (error) {
-    //localStorage.removeItem("token");
-    //refreshPage();
+    wait(2000).then(localStorage.removeItem("token"),
+    refreshPage())
+
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {

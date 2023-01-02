@@ -5,10 +5,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 // Project specific files
 import Header from "./components/common/header";
-import Footer from "./components/common/footer";
-import Login_popup from "./components/popups/login_popup";
-import Register_popup from "./components/popups/register_popup";
-import T_registration_popup from "./components/popups/T_registration_popup";
+import Login_popup from "./components/common/popups/login_popup";
+import Register_popup from "./components/common/popups/register_popup";
+import T_registration_popup from "./components/common/popups/T_registration_popup";
 
 // Routes
 import CalendarRoute from "./routes/calendar_route";
@@ -83,7 +82,6 @@ function App() {
               setIsLoginOpen={setIsLoginOpen}
               setIsRegisterOpen={setIsRegisterOpen}
           />
-          <Footer />
       </div>
   );
 }

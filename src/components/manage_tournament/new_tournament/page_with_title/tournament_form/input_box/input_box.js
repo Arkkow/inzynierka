@@ -1,9 +1,50 @@
-import React, { useState, useRef } from "react";
+import React, {useState, useRef, useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import {postImage} from "../../../../../api/tournament/tournament_CRUD_api.js";
+import {wait} from "@testing-library/user-event/dist/utils";
 //import {getElement} from "bootstrap/js/src/util";
 
 function InputBox() {
+  const initialValues = {tournamentName:"", miejsce: "", wpisowe: "", dyrektor: "", telefon: ""};
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({...formValues, [name] : value});
+  }
+
+  const validate = (values) => {
+    const errors = {}
+    if (!values.tournamentName){
+      errors.tournamentName = "Nazwa turnieju jest wymagana!";
+    }
+    if (!values.miejsce){
+      errors.miejsce = "Miejsce turnieju jest wymagane!";
+    }
+    if (!values.wpisowe){
+      errors.wpisowe = "Wpisowe jest wymagane!";
+    }
+    if (!values.dyrektor){
+      errors.dyrektor = "Dyrektor jest wymagany!";
+    }
+    if (!values.telefon){
+      errors.telefon = "Telefon jest wymagany!";
+    }
+    if (!from.current.value){
+      errors.from = "Wymagane jest podanie daty rozpoczecia turnieju!"
+    }
+    if (!to.current.value){
+      errors.to = "Wymagane jest podanie daty zakończenia turnieju"
+    }
+    if (!entriesTo.current.value){
+      errors.entriesTo= "Wymagane jest podanie daty zakończenia zapisów!"
+    }
+
+    return errors;
+  }
+
   const [error, setError] = useState(null);
   const [isSended, setIsSended] = useState(false);
   const [response, setResponse] = useState([]);
@@ -29,6 +70,7 @@ function InputBox() {
 
 
   const handleClick = () => {
+    setFormErrors(validate(formValues));
     if (document.getElementById("visibility_var").checked) {
       visibility = "TRUE";
     } else {
@@ -60,7 +102,8 @@ function InputBox() {
       pointsForTournament.value = "1000";
     }
 
-    fetch("https://dragonmaster.pl/inz/tournament", {
+
+      fetch("https://dragonmaster.pl/inz/tournament", {
       headers: {
         Authorization: "Bearer " + Token,
       },
@@ -106,11 +149,21 @@ function InputBox() {
           setError(error);
         }
       );
-    if (error) {
-      alert("Coś poszło nie tak: " + error.message);
+
+    if (!name.current.value || !entryFee.current.value || !place.current.value || !phone.current.value || !director.current.value || !from.current.value || !to.current.value || !entriesTo.current.value) {
+      alert("Uzupelnij wszystkie dane!");
     }
-    else {
-      window.location.href="calendar";
+    if (error){
+      if (error == "Failed to fetch")
+      {
+
+      }
+      else {
+      alert("Coś poszło nie tak: " + error.message);}
+    }
+    else if (name.current.value && entryFee.current.value && place.current.value && phone.current.value && director.current.value && from.current.value && to.current.value && entriesTo.current.value && !error)  {
+      alert("Turniej stworzono!")
+      wait(200000000).then(window.location.href="calendar")
     }
   };
 
@@ -154,9 +207,12 @@ function InputBox() {
         style={{ width: "33%" }}
         type="text"
         className="form-control"
-        id="exampleFormControlInput1"
+        name = "tournamentName"
+        value={formValues.tournamentName}
         ref={name}
+        onChange={handleChange}
       ></input>
+      <p style={{color: "red"}}>{formErrors.tournamentName}</p>
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
@@ -172,6 +228,8 @@ function InputBox() {
         id="exampleFormControlInput1"
         ref={from}
       ></input>
+      <p style={{color: "red"}}>{formErrors.from}</p>
+
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
         htmlFor="exampleFormControlInput1"
@@ -186,6 +244,8 @@ function InputBox() {
         id="exampleFormControlInput1"
         ref={to}
       ></input>
+      <p style={{color: "red"}}>{formErrors.to}</p>
+
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
@@ -198,9 +258,12 @@ function InputBox() {
         style={{ width: "33%" }}
         type="text"
         className="form-control"
-        id="exampleFormControlInput1"
+        name = "miejsce"
+        value={formValues.miejsce}
+        onChange={handleChange}
         ref={place}
       ></input>
+      <p style={{color: "red"}}>{formErrors.miejsce}</p>
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
@@ -284,9 +347,13 @@ function InputBox() {
         style={{ width: "33%" }}
         type="number"
         className="form-control"
-        id="exampleFormControlInput1"
+        name="wpisowe"
+        value={formValues.wpisowe}
+        onChange={handleChange}
         ref={entryFee}
       ></input>
+      <p style={{color: "red"}}>{formErrors.wpisowe}</p>
+
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
@@ -299,9 +366,13 @@ function InputBox() {
         style={{ width: "33%" }}
         type="text"
         className="form-control"
-        id="exampleFormControlInput1"
+        name="dyrektor"
+        value={formValues.dyrektor}
+        onChange={handleChange}
         ref={director}
       ></input>
+      <p style={{color: "red"}}>{formErrors.dyrektor}</p>
+
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
@@ -314,9 +385,13 @@ function InputBox() {
         style={{ width: "33%" }}
         type="tel"
         className="form-control"
-        id="exampleFormControlInput1"
+        name="telefon"
+        value={formValues.telefon}
+        onChange={handleChange}
         ref={phone}
       ></input>
+      <p style={{color: "red"}}>{formErrors.telefon}</p>
+
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
@@ -332,6 +407,7 @@ function InputBox() {
         id="exampleFormControlInput1"
         ref={entriesTo}
       ></input>
+      <p style={{color: "red"}}>{formErrors.entriesTo}</p>
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}

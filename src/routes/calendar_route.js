@@ -3,7 +3,7 @@ import * as React from "react";
 
 // Project specific files
 import Calendar_controller from "../components/calendar/calendar_controller";
-import CalNav from "../components/calendar/calendarNavbar/calNav.js";
+import CalNav from "../components/calendar/calendar_card/features/calNav.js";
 
 // CSS files
 import "../styles/index.css";

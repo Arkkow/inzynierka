@@ -6,16 +6,14 @@ import {connect} from "react-redux";
 // Project specific files
 import { getTournamentById} from "../components/api/api";
 import {getUser} from "../components/api/user_interaction/user_api";
-import {getladders, getLaddersSolved} from "../components/api/tournament/ladders_api";
+import {getladders} from "../components/api/tournament/ladders_api";
 import {getRegistrations} from "../components/api/tournament/tournament_registration_api";
-import {Tournament_controller} from "../components/Tournament/tournament_controller";
-import TournamentHeader from "../components/Tournament/tournament_header";
+import {Tournament_controller} from "../components/tournament/tournament_controller";
+import TournamentHeader from "../components/tournament/common/tournament_header";
 
 // CSS files
 import "../styles/index.css";
 import "../styles/App.css";
-
-
 
 
 function TournamentRoute(props) {
@@ -36,18 +34,16 @@ const mapStateToProps = (state) => {
         view: state.view_content.data,
         pairs_list: state.pairs_content.data,
         ladders_list: state.ladders_content.data,
-        tournament_ready: state.tournament_ready_content.data,
     }
 }
 
 //Wywołanie zmiany stanu (obsługa w store)
 // Przekazanie data z API do stanu Calendar_controller
 const mapDispatchToProps = (dispatch) => {
-    const id = window.location.href.split('?')[1].split('=')[1]
+    // let id = window.location.href.split('?')[1].split('=')[1]
     return {
 
         // DOWNLOAD_CALENDAR
-
         handleDownloadCalendarCard: (id) => {
             //    API z kalendarza
             getTournamentById(id)
@@ -85,17 +81,6 @@ const mapDispatchToProps = (dispatch) => {
                 .catch((err) => {console.log(err)});
         },
 
-        // DOWNLOAD_LADDERS
-        handleDownloadLaddersSolved: (ladder_id) => {
-            //    API z kalendarza
-            getLaddersSolved(ladder_id)
-                .then( res => {
-                        return dispatch({type: "DOWNLOAD_LADDERS", payload: {data: res}});
-                    }
-                )
-                .catch((err) => {console.log(err)});
-        },
-
         // DOWNLOAD_PAIRS
         handleDownloadPlayers: (id) => {
             //    API z kalendarza
@@ -105,11 +90,6 @@ const mapDispatchToProps = (dispatch) => {
                     }
                 )
                 .catch((err) => {console.log(err)});
-        },
-
-        //READY_LIST
-        handleReadyList: (props) => {
-            return dispatch({ type: "READY_LIST", payload: { data: props } });
         },
 
     }

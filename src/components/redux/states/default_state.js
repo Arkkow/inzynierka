@@ -1,3 +1,4 @@
+
 const default_state = {
   calendar_content: {
     data: [
@@ -20,15 +21,22 @@ const default_state = {
         additionalInformations: "info",
         categotry: "cat1",
         visibility: "FALSE",
-        creator: ""
+        creator: "",
+
       },
     ],
   },
 
   user_content: {
     data: {
+      id: 819,
+      name: "Name",
+      surname: "Surname",
       role: "default",
-      //"tu będzie puste na razie, to jest default, to się nadpisze"
+      login: "login",
+      phone: "phone",
+      mail: "adres@email.com",
+      ranking: 0
     },
   },
 
@@ -42,23 +50,25 @@ const default_state = {
   ladders_content: {
     data: {
       ladders: {
-        "id": "string",
-        "inAtype": "R",
-        "inA": "string",
-        "inBtype": "R",
-        "inB": "string",
-        "round_number": "string",
-        "winner": "string",
-        "scores": "string",
-        "tournamentid": "string",
-        "inAname1": "string",
-        "inAsurname1": "string",
-        "inAname2": "string",
-        "inAsurname2": "string",
-        "inBname1": "string",
-        "inBsurname1": "string",
-        "inBname2": "string",
-        "inBsurname2": "string"
+        0:{
+          "id": "100",
+          "inAtype": "R",
+          "inA": "100",
+          "inBtype": "R",
+          "inB": "100",
+          "round_number": "1",
+          "winner": "A",
+          "scores": "000000",
+          "tournamentid": "1000",
+          "inAname1": "NameA1",
+          "inAsurname1": "SurnameA1",
+          "inAname2": "NameA2",
+          "inAsurname2": "SurnameA2",
+          "inBname1": "NameB1",
+          "inBsurname1": "SurnameB1",
+          "inBname2": "NameB2",
+          "inBsurname2": "SurnameB2",
+      }
       },
     },
   },
@@ -66,43 +76,38 @@ const default_state = {
   pairs_content: {
     data: {
       pairs: {
-        id:"344",
-        userid:"806",
-        tournamentid:"41008",
-        paymenttype:"btc",
-        paymentstatus:"DONE",
-        paymenttype2:"",
-        paymentstatus2:"",
-        approval:"0",
-        partner:"102",
-        name1:"Adam",
-        surname1:"Kowalski",
-        name2:"Łukasik",
-        surname2:"Paweł",
-        rankingsum:"1272",
-        partnerAcceptance: "0",
+        DONE: {},
+        ALL: {
+          id: "0",
+          userid: "100",
+          tournamentid: "41000",
+          paymenttype: "btc",
+          paymentstatus: "DONE",
+          paymenttype2: "cash",
+          paymentstatus2: "PENDING",
+          approval: "0",
+          partner: "102",
+          name1: "Name1",
+          surname1: "Surname1",
+          name2: "Name2",
+          surname2: "Surname2",
+          rankingsum: "1000",
+          partnerAcceptance: "0",
+        },
       },
     }
   },
 
   my_tournaments_content: {
     data: {
-      id: "1",
-      inviter: "1",
-      tournamnet: "1"
-    },
+          0: {
+            id: "1",
+            inviter: "1",
+            tournament: "1"
+          }
+          },
   },
 
-  tournament_ready_content: {
-    data: [
-        {
-          idA: "1",
-          nameA: "Adam",
-          surnameA: "Kowalski",
-          idB: "1",
-        }
-    ]
-  }
 
 };
 export default default_state

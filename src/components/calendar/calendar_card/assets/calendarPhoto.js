@@ -18,7 +18,7 @@ export const CalendarPhoto = (props) => {
                 height: "100%",
                 alignItems: "center"
             }}>
-<img  style={{height: "80px", width: "80px"}} src={(props.hasImage == 0 ?cup_logo:"https://dragonmaster.pl/inz/tournament/image?id="+props.id)} alt={""} />
+<img  style={{height: "80px", width: "80px", borderRadius:"8px"}} src={(props.hasImage == 0 ?cup_logo:"https://dragonmaster.pl/inz/tournament/image?id="+props.id)} alt={""} />
             </div>
         </>
     );
