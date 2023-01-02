@@ -64,7 +64,7 @@ export const ZapisyCard = (props) => {
 
                                 <Button variant="warning"
                                         onClick={() => {
-                                            postRegistrationApprove(String(props.id)).then(r =>console.log(r))
+                                            postRegistrationApprove(String(props.id)).then(r =>console.log(r)).then(() => document.location.reload())
                                         }
                                         }>A</Button>:
                                 null
