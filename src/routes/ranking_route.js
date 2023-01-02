@@ -30,30 +30,30 @@ export default function RankingRoute () {
             {/*<Row className="justify-content-md-center" style={{display:"flex", justifyContent:"center"}}>*/}
             {/*<Col sm={3} >*/}
             {/*    <Card style={{ minWidth: '40%', margin: "1.5%", padding: "2%", borderRadius:"10px", borderColor:"var(--medium_grey)"}} >*/}
-            <my_h1 style={{display:"flex", justifyContent:"center", alignItems:"center", marginBottom:"20px"}}>RANKING</my_h1>
+            {/*<my_h1 style={{display:"flex", justifyContent:"center", alignItems:"center", marginBottom:"20px"}}>RANKING</my_h1>*/}
             {/*    </Card>*/}
             {/*</Col>*/}
             {/*</Row>*/}
 
-            {/*<Row className="justify-content-md-center" style={{display:"flex", justifyContent:"center"}}>*/}
-            {/*<Col sm={6} >*/}
-            {/*<Card style={{ minWidth: '40%', margin: "1.5%", padding: "2%", borderRadius:"20px", borderColor:"var(--medium_grey)"}} >*/}
-            {/*    <Container fluid="md">*/}
-            {/*        <Row>*/}
-            {/*            <Col sm={1} style={{display:"flex", justifyContent:"center"}}>*/}
-            {/*                <my_h3>#</my_h3>*/}
-            {/*            </Col>*/}
-            {/*            <Col sm={8} style={{display:"flex", justifyContent:"left"}}>*/}
-            {/*                <my_h3>IMIĘ I NAZWISKO</my_h3>*/}
-            {/*            </Col>*/}
-            {/*            <Col sm={3} style={{display:"flex", justifyContent:"center"}}>*/}
-            {/*                <my_h3>PUNKTY</my_h3>*/}
-            {/*            </Col>*/}
-            {/*        </Row>*/}
-            {/*    </Container>*/}
-            {/*</Card>*/}
-            {/*</Col>*/}
-            {/*</Row>*/}
+            <Row className="justify-content-md-center" style={{display:"flex", justifyContent:"center"}}>
+            <Col sm={6} >
+            <Card style={{ minWidth: '40%', margin: "1.5%", padding: "2%", borderRadius:"20px", borderColor:"var(--medium_grey)"}} >
+                <Container fluid="md">
+                    <Row>
+                        <Col sm={1} style={{display:"flex", justifyContent:"center"}}>
+                            <my_h3>#</my_h3>
+                        </Col>
+                        <Col sm={8} style={{display:"flex", justifyContent:"left"}}>
+                            <my_h3>IMIĘ I NAZWISKO</my_h3>
+                        </Col>
+                        <Col sm={3} style={{display:"flex", justifyContent:"center"}}>
+                            <my_h3>PUNKTY</my_h3>
+                        </Col>
+                    </Row>
+                </Container>
+            </Card>
+            </Col>
+            </Row>
             <Row className="justify-content-md-center">
                 <Row className="justify-content-md-center" style={{display:"flex", justifyContent:"center"}}>
                     <Col sm={6} >

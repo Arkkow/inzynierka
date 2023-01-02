@@ -60,7 +60,7 @@ export const ZapisyCard = (props) => {
                                 // Jeżeli jesteś organizatorem tego turnieju lub adminem
                                 ((props.user.role === "2" && props.creator === props.user.id) || props.user.role === "3") &&
                                 // Jeżeli liczba zaakceptowanych par jest mniejsza niż max
-                                props.isFull === true?
+                                props.isFull === false?
 
                                 <Button variant="warning"
                                         onClick={() => {
