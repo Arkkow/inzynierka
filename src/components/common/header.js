@@ -76,7 +76,7 @@ function Header({ setIsLoginOpen }) {
     );
   } else {
     return (
-      <Navbar expand="lg" style={{ boxShadow: "0px 2px 5px #999" }}>
+      <Navbar expand="lg">
         <a className="navbar-brand" href="calendar">
           <img
             src={PFP_LOGO}

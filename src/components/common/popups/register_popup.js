@@ -37,7 +37,7 @@ const Register_popup = ({
           setIsSended(true);
           setResponse(result);
           console.log(result);
-          alert("Mozna się zalogować");
+          alert("Zweryfikuj adres e-mail, aby móc się zalogować");
           setIsRegisterOpen(false);
         },
         (error) => {
