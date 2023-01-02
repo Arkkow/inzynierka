@@ -12,6 +12,7 @@ import EndTournament_popup from "../../../common/popups/end_tournament_popup";
 import EndUnrankedTournament_popup from "../../../common/popups/end_unranked_tournament_popup";
 import Button from "react-bootstrap/Button";
 import {deleteLadder} from "../../../api/tournament/ladders_api";
+import End_tournament_places_popup from "../../../common/popups/end_tournament_places_popup";
 
 export const Drabinka = (props) => {
 
@@ -66,7 +67,8 @@ export const Drabinka = (props) => {
                         Usuń drabinki
                     </Button>
                 </div>
-                { props.calendar_list.approved === 2 ?<div><EndTournament_popup{...props}/></div> :  <div><EndUnrankedTournament_popup/></div>}
+                {console.log(props.calendar_list.typeOfLadder)}
+                { props.calendar_list.approved === 2 ?(props.calendar_list.typeOfLadder == "DRABINKA O MIEJSCA" ? <div><End_tournament_places_popup{...props}/></div> : <div><EndTournament_popup{...props}/></div>) :  <div><EndUnrankedTournament_popup/></div>}
             </Row>
                 :null}
 
