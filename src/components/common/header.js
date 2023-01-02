@@ -109,7 +109,7 @@ function Header({ setIsLoginOpen }) {
             >
               <UserName />
             </Nav.Link>
-              { userId.data.role == "3" ?<Nav.Link
+              { userId.data.role === "3" ?<Nav.Link
                   href="AdminUsers"
                   style={{ paddingLeft: "50px", paddingRight: "30px" }}
               >

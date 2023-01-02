@@ -29,6 +29,7 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
 		  if(result.token!=undefined){
           localStorage.setItem("token", JSON.stringify(result));
 			setIsLoginOpen(false);
+            window.location.reload();
 			}else{
 			document.getElementById("errormsg").style.display="block";	
 			}},

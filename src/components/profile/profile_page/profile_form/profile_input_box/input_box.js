@@ -149,7 +149,7 @@ function InputBox() {
           htmlFor="exampleFormControlInput1"
           className="form-label"
         >
-          Login
+          Email
         </label>
         <input
           style={{ width: "33%" }}
@@ -158,7 +158,7 @@ function InputBox() {
           className="form-control-plaintext"
           id="staticEmail"
           disabled={true}
-          defaultValue={userData.login}
+          defaultValue={userData.mail}
         ></input>
 
         <label
