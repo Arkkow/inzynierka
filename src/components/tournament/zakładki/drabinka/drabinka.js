@@ -34,7 +34,7 @@ export const Drabinka = (props) => {
 
     return (
         <>
-            {ladders[chosen_match][0] !== undefined?
+            {ladders[1][0] !== undefined?
             <Row>
                 <div>
                     {props.calendar_list.typeOfLadder === "DRABINKA O MIEJSCA"?
@@ -58,15 +58,20 @@ export const Drabinka = (props) => {
                         :null
                     }
                 </div>
-                <div>
-                    <Button variant="danger" onClick={ () => {
-                        for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){
-                            deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))
-                        }
-                    }}>
-                        Usuń drabinki
-                    </Button>
-                </div>
+
+                {props.user.id === undefined ? null:
+                    props.user.role !== "3"? null:
+                    <div>
+                        <Button variant="danger" onClick={ () => {
+                            for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){
+                                deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))
+                            }
+                        }}>
+                            Usuń drabinki
+                        </Button>
+                    </div>
+                }
+
                 {console.log(props.calendar_list.typeOfLadder)}
                 { props.calendar_list.approved === 2 ?(props.calendar_list.typeOfLadder == "DRABINKA O MIEJSCA" ? <div><End_tournament_places_popup{...props}/></div> : <div><EndTournament_popup{...props}/></div>) :  <div><EndUnrankedTournament_popup/></div>}
             </Row>

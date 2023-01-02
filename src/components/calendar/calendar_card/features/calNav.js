@@ -1,14 +1,18 @@
+// General react imports
+import {connect} from "react-redux";
+import {useEffect} from "react";
+
+// Project specific files
+import {getTournaments} from "../../../api/tournament/tournament_CRUD_api";
+import {getUser} from "../../../api/user_interaction/user_api";
+import {getPendingApprovals} from "../../../api/api";
+
+// CSS files
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {Col, Form, Row} from "react-bootstrap";
-import {getTournaments} from "../../../api/tournament/tournament_CRUD_api";
-import {getUser} from "../../../api/user_interaction/user_api";
-import {getPendingApprovals} from "../../../api/api";
-import {connect} from "react-redux";
-import {useEffect} from "react";
-
 
 export const Header = (props) => {
 
@@ -39,7 +43,7 @@ export const Header = (props) => {
                                 <Col sm ={6} style={{marginTop: "2%"}}>
                                     {props.user.role === "1" || props.user.role === "2" || props.user.role === "3"?
                                         <>
-                                            <Button className="btn btn-primary" style={{marginLeft:"20%", marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}><my_h4>WSZYSTKIE</my_h4></Button>
+                                            <Button className="btn btn-primary" style={{marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}><my_h4>WSZYSTKIE</my_h4></Button>
                                             <Button className="btn btn-primary"
                                                     style={{borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)"}}
                                                     onClick={() => props.getAllPendingApprovals()}>

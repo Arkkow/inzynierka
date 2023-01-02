@@ -1,12 +1,18 @@
+// General react imports
+import {useState} from "react";
+
+// Project specific files
+import Logout from "./buttons/log_out";
+import UserName from "../profile/userName";
+import {getUser} from "../api/user_interaction/user_api";
+import {getAuthedTournaments} from "../api/tournament/tournament_CRUD_api";
+
+// CSS files
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import PFP_LOGO from "../../assets/PFP_LOGO.png";
 import Button from "react-bootstrap/Button";
-import Logout from "./buttons/log_out";
-import UserName from "../profile/userName";
-import {getUser} from "../api/user_interaction/user_api";
-import {useState} from "react";
-import {getAuthedTournaments} from "../api/tournament/tournament_CRUD_api";
+
 
 function Header({ setIsLoginOpen }) {
     const [userId, setId] = useState({"fetched":false,data:[]});

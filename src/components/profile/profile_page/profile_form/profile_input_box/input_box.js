@@ -145,24 +145,20 @@ function InputBox() {
         ></input>
 
         <label
-          style={{
-            display: "block",
-            textAlign: "left",
-            width: "33%",
-            marginTop: "1%",
-          }}
+          style={{ display: "block", textAlign: "left", marginTop: "1%" }}
           htmlFor="exampleFormControlInput1"
           className="form-label"
         >
-          E-mail
+          Login
         </label>
         <input
           style={{ width: "33%" }}
-          type="email"
-          className="form-control"
-          id="exampleFormControlInput1"
-          defaultValue={userData.mail}
-          ref={mail}
+          type="text"
+          readOnly
+          className="form-control-plaintext"
+          id="staticEmail"
+          disabled={true}
+          defaultValue={userData.login}
         ></input>
 
         <label
