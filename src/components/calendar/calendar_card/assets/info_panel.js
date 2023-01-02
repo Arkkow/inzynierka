@@ -6,23 +6,21 @@ import { Container, Row} from "react-bootstrap";
 export const InfoPanel = (props) => {
     return (
         <Container>
-            <Row>
-                <div><GeoAlt/>&nbsp; {props.place}</div>
+            <Row style={{marginBottom:"5px"}}>
+                <big_para style={{display:"flex", alignItems:"center", fontSize:"17px"}}><GeoAlt/>&nbsp; {props.place}</big_para>
             </Row>
-            <Row>
-                <div>
-                    <CalendarCheck/>&nbsp; od {props.from}
-                </div>
+            <Row style={{marginBottom:"5px"}}>
+                <big_para style={{display:"flex", alignItems:"center", fontSize:"17px"}}><CalendarCheck/>&nbsp; od {props.from}</big_para>
             </Row>
-            <Row>
-                <div>
+            <Row style={{marginBottom:"5px"}}>
+                <big_para style={{display:"flex", alignItems:"center", fontSize:"17px"}}>
                     <CalendarCheck/>&nbsp; do {props.to}
-                </div>
+                </big_para>
             </Row>
             <Row>
-                <div>
-                    <Bookmark/> OPEN
-                </div>
+                <big_para style={{display:"flex", alignItems:"center", fontSize:"17px"}}>
+                    <Bookmark/>&nbsp; OPEN
+                </big_para>
             </Row>
         </Container>
     );

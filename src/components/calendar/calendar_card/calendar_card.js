@@ -25,10 +25,10 @@ export const CalendarCard = (props) => {
                     </Col>
                     <Col sm={4}>
                         <Row className="justify-content-sm-center">
-                            <h5>
+                            <my_h4 style={{marginBottom:"7px"}}>
                                 {props.name} &nbsp;
                                 <RangTick {...props}/>
-                            </h5>
+                            </my_h4>
                         </Row>
                         <InfoPanel {...props} />
                     </Col>

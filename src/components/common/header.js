@@ -107,7 +107,7 @@ function Header({ setIsLoginOpen }) {
                   href="AdminUsers"
                   style={{ paddingLeft: "50px", paddingRight: "30px" }}
               >
-                  <my_h4>Uzytkownicy</my_h4>
+                  <my_h4>Użytkownicy</my_h4>
               </Nav.Link> : null}
 
           </Nav>
