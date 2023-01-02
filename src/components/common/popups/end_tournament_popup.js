@@ -49,7 +49,7 @@ function EndTournament_popup(props) {
                 }}>
 
                     {props.pairs_list.pairs["DONE"].map((card) => (
-                        <Row style={{backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px", marginRight:"10px", border:"solid"}}>
+                        <Row style={{backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px", marginRight:"10px", border:"solid"}} key={card.id}>
                             <Col sm={9} style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
                                 Id Pary {card.id}
                                 <br/>
