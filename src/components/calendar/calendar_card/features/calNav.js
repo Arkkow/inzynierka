@@ -43,12 +43,20 @@ export const Header = (props) => {
                                 <Col sm ={6} style={{marginTop: "2%"}}>
                                     {props.user.role === "1" || props.user.role === "2" || props.user.role === "3"?
                                         <>
-                                            <Button className="btn btn-primary" style={{marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}><my_h4>WSZYSTKIE</my_h4></Button>
-                                            <Button className="btn btn-primary"
-                                                    style={{borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)"}}
-                                                    onClick={() => props.getAllPendingApprovals()}>
+                                            {window.location.href.split('/')[3] == "myTournaments" ? <>
+                                                <Button className="btn btn-primary" href="calendar" style={{marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)" }}><my_h4>WSZYSTKIE</my_h4></Button>
+                                                <Button className="btn btn-primary"
+                                                        style={{borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}
+                                                        href="myTournaments">
+                                                    <my_h4>MOJE</my_h4>
+                                                </Button> </>
+                                                : <> <Button className="btn btn-primary" href="calendar" style={{marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}><my_h4>WSZYSTKIE</my_h4></Button>
+                                                <Button className="btn btn-primary"
+                                                style={{borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)"}}
+                                                href="myTournaments">
                                                 <my_h4>MOJE</my_h4>
-                                            </Button>
+                                                </Button> </> }
+
                                         </>:null}
                                 </Col>
                                 <Col sm={6} style={{marginTop: "2%"}}>
