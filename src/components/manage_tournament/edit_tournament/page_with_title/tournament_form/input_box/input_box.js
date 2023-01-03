@@ -103,7 +103,7 @@ function InputBox() {
           setIsSended(true);
           setResponse(result);
           console.log(result);
-          window.location.href = "http://localhost:3000/calendar"
+          window.location.href= "calendar"
         },
         (error) => {
           setIsSended(true);
