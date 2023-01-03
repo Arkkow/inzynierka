@@ -1,14 +1,12 @@
 // General react imports
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import { connect } from "react-redux";
 
 
 // Project specific files
 import {getMyTournaments, getPendingApprovals} from "../api/api";
-import {getAuthedTournaments, getTournaments} from "../api/tournament/tournament_CRUD_api";
 import {getUser} from "../api/user_interaction/user_api";
 import { Col, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import CalendarCard from "./calendar_card/calendar_card";
 
 
@@ -17,13 +15,14 @@ export const My_calendar_controller = (props) => {
         props.handleDownloadUser();
         props.getAllPendingApprovals();
 
-        if (props.user.role !== "default") {
-            console.log("authed")
-            props.handleDownloadAuthedCalendar();
+        if (localStorage.getItem("token") === null) {
+            console.log("unauthed")
+            window.location.href="calendar"
+
         }
         else {
-            console.log("unauthed")
-            props.handleDownloadCalendar();
+            console.log("authed")
+            props.handleDownloadCalendar()
         }
 
     }, []);
@@ -73,19 +72,6 @@ const mapDispatchToProps = (dispatch) => {
                 });
         },
 
-        handleDownloadAuthedCalendar: () => {
-            //    API z kalendarza
-            getMyTournaments()
-                .then((res) => {
-                    return dispatch({
-                        type: "DOWNLOAD_CALENDAR",
-                        payload: { data: res },
-                    });
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        },
 
         handleDownloadUser: () => {
             //    API z kalendarza
