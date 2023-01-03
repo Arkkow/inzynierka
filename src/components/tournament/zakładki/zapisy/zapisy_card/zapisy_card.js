@@ -53,7 +53,6 @@ export const ZapisyCard = (props) => {
                     <Col sm={1}>
                         <Row>
                             {/** Button akceptacji zapisu **/}
-                            {/*Jeżeli para się zgodziła*/}
                             {
                                 // Jeżeli para się zgodziła
                                 (props.approval === "0" && props.partnerAcceptance === 1) &&
@@ -64,7 +63,9 @@ export const ZapisyCard = (props) => {
 
                                 <Button variant="warning"
                                         onClick={() => {
-                                            postRegistrationApprove(String(props.id)).then(r =>console.log(r)).then(() => props.handleDownloadLadders(props.id))
+                                            // console.log(props.handleDownloadPlayers(props.id))
+                                            console.log(props.calendar_list.id)
+                                            // postRegistrationApprove(String(props.id)).then(r =>console.log(r)).then(() => props.handleDownloadPlayers(props.id))
                                         }
                                         }>A</Button>:
                                 null
