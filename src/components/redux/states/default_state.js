@@ -4,22 +4,22 @@ const default_state = {
     data: [
       {
         id: "1",
-        name: "Turniej bez bazy",
+        name: "ERROR 404 - SERWER PADŁ",
         typeOfLadder: "string",
         pointsForTournament: "string",
         places: "Poznań",
         roles: "string",
         // approved to rankingowość
         approved: "FALSE",
-        from: "24 listopada 2023",
-        to: "27 listopada 2023",
+        from: "pewnego czasu serwer nie działa",
+        to: "tego czasu musisz poczekać",
         rang: "rang1",
         entryFee: "5",
         director: "name",
         phone: "123123",
         entriesTo: "string",
         additionalInformations: "info",
-        categotry: "cat1",
+        categotry: ":(",
         visibility: "FALSE",
         creator: "",
 
