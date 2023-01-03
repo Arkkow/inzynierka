@@ -43,7 +43,7 @@ export const CalendarCard = (props) => {
                         justifyContent: "center",
                         margin: "auto",
                         alignItems: "center"}}>
-                        <Row style={{width:"100%"}}>
+                        <Row style={{minWidth:"180px"}}>
 
                             <CalendarAdminDropdown {...props}/>
                             <Row style={{display:"flex", justifyContent:"end"}}>
