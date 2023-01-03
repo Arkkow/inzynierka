@@ -20,6 +20,8 @@ import AdminUsers from "./routes/adminUsers.js";
 import RankingRoute from "./routes/ranking_route.js";
 import Drabinka from "./routes/drabinka_route.js";
 import TokenRoute from "./routes/token_route";
+import MyCalendarRoute from "./routes/my_calendar_route";
+
 
 // CSS files
 import "./styles/index.css";
@@ -44,6 +46,7 @@ function App() {
                   element={<T_registration_popup />}
                   exact={true}
               />
+              <Route path="/myTournaments" element={<MyCalendarRoute/>} exact={true} />
               <Route path="/#" element={<CalendarRoute />} exact={true} />
               <Route path="/calendar" element={<CalendarRoute />} exact={true} />
               <Route path="/profile" element={<ProfileRoute />} exact={true} />

@@ -10,6 +10,7 @@ function EndTournament_popup(props) {
 
     let rang = String(props.calendar_list.rang);
     let places = String(props.calendar_list.places);
+    let point = 0;
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

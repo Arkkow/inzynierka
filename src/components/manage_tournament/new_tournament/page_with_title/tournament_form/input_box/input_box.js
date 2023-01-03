@@ -159,7 +159,7 @@ function InputBox() {
 
       }
       else {
-      alert("Coś poszło nie tak: " + error.message);}
+      console.log(error.message);}
     }
     else if (name.current.value && entryFee.current.value && place.current.value && phone.current.value && director.current.value && from.current.value && to.current.value && entriesTo.current.value && !error)  {
       alert("Turniej stworzono!")
