@@ -22,6 +22,7 @@ export const My_calendar_controller = (props) => {
         }
         else {
             console.log("authed")
+            props.handleDownloadCalendar()
         }
 
     }, []);
@@ -71,19 +72,6 @@ const mapDispatchToProps = (dispatch) => {
                 });
         },
 
-        handleDownloadAuthedCalendar: () => {
-            //    API z kalendarza
-            getMyTournaments()
-                .then((res) => {
-                    return dispatch({
-                        type: "DOWNLOAD_CALENDAR",
-                        payload: { data: res },
-                    });
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        },
 
         handleDownloadUser: () => {
             //    API z kalendarza
