@@ -228,8 +228,8 @@ function InputBox() {
           id="sel1"
           ref={rang}
         >
-          {tournament.data.rang == "CHALLENGER" ? <option selected>CHALLENGER</option> : <option value="CHALLENGER">CHALLENGER</option>}
-          {tournament.data.rang == "MASTER" ? <option selected>MASTER</option> : <option value="MASTER">MASTER</option>}
+          {tournament.data.rang === "CHALLENGER" ? <option selected>CHALLENGER</option> : <option value="CHALLENGER">CHALLENGER</option>}
+          {tournament.data.rang === "MASTER" ? <option selected>MASTER</option> : <option value="MASTER">MASTER</option>}
         </select>
       </div>
 
