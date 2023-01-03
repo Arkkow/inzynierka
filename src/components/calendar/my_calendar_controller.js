@@ -4,39 +4,40 @@ import { connect } from "react-redux";
 
 
 // Project specific files
-import CalendarCard from "./calendar_card/calendar_card";
-import {getPendingApprovals} from "../api/api";
+import {getMyTournaments, getPendingApprovals} from "../api/api";
 import {getAuthedTournaments, getTournaments} from "../api/tournament/tournament_CRUD_api";
 import {getUser} from "../api/user_interaction/user_api";
 import { Col, Row } from "react-bootstrap";
-import {checkNode} from "@testing-library/jest-dom/dist/utils";
+import Button from "react-bootstrap/Button";
+import CalendarCard from "./calendar_card/calendar_card";
 
 
 export const My_calendar_controller = (props) => {
     useEffect(() => {
         props.handleDownloadUser();
-        // props.getAllPendingApprovals();
+        props.getAllPendingApprovals();
 
-    /*    if (props.user.role !== "default") {
+        if (props.user.role !== "default") {
             console.log("authed")
             props.handleDownloadAuthedCalendar();
         }
         else {
             console.log("unauthed")
             props.handleDownloadCalendar();
-        }*/
+        }
 
     }, []);
 
     return (
         <Row className="justify-content-md-center">
             <Col lg={6}>
-                {/*{props.calendar_list.length === 0 ?*/}
-                {/*    <h5>no results available</h5> :*/}
-                {/*    props.calendar_list.map(card =>*/}
-                {/*        <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />*/}
-                {/*    )*/}
-                {/*}*/}
+                <h5> To są moje turnieje </h5>
+                {props.calendar_list.length === 0 ?
+                    <h5>no results available</h5> :
+                    props.calendar_list.map(card =>
+                        <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />
+                    )
+                }
             </Col>
         </Row>
     );
@@ -60,7 +61,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleDownloadCalendar: () => {
             //    API z kalendarza
-            getTournaments()
+            getMyTournaments()
                 .then((res) => {
                     return dispatch({
                         type: "DOWNLOAD_CALENDAR",
@@ -74,7 +75,7 @@ const mapDispatchToProps = (dispatch) => {
 
         handleDownloadAuthedCalendar: () => {
             //    API z kalendarza
-            getAuthedTournaments()
+            getMyTournaments()
                 .then((res) => {
                     return dispatch({
                         type: "DOWNLOAD_CALENDAR",

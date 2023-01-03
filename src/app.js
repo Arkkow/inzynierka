@@ -46,7 +46,7 @@ function App() {
                   element={<T_registration_popup />}
                   exact={true}
               />
-              <Route path="/myTournaments" element={<MyCalendarRoute/>} exact={true} />
+              <Route path="/mytournaments" element={<MyCalendarRoute/>} exact={true} />
               <Route path="/#" element={<CalendarRoute />} exact={true} />
               <Route path="/calendar" element={<CalendarRoute />} exact={true} />
               <Route path="/profile" element={<ProfileRoute />} exact={true} />

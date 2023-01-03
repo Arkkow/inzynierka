@@ -3,13 +3,13 @@ import * as React from "react";
 
 // Project specific files
 import CalNav from "../components/calendar/calendar_card/features/calNav.js";
+import My_calendar_controller from "../components/calendar/my_calendar_controller";
 
 // CSS files
 import "../styles/index.css";
 import "../styles/App.css";
 import {Col, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import {My_calendar_controller} from "../components/calendar/my_calendar_controller";
 
 
 
