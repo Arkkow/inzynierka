@@ -10,8 +10,11 @@ import {Col, Row} from "react-bootstrap";
 import SetRounds from "./set_rounds/set_rounds";
 import {startTournament} from "../../../../api/tournament/tournament_CRUD_api";
 import {closeRegistrations} from "../../../../api/tournament/tournament_registration_api";
+import {useEffect} from "react";
 
 export const SetTournament = (props) => {
+
+    useEffect(() => props.handleDownloadPlayers(props.tournament.id),[])
 
     let accepted_count = props.pairs_list.pairs["ALL"].filter( (e) =>
         e.approval === "1");
@@ -42,7 +45,7 @@ export const SetTournament = (props) => {
                             // Jeżeli turniej jest pełen
                             accepted_count.length >= props.places &&
                             // Jeżeli turniej nie jest w odpowiednim stanie
-                            (props.tournament.state === 0 || props.tournament.state === 1) &&
+                            props.tournament.state === 0 &&
                             // Jeżeli jesteś adminem lub organizatorem tego turnieju
                             ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3")?
                                 <>
@@ -50,7 +53,22 @@ export const SetTournament = (props) => {
                                         closeRegistrations(props.tournament.id)
                                             .catch(err => console.log(err))
                                             .then(() => console.log("STATE 1"))
-                                            .then(() => startTournament(props.tournament.id))
+                                            .then(() => props.handleDownloadCalendarCard(props.tournament.id))
+                                            .catch(err => console.log(err))
+                                    }
+                                </>
+                                :null
+                        }
+                        {
+                            // Jeżeli turniej jest pełen
+                            accepted_count.length >= props.places &&
+                            // Jeżeli turniej nie jest w odpowiednim stanie
+                            props.tournament.state === 1 &&
+                            // Jeżeli jesteś adminem lub organizatorem tego turnieju
+                            ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3")?
+                                <>
+                                    {
+                                        startTournament(props.tournament.id)
                                             .catch(err => console.log(err))
                                             .then(() => console.log("STATE 2"))
                                             .then(() => props.handleDownloadCalendarCard(props.tournament.id))
@@ -59,6 +77,7 @@ export const SetTournament = (props) => {
                                 </>
                                 :null
                         }
+
                     </Col>
 
                     {/** Gotowych par: **/}
@@ -75,7 +94,9 @@ export const SetTournament = (props) => {
                         <Button variant="secondary"
                                 style={{float: "right"}}
                                 disabled={accepted_difference !== 0 || props.ladders_length !== 0}
-                                onClick={() => {
+                                onClick={
+
+                            () => {
                                     props.pairs_list.pairs["DONE"].sort(() => Math.random() - 0.5);
                                     for (let i = 0; i < props.places; i += 2) {
                                         putLadder(

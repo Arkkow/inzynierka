@@ -7,12 +7,13 @@ import * as React from 'react';
 import {Container, Row, Col} from "react-bootstrap";
 import ZapisyCard from "./zapisy_card/zapisy_card";
 import {getUser} from '../../../api/user_interaction/user_api.js';
-import { useState }  from 'react';
+import {useEffect, useState} from 'react';
 import SetTournament from "./set_tournament/set_tournament";
-import Button from "react-bootstrap/Button";
 
 
 export const Zapisy = (props) => {
+
+    useEffect(() => props.handleDownloadPlayers(props.calendar_list.id),[])
 
     const [user, setUser] = useState({"fetched":false,data:[]});
 	  if(user.fetched === false){
@@ -25,10 +26,6 @@ export const Zapisy = (props) => {
                 <Row className="justify-content-md-center" >
                     <Col sm={12} style={{alignItems:"center", justifyContent:"center"}}>
                         <Row>
-                            <Button onClick={() => {
-                                console.log(props.calendar_list.id)
-                                props.handleDownloadPlayers(props.calendar_list.id)
-                            }}>XD</Button>
                             <SetTournament
                                 {...props}
                                 tournament = {props.calendar_list}

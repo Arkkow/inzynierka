@@ -50,8 +50,6 @@ export const CalendarInvitation = (props) => {
                                         </Button>
                                         <Button variant="danger" style={{ margin: "5%" }}
                                                 onClick={() =>
-                                                    // props.refresh()
-                                                    // console.log("prank")
                                                     postRejectInvite(invitation.id).then(() => getPendingApprovals()
                                                         .then((dane) => {
                                                             setInvitations({ fetched: true, data: dane });
@@ -59,13 +57,6 @@ export const CalendarInvitation = (props) => {
                                                     }>
                                             NIE
                                         </Button>
-                                        <Button onClick={() => {
-                                            console.log(props.tournamentID)
-                                            getPendingApprovals()
-                                                .then((dane) => {
-                                                    setInvitations({ fetched: true, data: dane });
-                                                })
-                                        }}>XD</Button>
                                     </div>
                                 </Card.Text>
                             ) : null}
