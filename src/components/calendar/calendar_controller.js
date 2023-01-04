@@ -9,36 +9,53 @@ import {getPendingApprovals} from "../api/api";
 import {getAuthedTournaments, getTournaments} from "../api/tournament/tournament_CRUD_api";
 import {getUser} from "../api/user_interaction/user_api";
 import { Col, Row } from "react-bootstrap";
-import {checkNode} from "@testing-library/jest-dom/dist/utils";
 
 
 export const Calendar_controller = (props) => {
-  useEffect(() => {
-    props.handleDownloadUser();
-    props.getAllPendingApprovals();
 
-    if (props.user.role !== "default") {
-        console.log("authed")
-        props.handleDownloadAuthedCalendar();
-    }
-    else {
-        console.log("unauthed")
-        props.handleDownloadCalendar();
-    }
+    const [authedDownload, changeAuthedDownload] = useState(() => { return 0; });
 
-  }, []);
+    useEffect(() => {
+        props.handleDownloadUser()
+        props.getAllPendingApprovals()
+        props.handleDownloadCalendar()
+
+        if (props.user.role !== "default") {
+            console.log("authed")
+            props.handleDownloadAuthedCalendar();
+        } else {
+            console.log("unauthed")
+            props.handleDownloadCalendar();
+        }
+    }, []);
 
   return (
-      <Row className="justify-content-md-center">
-          <Col lg={6}>
-              {props.calendar_list.length === 0 ?
-                  <h5>no results available</h5> :
-                      props.calendar_list.map(card =>
-                          <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />
-                      )
-              }
-          </Col>
-      </Row>
+      <>
+          {/*{console.log(Array.isArray(props.my_tournament_list))}*/}
+          {console.log(props.flag)}
+          {console.log(props.my_tournament_list)}
+
+          {props.user.role !== "default" && authedDownload === 0 ?
+              <>
+                  {console.log("authed")}
+                  {
+                      props.handleDownloadAuthedCalendar()
+                  }
+                  {changeAuthedDownload(1)}
+              </>:null
+          }
+
+          <Row className="justify-content-md-center">
+              <Col lg={6}>
+                  {props.calendar_list.length === 0 ?
+                      <h5>no results available</h5> :
+                          props.calendar_list.map(card =>
+                              <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />
+                          )
+                  }
+              </Col>
+          </Row>
+      </>
   );
 };
 
@@ -75,6 +92,7 @@ const mapDispatchToProps = (dispatch) => {
     handleDownloadAuthedCalendar: () => {
       //    API z kalendarza
       getAuthedTournaments()
+        // getMyTournaments()
           .then((res) => {
               return dispatch({
                   type: "DOWNLOAD_CALENDAR",
@@ -84,6 +102,7 @@ const mapDispatchToProps = (dispatch) => {
           .catch((err) => {
               console.log(err);
           });
+      // getMyTournaments().then(r => console.log(r))
     },
 
     handleDownloadUser: () => {

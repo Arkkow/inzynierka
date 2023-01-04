@@ -33,6 +33,10 @@ export function getAuthedTournaments() {
     return makeAuthedReq("tournaments","GET",null);
 }
 
+export function getMyTournaments() {
+    return makeAuthedReq("user/myTournaments","GET",null);
+}
+
 /** POST (CREATE NEW) **/
 /*
 INPUT
