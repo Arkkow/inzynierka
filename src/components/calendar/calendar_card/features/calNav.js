@@ -40,7 +40,7 @@ export const Header = (props) => {
                                 </Col>
                             </Row>
                             <Row style={{marginTop: "2%", marginBottom: "2%"}}>
-                                <Col sm ={6} style={{marginTop: "2%"}}>
+                                <Col sm ={6} style={{marginTop: "2%", display:"flex", justifyContent:"center"}}>
                                     {props.user.role === "1" || props.user.role === "2" || props.user.role === "3"?
                                         <>
                                             {window.location.href.split('/')[3] == "myTournaments" ? <>
@@ -59,7 +59,7 @@ export const Header = (props) => {
 
                                         </>:null}
                                 </Col>
-                                <Col sm={6} style={{marginTop: "2%"}}>
+                                <Col sm={6} style={{marginTop: "2%", display:"flex", justifyContent:"center"}}>
                                     {props.user.role === "2" || props.user.role === "3"?
                                         <div style={{float: "right", marginRight:"15%"}}>
                                             <Button
