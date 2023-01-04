@@ -31,10 +31,6 @@ export const Calendar_controller = (props) => {
 
   return (
       <>
-          {/*{console.log(Array.isArray(props.my_tournament_list))}*/}
-          {console.log(props.flag)}
-          {console.log(props.my_tournament_list)}
-
           {props.user.role !== "default" && authedDownload === 0 ?
               <>
                   {console.log("authed")}
