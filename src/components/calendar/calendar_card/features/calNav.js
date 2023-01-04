@@ -40,8 +40,43 @@ export const Header = (props) => {
                                 </Col>
                             </Row>
                             <Row style={{marginTop: "2%", marginBottom: "2%"}}>
+                                {props.user.role === "1"?
+                                    <Col sm ={12} style={{marginTop: "2%", display:"flex", justifyContent:"center", alignItems:"center"}}>
+                                        {window.location.href.split('/')[3] == "myTournaments" ? <>
+                                            <Col sm ={6} style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+                                                <Button className="btn btn-primary" href="calendar" style={{maxHeight:"40px",
+                                                    marginRight:"25px",
+                                                    borderColor:"var(--medium_grey)",
+                                                    backgroundColor:"white",
+                                                    color:"var(--dark_grey)" }}>
+                                                    <my_h4>WSZYSTKIE</my_h4>
+                                                </Button>
+                                            </Col>
+                                            <Col sm ={6} style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+                                                <Button className="btn btn-primary"
+                                                        style={{maxHeight:"40px", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}
+                                                        href="myTournaments">
+                                                    <my_h4>MOJE</my_h4>
+                                                </Button>
+                                            </Col>
+                                            </>
+                                            : <>
+                                                <Col sm ={6} style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+                                                <Button className="btn btn-primary" href="calendar" style={{maxHeight:"40px", marginRight:"25px", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}><my_h4>WSZYSTKIE</my_h4></Button>
+                                                </Col>
+                                                <Col sm ={6} style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+                                                    <Button className="btn btn-primary"
+                                                        style={{maxHeight:"40px", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)"}}
+                                                        href="myTournaments">
+                                                    <my_h4>MOJE</my_h4>
+                                                </Button>
+                                                </Col>
+                                            </> }
+                                    </Col>
+                                        :
+                                    <>
                                 <Col sm ={6} style={{marginTop: "2%", display:"flex", justifyContent:"center", alignItems:"center"}}>
-                                    {props.user.role === "1" || props.user.role === "2" || props.user.role === "3"?
+                                    {props.user.role === "2" || props.user.role === "3"?
                                         <>
                                             {window.location.href.split('/')[3] == "myTournaments" ? <>
                                                 <Button className="btn btn-primary" href="calendar" style={{maxHeight:"40px", marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)" }}><my_h4>WSZYSTKIE</my_h4></Button>
@@ -80,6 +115,7 @@ export const Header = (props) => {
                                             >STWÓRZ NOWY TURNIEJ</Button>
                                         </div>:null}
                                 </Col>
+                                    </>}
                             </Row>
                         </Container>
 
