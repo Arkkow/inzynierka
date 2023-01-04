@@ -25,8 +25,8 @@ export default function MyCalendarRoute() {
                 <My_calendar_controller />
             </Row>
             <div style={{width: "100%", minHeight:"8vh", textAlign: "left", paddingTop:"1%", paddingLeft:"0.5%"}}>
-                <paragraph style={{color:"white"}}>Masz jakiś problem lub coś nie działa tak jak powinno?</paragraph><br/>
-                <paragraph style={{color:"white"}}>Skontaktuj się z nami - padeltournamentsystems@gmail.com</paragraph>
+                {/*<paragraph style={{color:"white"}}>Masz jakiś problem lub coś nie działa tak jak powinno?</paragraph><br/>*/}
+                {/*<paragraph style={{color:"white"}}>Skontaktuj się z nami - padeltournamentsystems@gmail.com</paragraph>*/}
             </div>
         </Container>
 

@@ -30,7 +30,6 @@ export const My_calendar_controller = (props) => {
     return (
         <Row className="justify-content-md-center">
             <Col lg={6}>
-                <h5> To są moje turnieje </h5>
                 {props.calendar_list.length === 0 ?
                     <h5>no results available</h5> :
                     props.calendar_list.map(card =>

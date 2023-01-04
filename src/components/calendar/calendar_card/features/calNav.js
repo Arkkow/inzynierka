@@ -40,19 +40,19 @@ export const Header = (props) => {
                                 </Col>
                             </Row>
                             <Row style={{marginTop: "2%", marginBottom: "2%"}}>
-                                <Col sm ={6} style={{marginTop: "2%", display:"flex", justifyContent:"center"}}>
+                                <Col sm ={6} style={{marginTop: "2%", display:"flex", justifyContent:"center", alignItems:"center"}}>
                                     {props.user.role === "1" || props.user.role === "2" || props.user.role === "3"?
                                         <>
                                             {window.location.href.split('/')[3] == "myTournaments" ? <>
-                                                <Button className="btn btn-primary" href="calendar" style={{marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)" }}><my_h4>WSZYSTKIE</my_h4></Button>
+                                                <Button className="btn btn-primary" href="calendar" style={{maxHeight:"40px", marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)" }}><my_h4>WSZYSTKIE</my_h4></Button>
                                                 <Button className="btn btn-primary"
-                                                        style={{borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}
+                                                        style={{maxHeight:"40px", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}
                                                         href="myTournaments">
                                                     <my_h4>MOJE</my_h4>
                                                 </Button> </>
-                                                : <> <Button className="btn btn-primary" href="calendar" style={{marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}><my_h4>WSZYSTKIE</my_h4></Button>
+                                                : <> <Button className="btn btn-primary" href="calendar" style={{maxHeight:"40px", marginRight:"10%", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--black)"}}><my_h4>WSZYSTKIE</my_h4></Button>
                                                 <Button className="btn btn-primary"
-                                                style={{borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)"}}
+                                                style={{maxHeight:"40px", borderColor:"var(--medium_grey)", backgroundColor:"white", color:"var(--dark_grey)"}}
                                                 href="myTournaments">
                                                 <my_h4>MOJE</my_h4>
                                                 </Button> </> }
@@ -61,7 +61,7 @@ export const Header = (props) => {
                                 </Col>
                                 <Col sm={6} style={{marginTop: "2%", display:"flex", justifyContent:"center"}}>
                                     {props.user.role === "2" || props.user.role === "3"?
-                                        <div style={{float: "right", marginRight:"15%"}}>
+                                        <div>
                                             <Button
                                                 style={{
                                                     fontFamily: "Montserrat",
