@@ -19,14 +19,6 @@ export const Calendar_controller = (props) => {
         props.handleDownloadUser()
         props.getAllPendingApprovals()
         props.handleDownloadCalendar()
-
-        if (props.user.role !== "default") {
-            console.log("authed")
-            props.handleDownloadAuthedCalendar();
-        } else {
-            console.log("unauthed")
-            props.handleDownloadCalendar();
-        }
     }, []);
 
   return (
