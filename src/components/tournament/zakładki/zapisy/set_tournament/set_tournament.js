@@ -8,6 +8,8 @@ import {putLadder} from "../../../../api/tournament/ladders_api";
 import Button from "react-bootstrap/Button";
 import {Col, Row} from "react-bootstrap";
 import SetRounds from "./set_rounds/set_rounds";
+import {startTournament} from "../../../../api/tournament/tournament_CRUD_api";
+import {closeRegistrations} from "../../../../api/tournament/tournament_registration_api";
 
 export const SetTournament = (props) => {
 
@@ -34,6 +36,29 @@ export const SetTournament = (props) => {
                         <Button variant="outline-light" style={{ float: "right"}}>
                             Zaakceptowanych par: {accepted_count.length} / {props.places}
                         </Button>
+
+                        {/** Warunek przejścia do kolejnej fazy turnieju **/}
+                        {
+                            // Jeżeli turniej jest pełen
+                            accepted_count.length >= props.places &&
+                            // Jeżeli turniej nie jest w odpowiednim stanie
+                            (props.tournament.state === 0 || props.tournament.state === 1) &&
+                            // Jeżeli jesteś adminem lub organizatorem tego turnieju
+                            ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3")?
+                                <>
+                                    {
+                                        closeRegistrations(props.tournament.id)
+                                            .catch(err => console.log(err))
+                                            .then(() => console.log("STATE 1"))
+                                            .then(() => startTournament(props.tournament.id))
+                                            .catch(err => console.log(err))
+                                            .then(() => console.log("STATE 2"))
+                                            .then(() => props.handleDownloadCalendarCard(props.tournament.id))
+                                            .catch(err => console.log(err))
+                                    }
+                                </>
+                                :null
+                        }
                     </Col>
 
                     {/** Gotowych par: **/}
@@ -64,15 +89,9 @@ export const SetTournament = (props) => {
                                             }
                                         )
                                             .then(r => console.log(r))
-                                    };
+                                    }
 
-
-                                    /** TU PRZEKLEJ RUNDY 2+ **/
                                 }
-
-                                    // TODO obsługa start tournament
-                                    // startTournament(props.calendar_list.id).then(r => console.log(r))
-                                    //     .then(() => closeRegistrations(props.calendar_list.id).then(r => console.log(r)))
                                 }>
                             Załóż turniej
                         </Button>

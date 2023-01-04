@@ -40,12 +40,32 @@ export const CalendarInvitation = (props) => {
                                     </div>
 
                                     <div style={{ textAlign: "center" }}>
-                                        <Button variant="success" style={{ margin: "5%" }} onClick={() => postAcceptInvite(invitation.id).then(() => window.location.reload(false))}>
+                                        <Button variant="success" style={{ margin: "5%" }}
+                                                onClick={() => postAcceptInvite(invitation.id).then(() =>
+                                                    getPendingApprovals()
+                                                        .then((dane) => {
+                                                            setInvitations({ fetched: true, data: dane });
+                                                        }))}>
                                             TAK
                                         </Button>
-                                        <Button variant="danger" style={{ margin: "5%" }} onClick={() => postRejectInvite(invitation.id).then(() => window.location.reload(false))}>
+                                        <Button variant="danger" style={{ margin: "5%" }}
+                                                onClick={() =>
+                                                    // props.refresh()
+                                                    // console.log("prank")
+                                                    postRejectInvite(invitation.id).then(() => getPendingApprovals()
+                                                        .then((dane) => {
+                                                            setInvitations({ fetched: true, data: dane });
+                                                        }))
+                                                    }>
                                             NIE
                                         </Button>
+                                        <Button onClick={() => {
+                                            console.log(props.tournamentID)
+                                            getPendingApprovals()
+                                                .then((dane) => {
+                                                    setInvitations({ fetched: true, data: dane });
+                                                })
+                                        }}>XD</Button>
                                     </div>
                                 </Card.Text>
                             ) : null}

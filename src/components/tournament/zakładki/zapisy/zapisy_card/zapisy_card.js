@@ -64,15 +64,20 @@ export const ZapisyCard = (props) => {
                                 <Button variant="warning"
                                         onClick={() => {
                                             // console.log(props.handleDownloadPlayers(props.id))
-                                            console.log(props.calendar_list.id)
-                                            // postRegistrationApprove(String(props.id)).then(r =>console.log(r)).then(() => props.handleDownloadPlayers(props.id))
+                                            // console.log(props.tournament.id)
+                                            postRegistrationApprove(String(props.id))
+                                                .catch(err => alert(err))
+                                                .then(r =>console.log(r))
+                                                .then(props.refresh)
+                                                .catch(err => alert(err))
+                                                .then(console.log("Zapis zaakceptowany"))
                                         }
                                         }>A</Button>:
                                 null
                             }
                         </Row>
                     </Col>
-                    <ZapisyConditionals {...props}/>
+                    <ZapisyConditionals {...props} tournamentID = {props.id} refresh = {props.refresh}/>
                 </Row>
             </Container>
         </Card>
