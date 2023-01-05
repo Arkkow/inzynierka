@@ -34,14 +34,19 @@ function UserName() {
       );
   }, []);
 
-  function refreshPage() {
+  function deleteToken() {
+    localStorage.removeItem("token")
     window.location.href="calendar";
   }
 
-  if (error) {
-    wait(2000).then(localStorage.removeItem("token"),
-    refreshPage())
+  function checkIfUserHasValidToken(){
+    if(userName.length < 1){
+      deleteToken()
+    }
+  }
 
+  if (error) {
+    setTimeout(()=> {checkIfUserHasValidToken()}, 2000)
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
