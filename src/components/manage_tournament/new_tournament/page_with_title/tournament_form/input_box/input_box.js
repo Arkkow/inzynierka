@@ -18,28 +18,28 @@ function InputBox() {
   const validate = (values) => {
     const errors = {}
     if (!values.tournamentName){
-      errors.tournamentName = "Nazwa turnieju jest wymagana!";
+      errors.tournamentName = "Wpisz nazwę turnieju";
     }
     if (!values.miejsce){
-      errors.miejsce = "Miejsce turnieju jest wymagane!";
+      errors.miejsce = "Wpisz miejsce turnieju";
     }
     if (!values.wpisowe){
-      errors.wpisowe = "Wpisowe jest wymagane!";
+      errors.wpisowe = "Wpisz wartość wpisowego";
     }
     if (!values.dyrektor){
-      errors.dyrektor = "Dyrektor jest wymagany!";
+      errors.dyrektor = "Wpisz dyrektora turnieju";
     }
     if (!values.telefon){
-      errors.telefon = "Telefon jest wymagany!";
+      errors.telefon = "Wpisz numer telefonu dyrektora turnieju";
     }
     if (!from.current.value){
-      errors.from = "Wymagane jest podanie daty rozpoczecia turnieju!"
+      errors.from = "Podaj datę rozpoczęcia turnieju"
     }
     if (!to.current.value){
-      errors.to = "Wymagane jest podanie daty zakończenia turnieju"
+      errors.to = "Podaj datę zakończenia turnieju"
     }
     if (!entriesTo.current.value){
-      errors.entriesTo= "Wymagane jest podanie daty zakończenia zapisów!"
+      errors.entriesTo= "Podaj datę końca zapisów"
     }
 
     return errors;
@@ -151,7 +151,7 @@ function InputBox() {
       );
 
     if (!name.current.value || !entryFee.current.value || !place.current.value || !phone.current.value || !director.current.value || !from.current.value || !to.current.value || !entriesTo.current.value) {
-      alert("Uzupelnij wszystkie dane!");
+      alert("Nie wszystkie pola zostały wypełnione");
     }
     if (error){
       if (error == "Failed to fetch")
@@ -203,16 +203,21 @@ function InputBox() {
       >
         Nazwa turnieju
       </label>
-      <input
-        style={{ width: "33%" }}
-        type="text"
-        className="form-control"
-        name = "tournamentName"
-        value={formValues.tournamentName}
-        ref={name}
-        onChange={handleChange}
+      <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
+        <input
+          style={{ width: "33%" }}
+          type="text"
+          className="form-control"
+          name = "tournamentName"
+          value={formValues.tournamentName}
+          ref={name}
+          onChange={handleChange}
       ></input>
-      <p style={{color: "red"}}>{formErrors.tournamentName}</p>
+        <big_para_sb style={{color: "red", display:"flex", alignItems:"center", marginLeft:"20px"}}>
+          {formErrors.tournamentName}
+        </big_para_sb>
+      </div>
+
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
@@ -221,6 +226,7 @@ function InputBox() {
       >
         Data rozpoczęcia turnieju
       </label>
+      <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
       <input
         style={{ width: "33%" }}
         type="date"
@@ -228,7 +234,11 @@ function InputBox() {
         id="exampleFormControlInput1"
         ref={from}
       ></input>
-      <p style={{color: "red"}}>{formErrors.from}</p>
+        <big_para_sb style={{color: "red", display:"flex", alignItems:"center", marginLeft:"20px"}}>
+          {formErrors.from}
+        </big_para_sb>
+      </div>
+
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
@@ -237,6 +247,7 @@ function InputBox() {
       >
         Data zakończenia turnieju
       </label>
+      <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
       <input
         style={{ width: "33%" }}
         type="date"
@@ -244,7 +255,10 @@ function InputBox() {
         id="exampleFormControlInput1"
         ref={to}
       ></input>
-      <p style={{color: "red"}}>{formErrors.to}</p>
+        <big_para_sb style={{color: "red", display:"flex", alignItems:"center", marginLeft:"20px"}}>
+          {formErrors.to}
+        </big_para_sb>
+      </div>
 
 
       <label
@@ -254,6 +268,7 @@ function InputBox() {
       >
         Miejsce
       </label>
+      <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
       <input
         style={{ width: "33%" }}
         type="text"
@@ -263,7 +278,10 @@ function InputBox() {
         onChange={handleChange}
         ref={place}
       ></input>
-      <p style={{color: "red"}}>{formErrors.miejsce}</p>
+        <big_para_sb style={{color: "red", display:"flex", alignItems:"center", marginLeft:"20px"}}>
+          {formErrors.miejsce}
+        </big_para_sb>
+      </div>
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
@@ -343,6 +361,7 @@ function InputBox() {
       >
         Wpisowe
       </label>
+      <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
       <input
         style={{ width: "33%" }}
         type="number"
@@ -352,7 +371,10 @@ function InputBox() {
         onChange={handleChange}
         ref={entryFee}
       ></input>
-      <p style={{color: "red"}}>{formErrors.wpisowe}</p>
+      <big_para_sb style={{color: "red", display:"flex", alignItems:"center", marginLeft:"20px"}}>
+        {formErrors.wpisowe}
+      </big_para_sb>
+    </div>
 
 
       <label
@@ -362,6 +384,7 @@ function InputBox() {
       >
         Dyrektor turnieju
       </label>
+      <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
       <input
         style={{ width: "33%" }}
         type="text"
@@ -371,7 +394,10 @@ function InputBox() {
         onChange={handleChange}
         ref={director}
       ></input>
-      <p style={{color: "red"}}>{formErrors.dyrektor}</p>
+        <big_para_sb style={{color: "red", display:"flex", alignItems:"center", marginLeft:"20px"}}>
+          {formErrors.dyrektor}
+        </big_para_sb>
+      </div>
 
 
       <label
@@ -381,6 +407,7 @@ function InputBox() {
       >
         Telefon
       </label>
+      <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
       <input
         style={{ width: "33%" }}
         type="tel"
@@ -390,7 +417,10 @@ function InputBox() {
         onChange={handleChange}
         ref={phone}
       ></input>
-      <p style={{color: "red"}}>{formErrors.telefon}</p>
+      <big_para_sb style={{color: "red", display:"flex", alignItems:"center", marginLeft:"20px"}}>
+        {formErrors.telefon}
+      </big_para_sb>
+    </div>
 
 
       <label
@@ -400,6 +430,7 @@ function InputBox() {
       >
         Zapisy do
       </label>
+      <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
       <input
         style={{ width: "33%" }}
         type="date"
@@ -407,7 +438,11 @@ function InputBox() {
         id="exampleFormControlInput1"
         ref={entriesTo}
       ></input>
-      <p style={{color: "red"}}>{formErrors.entriesTo}</p>
+        <big_para_sb style={{color: "red", display:"flex", alignItems:"center", marginLeft:"20px"}}>
+          {formErrors.entriesTo}
+        </big_para_sb>
+      </div>
+
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
@@ -492,6 +527,7 @@ function InputBox() {
               fontSize: "18px",
               lineHeight: "25px",
               color: "white",
+              marginRight:"30px"
             }}
             className="btn btn-secondary"
         >

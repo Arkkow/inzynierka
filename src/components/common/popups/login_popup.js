@@ -108,7 +108,9 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
         }}
       >
 	  <div id={"errormsg"} style={{display:"none"}}>
-	  <paragraph>Błędny login lub hasło. Spróbuj ponownie</paragraph>
+	  <paragraph_sb style={{color:"red"}}>
+          Błędny login lub hasło. Spróbuj ponownie
+      </paragraph_sb>
 	  </div>
         <paragraph>
           Nie masz konta?
