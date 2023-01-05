@@ -4,18 +4,16 @@ import "./input_box.css";
 import { useEffect, useState } from "react";
 
 function InputBox() {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isSended, setIsSended] = useState(false);
-  const [response, setResponse] = useState([]);
   const [userData, setUserData] = useState([]);
   const Token = JSON.parse(localStorage.getItem("token")).token;
-  const name = useRef(null);
-  const surname = useRef(null);
-  const password = useRef(null);
-  const repeatPassword = useRef(null);
-  const phone = useRef(null);
-  const mail = useRef(null);
+  const name = useRef("initial");
+  const surname = useRef("initial");
+  const password = useRef("initial");
+  const repeatPassword = useRef("initial");
+  const phone = useRef("initial");
+  const mail = useRef("initial");
 
   // Note: the empty deps array [] means
   // this useEffect will run once
@@ -33,6 +31,7 @@ function InputBox() {
       } else if (password.current.value == null) {
         password.current.value = userData.password;
       }
+
       fetch("https://dragonmaster.pl/inz/user", {
         method: "POST",
         body: JSON.stringify({
@@ -50,15 +49,12 @@ function InputBox() {
         .then((res) => res.json())
         .then(
           (result) => {
-            setIsSended(true);
-            setResponse(result);
             console.log(result);
-            window.location.reload(false);
+            window.location.reload();
           },
           (error) => {
-            setIsSended(true);
             setError(error);
-            window.location.reload(false);
+            window.location.reload();
           }
         );
       if (error) {
@@ -159,6 +155,7 @@ function InputBox() {
           id="staticEmail"
           disabled={true}
           defaultValue={userData.mail}
+          ref={mail}
         ></input>
 
         <label
