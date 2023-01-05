@@ -32,7 +32,7 @@ export const CalendarCard = (props) => {
                         </Row>
                         <InfoPanel {...props} />
                     </Col>
-                    <Col sm={3}>
+                    <Col sm={3} style={{display:"flex", alignItems:"center", justifyContent:"center", }}>
                         {/*TODO to prawie działa na mytournaments is not a function*/}
                         {/*{props.my_tournament_list.filter(e => e.tournament === String(props.id)).length !== 0?*/}
                         {/*    "Masz zaproszenie na ten turniej!": null}*/}

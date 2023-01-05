@@ -89,6 +89,14 @@ my_h4{
   line-height: 22px;
 }
 
+my_h4_nosb{
+  font-family: 'Montserrat', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
 my_h3{
   font-family: 'Montserrat', serif;
   font-style: normal;
