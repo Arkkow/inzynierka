@@ -10,6 +10,13 @@ import {getUser} from "../../api/user_interaction/user_api";
 
 // CSS files
 import { Col, Row } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+
+export function refreshProps(props) {
+    props.handleDownloadUser()
+    props.handleDownloadAuthedCalendar()
+    props.getAllPendingApprovals()
+}
 
 export const Calendar_controller = (props) => {
 
@@ -21,6 +28,8 @@ export const Calendar_controller = (props) => {
         props.handleDownloadCalendar()
     }, []);
 
+
+
   return (
       <>
           {props.user.role !== "default" && authedDownload === 0 ?
@@ -30,13 +39,15 @@ export const Calendar_controller = (props) => {
                   { changeAuthedDownload(1) }
               </>:null
           }
+          <Button onClick={() => refreshProps({...props})}>xD2</Button>
+
 
           <Row className="justify-content-md-center">
               <Col lg={6}>
                   {props.calendar_list.length === 0 ?
                       <h5>no results available</h5> :
                           props.calendar_list.map(card =>
-                              <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />
+                              <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} refreshProps = {() => refreshProps({...props})}/>
                           )
                   }
               </Col>

@@ -4,10 +4,9 @@ import * as React from 'react';
 // Project specific files
 
 // CSS files
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import {approveTournamentAdmin, rejectTournamentAdmin} from "../../../../api/admin/tournament_admin_api";
 import {Col, Row} from "react-bootstrap";
+import {approveTournamentAdmin, rejectTournamentAdmin} from "../../../../../api/admin/tournament_admin_api";
 
 
 
@@ -19,17 +18,30 @@ export const TournamentRanked = (props) => {
                 <Col>
                     <Row style={{display:"flex", textAlign:"center"}}>
                         <paragraph>Czy chcesz uczynić turniej rankingowym?</paragraph>
-
                     </Row>
+
                     <Row style={{display:"flex", flexDirection:"row"}}>
                         <div style={{display:"flex", justifyContent:"center"}}>
-                            <Button variant="success" style={{ margin: "5%", display:"flex", justifyContent:"center", alignItems:"center" }} onClick={() => approveTournamentAdmin(props.id).then(() => window.location.reload(false))}>
-                            <paragraph_sb>TAK</paragraph_sb>
-                        </Button>
-                            <Button variant="danger" style={{ margin: "5%" , display:"flex", justifyContent:"center", alignItems:"center", minHeight:"35px"}} onClick={() => rejectTournamentAdmin(props.id).then(() => window.location.reload(false))}>
-                                <paragraph_sb>NIE</paragraph_sb>
-                            </Button></div>
 
+                            {/*{*/}
+                            {/*    // console.log("hi!")*/}
+                            {/*    props.handleDownloadAuthedCalendar()*/}
+                            {/*}*/}
+
+                            <Button variant="success" style={{ margin: "5%", display:"flex", justifyContent:"center", alignItems:"center" }}
+                                    onClick={() => approveTournamentAdmin(props.id)
+                                        .then(props.refreshProps)}>
+                                <paragraph_sb>TAK</paragraph_sb>
+                            </Button>
+
+                            <Button variant="danger" style={{ margin: "5%" , display:"flex", justifyContent:"center", alignItems:"center", minHeight:"35px"}}
+                                    onClick={() => rejectTournamentAdmin(props.id)
+                                        .then(props.refreshProps)
+                            }>
+                                <paragraph_sb>NIE</paragraph_sb>
+                            </Button>
+
+                        </div>
                     </Row>
                 </Col>
             )

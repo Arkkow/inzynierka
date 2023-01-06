@@ -48,7 +48,7 @@ export const CalendarCard = (props) => {
                         {/*                "Masz zaproszenie na ten turniej!": null:null*/}
                         {/*}*/}
 
-                        <TournamentRanked {...props}/>
+                        <TournamentRanked {...props} refreshProps = {props.refreshProps}/>
                     </Col>
 
                     <Col sm={3} style={{display: "flex",
