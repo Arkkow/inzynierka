@@ -22,6 +22,6 @@ export default combineReducers(
         view_content,
         ladders_content,
         pairs_content,
-        my_tournaments_content
+        my_tournaments_content,
     }
     );
