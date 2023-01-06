@@ -4,14 +4,27 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "../../../styles/App.css"
 import {Col, Row} from "react-bootstrap";
+import {endTournament} from "../../../api/tournament/tournament_CRUD_api";
 
 function End_tournament_places_popup(props) {
     const [show, setShow] = useState(false);
+    const id_tournament = window.location.href.split('?')[1].split('=')[1];
 
     let rang = String(props.calendar_list.rang);
     let places = String(props.calendar_list.places);
 
     const handleClose = () => setShow(false);
+
+    const handleCloseAndSendPoints = () => {
+        const inputs = document.getElementsByTagName('input')
+        const finalResults = [];
+        for (let idx = 0; idx < inputs.length; ++idx) {
+            finalResults.push({ rid: inputs[idx].id, points: inputs[idx].value })
+        }
+        const toAPI = { id: String(id_tournament), results: finalResults}
+        console.log({ toAPI});
+        endTournament(toAPI).then(setShow(false))
+    };
     const handleShow = () => setShow(true);
 
 
@@ -44,8 +57,6 @@ function End_tournament_places_popup(props) {
                         <Row style={{backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px",
                             marginRight:"10px",  marginBottom:"10px", border:"solid var(--medium_grey) 1px", borderColor:"var(--medium_grey)"}} key={card.id}>
                             <Col sm={9} style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
-                                {/*Id Pary {card.id}*/}
-                                {/*<br/>*/}
                                 <my_h4_nosb style={{marginBottom:"5px", marginTop:"10px"}}> {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
                                     {`${card.name1} ${card.surname1}`}
                                 </my_h4_nosb>
@@ -56,7 +67,7 @@ function End_tournament_places_popup(props) {
                             <Col className="col-3" style={{display:"flex", alignItems:"center"}}>
 
                                 <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}}
-                                       type="number" className="form-control" id="exampleFormControlInput1"
+                                       type="number" className="form-control" id={card.id}
                                        defaultValue={0}>
 
                                 </input>
@@ -80,7 +91,7 @@ function End_tournament_places_popup(props) {
                         margin: "auto",
                         alignItems: "center",
                         marginTop:"20px"
-                    }} variant="success" onClick={handleClose}>
+                    }} variant="success" onClick={handleCloseAndSendPoints}>
                         ZAKOŃCZ TURNIEJ
                     </Button>
                 </Modal.Body>

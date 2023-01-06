@@ -4,16 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "../../../styles/App.css"
 import {Col, Row} from "react-bootstrap";
+import {endTournament} from "../../../api/tournament/tournament_CRUD_api";
 
 function EndTournament_popup(props) {
     const [show, setShow] = useState(false);
+    const id_tournament = window.location.href.split('?')[1].split('=')[1];
 
     let rang = String(props.calendar_list.rang);
     let places = String(props.calendar_list.places);
-    let point = 0;
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     let winnerID = 0
 
@@ -23,6 +21,26 @@ function EndTournament_popup(props) {
     else if(props.ladders_list.ladders["ALL"].filter((e)=>e.round_number === "1WWW").length !== 0) {
         winnerID = (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WWW")[0].winner === "A" ? (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WWW")[0].inA) : (props.ladders_list.ladders["ALL"].filter((e) => e.round_number === "1WWW")[0].inB));
     }
+
+    let point = props.pairs_list.pairs["DONE"].map((card) => (pointsForTournamentsClassicLadder((props.ladders_list.ladders["ALL"].filter((e) =>
+            e.inA === String(card.id) ||
+            e.inB === String(card.id)).length +  (card.id === winnerID ? 1 : 0)), rang, places)))
+
+
+    const handleCloseAndSendPoints = () => {
+        const inputs = document.getElementsByTagName('input')
+        const finalResults = [];
+        for (let idx = 0; idx < inputs.length; ++idx) {
+            finalResults.push({ rid: inputs[idx].id, points: inputs[idx].value })
+        }
+        const toAPI = { id: String(id_tournament), results: finalResults}
+        console.log({ toAPI});
+        endTournament(toAPI).then(setShow(false))
+    }
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
+
+
     // TODO zrobic dla 16 par, dla 8 juz dziala zliczanie
     return (
         <>
@@ -63,16 +81,23 @@ function EndTournament_popup(props) {
                             <Col className="col-3">
 
                                 <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}}
-                                       type="number" className="form-control" id="exampleFormControlInput1"
-                                       defaultValue={pointsForTournamentsClassicLadder((props.ladders_list.ladders["ALL"].filter((e) =>
-                                               e.inA === String(card.id) ||  e.inB === String(card.id)).length +
-                                           (card.id == winnerID ? 1 : 0)), rang, places)
-                                }>
+                                       type="number"
+                                       className="form-control"
+                                       id={card.id}
+                                        // defaultValue={Math.floor(Math.random() * 250)}
+                                       defaultValue=
+                                           {pointsForTournamentsClassicLadder((props.ladders_list.ladders["ALL"].filter((e) =>
+                                               e.inA === String(card.id) ||
+                                               e.inB === String(card.id)).length +  (card.id == winnerID ? 1 : 0)), rang, places)
+                                    }
+                >
+
 
                                 </input>
 
                             </Col>
                         </Row>
+
 
                     ))}
 
@@ -90,7 +115,7 @@ function EndTournament_popup(props) {
                         margin: "auto",
                         alignItems: "center",
                         marginTop:"20px"
-                    }} variant="success" onClick={handleClose}>
+                    }} variant="success" onClick={handleCloseAndSendPoints}>
                         ZAKOŃCZ TURNIEJ
                     </Button>
                 </Modal.Body>

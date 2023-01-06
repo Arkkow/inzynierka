@@ -6,7 +6,7 @@ import * as React from 'react';
 // CSS files
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import {approveTournamentAdmin, rejectTournamentAdmin} from "../../../../api/admin/tournament_admin_api";
+import {approveTournamentAdmin, rejectTournamentAdmin} from "../../../../../api/admin/tournament_admin_api"
 import {Col, Row} from "react-bootstrap";
 
 
