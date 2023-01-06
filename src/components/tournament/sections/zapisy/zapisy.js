@@ -1,15 +1,14 @@
 // General React imports
 import * as React from 'react';
-import { useState }  from 'react';
+import {useEffect, useState} from 'react';
 
 // Project specific files
 import ZapisyCard from "./zapisy_card/zapisy_card";
-import {getUser} from '../../../api/user_interaction/user_api.js';
-import {useEffect, useState} from 'react';
 import SetTournament from "./set_tournament/set_tournament";
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
+import {getUser} from "../../../../api/user_interaction/user_api";
 
 export const Zapisy = (props) => {
 

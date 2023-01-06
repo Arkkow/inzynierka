@@ -8,10 +8,7 @@ import {putLadder} from "../../../../../api/tournament/ladders_api";
 import Button from "react-bootstrap/Button";
 import {Col, Row} from "react-bootstrap";
 import SetRounds from "./set_rounds/set_rounds";
-import {startTournament} from "../../../../api/tournament/tournament_CRUD_api";
-import {closeRegistrations} from "../../../../api/tournament/tournament_registration_api";
 import {useEffect} from "react";
-import SetRounds2 from "./set_rounds/set_rounds_2";
 
 export const SetTournament = (props) => {
 
@@ -46,13 +43,6 @@ export const SetTournament = (props) => {
 
     return (
         <>
-            {/** TODO TEST **/}
-            <Button onClick={() => {
-                prepareTournamentFirstRound( props.places, props.pairs_list.pairs["DONE"], 1, "R")}}>
-                xD
-            </Button>
-            <Button onClick={() => SetRounds2({...props}, accepted_difference={accepted_difference},  2,  props.tournament,  props.ladders_list.ladders[1].length === 0)}> II runda NOWA</Button>
-            {/*TODO KONIEC*/}
 
             {props.user.role === "3"?
             <>
