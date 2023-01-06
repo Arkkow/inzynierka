@@ -2,7 +2,7 @@
 import * as React from "react";
 
 // Project specific files
-import {putLadder} from "../../../../api/tournament/ladders_api";
+import {putLadder} from "../../../../../api/tournament/ladders_api";
 
 // CSS files
 import Button from "react-bootstrap/Button";

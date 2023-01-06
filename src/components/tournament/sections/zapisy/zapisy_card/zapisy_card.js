@@ -3,22 +3,14 @@ import * as React from 'react';
 
 // Project specific files
 import ZapisyConditionals from "./zapisy_conditionals/zapisy_conditionals";
-
+import {postRegistrationApprove} from "../../../../../api/tournament/tournament_registration_api";
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/Button";
-import {postRegistrationApprove} from "../../../../api/tournament/tournament_registration_api";
-
-
 
 export const ZapisyCard = (props) => {
-    // Struktura propów:
-    // props.   - players content
-    // props.user
-    // props.view
-    // props
 
     return (
         <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%"}} >
@@ -40,7 +32,7 @@ export const ZapisyCard = (props) => {
                             </Row>
                             <Row>
                                 <Col>
-                                    <h5>{props.name2} &nbsp; {props.surname2}</h5>
+                                    <h5>{props.name2} {props.surname2}</h5>
                                 </Col>
                             </Row>
                         </Container>

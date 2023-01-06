@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 
 // Project specific files
 import Match_result_popup from "../../../common/popups/match_result_popup/match_result_popup";
-import {getLaddersSolved} from "../../../api/tournament/ladders_api";
+import {getLaddersSolved} from "../../../../api/tournament/ladders_api";
 
 // CSS files
 import Card from 'react-bootstrap/Card';

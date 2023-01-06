@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import PFP_LOGO from "../../../../../../assets/PFP_LOGO.png";
-import {getTournamentById} from "../../../../../api/api";
+import {getTournamentById} from "../../../../../../api/api";
 
 function InputBox() {
   const id = window.location.href.split('?')[1].split('=')[1];

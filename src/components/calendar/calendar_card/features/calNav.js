@@ -3,9 +3,9 @@ import {connect} from "react-redux";
 import {useEffect} from "react";
 
 // Project specific files
-import {getTournaments} from "../../../api/tournament/tournament_CRUD_api";
-import {getUser} from "../../../api/user_interaction/user_api";
-import {getPendingApprovals} from "../../../api/api";
+import {getTournaments} from "../../../../api/tournament/tournament_CRUD_api";
+import {getUser} from "../../../../api/user_interaction/user_api";
+import {getPendingApprovals} from "../../../../api/api";
 
 // CSS files
 import Container from 'react-bootstrap/Container';

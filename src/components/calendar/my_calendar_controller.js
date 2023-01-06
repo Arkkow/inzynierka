@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 
 
 // Project specific files
-import {getMyTournaments, getPendingApprovals} from "../api/api";
-import {getUser} from "../api/user_interaction/user_api";
+import {getMyTournaments, getPendingApprovals} from "../../api/api";
+import {getUser} from "../../api/user_interaction/user_api";
 import { Col, Row } from "react-bootstrap";
 import CalendarCard from "./calendar_card/calendar_card";
 
