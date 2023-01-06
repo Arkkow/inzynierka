@@ -80,6 +80,7 @@ const mapDispatchToProps = (dispatch) => {
         })
         .catch((err) => {
           console.log(err);
+          alert("Nie działa")
         });
     },
 

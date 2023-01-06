@@ -22,7 +22,7 @@ export const My_calendar_controller = (props) => {
         }
         else {
             console.log("authed")
-            props.handleDownloadCalendar()
+            props.handleDownloadMyTournaments()
         }
 
     }, []);
@@ -30,9 +30,9 @@ export const My_calendar_controller = (props) => {
     return (
         <Row className="justify-content-md-center">
             <Col lg={6}>
-                {props.calendar_list.length === 0 ?
+                {props.my_tournament_list.length === 0 ?
                     <h5>no results available</h5> :
-                    props.calendar_list.map(card =>
+                    props.my_tournament_list.map(card =>
                         <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />
                     )
                 }
@@ -63,6 +63,20 @@ const mapDispatchToProps = (dispatch) => {
                 .then((res) => {
                     return dispatch({
                         type: "DOWNLOAD_CALENDAR",
+                        payload: { data: res },
+                    });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        },
+
+        handleDownloadMyTournaments: () => {
+            //    API z kalendarza
+            getMyTournaments()
+                .then((res) => {
+                    return dispatch({
+                        type: "DOWNLOAD_MY_TOURNAMENTS",
                         payload: { data: res },
                     });
                 })
