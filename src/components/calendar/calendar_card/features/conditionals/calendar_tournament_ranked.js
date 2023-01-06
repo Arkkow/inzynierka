@@ -7,9 +7,6 @@ import * as React from 'react';
 import Button from "react-bootstrap/Button";
 import {approveTournamentAdmin, rejectTournamentAdmin} from "../../../../../api/admin/tournament_admin_api"
 import {Col, Row} from "react-bootstrap";
-import {approveTournamentAdmin, rejectTournamentAdmin} from "../../../../../api/admin/tournament_admin_api";
-
-
 
 export const TournamentRanked = (props) => {
 
