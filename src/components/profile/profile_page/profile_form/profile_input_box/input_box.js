@@ -14,56 +14,67 @@ function InputBox() {
   const repeatPassword = useRef("initial");
   const phone = useRef("initial");
   const mail = useRef("initial");
+  let body = 0;
 
   // Note: the empty deps array [] means
   // this useEffect will run once
   // similar to componentDidMount()
   const handleClick = () => {
-    if (password.current.value == repeatPassword.current.value) {
-      if (name.current.value == null) {
-        name.current.value = userData.name;
-      } else if (surname.current.value == null) {
-        surname.current.value = userData.surname;
-      } else if (mail.current.value == null) {
-        mail.current.value = userData.mail;
-      } else if (phone.current.value == null) {
-        phone.current.value = userData.phone;
-      } else if (password.current.value == null) {
-        password.current.value = userData.password;
-      }
+      if (password.current.value == repeatPassword.current.value) {
+              if (name.current.value == null) {
+                  name.current.value = userData.name;
+              } else if (surname.current.value == null) {
+                  surname.current.value = userData.surname;
+              } else if (mail.current.value == null) {
+                  mail.current.value = userData.mail;
+              } else if (phone.current.value == null) {
+                  phone.current.value = userData.phone;
+              }
 
-      fetch("https://dragonmaster.pl/inz/user", {
-        method: "POST",
-        body: JSON.stringify({
-          name: name.current.value,
-          surname: surname.current.value,
-          mail: mail.current.value,
-          phone: phone.current.value,
-          password: password.current.value,
-        }),
-        headers: {
-          Accept: "application/json",
-          Authorization: "Bearer " + Token,
-        },
-      })
-        .then((res) => res.json())
-        .then(
-          (result) => {
-            console.log(result);
-            window.location.reload();
-          },
-          (error) => {
-            setError(error);
-            window.location.reload();
-          }
-        );
-      if (error) {
-        alert("Coś poszło nie tak: " + error.message);
-      }
-    } else {
-      alert("Powtórzone hasło nie jest takie samo!");
-    }
-  };
+              if (password.current.value !== null){
+                  body = JSON.stringify({
+                      name: name.current.value,
+                      surname: surname.current.value,
+                      mail: mail.current.value,
+                      phone: phone.current.value,
+                      password: password.current.value,
+                  })
+              }
+              else{
+                  body = JSON.stringify({
+                      name: name.current.value,
+                      surname: surname.current.value,
+                      mail: mail.current.value,
+                      phone: phone.current.value,
+                  })
+              }
+
+              fetch("https://dragonmaster.pl/inz/user", {
+                  method: "POST",
+                  body: body,
+                  headers: {
+                      Accept: "application/json",
+                      Authorization: "Bearer " + Token,
+                  },
+              })
+                  .then((res) => res.json())
+                  .then(
+                      (result) => {
+                          console.log(result);
+                          window.location.reload();
+                      },
+                      (error) => {
+                          setError(error);
+                          window.location.reload();
+                      }
+                  );
+              if (error) {
+                  alert("Coś poszło nie tak: " + error.message);
+              }
+          } else {
+              alert("Powtórzone hasło nie jest takie samo!");
+          console.log("dupa ")
+  }};
 
   useEffect(() => {
     fetch("https://dragonmaster.pl/inz/user", {
