@@ -2,7 +2,6 @@
 import {useEffect, useState} from "react";
 import { connect } from "react-redux";
 
-
 // Project specific files
 import CalendarCard from "./calendar_card/calendar_card";
 import {getPendingApprovals} from "../../api/api";
@@ -11,7 +10,6 @@ import {getUser} from "../../api/user_interaction/user_api";
 
 // CSS files
 import { Col, Row } from "react-bootstrap";
-
 
 export const Calendar_controller = (props) => {
 
@@ -27,11 +25,9 @@ export const Calendar_controller = (props) => {
       <>
           {props.user.role !== "default" && authedDownload === 0 ?
               <>
-                  {console.log("authed")}
-                  {
-                      props.handleDownloadAuthedCalendar()
-                  }
-                  {changeAuthedDownload(1)}
+                  { console.log("authed") }
+                  { props.handleDownloadAuthedCalendar() }
+                  { changeAuthedDownload(1) }
               </>:null
           }
 
