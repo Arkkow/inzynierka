@@ -26,7 +26,7 @@ export const DrabinkaRound = (props) => {
 
 
             {props.ladders[props.chosen_match].filter((e) => e.round_number.length === props.current_round).map((card)=>(
-                    <DrabinkaCard {...card} tournamentID = {props.calendar_list.id} role = {props.user.role}/>
+                    <DrabinkaCard {...card} tournamentID = {props.calendar_list.id} role = {props.user.role} refreshProps = {props.refreshProps}/>
                 ))}
                 </>:
 

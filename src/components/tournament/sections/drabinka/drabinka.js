@@ -90,6 +90,7 @@ export const Drabinka = (props) => {
                         chosen_match = {chosen_match}
                         calendar_list = {props.calendar_list}
                         user = {props.user}
+                        refreshProps = {props.refreshProps}
                     />
                     {numOfCols >= 2?
                         <DrabinkaRound
@@ -100,6 +101,7 @@ export const Drabinka = (props) => {
                             chosen_match = {chosen_match}
                             calendar_list = {props.calendar_list}
                             user = {props.user}
+                            refreshProps = {props.refreshProps}
                         />:null
                     }
                     {numOfCols >= 3?
@@ -111,6 +113,7 @@ export const Drabinka = (props) => {
                             chosen_match = {chosen_match}
                             calendar_list = {props.calendar_list}
                             user = {props.user}
+                            refreshProps = {props.refreshProps}
                         />:null
                     }
                     {numOfCols >= 4?
@@ -122,6 +125,7 @@ export const Drabinka = (props) => {
                             chosen_match = {chosen_match}
                             calendar_list = {props.calendar_list}
                             user = {props.user}
+                            refreshProps = {props.refreshProps}
                         />:null
                     }
                 </Row> :

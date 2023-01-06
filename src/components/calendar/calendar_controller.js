@@ -11,6 +11,12 @@ import {getUser} from "../../api/user_interaction/user_api";
 // CSS files
 import { Col, Row } from "react-bootstrap";
 
+export function refreshProps(props) {
+    props.handleDownloadUser()
+    props.handleDownloadAuthedCalendar()
+    props.getAllPendingApprovals()
+}
+
 export const Calendar_controller = (props) => {
 
     const [authedDownload, changeAuthedDownload] = useState(() => { return 0; });
@@ -20,6 +26,8 @@ export const Calendar_controller = (props) => {
         props.getAllPendingApprovals()
         props.handleDownloadCalendar()
     }, []);
+
+
 
   return (
       <>
@@ -36,7 +44,7 @@ export const Calendar_controller = (props) => {
                   {props.calendar_list.length === 0 ?
                       <h5>no results available</h5> :
                           props.calendar_list.map(card =>
-                              <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />
+                              <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} refreshProps = {() => refreshProps({...props})}/>
                           )
                   }
               </Col>
@@ -114,6 +122,18 @@ const mapDispatchToProps = (dispatch) => {
             console.log(err);
           });
     },
+
+      // getAllPendingApprovals: () => {
+      //     //    API z kalendarza
+      //     getPendingApprovals()
+      //         .then((res) => {
+      //             console.log(res);
+      //             return dispatch({ type: "DOWNLOAD_MY_TOURNAMENTS", payload: { data: res } });
+      //         })
+      //         .catch((err) => {
+      //             console.log(err);
+      //         });
+      // },
 
     handleGOTO: (props) => {
       return dispatch({ type: "ROUTE_STATE", payload: { data: props } });

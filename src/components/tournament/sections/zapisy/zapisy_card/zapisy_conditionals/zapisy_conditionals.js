@@ -19,7 +19,7 @@ export const ZapisyConditionals = (props) => {
                 <Row>
                     <Form>
                         {/** Button "Użytkownik zaprosił cię do gry" **/}
-                        <CalendarInvitation{...props} tournamentID = {props.tournamentID} refresh = {props.refresh}/>
+                        <CalendarInvitation{...props} tournamentID = {props.tournamentID} refreshProps = {props.refreshProps}/>
 
                         {/** Slider "1 Zapis opłacony" **/}
                         {

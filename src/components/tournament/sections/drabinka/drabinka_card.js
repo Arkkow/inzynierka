@@ -80,7 +80,7 @@ export const DrabinkaCard = (props) => {
                         margin: "auto",
                         alignItems: "center"}}>
                         {props.role === "2" || props.role === "3"?
-                        <Match_result_popup {...card}/>
+                        <Match_result_popup {...card} refreshProps = {props.refreshProps}/>
                         :null}
                     </Col>
 

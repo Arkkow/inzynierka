@@ -9,10 +9,15 @@ import Button from "react-bootstrap/Button";
 import {Col, Row} from "react-bootstrap";
 import SetRounds from "./set_rounds/set_rounds";
 import {useEffect} from "react";
+import {closeRegistrations} from "../../../../../api/tournament/tournament_registration_api";
+import {startTournament} from "../../../../../api/tournament/tournament_CRUD_api";
 
 export const SetTournament = (props) => {
 
-    useEffect(() => props.handleDownloadPlayers(props.tournament.id),[])
+    useEffect(() => {
+        props.handleDownloadPlayers(props.tournament.id)
+
+    },[])
 
     let accepted_count = props.pairs_list.pairs["ALL"].filter( (e) =>
         e.approval === "1");
@@ -62,24 +67,30 @@ export const SetTournament = (props) => {
                         </Button>
 
                         {/** Warunek przejścia do kolejnej fazy turnieju **/}
-                        {/*{*/}
-                        {/*    // Jeżeli turniej jest pełen*/}
-                        {/*    accepted_count.length >= props.places &&*/}
-                        {/*    // Jeżeli turniej nie jest w odpowiednim stanie*/}
-                        {/*    props.tournament.state === 0 &&*/}
-                        {/*    // Jeżeli jesteś adminem lub organizatorem tego turnieju*/}
-                        {/*    ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3")?*/}
-                        {/*        <>*/}
-                        {/*            {*/}
-                        {/*                closeRegistrations(props.tournament.id)*/}
-                        {/*                    .catch(err => console.log(err))*/}
-                        {/*                    .then(() => console.log("STATE 1"))*/}
-                        {/*                    .then(() => props.handleDownloadCalendarCard(props.tournament.id))*/}
-                        {/*                    .catch(err => console.log(err))*/}
-                        {/*            }*/}
-                        {/*        </>*/}
-                        {/*        :null*/}
-                        {/*}*/}
+                        {
+                            // Jeżeli turniej jest pełen
+                            accepted_count.length >= props.places &&
+                            // Jeżeli turniej nie jest w odpowiednim stanie
+                            props.tournament.state === 0 &&
+                            // Jeżeli jesteś adminem lub organizatorem tego turnieju
+                            ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3")?
+                                <>
+                                    {
+                                        closeRegistrations(props.tournament.id)
+                                            .catch(err => console.log(err))
+                                            .then(() => console.log("STATE 1"))
+                                            .then(() => props.handleDownloadCalendarCard(props.tournament.id))
+                                            .catch(err => console.log(err))
+
+                                            .then(() => startTournament(props.tournament.id))
+                                            .catch(err => console.log(err))
+                                            .then(() => console.log("STATE 2"))
+                                            .then(() => props.handleDownloadCalendarCard(props.tournament.id))
+                                            .catch(err => console.log(err))
+                                    }
+                                </>
+                                :null
+                        }
                         {/*{*/}
                         {/*    // Jeżeli turniej jest pełen*/}
                         {/*    accepted_count.length >= props.places &&*/}
