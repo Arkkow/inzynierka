@@ -57,18 +57,19 @@ export const Drabinka = (props) => {
                     }
                 </div>
 
-                {props.user.id === undefined ? null:
-                    props.user.role !== "3"? null:
-                    <div>
-                        <Button variant="danger" onClick={ () => {
-                            for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){
-                                deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))
-                            }
-                        }}>
-                            Usuń drabinki
-                        </Button>
-                    </div>
-                }
+                {/** BUTTON USUWANIA TURNIEJÓW **/}
+                {/*{props.user.id === undefined ? null:*/}
+                {/*    props.user.role !== "3"? null:*/}
+                {/*    <div>*/}
+                {/*        <Button variant="danger" onClick={ () => {*/}
+                {/*            for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){*/}
+                {/*                deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))*/}
+                {/*            }*/}
+                {/*        }}>*/}
+                {/*            Usuń drabinki*/}
+                {/*        </Button>*/}
+                {/*    </div>*/}
+                {/*}*/}
 
                 {/*{console.log(props.calendar_list.typeOfLadder)}*/}
                 { props.calendar_list.approved === 2 ?

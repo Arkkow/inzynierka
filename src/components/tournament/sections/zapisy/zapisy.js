@@ -47,18 +47,6 @@ export const Zapisy = (props) => {
                                         Na ten turniej nie ma jeszcze zapisanych użytkowników
                                     </my_h4> :
                                     <>
-                                        {props.pairs_list.pairs["ALL"].filter((e) => e.partner === props.user.id || e.userid === props.user.id).map((card)=>(
-                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {props.refreshProps}
-                                                        isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
-                                        ))}
-                                        {props.pairs_list.pairs["ALL"].filter((e) => (e.partner !== props.user.id && e.userid !== props.user.id) && (e.paymentstatus === "DONE" && e.paymentstatus2 === "DONE")).map((card)=>(
-                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {props.refreshProps}
-                                                        isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
-                                        ))}
-                                        {props.pairs_list.pairs["ALL"].filter((e) => (e.partner !== props.user.id && e.userid !== props.user.id) && (e.paymentstatus !== "DONE" || e.paymentstatus2 !== "DONE")).map((card)=>(
-                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {props.refreshProps}
-                                                        isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
-                                        ))}
                                         <>
                                             <div>
                                                 Moje rejestracje

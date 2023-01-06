@@ -116,6 +116,7 @@ const mapDispatchToProps = (dispatch) => {
         getPendingApprovals()
           .then((res) => {
             console.log(res);
+            console.log()
             return dispatch({ type: "DOWNLOAD_MY_TOURNAMENTS", payload: { data: res } });
           })
           .catch((err) => {
