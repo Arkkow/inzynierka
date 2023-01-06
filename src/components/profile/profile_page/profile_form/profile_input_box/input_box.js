@@ -31,7 +31,7 @@ function InputBox() {
                   phone.current.value = userData.phone;
               }
 
-              if (password.current.value !== null){
+              if (password.current.value !== ""){
                   body = JSON.stringify({
                       name: name.current.value,
                       surname: surname.current.value,
