@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from "react";
 import Button from "react-bootstrap/Button";
-import {postImage} from "../../../../../api/tournament/tournament_CRUD_api.js";
+import {postImage} from "../../../../../../api/tournament/tournament_CRUD_api.js";
 import {wait} from "@testing-library/user-event/dist/utils";
 //import {getElement} from "bootstrap/js/src/util";
 

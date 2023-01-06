@@ -8,8 +8,8 @@ import {useEffect, useState} from "react";
 import {Col} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import {postAcceptInvite, postRejectInvite} from "../../../../api/user_interaction/invitation_api";
-import {getPendingApprovals} from "../../../../api/api";
+import {postAcceptInvite, postRejectInvite} from "../../../../../api/user_interaction/invitation_api";
+import {getPendingApprovals} from "../../../../../api/api";
 
 
 
@@ -40,10 +40,21 @@ export const CalendarInvitation = (props) => {
                                     </div>
 
                                     <div style={{ textAlign: "center" }}>
-                                        <Button variant="success" style={{ margin: "5%" }} onClick={() => postAcceptInvite(invitation.id).then(() => window.location.reload(false))}>
+                                        <Button variant="success" style={{ margin: "5%" }}
+                                                onClick={() => postAcceptInvite(invitation.id).then(() =>
+                                                    getPendingApprovals()
+                                                        .then((dane) => {
+                                                            setInvitations({ fetched: true, data: dane });
+                                                        }))}>
                                             TAK
                                         </Button>
-                                        <Button variant="danger" style={{ margin: "5%" }} onClick={() => postRejectInvite(invitation.id).then(() => window.location.reload(false))}>
+                                        <Button variant="danger" style={{ margin: "5%" }}
+                                                onClick={() =>
+                                                    postRejectInvite(invitation.id).then(() => getPendingApprovals()
+                                                        .then((dane) => {
+                                                            setInvitations({ fetched: true, data: dane });
+                                                        }))
+                                                    }>
                                             NIE
                                         </Button>
                                     </div>

@@ -1,6 +1,6 @@
 // General React imports
 import * as React from 'react';
-import {getImage} from "../../../api/tournament/tournament_CRUD_api.js";
+import {getImage} from "../../../../api/tournament/tournament_CRUD_api.js";
 
 // Project specific files
 

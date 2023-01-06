@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState } from 'react';
 
 // Project specific files
-import {deleteTournamentAdmin} from "../../../../api/admin/tournament_admin_api";
+import {deleteTournamentAdmin} from "../../../../../api/admin/tournament_admin_api";
 
 // CSS files
 import Modal from 'react-bootstrap/Modal';

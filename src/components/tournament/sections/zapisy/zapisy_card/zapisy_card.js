@@ -3,22 +3,14 @@ import * as React from 'react';
 
 // Project specific files
 import ZapisyConditionals from "./zapisy_conditionals/zapisy_conditionals";
-
+import {postRegistrationApprove} from "../../../../../api/tournament/tournament_registration_api";
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/Button";
-import {postRegistrationApprove} from "../../../../api/tournament/tournament_registration_api";
-
-
 
 export const ZapisyCard = (props) => {
-    // Struktura propów:
-    // props.   - players content
-    // props.user
-    // props.view
-    // props
 
     return (
         <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%"}} >
@@ -40,7 +32,7 @@ export const ZapisyCard = (props) => {
                             </Row>
                             <Row>
                                 <Col>
-                                    <h5>{props.name2} &nbsp; {props.surname2}</h5>
+                                    <h5>{props.name2} {props.surname2}</h5>
                                 </Col>
                             </Row>
                         </Container>
@@ -64,15 +56,20 @@ export const ZapisyCard = (props) => {
                                 <Button variant="warning"
                                         onClick={() => {
                                             // console.log(props.handleDownloadPlayers(props.id))
-                                            console.log(props.calendar_list.id)
-                                            // postRegistrationApprove(String(props.id)).then(r =>console.log(r)).then(() => props.handleDownloadPlayers(props.id))
+                                            // console.log(props.tournament.id)
+                                            postRegistrationApprove(String(props.id))
+                                                .catch(err => alert(err))
+                                                .then(r =>console.log(r))
+                                                .then(props.refresh)
+                                                .catch(err => alert(err))
+                                                .then(console.log("Zapis zaakceptowany"))
                                         }
                                         }>A</Button>:
                                 null
                             }
                         </Row>
                     </Col>
-                    <ZapisyConditionals {...props}/>
+                    <ZapisyConditionals {...props} tournamentID = {props.id} refresh = {props.refresh}/>
                 </Row>
             </Container>
         </Card>

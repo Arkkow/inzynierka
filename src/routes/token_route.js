@@ -9,7 +9,7 @@ import {Col, Row} from "react-bootstrap";
 import '../styles/index.css';
 import '../styles/App.css';
 import {useEffect} from "react";
-import {postToken} from "../components/api/user_interaction/user_api";
+import {postToken} from "../api/user_interaction/user_api";
 import Button from "react-bootstrap/Button";
 
 export default function TokenRoute () {

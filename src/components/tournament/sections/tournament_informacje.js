@@ -82,6 +82,9 @@ export const TournamentInfo = (props) => {
                         <div>
                             <big_para> {props.calendar_list.director} </big_para>
                         </div>
+                        <div>
+                            <big_para> {props.calendar_list.phone} </big_para>
+                        </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
                         <big_para_sb style={{marginBottom:"0"}}> Dodatkowe informacje: </big_para_sb>

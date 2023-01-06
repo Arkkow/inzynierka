@@ -3,10 +3,10 @@ import * as React from 'react';
 import {useEffect} from "react";
 
 // Project specific files
-import TournamentInfo from "./zakładki/tournament_informacje";
+import TournamentInfo from "./sections/tournament_informacje";
 import TournamentNavbar from "./common/tournament_navbar";
-import Drabinka from "./zakładki/drabinka/drabinka";
-import Zapisy from "./zakładki/zapisy/zapisy";
+import Drabinka from "./sections/drabinka/drabinka";
+import Zapisy from "./sections/zapisy/zapisy";
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";

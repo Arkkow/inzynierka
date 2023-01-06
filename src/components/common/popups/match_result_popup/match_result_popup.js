@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import "../../../../styles/App.css"
 import {Col, ModalFooter, Row} from "react-bootstrap";
 import {getElement} from "bootstrap/js/src/util";
-import {postLadder} from "../../../api/tournament/ladders_api";
+import {postLadder} from "../../../../api/tournament/ladders_api";
 import ResultsInput from "./result_dropdowns";
 import WinnerInput from "./winner_input";
 

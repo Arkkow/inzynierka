@@ -5,14 +5,14 @@ import {useState} from "react";
 // Project specific files
 import DrabinkaRound from "./drabinka_round";
 import getLaddersFiltered from "./functions/getLadddersFiltered";
+import EndTournament_popup from "../../../common/popups/end_tournament_popup";
+import EndUnrankedTournament_popup from "../../../common/popups/end_unranked_tournament_popup";
+import End_tournament_places_popup from "../../../common/popups/end_tournament_places_popup";
+import {deleteLadder} from "../../../../api/tournament/ladders_api";
 
 // CSS files
 import {Col, Row} from "react-bootstrap";
-import EndTournament_popup from "../../../common/popups/end_tournament_popup";
-import EndUnrankedTournament_popup from "../../../common/popups/end_unranked_tournament_popup";
 import Button from "react-bootstrap/Button";
-import {deleteLadder} from "../../../api/tournament/ladders_api";
-import End_tournament_places_popup from "../../../common/popups/end_tournament_places_popup";
 
 export const Drabinka = (props) => {
 
@@ -20,7 +20,6 @@ export const Drabinka = (props) => {
 
     let ladders = [{id:0}]
     ladders = getLaddersFiltered(props.calendar_list.places, props.ladders_list.ladders["ALL"])
-
 
     let min_round = 0;
     let max_round = 0;
@@ -50,7 +49,6 @@ export const Drabinka = (props) => {
                                     <option value="13">13 miejsce</option>
                                     <option value="15">15 miejsce</option>
                                 </>
-
                                 :null
                             }
 
@@ -72,56 +70,61 @@ export const Drabinka = (props) => {
                     </div>
                 }
 
-                {console.log(props.calendar_list.typeOfLadder)}
-                { props.calendar_list.approved === 2 ?(props.calendar_list.typeOfLadder == "DRABINKA O MIEJSCA" ? <div><End_tournament_places_popup{...props}/></div> : <div><EndTournament_popup{...props}/></div>) :  <div><EndUnrankedTournament_popup/></div>}
+                {/*{console.log(props.calendar_list.typeOfLadder)}*/}
+                { props.calendar_list.approved === 2 ?
+                    (props.calendar_list.typeOfLadder == "DRABINKA O MIEJSCA" ?
+                        <div><End_tournament_places_popup{...props}/></div> :
+                        <div><EndTournament_popup{...props}/></div>) :
+                    <div><EndUnrankedTournament_popup/></div>
+                }
             </Row>
                 :null}
 
             {props.ladders_list.ladders["ALL"].length !== 0 ?
-            <Row>
-                <DrabinkaRound
-                    net_round = {1}
-                    current_round={min_round}
-                    numOfCols={numOfCols}
-                    ladders = {ladders}
-                    chosen_match = {chosen_match}
-                    calendar_list = {props.calendar_list}
-                    user = {props.user}
-                />
-                {numOfCols >= 2?
+                <Row>
                     <DrabinkaRound
-                        net_round = {2}
-                        current_round={min_round + 1}
+                        net_round = {1}
+                        current_round={min_round}
                         numOfCols={numOfCols}
                         ladders = {ladders}
                         chosen_match = {chosen_match}
                         calendar_list = {props.calendar_list}
                         user = {props.user}
-                    />:null
-                }
-                {numOfCols >= 3?
-                    <DrabinkaRound
-                        net_round = {3}
-                        current_round={min_round + 2}
-                        numOfCols={numOfCols}
-                        ladders = {ladders}
-                        chosen_match = {chosen_match}
-                        calendar_list = {props.calendar_list}
-                        user = {props.user}
-                    />:null
-                }
-                {numOfCols >= 4?
-                    <DrabinkaRound
-                        net_round = {4}
-                        current_round={min_round + 3}
-                        numOfCols={numOfCols}
-                        ladders = {ladders}
-                        chosen_match = {chosen_match}
-                        calendar_list = {props.calendar_list}
-                        user = {props.user}
-                    />:null
-                }
-            </Row> :
+                    />
+                    {numOfCols >= 2?
+                        <DrabinkaRound
+                            net_round = {2}
+                            current_round={min_round + 1}
+                            numOfCols={numOfCols}
+                            ladders = {ladders}
+                            chosen_match = {chosen_match}
+                            calendar_list = {props.calendar_list}
+                            user = {props.user}
+                        />:null
+                    }
+                    {numOfCols >= 3?
+                        <DrabinkaRound
+                            net_round = {3}
+                            current_round={min_round + 2}
+                            numOfCols={numOfCols}
+                            ladders = {ladders}
+                            chosen_match = {chosen_match}
+                            calendar_list = {props.calendar_list}
+                            user = {props.user}
+                        />:null
+                    }
+                    {numOfCols >= 4?
+                        <DrabinkaRound
+                            net_round = {4}
+                            current_round={min_round + 3}
+                            numOfCols={numOfCols}
+                            ladders = {ladders}
+                            chosen_match = {chosen_match}
+                            calendar_list = {props.calendar_list}
+                            user = {props.user}
+                        />:null
+                    }
+                </Row> :
                 <Row className="justify-content-md-center">
                     <Col sm={6}>
 
@@ -130,10 +133,9 @@ export const Drabinka = (props) => {
                                 Brak meczów do wyświetlenia
                             </my_h4>
                         </Row>
-
                     </Col>
                 </Row>
-                }
+            }
         </>
     );
 }
