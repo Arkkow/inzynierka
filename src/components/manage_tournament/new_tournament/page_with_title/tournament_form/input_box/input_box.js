@@ -514,7 +514,7 @@ function InputBox() {
         ></input>
 
         <div style={{ marginTop: "3%" }}>
-          {isLoading === true ? <p>Turniej jest w trakcie Tworzenia!</p> : null}
+          {isLoading === true ? <p>Turniej w trakcie tworzenia... Poczekaj chwilę</p> : null}
           <Button
               href={"calendar"}
               style={{
