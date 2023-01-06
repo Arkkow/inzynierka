@@ -104,8 +104,13 @@ OUTPUT
 }
 */
 export function getTournamentById(id) {
-  return makeReq("tournament?id="+id,"GET",null);
+	if (getToken() !== null) {
+		return makeAuthedReq("tournament?id=" + id, "GET", null);
+	}
+	else {return makeReq("tournament?id=" + id, "GET", null);}
 }
+
+
 
 export function getMyTournaments() {
 	return makeAuthedReq("/user/myTournaments","GET",null);
