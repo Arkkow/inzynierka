@@ -2,14 +2,15 @@ import React from 'react'
 import Button from "react-bootstrap/Button";
 import "../../../styles/App.css";
 
-function Logout() {
-  function refreshPage() {
-    window.location.reload(false);
+function Logout(props) {
+  function refreshPage(props) {
+
+      window.location.reload(false);
   }
 
   const handleClick = () => {
     localStorage.removeItem("token");
-    refreshPage();
+    refreshPage({...props});
   };
 
   return (

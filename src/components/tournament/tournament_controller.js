@@ -3,15 +3,20 @@ import * as React from 'react';
 import {useEffect} from "react";
 
 // Project specific files
-import TournamentInfo from "./zakładki/tournament_informacje";
+import TournamentInfo from "./sections/tournament_informacje";
 import TournamentNavbar from "./common/tournament_navbar";
-import Drabinka from "./zakładki/drabinka/drabinka";
-import Zapisy from "./zakładki/zapisy/zapisy";
+import Drabinka from "./sections/drabinka/drabinka";
+import Zapisy from "./sections/zapisy/zapisy";
 
 // CSS files
-import {Container, Row, Col} from "react-bootstrap";
+import {Container, Row} from "react-bootstrap";
 
-
+export function refreshProps(props, id) {
+    props.handleDownloadCalendarCard(id);
+    props.handleDownloadLadders(id);
+    props.handleDownloadPlayers(id);
+    props.handleDownloadUser();
+}
 
 export const Tournament_controller = (props) => {
     const id = window.location.href.split('?')[1].split('=')[1]
@@ -32,11 +37,11 @@ export const Tournament_controller = (props) => {
             <Row className="justify-content-md-center">
                 {
                     props.view.tournament_tab === "info"?
-                        <TournamentInfo {...props}/>:
+                        <TournamentInfo {...props} />:
                     props.view.tournament_tab === "zapisy"?
-                        <Zapisy {...props} user = {props.user}/>:
+                        <Zapisy {...props} user = {props.user} refreshProps = {() => refreshProps({...props})} />:
                     props.view.tournament_tab === "wyniki"?
-                        <Drabinka {...props}/>:
+                        <Drabinka {...props} refreshProps = {() => refreshProps({...props}, id)} />:
                         null
                 }
             </Row>

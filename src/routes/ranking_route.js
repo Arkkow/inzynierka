@@ -3,7 +3,7 @@ import * as React from 'react';
 
 // Project specific files
 import { useState }  from 'react';
-import {getleaderboard} from "../components/api/api.js"
+import {getleaderboard} from "../api/api.js"
 
 
 // CSS files

@@ -2,43 +2,54 @@
 import {useEffect, useState} from "react";
 import { connect } from "react-redux";
 
-
 // Project specific files
 import CalendarCard from "./calendar_card/calendar_card";
-import {getPendingApprovals} from "../api/api";
-import {getAuthedTournaments, getTournaments} from "../api/tournament/tournament_CRUD_api";
-import {getUser} from "../api/user_interaction/user_api";
-import { Col, Row } from "react-bootstrap";
-import {checkNode} from "@testing-library/jest-dom/dist/utils";
+import {getPendingApprovals} from "../../api/api";
+import {getAuthedTournaments, getTournaments} from "../../api/tournament/tournament_CRUD_api";
+import {getUser} from "../../api/user_interaction/user_api";
 
+// CSS files
+import { Col, Row } from "react-bootstrap";
+
+export function refreshProps(props) {
+    props.handleDownloadUser()
+    props.handleDownloadAuthedCalendar()
+    props.getAllPendingApprovals()
+}
 
 export const Calendar_controller = (props) => {
-  useEffect(() => {
-    props.handleDownloadUser();
-    props.getAllPendingApprovals();
 
-    if (props.user.role !== "default") {
-        console.log("authed")
-        props.handleDownloadAuthedCalendar();
-    }
-    else {
-        console.log("unauthed")
-        props.handleDownloadCalendar();
-    }
+    const [authedDownload, changeAuthedDownload] = useState(() => { return 0; });
 
-  }, []);
+    useEffect(() => {
+        props.handleDownloadUser()
+        props.getAllPendingApprovals()
+        props.handleDownloadCalendar()
+    }, []);
+
+
 
   return (
-      <Row className="justify-content-md-center">
-          <Col lg={6}>
-              {props.calendar_list.length === 0 ?
-                  <h5>no results available</h5> :
-                      props.calendar_list.map(card =>
-                          <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />
-                      )
-              }
-          </Col>
-      </Row>
+      <>
+          {props.user.role !== "default" && authedDownload === 0 ?
+              <>
+                  { console.log("authed") }
+                  { props.handleDownloadAuthedCalendar() }
+                  { changeAuthedDownload(1) }
+              </>:null
+          }
+
+          <Row className="justify-content-md-center">
+              <Col lg={6}>
+                  {props.calendar_list.length === 0 ?
+                      <h5>no results available</h5> :
+                          props.calendar_list.map(card =>
+                              <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} refreshProps = {() => refreshProps({...props})}/>
+                          )
+                  }
+              </Col>
+          </Row>
+      </>
   );
 };
 
@@ -69,12 +80,14 @@ const mapDispatchToProps = (dispatch) => {
         })
         .catch((err) => {
           console.log(err);
+          alert("Nie działa")
         });
     },
 
     handleDownloadAuthedCalendar: () => {
       //    API z kalendarza
       getAuthedTournaments()
+        // getMyTournaments()
           .then((res) => {
               return dispatch({
                   type: "DOWNLOAD_CALENDAR",
@@ -84,6 +97,7 @@ const mapDispatchToProps = (dispatch) => {
           .catch((err) => {
               console.log(err);
           });
+      // getMyTournaments().then(r => console.log(r))
     },
 
     handleDownloadUser: () => {
@@ -103,12 +117,25 @@ const mapDispatchToProps = (dispatch) => {
         getPendingApprovals()
           .then((res) => {
             console.log(res);
+            console.log()
             return dispatch({ type: "DOWNLOAD_MY_TOURNAMENTS", payload: { data: res } });
           })
           .catch((err) => {
             console.log(err);
           });
     },
+
+      // getAllPendingApprovals: () => {
+      //     //    API z kalendarza
+      //     getPendingApprovals()
+      //         .then((res) => {
+      //             console.log(res);
+      //             return dispatch({ type: "DOWNLOAD_MY_TOURNAMENTS", payload: { data: res } });
+      //         })
+      //         .catch((err) => {
+      //             console.log(err);
+      //         });
+      // },
 
     handleGOTO: (props) => {
       return dispatch({ type: "ROUTE_STATE", payload: { data: props } });

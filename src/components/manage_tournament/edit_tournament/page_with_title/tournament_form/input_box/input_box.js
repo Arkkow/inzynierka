@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import PFP_LOGO from "../../../../../../assets/PFP_LOGO.png";
-import {getTournamentById} from "../../../../../api/api";
+import {getTournamentById} from "../../../../../../api/api";
 
 function InputBox() {
   const id = window.location.href.split('?')[1].split('=')[1];
@@ -103,7 +103,7 @@ function InputBox() {
           setIsSended(true);
           setResponse(result);
           console.log(result);
-          window.location.href = "http://localhost:3000/calendar"
+          window.location.href= "calendar"
         },
         (error) => {
           setIsSended(true);
@@ -228,8 +228,8 @@ function InputBox() {
           id="sel1"
           ref={rang}
         >
-          {tournament.data.rang == "CHALLENGER" ? <option selected>CHALLENGER</option> : <option value="CHALLENGER">CHALLENGER</option>}
-          {tournament.data.rang == "MASTER" ? <option selected>MASTER</option> : <option value="MASTER">MASTER</option>}
+          {tournament.data.rang === "CHALLENGER" ? <option selected>CHALLENGER</option> : <option value="CHALLENGER">CHALLENGER</option>}
+          {tournament.data.rang === "MASTER" ? <option selected>MASTER</option> : <option value="MASTER">MASTER</option>}
         </select>
       </div>
 

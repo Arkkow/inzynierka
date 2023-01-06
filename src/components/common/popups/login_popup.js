@@ -72,7 +72,7 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Control
               type="text"
-              placeholder="Tutaj wpisz e-mail lub nick"
+              placeholder="Tutaj wpisz login"
               ref={username}
               autoFocus
             />
@@ -108,7 +108,9 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
         }}
       >
 	  <div id={"errormsg"} style={{display:"none"}}>
-	  Wrong login or password
+	  <paragraph_sb style={{color:"red"}}>
+          Błędny login lub hasło. Spróbuj ponownie
+      </paragraph_sb>
 	  </div>
         <paragraph>
           Nie masz konta?

@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import "../../../styles/App.css"
 import {Col, Row} from "react-bootstrap";
-import {endTournament} from "../../api/tournament/tournament_CRUD_api";
+import {endTournament} from "../../../api/tournament/tournament_CRUD_api";
 
 
 function EndUnrankedTournament_popup() {
