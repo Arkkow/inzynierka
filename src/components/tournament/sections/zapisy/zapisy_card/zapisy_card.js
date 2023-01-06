@@ -60,7 +60,7 @@ export const ZapisyCard = (props) => {
                                             postRegistrationApprove(String(props.id))
                                                 .catch(err => alert(err))
                                                 .then(r =>console.log(r))
-                                                .then(props.refresh)
+                                                .then(props.refreshProps)
                                                 .catch(err => alert(err))
                                                 .then(console.log("Zapis zaakceptowany"))
                                         }
@@ -69,7 +69,7 @@ export const ZapisyCard = (props) => {
                             }
                         </Row>
                     </Col>
-                    <ZapisyConditionals {...props} tournamentID = {props.id} refresh = {props.refresh}/>
+                    <ZapisyConditionals {...props} tournamentID = {props.id} refreshProps = {props.refreshProps}/>
                 </Row>
             </Container>
         </Card>

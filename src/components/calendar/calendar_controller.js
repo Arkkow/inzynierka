@@ -10,7 +10,6 @@ import {getUser} from "../../api/user_interaction/user_api";
 
 // CSS files
 import { Col, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 
 export function refreshProps(props) {
     props.handleDownloadUser()
@@ -39,8 +38,6 @@ export const Calendar_controller = (props) => {
                   { changeAuthedDownload(1) }
               </>:null
           }
-          <Button onClick={() => refreshProps({...props})}>xD2</Button>
-
 
           <Row className="justify-content-md-center">
               <Col lg={6}>
@@ -125,6 +122,18 @@ const mapDispatchToProps = (dispatch) => {
             console.log(err);
           });
     },
+
+      // getAllPendingApprovals: () => {
+      //     //    API z kalendarza
+      //     getPendingApprovals()
+      //         .then((res) => {
+      //             console.log(res);
+      //             return dispatch({ type: "DOWNLOAD_MY_TOURNAMENTS", payload: { data: res } });
+      //         })
+      //         .catch((err) => {
+      //             console.log(err);
+      //         });
+      // },
 
     handleGOTO: (props) => {
       return dispatch({ type: "ROUTE_STATE", payload: { data: props } });

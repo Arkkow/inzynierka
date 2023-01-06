@@ -5,10 +5,10 @@ import {useEffect, useState} from 'react';
 // Project specific files
 import ZapisyCard from "./zapisy_card/zapisy_card";
 import SetTournament from "./set_tournament/set_tournament";
+import {getUser} from "../../../../api/user_interaction/user_api";
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
-import {getUser} from "../../../../api/user_interaction/user_api";
 
 export const Zapisy = (props) => {
 
@@ -31,6 +31,7 @@ export const Zapisy = (props) => {
                                 places = {props.calendar_list.places}
                                 pairs_list = {props.pairs_list}
                                 ladders_length = {props.ladders_list.ladders["ALL"].length}
+                                refreshProps = {props.refreshProps}
                             />
 
                         </Row>
@@ -47,15 +48,15 @@ export const Zapisy = (props) => {
                                     </my_h4> :
                                     <>
                                         {props.pairs_list.pairs["ALL"].filter((e) => e.partner === props.user.id || e.userid === props.user.id).map((card)=>(
-                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {props.refreshProps}
                                                         isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
                                         ))}
                                         {props.pairs_list.pairs["ALL"].filter((e) => (e.partner !== props.user.id && e.userid !== props.user.id) && (e.paymentstatus === "DONE" && e.paymentstatus2 === "DONE")).map((card)=>(
-                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {props.refreshProps}
                                                         isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
                                         ))}
                                         {props.pairs_list.pairs["ALL"].filter((e) => (e.partner !== props.user.id && e.userid !== props.user.id) && (e.paymentstatus !== "DONE" || e.paymentstatus2 !== "DONE")).map((card)=>(
-                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                            <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {props.refreshProps}
                                                         isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
                                         ))}
                                         <>
@@ -67,7 +68,7 @@ export const Zapisy = (props) => {
                                                     .filter((e) => e.partner === props.user.id || e.userid === props.user.id)
                                                     .sort((a, b) => b.rankingsum - a.rankingsum)
                                                     .map((card)=>(
-                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {props.refreshProps}
                                                                     isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
                                                     ))}
                                             </>
@@ -80,7 +81,7 @@ export const Zapisy = (props) => {
                                                 {props.pairs_list.pairs["ALL"]
                                                     .sort((a, b) => b.rankingsum - a.rankingsum)
                                                     .map((card)=>(
-                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view}
+                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {props.refreshProps}
                                                                     isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
                                                     ))}
                                             </>

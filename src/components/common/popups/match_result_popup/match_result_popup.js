@@ -97,8 +97,9 @@ function MatchResult_popup(props) {
                                     document.getElementById("set2B").value +
                                     document.getElementById("set3B").value,
                             }
-                        ).then(r => console.log(r));
-
+                        )
+                            .then(r => console.log(r))
+                            .then(props.refreshProps);
                         handleClose()
                     }
                     }>ZATWIERDŹ</Button>
