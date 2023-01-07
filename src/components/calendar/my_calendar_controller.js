@@ -31,7 +31,7 @@ export const My_calendar_controller = (props) => {
         <Row className="justify-content-md-center">
             <Col lg={6}>
                 {props.my_tournament_list.length === 0 ?
-                    <h5>no results available</h5> :
+                    <my_h5>Brak wyników</my_h5> :
                     props.my_tournament_list.map(card =>
                         <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />
                     )
