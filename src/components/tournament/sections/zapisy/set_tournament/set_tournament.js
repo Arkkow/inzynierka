@@ -81,12 +81,15 @@ export const SetTournament = (props) => {
                                             .then(() => console.log("STATE 1"))
                                             .then(() => props.handleDownloadCalendarCard(props.tournament.id))
                                             .catch(err => console.log(err))
+                                            .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))
 
                                             .then(() => startTournament(props.tournament.id))
                                             .catch(err => console.log(err))
                                             .then(() => console.log("STATE 2"))
                                             .then(() => props.handleDownloadCalendarCard(props.tournament.id))
                                             .catch(err => console.log(err))
+                                            .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))
+
                                     }
                                 </>
                                 :null
