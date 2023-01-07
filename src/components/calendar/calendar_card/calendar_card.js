@@ -1,6 +1,5 @@
 // General React imports
 import * as React from "react";
-import {useEffect} from "react";
 
 // Project specific files
 import InfoPanel from "./assets/info_panel";
@@ -15,11 +14,6 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 export const CalendarCard = (props) => {
-
-    useEffect(() => {
-        let showInviteAlert = false
-    }, [])
-
 
     return (
         <Card style={{ minWidth: '40%', margin: "2%", padding: "2%",
