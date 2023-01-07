@@ -67,33 +67,63 @@ export const SetTournament = (props) => {
                         </Button>
 
                         {/** Warunek przejścia do kolejnej fazy turnieju **/}
-                        {
-                            // Jeżeli turniej jest pełen
-                            accepted_count.length >= props.places &&
-                            // Jeżeli turniej nie jest w odpowiednim stanie
-                            props.tournament.state === 0 &&
-                            // Jeżeli jesteś adminem lub organizatorem tego turnieju
-                            ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3")?
-                                <>
-                                    {
-                                        closeRegistrations(props.tournament.id)
-                                            .catch(err => console.log(err))
-                                            .then(() => console.log("STATE 1"))
-                                            .then(() => props.handleDownloadCalendarCard(props.tournament.id))
-                                            .catch(err => console.log(err))
-                                            .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))
+                        <Button onClick={() =>{
+                            if( accepted_count.length >= props.places &&
+                                // Jeżeli turniej nie jest w odpowiednim stanie
+                                props.tournament.state === 0 &&
+                                // Jeżeli jesteś adminem lub organizatorem tego turnieju
+                                ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3"))
+                            {
+                                closeRegistrations(props.tournament.id)
+                                    .catch(err => console.log(err))
+                                    .then(() => console.log("STATE 1"))
+                                    .then(() => props.handleDownloadCalendarCard(props.tournament.id))
+                                    .catch(err => console.log(err))
+                                    .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))
 
-                                            .then(() => startTournament(props.tournament.id))
-                                            .catch(err => console.log(err))
-                                            .then(() => console.log("STATE 2"))
-                                            .then(() => props.handleDownloadCalendarCard(props.tournament.id))
-                                            .catch(err => console.log(err))
-                                            .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))
+                                    .then(() => startTournament(props.tournament.id))
+                                    .catch(err => console.log(err))
+                                    .then(() => console.log("STATE 2"))
+                                    .then(() => props.handleDownloadCalendarCard(props.tournament.id))
+                                    .catch(err => console.log(err))
+                                    .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))
+                            }else {
+                                alert("Turniej nie jest jeszcze gotowy do rozpoczęcia")
+                            }
 
-                                    }
-                                </>
-                                :null
-                        }
+                        }}
+                        >Zakończ zapisy</Button>
+
+
+                        {/*TODO ERROR COMPONENT NOT MOUNTED*/}
+                        {/*{*/}
+                        {/*    // Jeżeli turniej jest pełen*/}
+                        {/*    accepted_count.length >= props.places &&*/}
+                        {/*    // Jeżeli turniej nie jest w odpowiednim stanie*/}
+                        {/*    props.tournament.state === 0 &&*/}
+                        {/*    // Jeżeli jesteś adminem lub organizatorem tego turnieju*/}
+                        {/*    ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3")?*/}
+                        {/*        <>*/}
+                        {/*            {*/}
+                        {/*                closeRegistrations(props.tournament.id)*/}
+                        {/*                    .catch(err => console.log(err))*/}
+                        {/*                    .then(() => console.log("STATE 1"))*/}
+                        {/*                    .then(() => props.handleDownloadCalendarCard(props.tournament.id))*/}
+                        {/*                    .catch(err => console.log(err))*/}
+                        {/*                    .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))*/}
+
+                        {/*                    .then(() => startTournament(props.tournament.id))*/}
+                        {/*                    .catch(err => console.log(err))*/}
+                        {/*                    .then(() => console.log("STATE 2"))*/}
+                        {/*                    .then(() => props.handleDownloadCalendarCard(props.tournament.id))*/}
+                        {/*                    .catch(err => console.log(err))*/}
+                        {/*                    .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))*/}
+
+                        {/*            }*/}
+                        {/*        </>*/}
+                        {/*        :null*/}
+                        {/*}*/}
+
                         {/*{*/}
                         {/*    // Jeżeli turniej jest pełen*/}
                         {/*    accepted_count.length >= props.places &&*/}
