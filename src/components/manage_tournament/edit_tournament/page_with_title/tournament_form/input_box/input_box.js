@@ -442,11 +442,11 @@ function InputBox() {
                 var arrayBuffer = this.result;
                 var xhttp = new XMLHttpRequest();
                 xhttp.upload.addEventListener("progress", function (e) {
-                  let percent_complete = (e.loaded / e.total) * 100;
+                  let percent_complete = Math.round((e.loaded / e.total) * 100);
 
                   // percentage of upload completed
                   document.getElementById("uploadmsg").innerText =
-                    "PRZESYŁANIE" + percent_complete;
+                    "PRZESYŁANIE: " + percent_complete;
                 });
                 xhttp.onreadystatechange = function () {
                   if (this.readyState === 4) {
