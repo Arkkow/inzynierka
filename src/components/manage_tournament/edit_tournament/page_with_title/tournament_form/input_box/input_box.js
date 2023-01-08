@@ -252,11 +252,6 @@ function InputBox() {
           ) : (
             <option value="DRABINKA O MIEJSCA">DRABINKA O MIEJSCA</option>
           )}
-          {tournament.data.typeOfLadder == "GRUPY + DRABINKA" ? (
-            <option selected>GRUPY + DRABINKA</option>
-          ) : (
-            <option value="GRUPY + DRABINKA">GRUPY + DRABINKA</option>
-          )}
         </select>
       </div>
 
