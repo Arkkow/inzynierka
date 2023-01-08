@@ -140,6 +140,9 @@ function InputBox() {
                 }
                 reader.readAsArrayBuffer(document.getElementById("formFile").files[0]);
               }
+              else{
+                window.location.href="calendar";
+              }
             },
             (error) => {
               setError(error);
