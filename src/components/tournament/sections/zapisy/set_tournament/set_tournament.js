@@ -75,7 +75,7 @@ export const SetTournament = (props) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col sm={3}>
                         <Button
                             variant="secondary"
                             disabled={props.tournament.state ===2}
