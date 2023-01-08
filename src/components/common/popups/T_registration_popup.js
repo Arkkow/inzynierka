@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, {useState, useRef, useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -10,32 +10,38 @@ import {putRegistration} from "../../../api/tournament/tournament_registration_a
 function T_registration_popup(props) {
 
     const [userId, setId] = useState([]);
-    const [ifExist, checkIfExist] = useState([]);
 
-    if(userId.fetched === false){
-        getUser().then((dane)=>{setId(dane)})
-    }
+    useEffect(() => {
+        getUser()
+            .then(response => setId(response.id))
+    }, []);
+
+
 
     const [show, setShow] = useState(false);
     const id_tournament = window.location.href.split('?')[1].split('=')[1];
 
     const id = useRef(null);
 
-    const checkIfIdIsValid =  () => {
-        getUserById(id.current.value).then((dane)=>{checkIfExist({dane});})
-        console.log(ifExist)
-        if (String(props.id) === id.current.value) {
-            alert("Nie mozesz wyslac zaproszenia do siebie!");
-        } else if (ifExist.length == 0 || ifExist.dane === null) {
-            alert("Uzytkownik o podanym id nie istnieje!");
-        } else {
-            const sendInvitation = () => {putRegistration({
-                tournament: id_tournament,
-                partner: id.current.value,
-            }).then(() => window.location.reload(false))
-                setShow(false)};
-            sendInvitation();
-        }
+
+    const checkIfIdIsValid = async () => {
+        await getUserById(id.current.value)
+            .then((dane)=> {
+            if (!dane) { return alert("Uzytkownik o podanym id nie istnieje!"); };
+
+            if (String(userId) === id.current.value) {
+                alert("Nie mozesz wyslac zaproszenia do siebie!");
+            } else {
+                const sendInvitation = () => {
+                    putRegistration({
+                        tournament: id_tournament,
+                        partner: id.current.value,
+                    }).then(() => window.location.reload())
+                    setShow(false)
+                };
+                sendInvitation();
+            }
+            })
 
 
     };

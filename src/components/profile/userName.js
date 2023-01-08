@@ -18,20 +18,20 @@ function UserName() {
         Authorization: "Bearer " + Token,
       },
     })
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setUserName(result);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
+        .then((res) => res.json())
+        .then(
+            (result) => {
+              setIsLoaded(true);
+              setUserName(result);
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+              setIsLoaded(true);
+              setError(error);
+            }
+        );
   }, []);
 
   function deleteToken() {
@@ -46,7 +46,7 @@ function UserName() {
   }
 
   if (error) {
-    setTimeout(()=> {checkIfUserHasValidToken()}, 2000)
+    setTimeout(()=> {checkIfUserHasValidToken()}, 200)
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
