@@ -80,7 +80,7 @@ export const SetTournament = (props) => {
                             variant="secondary"
                             disabled={props.tournament.state ===2}
                             onClick={() =>{
-                                if( accepted_count.length >= props.places &&
+                                if( props.pairs_list.pairs["DONE"].length === props.places &&
                                     // Jeżeli turniej nie jest w odpowiednim stanie
                                     props.tournament.state === 0 &&
                                     // Jeżeli jesteś adminem lub organizatorem tego turnieju

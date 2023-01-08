@@ -146,7 +146,10 @@ function MatchResult_popup(props) {
                                 .then(() => props.refreshProps({...props}, props.id));
                             handleClose()
                         } else {
-                            alert("Wprowadzone wyniki są niepoprawne")
+                            alert("Wprowadzone wyniki są niepoprawne. Upewnij się, że:\n" +
+                                " - Nie ma remisów w wynikach setów \n" +
+                                " - Wskazany zwycięzca wygrał więcej setów niż przegrany \n" +
+                                " - Zwycięzca seta wygrał 7 gemów, jeżeli przeciwnik wygrał 6 lub 6 gemów w innym przypadku")
                         }
                     }
                     }>
