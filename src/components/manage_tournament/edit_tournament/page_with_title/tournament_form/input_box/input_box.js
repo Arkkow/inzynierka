@@ -1,21 +1,18 @@
 import React, { useState, useRef } from "react";
 import PFP_LOGO from "../../../../../../assets/PFP_LOGO.png";
-import {getTournamentById} from "../../../../../../api/api";
+import { getTournamentById } from "../../../../../../api/api";
 
 function InputBox() {
-  const id = window.location.href.split('?')[1].split('=')[1];
+  const id = window.location.href.split("?")[1].split("=")[1];
 
-
-
-  const [tournament, getTournament] = useState({"fetched":false,data:[]});
-  if(tournament.fetched === false){
-    getTournamentById(id).then((dane)=>{getTournament({"fetched":true,data:dane});})
+  const [tournament, getTournament] = useState({ fetched: false, data: [] });
+  if (tournament.fetched === false) {
+    getTournamentById(id).then((dane) => {
+      getTournament({ fetched: true, data: dane });
+    });
   }
 
-
   const [error, setError] = useState(null);
-  const [isSended, setIsSended] = useState(false);
-  const [response, setResponse] = useState([]);
   const Token = JSON.parse(localStorage.getItem("token")).token;
   const name = useRef("1");
   const typeOfLadder = useRef("1");
@@ -32,19 +29,15 @@ function InputBox() {
   const entriesTo = useRef("1");
   const additionalInformations = useRef("1");
   const categotry = useRef("OPEN");
-
   let ranked = "";
-  let visibility = "";
-  const handleClick = () => {
-    if (document.getElementById("visibility_var") != undefined){
-      if (document.getElementById("visibility_var").checked) {
-        visibility = "TRUE";
-      } else {
-        visibility = "FALSE";
-      }
+  let visibility = ""
+
+  function sendData() {
+    if (document.getElementById("visibility_var").checked) {
+      visibility = "TRUE";
+    } else {
+      visibility = "FALSE";
     }
-
-
 
     if (
       places.current.value == "8" &&
@@ -69,7 +62,7 @@ function InputBox() {
       roles.value = "16";
     }
 
-    const id = window.location.href.split('?')[1].split('=')[1]
+    const id = window.location.href.split("?")[1].split("=")[1];
 
     fetch("https://dragonmaster.pl/inz/tournament", {
       headers: {
@@ -100,24 +93,19 @@ function InputBox() {
       .then((res) => res.json())
       .then(
         (result) => {
-          setIsSended(true);
-          setResponse(result);
           console.log(result);
-          window.location.href= "calendar"
+          window.location.href = "calendar";
         },
         (error) => {
-          setIsSended(true);
           setError(error);
         }
       );
 
     if (error) {
       console.log("Coś poszło nie tak: " + error.message);
-      alert("Coś nie tak")
+      alert("Coś nie tak");
     }
-
-  };
-
+  }
 
   return (
     <div
@@ -132,7 +120,6 @@ function InputBox() {
         color: "var(--dark_grey)",
       }}
     >
-
       <label
         style={{ display: "block", textAlign: "left", width: "33%" }}
         htmlFor="exampleFormControlInput1"
@@ -228,8 +215,16 @@ function InputBox() {
           id="sel1"
           ref={rang}
         >
-          {tournament.data.rang === "CHALLENGER" ? <option selected>CHALLENGER</option> : <option value="CHALLENGER">CHALLENGER</option>}
-          {tournament.data.rang === "MASTER" ? <option selected>MASTER</option> : <option value="MASTER">MASTER</option>}
+          {tournament.data.rang === "CHALLENGER" ? (
+            <option selected>CHALLENGER</option>
+          ) : (
+            <option value="CHALLENGER">CHALLENGER</option>
+          )}
+          {tournament.data.rang === "MASTER" ? (
+            <option selected>MASTER</option>
+          ) : (
+            <option value="MASTER">MASTER</option>
+          )}
         </select>
       </div>
 
@@ -247,17 +242,24 @@ function InputBox() {
           id="sel1"
           ref={typeOfLadder}
         >
-          {tournament.data.typeOfLadder == "DRABINKA KLASYCZNA" ? <option selected>DRABINKA KLASYCZNA</option> : <option value="DRABINKA KLASYCZNA">DRABINKA KLASYCZNA</option>}
-          {tournament.data.typeOfLadder == "DRABINKA O MIEJSCA" ? <option selected>DRABINKA O MIEJSCA</option> : <option value="DRABINKA O MIEJSCA">DRABINKA O MIEJSCA</option>}
-          {tournament.data.typeOfLadder == "GRUPY + DRABINKA" ? <option selected>GRUPY + DRABINKA</option> : <option value="GRUPY + DRABINKA">GRUPY + DRABINKA</option>}
+          {tournament.data.typeOfLadder == "DRABINKA KLASYCZNA" ? (
+            <option selected>DRABINKA KLASYCZNA</option>
+          ) : (
+            <option value="DRABINKA KLASYCZNA">DRABINKA KLASYCZNA</option>
+          )}
+          {tournament.data.typeOfLadder == "DRABINKA O MIEJSCA" ? (
+            <option selected>DRABINKA O MIEJSCA</option>
+          ) : (
+            <option value="DRABINKA O MIEJSCA">DRABINKA O MIEJSCA</option>
+          )}
         </select>
       </div>
 
       <div className="form-group">
-          <label
-              style={{ display: "block", textAlign: "left", marginTop: "1%" }}
-              htmlFor="exampleFormControlInput1"
-              className="form-label"
+        <label
+          style={{ display: "block", textAlign: "left", marginTop: "1%" }}
+          htmlFor="exampleFormControlInput1"
+          className="form-label"
         >
           Liczba par
         </label>
@@ -267,8 +269,16 @@ function InputBox() {
           id="sel1"
           ref={places}
         >
-          {tournament.data.places == "8" ? <option selected>8</option> : <option value="8">8</option>}
-          {tournament.data.places == "16" ? <option selected>16</option> : <option value="16">16</option>}
+          {tournament.data.places == "8" ? (
+            <option selected>8</option>
+          ) : (
+            <option value="8">8</option>
+          )}
+          {tournament.data.places == "16" ? (
+            <option selected>16</option>
+          ) : (
+            <option value="16">16</option>
+          )}
         </select>
       </div>
 
@@ -352,26 +362,27 @@ function InputBox() {
         ref={additionalInformations}
       ></textarea>
 
-      {visibility === "FALSE"?
+      {tournament.data.visibility === "FALSE" ?
           <>
-            <label
-              style={{ display: "block", textAlign: "left", marginTop: "1%" }}
-              htmlFor="exampleFormControlTextarea1"
-              className="form-label"
-            >
-              Widoczność turnieju
-            </label>
-            <div
-              style={{ display: "block", textAlign: "left" }}
-              className="form-check form-switch"
-            >
-              <input
-                className="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="visibility_var"
-              />
-            </div>
+      <label
+        style={{ display: "block", textAlign: "left", marginTop: "1%" }}
+        htmlFor="exampleFormControlTextarea1"
+        className="form-label"
+      >
+        Widoczność turnieju
+      </label>
+      <div
+        style={{ display: "block", textAlign: "left" }}
+        className="form-check form-switch"
+      >
+        <input
+            className="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="visibility_var"
+        />
+
+      </div>
           </>
           :null
       }
@@ -389,39 +400,7 @@ function InputBox() {
         type="file"
         id="formFile"
       ></input>
-		<button onClick={()=>{
-					  if(document.getElementById("formFile").files.length !=0){
-		  var reader = new FileReader();
-  reader.onload = function() {
-    var arrayBuffer = this.result;
-				var xhttp = new XMLHttpRequest();
-				xhttp.upload.addEventListener('progress', function(e) {
-	let percent_complete = (e.loaded / e.total)*100;
-	
-	// percentage of upload completed
-	document.getElementById("uploadmsg").innerText="PRZESYŁANIE";
-});
-xhttp.onreadystatechange = function() {
-    if (this.readyState === 4) {
-		if(this.status === 200){
-				document.getElementById("uploadmsg").innerText="PRZESŁANO";
-    }else{
-	}
-	}
-};
-xhttp.responseType = "blob";
-xhttp.open("POST", "https://dragonmaster.pl/inz/tournament/image?id="+window.location.href.split('?')[1].split('=')[1]);
-xhttp.setRequestHeader("Authorization","Bearer "+Token); 
-xhttp.send(arrayBuffer);
-
-  }
-  reader.readAsArrayBuffer(document.getElementById("formFile").files[0]);
-		  }
-
-		}}>
-		ZAŁADUJ NOWE ZDJĘCIE
-		</button>
-		<div id="uploadmsg"></div>
+      <div id="uploadmsg"></div>
       {/*<div style={{ borderStyle: "solid", marginTop: "1%", width: "110px" }}>*/}
       {/*  <img src={PFP_LOGO} style={{ width: "100px", height: "100px" }} />*/}
       {/*</div>*/}
@@ -451,7 +430,45 @@ xhttp.send(arrayBuffer);
           }}
           type="button"
           className="btn btn-success"
-          onClick={handleClick}
+          onClick={() => {
+            if (document.getElementById("formFile").files.length != 0) {
+              var reader = new FileReader();
+              reader.onload = function () {
+                var arrayBuffer = this.result;
+                var xhttp = new XMLHttpRequest();
+                xhttp.upload.addEventListener("progress", function (e) {
+                  let percent_complete = Math.round((e.loaded / e.total) * 100);
+
+                  // percentage of upload completed
+                  document.getElementById("uploadmsg").innerText =
+                    "PRZESYŁANIE: " + percent_complete + " %";
+                });
+                xhttp.onreadystatechange = function () {
+                  if (this.readyState === 4) {
+                    if (this.status === 200) {
+                      document.getElementById("uploadmsg").innerText =
+                        "PRZESŁANO";
+                      sendData();
+                    } else {
+                    }
+                  }
+                };
+                xhttp.responseType = "blob";
+                xhttp.open(
+                  "POST",
+                  "https://dragonmaster.pl/inz/tournament/image?id=" +
+                    window.location.href.split("?")[1].split("=")[1]
+                );
+                xhttp.setRequestHeader("Authorization", "Bearer " + Token);
+                xhttp.send(arrayBuffer);
+              };
+              reader.readAsArrayBuffer(
+                document.getElementById("formFile").files[0]
+              );
+            } else {
+              sendData();
+            }
+          }}
         >
           EDYTUJ TURNIEJ
         </button>

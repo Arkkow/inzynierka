@@ -1,6 +1,6 @@
 // General React imports
 import * as React from 'react';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 // Project specific files
 import DrabinkaRound from "./drabinka_round";
@@ -15,6 +15,12 @@ import {Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
 export const Drabinka = (props) => {
+
+    useEffect(() => {
+            props.handleDownloadPlayers(props.calendar_list.id)
+            props.handleDownloadLadders(props.calendar_list.id)
+        }
+        ,[])
 
     const [chosen_match, set_chosen_match] = useState(() => { return 1; } );
 
@@ -91,7 +97,7 @@ export const Drabinka = (props) => {
                         chosen_match = {chosen_match}
                         calendar_list = {props.calendar_list}
                         user = {props.user}
-                        refreshProps = {props.refreshProps}
+                        refreshProps = {() => props.refreshProps({...props}, props.id)}
                     />
                     {numOfCols >= 2?
                         <DrabinkaRound
@@ -102,7 +108,7 @@ export const Drabinka = (props) => {
                             chosen_match = {chosen_match}
                             calendar_list = {props.calendar_list}
                             user = {props.user}
-                            refreshProps = {props.refreshProps}
+                            refreshProps = {() => props.refreshProps({...props}, props.id)}
                         />:null
                     }
                     {numOfCols >= 3?
@@ -114,7 +120,7 @@ export const Drabinka = (props) => {
                             chosen_match = {chosen_match}
                             calendar_list = {props.calendar_list}
                             user = {props.user}
-                            refreshProps = {props.refreshProps}
+                            refreshProps = {() => props.refreshProps({...props}, props.id)}
                         />:null
                     }
                     {numOfCols >= 4?
@@ -126,7 +132,7 @@ export const Drabinka = (props) => {
                             chosen_match = {chosen_match}
                             calendar_list = {props.calendar_list}
                             user = {props.user}
-                            refreshProps = {props.refreshProps}
+                            refreshProps = {() => props.refreshProps({...props}, props.id)}
                         />:null
                     }
                 </Row> :

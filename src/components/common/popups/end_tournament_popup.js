@@ -68,17 +68,17 @@ function EndTournament_popup(props) {
                 }}>
 
                     {props.pairs_list.pairs["DONE"].map((card) => (
-                        <Row style={{backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px", marginRight:"10px", border:"solid"}} key={card.id}>
+                        <Row style={{backgroundColor:"white", borderRadius:"15px", paddingLeft:"10px", marginLeft:"10px",
+                            marginRight:"10px",  marginBottom:"10px", border:"solid var(--medium_grey) 1px", borderColor:"var(--medium_grey)"}} key={card.id}>
                             <Col sm={9} style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
-                                Id Pary {card.id}
-                                <br/>
-                                {card.name1} {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
-                                {card.surname1}
-                                <br/>
-                                {card.name2} {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
-                                {card.surname2}
+                                <my_h4_nosb style={{marginBottom:"5px", marginTop:"10px"}}> {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
+                                    {`${card.name1} ${card.surname1}`}
+                                </my_h4_nosb>
+                                <my_h4_nosb style={{marginBottom:"10px"}}> {/*tu bedzie imie i nazwisko zawodnika z turnieju*/}
+                                    {`${card.name2} ${card.surname2}`}
+                                </my_h4_nosb>
                             </Col>
-                            <Col className="col-3">
+                            <Col className="col-3" style={{display:"flex", alignItems:"center"}}>
 
                                 <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}}
                                        type="number"

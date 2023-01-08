@@ -9,10 +9,16 @@ import {getUser} from "../../../../api/user_interaction/user_api";
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 export const Zapisy = (props) => {
 
-    useEffect(() => props.handleDownloadPlayers(props.calendar_list.id),[])
+    useEffect(() => {
+        props.handleDownloadPlayers(props.calendar_list.id);
+        props.handleDownloadLadders(props.calendar_list.id);
+        }
+        ,[])
 
     const [user, setUser] = useState({"fetched":false,data:[]});
 	  if(user.fetched === false){
@@ -31,7 +37,7 @@ export const Zapisy = (props) => {
                                 places = {props.calendar_list.places}
                                 pairs_list = {props.pairs_list}
                                 ladders_length = {props.ladders_list.ladders["ALL"].length}
-                                refreshProps = {props.refreshProps}
+                                refreshProps = {() => props.refreshProps({...props}, props.id)}
                             />
 
                         </Row>
@@ -48,28 +54,28 @@ export const Zapisy = (props) => {
                                     </my_h4> :
                                     <>
                                         <>
-                                            <div>
+                                            <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%", textAlign: "center"}} >
                                                 Moje rejestracje
-                                            </div>
+                                            </Card>
                                             <>
                                                 {props.pairs_list.pairs["ALL"]
                                                     .filter((e) => e.partner === props.user.id || e.userid === props.user.id)
                                                     .sort((a, b) => b.rankingsum - a.rankingsum)
                                                     .map((card)=>(
-                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {props.refreshProps}
+                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {() => props.refreshProps({...props}, props.id)}
                                                                     isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
                                                     ))}
                                             </>
                                         </>
                                         <>
-                                            <>
+                                            <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%", textAlign: "center"}} >
                                                 Wszystkie rejestracje
-                                            </>
+                                            </Card>
                                             <>
                                                 {props.pairs_list.pairs["ALL"]
                                                     .sort((a, b) => b.rankingsum - a.rankingsum)
                                                     .map((card)=>(
-                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {props.refreshProps}
+                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {() => props.refreshProps({...props}, props.id)}
                                                                     isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
                                                     ))}
                                             </>

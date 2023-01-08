@@ -24,9 +24,9 @@ export const SetTournament = (props) => {
 
     let accepted_difference = props.places - props.pairs_list.pairs["DONE"].length;
 
-    function prepareTournamentFirstRound(places, pairs_list_done, round, inputType) {
+    function prepareTournamentRound(props, places, pairs_list_done, round, inputType) {
         // console.log(pairs_list_done)
-        for (let i = 0; i < places; i += 2){
+        // for (let i = 0; i < places; i += 2){
             pairs_list_done.sort(() => Math.random() - 0.5);
             for (let i = 0; i < places; i += 2) {
                 putLadder(
@@ -42,8 +42,8 @@ export const SetTournament = (props) => {
                     .catch(err => console.log(err))
                     .then(r => console.log(r))
             }
-        }
-        return true
+        // }
+        return 0
     }
 
     return (
@@ -65,88 +65,57 @@ export const SetTournament = (props) => {
                         <Button variant="outline-light" style={{ float: "right"}}>
                             Zaakceptowanych par: {accepted_count.length} / {props.places}
                         </Button>
-
-                        {/** Warunek przejścia do kolejnej fazy turnieju **/}
-                        {
-                            // Jeżeli turniej jest pełen
-                            accepted_count.length >= props.places &&
-                            // Jeżeli turniej nie jest w odpowiednim stanie
-                            props.tournament.state === 0 &&
-                            // Jeżeli jesteś adminem lub organizatorem tego turnieju
-                            ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3")?
-                                <>
-                                    {
-                                        closeRegistrations(props.tournament.id)
-                                            .catch(err => console.log(err))
-                                            .then(() => console.log("STATE 1"))
-                                            .then(() => props.handleDownloadCalendarCard(props.tournament.id))
-                                            .catch(err => console.log(err))
-
-                                            .then(() => startTournament(props.tournament.id))
-                                            .catch(err => console.log(err))
-                                            .then(() => console.log("STATE 2"))
-                                            .then(() => props.handleDownloadCalendarCard(props.tournament.id))
-                                            .catch(err => console.log(err))
-                                    }
-                                </>
-                                :null
-                        }
-                        {/*{*/}
-                        {/*    // Jeżeli turniej jest pełen*/}
-                        {/*    accepted_count.length >= props.places &&*/}
-                        {/*    // Jeżeli turniej nie jest w odpowiednim stanie*/}
-                        {/*    props.tournament.state === 1 &&*/}
-                        {/*    // Jeżeli jesteś adminem lub organizatorem tego turnieju*/}
-                        {/*    ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3")?*/}
-                        {/*        <>*/}
-                        {/*            {*/}
-                        {/*                startTournament(props.tournament.id)*/}
-                        {/*                    .catch(err => console.log(err))*/}
-                        {/*                    .then(() => console.log("STATE 2"))*/}
-                        {/*                    .then(() => props.handleDownloadCalendarCard(props.tournament.id))*/}
-                        {/*                    .catch(err => console.log(err))*/}
-                        {/*            }*/}
-                        {/*        </>*/}
-                        {/*        :null*/}
-                        {/*}*/}
-
                     </Col>
 
                     {/** Gotowych par: **/}
                     <Col sm={4}>
                         <Button variant="outline-light" style={{ float: "right"}}>
-                            Gotowych par: {props.pairs_list.pairs["DONE"].length}
+                            Gotowych par: {props.pairs_list.pairs["DONE"].length} / {props.places}
                         </Button>
                     </Col>
                 </Row>
                 <Row>
+                    <Col sm={3}>
+                        <Button
+                            variant="secondary"
+                            disabled={props.tournament.state ===2}
+                            onClick={() =>{
+                                if( props.pairs_list.pairs["DONE"].length === props.places &&
+                                    // Jeżeli turniej nie jest w odpowiednim stanie
+                                    props.tournament.state === 0 &&
+                                    // Jeżeli jesteś adminem lub organizatorem tego turnieju
+                                    ((props.user.role === "2" && props.user.id === props.tournament.creator) || props.user.role === "3"))
+                                {
+                                    closeRegistrations(props.tournament.id)
+                                        .catch(err => console.log(err))
+                                        .then(() => console.log("STATE 1"))
+                                        .then(() => props.handleDownloadCalendarCard(props.tournament.id))
+                                        .catch(err => console.log(err))
+                                        .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))
 
+                                        .then(() => startTournament(props.tournament.id))
+                                        .catch(err => console.log(err))
+                                        .then(() => console.log("STATE 2"))
+                                        .then(() => props.handleDownloadCalendarCard(props.tournament.id))
+                                        .catch(err => console.log(err))
+                                        .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))
+                                }else {
+                                    alert("Turniej nie jest jeszcze gotowy do rozpoczęcia")
+                                }
 
+                            }}
+                        >Zakończ zapisy</Button>
+                    </Col>
 
                     {/** Załóż turniej: **/}
                     <Col sm={3}>
+                        {/** Warunek przejścia do kolejnej fazy turnieju **/}
                         <Button variant="secondary"
                                 style={{float: "right"}}
                                 disabled={accepted_difference !== 0 || props.ladders_length !== 0}
-                                onClick={
-
-                            () => {
-                                    props.pairs_list.pairs["DONE"].sort(() => Math.random() - 0.5);
-                                    for (let i = 0; i < props.places; i += 2) {
-                                        putLadder(
-                                            {
-                                                "tournamentid": String(props.tournament.id),
-                                                "inAtype": "R",
-                                                "inA": String(props.pairs_list.pairs["DONE"][i].id),
-                                                "inBtype": "R",
-                                                "inB": String(props.pairs_list.pairs["DONE"][i + 1].id),
-                                                "round": "1"
-                                            }
-                                        )
-                                            .then(r => console.log(r))
-                                    }
-
-                                }
+                                onClick={ () =>
+                                    prepareTournamentRound({...props},
+                                        props.places, props.pairs_list.pairs["DONE"], 1, "R")
                                 }>
                             Załóż turniej
                         </Button>

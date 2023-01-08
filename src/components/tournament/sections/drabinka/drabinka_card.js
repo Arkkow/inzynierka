@@ -10,6 +10,7 @@ import {getLaddersSolved} from "../../../../api/tournament/ladders_api";
 import Card from 'react-bootstrap/Card';
 import {Container, Row, Col} from "react-bootstrap";
 import {CheckCircleFill, XCircleFill} from "react-bootstrap-icons";
+import Button from "react-bootstrap/Button";
 
 
 export const DrabinkaCard = (props) => {
@@ -37,6 +38,7 @@ export const DrabinkaCard = (props) => {
             <Container>
                 <Row style={{paddingLeft: "10px"}}>
                     <Col sm={8}>
+                        <Row>{props.inA} {props.inB}</Row>
                         <Row>
                             <Col sm={8}>
                                 <Row>
@@ -80,10 +82,9 @@ export const DrabinkaCard = (props) => {
                         margin: "auto",
                         alignItems: "center"}}>
                         {props.role === "2" || props.role === "3"?
-                        <Match_result_popup {...card} refreshProps = {props.refreshProps}/>
+                        <Match_result_popup {...card} refreshProps = {() => props.refreshProps({...props}, props.id)}/>
                         :null}
                     </Col>
-
                 </Row>
             </Container>
         </Card>

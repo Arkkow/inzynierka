@@ -26,7 +26,7 @@ function InputBox() {
                 <select style={{width:"33%"}} className="form-select" id="sel1">
                     <option selected>DRABINKA KLASYCZNA</option>
                     <option value="1">DRABINKA O MIEJSCA</option>
-                    <option value="2">GRUPY + DRABINKA</option>
+                    {/*<option value="2">GRUPY + DRABINKA</option>*/}
                 </select>
             </div>
 

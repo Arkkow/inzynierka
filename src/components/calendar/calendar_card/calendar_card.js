@@ -1,6 +1,5 @@
 // General React imports
 import * as React from "react";
-import {useEffect} from "react";
 
 // Project specific files
 import InfoPanel from "./assets/info_panel";
@@ -16,14 +15,10 @@ import Card from "react-bootstrap/Card";
 
 export const CalendarCard = (props) => {
 
-    useEffect(() => {
-        let showInviteAlert = false
-    }, [])
-
-    let my_tournament_list = [];
-
     return (
-        <Card style={{ minWidth: '40%', margin: "2%", padding: "2%", borderRadius:"20px", borderColor:"var(--medium_grey)"}}  >
+        <Card style={{ minWidth: '40%', margin: "2%", padding: "2%",
+            borderRadius:"20px", borderColor:"var(--medium_grey)",
+            background: props.state >= 3?"grey":"white"}} >
             <Container fluid="lg">
                 <Row>
                     <Col sm={2}>
@@ -39,16 +34,12 @@ export const CalendarCard = (props) => {
                         <InfoPanel {...props} />
                     </Col>
                     <Col sm={3} style={{display:"flex", alignItems:"center", justifyContent:"center", }}>
-                        {/*TODO to prawie działa na mytournaments is not a function*/}
-                        {/*{console.log(props.my_tournament_list)}*/}
-                        {/*{console.log(props.id)}*/}
-                        {/*{console.log([].filter(e => e.id === 0))}*/}
 
-                        {/*{*/}
-                        {/*    props.my_tournament_list !== [] && props.my_tournament_list !== undefined?*/}
-                        {/*            props.my_tournament_list.filter(e => e.tournament === String(props.id)).length !== 0?*/}
-                        {/*                "Masz zaproszenie na ten turniej!": null:null*/}
-                        {/*}*/}
+                        {
+                            props.my_tournament_list !== [] && props.my_tournament_list !== undefined?
+                                    props.my_tournament_list.filter(e => e.tournament === String(props.id)).length !== 0?
+                                        "Masz zaproszenie na ten turniej!": null:null
+                        }
 
                         <TournamentRanked {...props} refreshProps = {props.refreshProps}/>
                     </Col>

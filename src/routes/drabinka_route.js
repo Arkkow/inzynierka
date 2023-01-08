@@ -22,9 +22,9 @@ export default function Drabinka () {
         <Container fluid="true" style={{background: "#c2d1b8", minHeight: "94vh", paddingTop: "2%"}}>
             <Row className="justify-content-md-center">
 <Row className="justify-content-md-center">
-            <Col sm={6} >
+            <Col sm={6}>
                 {drabinka.fetched === false ?
-                  <h5>no results available</h5> :
+                    <my_h5>Brak wyników</my_h5> :
                   drabinka.data.map((card)=>(
                             <Card {...card} border={"dark"} style={{ minWidth: '40%', margin: "2%", padding: "2%"}} >
             <Container fluid="md">
