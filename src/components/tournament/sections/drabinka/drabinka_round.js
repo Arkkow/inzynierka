@@ -30,7 +30,7 @@ export const DrabinkaRound = (props) => {
                 ))}
                 </>:
 
-                <h5>no results available</h5>
+                <my_h5>Brak wyników</my_h5>
             }
         </Col>
     )

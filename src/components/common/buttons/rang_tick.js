@@ -23,12 +23,10 @@ export const RangTick = (props) => {
             >
             {
                 props.rang === 'CHALLENGER'?
-                    <CheckCircleFill color={"gold"}/>:
+                    <CheckCircleFill color={"#70a43c"}/>:
                 props.rang === 'MASTER'?
-                    <CheckCircleFill color={"silver"}/>:
-                props.rang === 'PFP OPEN'?
-                    <CheckCircleFill color={"royalblue"}/>:
-                    <CheckCircle/>
+                    <CheckCircleFill color={"#c7cb00"}/>:
+                    <CheckCircleFill color={"gray"}/>
             }
             </OverlayTrigger>
         </>
