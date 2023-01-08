@@ -44,7 +44,8 @@ function T_registration_popup(props) {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      // 👇 Get input value
+        event.preventDefault();
+        // 👇 Get input value
       checkIfIdIsValid();
     }
   };
@@ -99,7 +100,7 @@ function T_registration_popup(props) {
           ZAPISZ SIĘ!
         </Button>
       )}
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} onKeyDown={handleKeyDown}>
         <Modal.Header closeButton>
           <img
             src={PFP_LOGO}
