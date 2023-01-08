@@ -19,4 +19,4 @@ Organizatorzy i administratorzy mają możliwość:
   - wyłaniania zwycięzcy
   - przydzielania punktów do rankingu umieszczonego na stronie
 
-Paweł Lewicki, Arek Kowalski, jan Majchrzycki, Tomek Sidoruk
+Paweł Lewicki, Arek Kowalski, Jan Majchrzycki, Tomek Sidoruk
