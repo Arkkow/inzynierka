@@ -441,7 +441,7 @@ function InputBox() {
 
                   // percentage of upload completed
                   document.getElementById("uploadmsg").innerText =
-                    "PRZESYŁANIE: " + percent_complete;
+                    "PRZESYŁANIE: " + percent_complete + " %";
                 });
                 xhttp.onreadystatechange = function () {
                   if (this.readyState === 4) {
