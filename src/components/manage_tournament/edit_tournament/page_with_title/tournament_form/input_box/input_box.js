@@ -367,8 +367,8 @@ function InputBox() {
         ref={additionalInformations}
       ></textarea>
 
-      {/*{tournament.data.visibility === "FALSE"?*/}
-      {/*    <>*/}
+      {tournament.data.visibility === "FALSE" ?
+          <>
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
         htmlFor="exampleFormControlTextarea1"
@@ -381,16 +381,16 @@ function InputBox() {
         className="form-check form-switch"
       >
         <input
-          className="form-check-input"
-          type="checkbox"
-          role="switch"
-          id="visibility_var"
-          defaultChecked={tournament.data.visibility !== "FALSE"}
+            className="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="visibility_var"
         />
+
       </div>
-      {/*    </>*/}
-      {/*    :null*/}
-      {/*}*/}
+          </>
+          :null
+      }
 
       <label
         style={{ display: "block", textAlign: "left", marginTop: "1%" }}
