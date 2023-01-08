@@ -39,7 +39,7 @@ export const Tournament_controller = (props) => {
                     props.view.tournament_tab === "info"?
                         <TournamentInfo {...props} />:
                     props.view.tournament_tab === "zapisy"?
-                        <Zapisy {...props} user = {props.user} refreshProps = {() => refreshProps({...props})} />:
+                        <Zapisy {...props} user = {props.user} refreshProps = {() => refreshProps({...props}, id)} />:
                     props.view.tournament_tab === "wyniki"?
                         <Drabinka {...props} refreshProps = {() => refreshProps({...props}, id)} />:
                         null

@@ -1,6 +1,6 @@
 // General React imports
 import * as React from 'react';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 // Project specific files
 import DrabinkaRound from "./drabinka_round";
@@ -15,6 +15,12 @@ import {Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
 export const Drabinka = (props) => {
+
+    useEffect(() => {
+            props.handleDownloadPlayers(props.calendar_list.id)
+            props.handleDownloadLadders(props.calendar_list.id)
+        }
+        ,[])
 
     const [chosen_match, set_chosen_match] = useState(() => { return 1; } );
 
@@ -58,18 +64,18 @@ export const Drabinka = (props) => {
                 </div>
 
                 {/** BUTTON USUWANIA TURNIEJÓW **/}
-                {/*{props.user.id === undefined ? null:*/}
-                {/*    props.user.role !== "3"? null:*/}
-                {/*    <div>*/}
-                {/*        <Button variant="danger" onClick={ () => {*/}
-                {/*            for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){*/}
-                {/*                deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))*/}
-                {/*            }*/}
-                {/*        }}>*/}
-                {/*            Usuń drabinki*/}
-                {/*        </Button>*/}
-                {/*    </div>*/}
-                {/*}*/}
+                {props.user.id === undefined ? null:
+                    props.user.role !== "3"? null:
+                    <div>
+                        <Button variant="danger" onClick={ () => {
+                            for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){
+                                deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))
+                            }
+                        }}>
+                            Usuń drabinki
+                        </Button>
+                    </div>
+                }
 
                 {/*{console.log(props.calendar_list.typeOfLadder)}*/}
                 { props.calendar_list.approved === 2 ?

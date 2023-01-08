@@ -37,6 +37,7 @@ export const DrabinkaCard = (props) => {
             <Container>
                 <Row style={{paddingLeft: "10px"}}>
                     <Col sm={8}>
+                        <Row>{props.inA} {props.inB}</Row>
                         <Row>
                             <Col sm={8}>
                                 <Row>
@@ -83,7 +84,6 @@ export const DrabinkaCard = (props) => {
                         <Match_result_popup {...card} refreshProps = {props.refreshProps}/>
                         :null}
                     </Col>
-
                 </Row>
             </Container>
         </Card>
