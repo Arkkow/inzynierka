@@ -37,11 +37,15 @@ function End_tournament_places_popup(props) {
                 lineHeight: "25px",
                 color: "white",
                 borderRadius: "15px",
-                paddingRight: "1.5%",
-                paddingLeft: "1.5%",
-                paddingBottom: "0.5%",
-                paddingTop: "0.5%",
-                marginRight: "1%"
+                paddingRight: "10%",
+                paddingLeft: "10%",
+                paddingBottom: "5%",
+                paddingTop: "5%",
+                marginRight: "1%",
+                whiteSpace: "nowrap",
+                textAlign: "center",
+                backgroundColor:"#D99D00",
+                borderWidth:"0"
             }} variant="success" onClick={handleShow}>
                 ZAKOŃCZ TURNIEJ
             </Button>
