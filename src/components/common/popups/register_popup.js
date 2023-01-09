@@ -22,7 +22,8 @@ const Register_popup = ({
   const [formValues, setFormValues] = useState(initialValues);
   const [error, setError] = useState(null);
   const [isSended, setIsSended] = useState(false);
-  const username = useRef(null);
+    const [isPasswordValid, setIsPasswordValid] = useState(false);
+    const username = useRef(null);
   const surname = useRef(null);
   const nameOfUser = useRef(null);
   const mail = useRef(null);
@@ -51,20 +52,23 @@ const Register_popup = ({
       errors.password = "Wpisz swoje hasło";
     }
     if (values.password !== values.repeatPassword) {
+        setIsPasswordValid(false)
       errors.repeatPassword = "Powtórzone hasło nie jest takie samo!";
     }
+    else{setIsPasswordValid(true)}
     setError(errors);
 
     return errors;
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+      document.getElementById("goodmsg").style.display = "none";
+      const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
   const handleClick = async () => {
     await setFormErrors(validate(formValues));
-    if (error.length > 0) {
+    if (!nameOfUser.current.value || !surname.current.value || !username.current.value || !mail.current.value || !mail.current.value || !phone.current.value || !password.current.value || !isPasswordValid) {
       document.getElementById("errormsg").style.display = "block";
     } else {
       fetch("https://dragonmaster.pl/inz/user/create", {
@@ -81,15 +85,16 @@ const Register_popup = ({
         .then((result) => {
           setIsSended(true);
           if (result.status === 200) {
-            console.log("gituwa");
+              document.getElementById("goodmsg").style.display = "block";
             document.getElementById("errormsg").style.display = "none";
           } else {
-            document.getElementById("errormsg").style.display = "block";
+              document.getElementById("goodmsg").style.display = "none";
+              document.getElementById("errormsg").style.display = "block";
           }
           // alert("Zweryfikuj adres e-mail, aby móc się zalogować");
           // setIsRegisterOpen(false);
         })
-        .catch((error) => console.log("error:", error),  document.getElementById("errorInt").style.display = "block");
+        .catch((error) => console.log("error:", error));
     }
   };
 
@@ -247,6 +252,7 @@ const Register_popup = ({
               type="password"
               placeholder="Potwierdź hasło"
               name="repeatPassword"
+              id="repeatPassword"
               value={formValues.repeatPassword}
               autoFocus
               onChange={handleChange}
@@ -271,6 +277,11 @@ const Register_popup = ({
           <div id={"errorInt"} style={{ display: "none" }}>
               <paragraph_sb style={{ color: "red" }}>
                   Coś poszło nie tak. Spróbuj ponownie, lub sprawdź swój internet
+              </paragraph_sb>
+          </div>
+          <div id={"goodmsg"} style={{ display: "none" }}>
+              <paragraph_sb style={{ color: "green" }}>
+                  Rejestracja udana. Sprawdź swojego maila w celu skończenia rejestracji
               </paragraph_sb>
           </div>
         <Button
