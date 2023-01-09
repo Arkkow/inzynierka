@@ -4,13 +4,12 @@ import {useEffect, useState} from 'react';
 
 // Project specific files
 import ZapisyCard from "./zapisy_card/zapisy_card";
-import SetTournament from "./set_tournament/set_tournament";
 import {getUser} from "../../../../api/user_interaction/user_api";
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import TournamentAdminPanel from "./tournament_admin_panel/tournament_admin_panel";
 
 export const Zapisy = (props) => {
 
@@ -31,7 +30,7 @@ export const Zapisy = (props) => {
                 <Row className="justify-content-md-center" >
                     <Col sm={12} style={{alignItems:"center", justifyContent:"center"}}>
                         <Row>
-                            <SetTournament
+                            <TournamentAdminPanel
                                 {...props}
                                 tournament = {props.calendar_list}
                                 places = {props.calendar_list.places}
