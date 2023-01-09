@@ -9,7 +9,6 @@ W ramach aplikacji użytkownicy mają możliwość:
 - wzięcia udziału w zawodach wraz z obsługą towarzyszących temu podprocesów
   - zapraszania innych graczy do wspólnego udziału w turnieju, 
   - płatności za udział
-- 
 
 Organizatorzy i administratorzy mają możliwość: 
 - zarządzania uprawnieniami innych użytkowników
