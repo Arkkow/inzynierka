@@ -64,13 +64,13 @@ function MatchResult_popup(props) {
                 fontSize: "18px",
                 lineHeight: "25px",
                 color: "white",
-                borderRadius: "15px",
-                paddingBottom:"1%",
-                paddingTop:"1%",
+                borderRadius: "10px",
+                paddingBottom:"5px",
+                paddingTop:"5px",
                 paddingRight:"15px",
                 paddingLeft:"15px"
             }} variant="success" onClick={handleShow}>
-                WYNIK
+                PODAJ WYNIK
             </Button>
 
             <Modal show={show} onHide={handleClose} className="modal-lg" backdrop="static">

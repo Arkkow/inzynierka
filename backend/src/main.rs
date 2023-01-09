@@ -192,6 +192,7 @@ struct tournamenta {
 
 thread_local!(static POOL: Pool = Pool::new(Opts::from_url("mysql://**:**!@10.1.6.101:3306/inz").unwrap()).unwrap());
 
+
 async fn hello_world(req: Request<Body>) -> Result<Response<Body>> {
     let smtp_server = "smtp.wp.pl";
     let smtp_username = "padelts@wp.pl";
@@ -1951,6 +1952,7 @@ async fn hello_world(req: Request<Body>) -> Result<Response<Body>> {
                             .uri("http://10.1.6.101:8082/api/v1/stores/**/invoices/".to_owned() + &paymentreference)
                             .header("content-type", "application/json")
                             .header("Authorization", "token **").body(Body::empty()).unwrap();
+
                         let resp = client.request(req).await.unwrap();
                         let parsed: serde_json::Value = serde_json::from_slice(hyper::body::to_bytes(resp.into_body()).await.unwrap().as_ref()).unwrap();
                         let stat: String = parsed.get("status").unwrap().as_str().unwrap().into();
@@ -1992,6 +1994,7 @@ async fn hello_world(req: Request<Body>) -> Result<Response<Body>> {
                             .uri("http://10.1.6.101:8082/api/v1/stores/**/invoices/".to_owned() + &paymentreference2)
                             .header("content-type", "application/json")
                             .header("Authorization", "token **").body(Body::empty()).unwrap();
+
                         let resp = client.request(req).await.unwrap();
                         let parsed: serde_json::Value = serde_json::from_slice(hyper::body::to_bytes(resp.into_body()).await.unwrap().as_ref()).unwrap();
                         let stat: String = parsed.get("status").unwrap().as_str().unwrap().into();
@@ -2156,6 +2159,7 @@ async fn hello_world(req: Request<Body>) -> Result<Response<Body>> {
                             .header("X-Forwarded-Host", "btcpay.dragonmaster.pl")
                             .header("X-Forwarded-Proto", "https")
                             .header("Authorization", "token **")
+
                             .body(Body::from("{\"metadata\": {\"orderId\": \"id123\"},\"checkout\": {\"speedPolicy\": \"LowMediumSpeed\",\"redirectURL\":\"https://example.com\"},\"amount\": \"".to_owned() + &*fee.to_string() + "\",\"currency\": \"PLN\"}")).unwrap();
                         let resp = client.request(req).await.unwrap();
                         let parsed: serde_json::Value = serde_json::from_slice(hyper::body::to_bytes(resp.into_body()).await.unwrap().as_ref()).unwrap();
@@ -2877,6 +2881,7 @@ SELECT DISTINCT tournaments.id, tournaments.name, tournaments.typeOfLadder, tour
                 let smtp_server = "smtp.wp.pl";
                 let smtp_username = "**";
                 let smtp_password = "**";
+
                 let mail2= ("Yuin <".to_owned() + &mail + ">").parse();
                 if(mail2.is_err()){
                     *response.body_mut() = "{}".into();
@@ -3039,6 +3044,7 @@ async fn main() {
                                 .uri("http://10.1.6.101:8082/api/v1/stores/**/invoices/".to_owned() + reference)
                                 .header("content-type", "application/json")
                                 .header("Authorization", "token **").body(Body::empty()).unwrap();
+
                             let resp = client.request(req).await.unwrap();
                             let parsed: serde_json::Value = serde_json::from_slice(hyper::body::to_bytes(resp.into_body()).await.unwrap().as_ref()).unwrap();
                             let stat: String = parsed.get("status").unwrap().as_str().unwrap().into();
@@ -3069,6 +3075,7 @@ async fn main() {
                                 .uri("http://10.1.6.101:8082/api/v1/stores/**/invoices/".to_owned() + reference2)
                                 .header("content-type", "application/json")
                                 .header("Authorization", "token **").body(Body::empty()).unwrap();
+
                             let resp = client.request(req).await.unwrap();
                             let parsed: serde_json::Value = serde_json::from_slice(hyper::body::to_bytes(resp.into_body()).await.unwrap().as_ref()).unwrap();
                             let stat: String = parsed.get("status").unwrap().as_str().unwrap().into();

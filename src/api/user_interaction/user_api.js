@@ -43,6 +43,10 @@ export function postToken(token) {
 OUTPUT
 {}
 */
+export function putUser(body) {
+    return makeReq("user/register","PUT",body);
+}
+
 export function getUserSettings() {
     return makeAuthedReq("user/settings","GET",null);
 }
