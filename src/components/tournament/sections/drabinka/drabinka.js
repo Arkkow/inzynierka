@@ -14,13 +14,14 @@ import {deleteLadder} from "../../../../api/tournament/ladders_api";
 import {Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import SetTournament from "../zapisy/tournament_admin_panel/tournament_admin_panel";
-import SetTournamentRounds from "./set_tournament_rounds";
+import SetTournamentRounds from "./set_rounds/set_tournament_rounds";
 
 export const Drabinka = (props) => {
 
     useEffect(() => {
             props.handleDownloadPlayers(props.calendar_list.id)
             props.handleDownloadLadders(props.calendar_list.id)
+            props.handleDownloadUser()
         }
         ,[])
 
