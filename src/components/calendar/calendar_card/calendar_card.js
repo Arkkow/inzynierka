@@ -18,7 +18,7 @@ export const CalendarCard = (props) => {
     return (
         <Card style={{ minWidth: '40%', margin: "2%", padding: "2%",
             borderRadius:"20px", borderColor:"var(--medium_grey)",
-            background: props.state >= 3?"grey":"white"}} >
+            background: props.state >= 3?"#DDDDDD":"white"}} >
             <Container fluid="lg">
                 <Row>
                     <Col sm={2}>
@@ -39,7 +39,7 @@ export const CalendarCard = (props) => {
                             props.my_tournament_list !== [] && props.my_tournament_list !== undefined?
                                     props.my_tournament_list.filter(e => e.tournament === String(props.id)).length !== 0?
                                         <Row style={{display:"flex", textAlign:"center"}}>
-                                            <paragraph>Masz zaproszenie na ten turniej. Sprawdź sekcje zapisy</paragraph>
+                                            <paragraph_sb style={{color:"#F96A15"}}>Zostałeś zaproszony na ten turniej!<br/> By zobaczyć zapis, sprawdź sekcję zapisy</paragraph_sb>
                                         </Row>: null:null
                         }
 
