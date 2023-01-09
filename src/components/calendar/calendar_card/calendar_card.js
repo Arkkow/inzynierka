@@ -33,12 +33,14 @@ export const CalendarCard = (props) => {
                         </Row>
                         <InfoPanel {...props} />
                     </Col>
-                    <Col sm={3} style={{display:"flex", alignItems:"center", justifyContent:"center", }}>
+                    <Col sm={3} style={{display:"flex", alignItems:"center"}}>
 
                         {
                             props.my_tournament_list !== [] && props.my_tournament_list !== undefined?
                                     props.my_tournament_list.filter(e => e.tournament === String(props.id)).length !== 0?
-                                        "Masz zaproszenie na ten turniej!": null:null
+                                        <Row style={{display:"flex", textAlign:"center"}}>
+                                            <paragraph>Masz zaproszenie na ten turniej. Sprawdź sekcje zapisy</paragraph>
+                                        </Row>: null:null
                         }
 
                         <TournamentRanked {...props} refreshProps = {props.refreshProps}/>
