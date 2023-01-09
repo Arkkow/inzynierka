@@ -13,6 +13,8 @@ import {deleteLadder} from "../../../../api/tournament/ladders_api";
 // CSS files
 import {Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import SetTournament from "../zapisy/tournament_admin_panel/tournament_admin_panel";
+import SetTournamentRounds from "./set_tournament_rounds";
 
 export const Drabinka = (props) => {
 
@@ -86,6 +88,17 @@ export const Drabinka = (props) => {
                 }
             </Row>
                 :null}
+
+            <Row>
+                <SetTournamentRounds
+                    {...props}
+                    tournament = {props.calendar_list}
+                    places = {props.calendar_list.places}
+                    pairs_list = {props.pairs_list}
+                    ladders_length = {props.ladders_list.ladders["ALL"].length}
+                    refreshProps = {() => props.refreshProps({...props}, props.id)}
+                />
+            </Row>
 
             {props.ladders_list.ladders["ALL"].length !== 0 ?
                 <Row>
