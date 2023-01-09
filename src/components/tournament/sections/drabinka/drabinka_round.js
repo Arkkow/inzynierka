@@ -10,22 +10,33 @@ import Button from "react-bootstrap/Button";
 
 export const DrabinkaRound = (props) => {
 
-    let titles = ["PIERWSZA", "DRUGA", "TRZECIA", "CZWARTA"];
+    let titles;
+    if(props.numOfCols===4){
+        titles = ["1/8 FINAŁU", "ĆWIERĆFINAŁY", "PÓŁFINAŁY", "FINAŁ"];
+    } else {
+        titles = ["ĆWIERĆFINAŁY", "PÓŁFINAŁY", "FINAŁ"];
+    }
 
 
     return (
-        <Col sm={12/props.numOfCols}>
+        <Col lg={12/props.numOfCols}>
             {props.ladders[props.chosen_match].length !== 0 ?
                 <>
-            <Row>
+            <Row style={{marginBottom:"20px"}}>
+
                 <Button variant="success"
-                        style={{background: "green", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default"}}>
-                    {titles[props.net_round-1]} RUNDA
+                        style={{backgroundColor: "#0B4D39", width: "50%", justifyContent:"center", display:"flex", margin: "auto", cursor:"default", borderWidth:"0", minWidth:"260px"}}>
+                   <my_h3> {titles[props.net_round-1]}</my_h3>
                 </Button>
             </Row>
 
+
             {props.ladders[props.chosen_match].filter((e) => e.round_number.length === props.current_round).map((card)=>(
-                    <DrabinkaCard {...card} tournamentID = {props.calendar_list.id} role = {props.user.role} refreshProps = {() => props.refreshProps({...props}, props.id)}/>
+                // <div style={{marginTop: props.net_round===2 ? "125px":null}}>
+                <div>
+                <DrabinkaCard {...card} tournamentID = {props.calendar_list.id} role = {props.user.role} refreshProps = {() => props.refreshProps({...props}, props.id)}/>
+                </div>
+
                 ))}
                 </>:
 

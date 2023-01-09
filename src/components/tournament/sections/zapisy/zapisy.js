@@ -4,13 +4,12 @@ import {useEffect, useState} from 'react';
 
 // Project specific files
 import ZapisyCard from "./zapisy_card/zapisy_card";
-import SetTournament from "./set_tournament/set_tournament";
 import {getUser} from "../../../../api/user_interaction/user_api";
 
 // CSS files
 import {Container, Row, Col} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import TournamentAdminPanel from "./tournament_admin_panel/tournament_admin_panel";
 
 export const Zapisy = (props) => {
 
@@ -29,9 +28,9 @@ export const Zapisy = (props) => {
         <Col sm={6} >
             <Container fluid="true" style={{minHeight: "64vh", paddingTop: "0%"}}>
                 <Row className="justify-content-md-center" >
-                    <Col sm={12} style={{alignItems:"center", justifyContent:"center"}}>
+                    <Col sm={12} style={{}}>
                         <Row>
-                            <SetTournament
+                            <TournamentAdminPanel
                                 {...props}
                                 tournament = {props.calendar_list}
                                 places = {props.calendar_list.places}
@@ -44,14 +43,18 @@ export const Zapisy = (props) => {
                         <Row style={{background: "white", marginTop:"10px", borderRadius:"10px", width:"100%"}}>
 
                             {props.role === "default" || localStorage.getItem("token") === null ?
-                                <my_h4 style={{display:"flex", alignItems:"center", justifyContent:"center", padding:"20px", color: "var(--black)"}}>
-                                    Zaloguj się, aby zobaczyć zapisanych uczestników
-                                </my_h4>:
+
+                                    <my_h4 style={{display:"flex", alignItems:"center", justifyContent:"center", padding:"20px", color: "var(--black)"}}>
+                                        Zaloguj się, aby zobaczyć zapisanych uczestników
+                                    </my_h4>
+                                :
 
                                 props.pairs_list.pairs["ALL"].length === 0 ?
+
                                     <my_h4 style={{display:"flex", alignItems:"center", justifyContent:"center", padding:"20px", color: "var(--black)"}}>
                                         Na ten turniej nie ma jeszcze zapisanych użytkowników
-                                    </my_h4> :
+                                    </my_h4>
+                                    :
                                     <>
                                         <>
                                             <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%", textAlign: "center"}} >

@@ -34,23 +34,24 @@ export const DrabinkaCard = (props) => {
     }, [])
 
     return (
-        <Card border={"dark"}>
+        <Card style={{marginBottom:"20px", border:"solid var(--medium_grey) 1px", borderColor:"var(--medium_grey)"}}>
             <Container>
                 <Row style={{paddingLeft: "10px"}}>
                     <Col sm={8}>
-                        <Row>{props.inA} {props.inB}</Row>
+                        {/*<Row>{props.inA} {props.inB}</Row>*/}
                         <Row>
-                            <Col sm={8}>
+                            <Col sm={8} style={{marginTop:"10px", marginBottom:"10px"}}>
                                 <Row>
-                                    {card.inAname1} {card.inAsurname1}
+                                   <paragraph_sb>{card.inAname1} {card.inAsurname1}</paragraph_sb>
                                 </Row>
                                 <Row>
-                                    {card.inAname2} {card.inAsurname2}
+                                    <paragraph_sb>{card.inAname2} {card.inAsurname2}</paragraph_sb>
                                 </Row>
                             </Col>
-                            <Col sm={4}>
-                                {props.winner === "A"? <CheckCircleFill color={"green"}/>:null}&nbsp;
-                                {props.winner === "B"? <XCircleFill color={"red"}/>:null}&nbsp;
+                            <Col sm={4} style={{marginTop:"5px", marginBottom:"10px", display:"flex", alignItems:"center", fontFamily:"'Montserrat', serif", fontStyle:"normal",
+                            fontWeight:"600", fontSize:"14px", lineHeight:"17px"}}>
+                                {props.winner === "A"? <CheckCircleFill color={"green"}/>:null}
+                                {props.winner === "B"? <XCircleFill color={"red"}/>:null}&nbsp;&nbsp;
 
                                 {props.scores.length === 6?
                                     props.scores[0] + " " + props.scores[1] + " " + props.scores[2]
@@ -58,17 +59,18 @@ export const DrabinkaCard = (props) => {
                             </Col>
                         </Row>
                         <Row>
-                            <Col sm={8}>
+                            <Col sm={8} style={{marginTop:"10px", marginBottom:"10px"}}>
                                 <Row>
-                                    {card.inBname1} {card.inBsurname1}
+                                    <paragraph_sb>{card.inBname1} {card.inBsurname1}</paragraph_sb>
                                 </Row>
                                 <Row>
-                                    {card.inBname2} {card.inBsurname2}
+                                    <paragraph_sb>{card.inBname2} {card.inBsurname2}</paragraph_sb>
                                 </Row>
                             </Col>
-                            <Col sm={4}>
-                                {props.winner === "B"? <CheckCircleFill color={"green"}/>:null}&nbsp;
-                                {props.winner === "A"? <XCircleFill color={"red"}/>:null}&nbsp;
+                            <Col sm={4} style={{marginTop:"5px", marginBottom:"10px", display:"flex", alignItems:"center", fontFamily:"'Montserrat', serif", fontStyle:"normal",
+                                fontWeight:"600", fontSize:"14px", lineHeight:"17px"}}>
+                                {props.winner === "B"? <CheckCircleFill color={"green"}/>:null}
+                                {props.winner === "A"? <XCircleFill color={"red"}/>:null}&nbsp;&nbsp;
 
                                 {props.scores.length === 6?
                                     props.scores[3] + " " + props.scores[4] + " " + props.scores[5]

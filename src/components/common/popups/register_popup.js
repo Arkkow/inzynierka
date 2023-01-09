@@ -10,50 +10,102 @@ const Register_popup = ({
   setIsLoginOpen,
   setIsRegisterOpen,
 }) => {
+  const initialValues = {
+    username: "",
+    surname: "",
+    name: "",
+    mail: "",
+    phone: "",
+    password: "",
+  };
+  const [formErrors, setFormErrors] = useState({});
+  const [formValues, setFormValues] = useState(initialValues);
   const [error, setError] = useState(null);
   const [isSended, setIsSended] = useState(false);
-  const [response, setResponse] = useState([]);
-  const username = useRef(null);
+    const [isPasswordValid, setIsPasswordValid] = useState(false);
+    const username = useRef(null);
   const surname = useRef(null);
-  const name = useRef(null);
+  const nameOfUser = useRef(null);
   const mail = useRef(null);
   const phone = useRef(null);
   const password = useRef(null);
-  const handleClick = () => {
-    fetch("https://dragonmaster.pl/inz/user/create", {
-      method: "PUT",
-      body: JSON.stringify({
-        name: name.current.value,
-        username: username.current.value,
-        surname: surname.current.value,
-        mail: mail.current.value,
-        phone: phone.current.value,
-        password: password.current.value,
-      }),
-    })
-      .then((res) => res.json())
-      .then(
-        (result) => {
+  let userData = "";
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.nameOfUser) {
+      errors.nameOfUser = "Wpisz swoje imię";
+    }
+    if (!values.username) {
+      errors.username = "Wpisz swój login";
+    }
+    if (!values.surname) {
+      errors.surname = "Wpisz swoje nazwisko";
+    }
+    if (!values.mail) {
+      errors.mail = "Wpisz swój email";
+    }
+    if (!values.phone) {
+      errors.phone = "Wpisz swój numer";
+    }
+    if (!values.password) {
+      errors.password = "Wpisz swoje hasło";
+    }
+    if (values.password !== values.repeatPassword) {
+        setIsPasswordValid(false)
+      errors.repeatPassword = "Powtórzone hasło nie jest takie samo!";
+    }
+    else{setIsPasswordValid(true)}
+    setError(errors);
+
+    return errors;
+  };
+
+  const handleChange = (e) => {
+      document.getElementById("goodmsg").style.display = "none";
+      const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+  const handleClick = async () => {
+    await setFormErrors(validate(formValues));
+    if (!nameOfUser.current.value || !surname.current.value || !username.current.value || !mail.current.value || !mail.current.value || !phone.current.value || !password.current.value || !isPasswordValid) {
+      document.getElementById("errormsg").style.display = "block";
+    } else {
+      fetch("https://dragonmaster.pl/inz/user/create", {
+        method: "PUT",
+        body: JSON.stringify({
+          name: nameOfUser.current.value,
+          username: username.current.value,
+          surname: surname.current.value,
+          mail: mail.current.value,
+          phone: phone.current.value,
+          password: password.current.value,
+        }),
+      })
+        .then((result) => {
           setIsSended(true);
-          setResponse(result);
-          console.log(result);
-          alert("Zweryfikuj adres e-mail, aby móc się zalogować");
-          setIsRegisterOpen(false);
-        },
-        (error) => {
-          setIsSended(true);
-          setError(error);
-        }
-      );
-    if (error) {
-      alert("Coś poszło nie tak: " + error.message);
+          if (result.status === 200) {
+              document.getElementById("goodmsg").style.display = "block";
+            document.getElementById("errormsg").style.display = "none";
+          } else {
+              document.getElementById("goodmsg").style.display = "none";
+              document.getElementById("errormsg").style.display = "block";
+          }
+          // alert("Zweryfikuj adres e-mail, aby móc się zalogować");
+          // setIsRegisterOpen(false);
+        })
+        .catch((error) => console.log("error:", error));
     }
   };
 
   return (
     <Modal show={isRegisterOpen} onHide={() => setIsRegisterOpen(false)}>
       <Modal.Header closeButton>
-        <img src={PFP_LOGO} style={{ marginLeft: "auto", height:"8vh" }} alt="LOGO" />
+        <img
+          src={PFP_LOGO}
+          style={{ marginLeft: "auto", height: "8vh" }}
+          alt="LOGO"
+        />
       </Modal.Header>
       <Modal.Body
         style={{
@@ -77,50 +129,161 @@ const Register_popup = ({
         </h2>
         <Form style={{ width: "100%" }}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Control type="text" placeholder="Imię" ref={name} autoFocus />
+            <Form.Control
+              type="text"
+              placeholder="Imię"
+              ref={nameOfUser}
+              name="nameOfUser"
+              autoFocus
+              onChange={handleChange}
+            />
+            <big_para_sb
+              style={{
+                color: "red",
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "20px",
+              }}
+            >
+              {formErrors.nameOfUser}
+            </big_para_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="text"
               placeholder="Nazwisko"
               ref={surname}
+              value={formValues.surname}
+              name="surname"
               autoFocus
+              onChange={handleChange}
             />
+            <big_para_sb
+              style={{
+                color: "red",
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "20px",
+              }}
+            >
+              {formErrors.surname}
+            </big_para_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="text"
               placeholder="Login"
               ref={username}
+              name="username"
+              value={formValues.username}
               autoFocus
+              onChange={handleChange}
             />
+            <big_para_sb
+              style={{
+                color: "red",
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "20px",
+              }}
+            >
+              {formErrors.username}
+            </big_para_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="email"
               placeholder="Email"
               ref={mail}
+              name="mail"
+              value={formValues.mail}
               autoFocus
+              onChange={handleChange}
             />
+            <big_para_sb
+              style={{
+                color: "red",
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "20px",
+              }}
+            >
+              {formErrors.mail}
+            </big_para_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="tel"
               placeholder="Telefon"
               ref={phone}
+              name="phone"
+              value={formValues.phone}
               autoFocus
+              onChange={handleChange}
             />
+            <big_para_sb
+              style={{
+                color: "red",
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "20px",
+              }}
+            >
+              {formErrors.phone}
+            </big_para_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="password"
               placeholder="Hasło"
               ref={password}
+              name="password"
+              value={formValues.password}
               autoFocus
+              onChange={handleChange}
             />
+            <big_para_sb
+              style={{
+                color: "red",
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "20px",
+              }}
+            >
+              {formErrors.password}
+            </big_para_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="password"
               placeholder="Potwierdź hasło"
+              name="repeatPassword"
+              id="repeatPassword"
+              value={formValues.repeatPassword}
               autoFocus
+              onChange={handleChange}
             />
+            <big_para_sb
+              style={{
+                color: "red",
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "20px",
+              }}
+            >
+              {formErrors.repeatPassword}
+            </big_para_sb>
           </Form.Group>
         </Form>
+        <div id={"errormsg"} style={{ display: "none" }}>
+          <paragraph_sb style={{ color: "red" }}>
+            Coś poszło nie tak. Spróbuj ponownie
+          </paragraph_sb>
+        </div>
+          <div id={"errorInt"} style={{ display: "none" }}>
+              <paragraph_sb style={{ color: "red" }}>
+                  Coś poszło nie tak. Spróbuj ponownie, lub sprawdź swój internet
+              </paragraph_sb>
+          </div>
+          <div id={"goodmsg"} style={{ display: "none" }}>
+              <paragraph_sb style={{ color: "green" }}>
+                  Rejestracja udana. Sprawdź swojego maila w celu skończenia rejestracji
+              </paragraph_sb>
+          </div>
         <Button
           type="submit"
           style={{

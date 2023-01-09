@@ -416,6 +416,7 @@ function InputBox() {
             color: "white",
           }}
           type="button"
+          onClick={window.location.href = "calendar"}
           className="btn btn-secondary"
         >
           ANULUJ

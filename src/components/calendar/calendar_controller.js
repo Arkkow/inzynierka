@@ -43,7 +43,11 @@ export const Calendar_controller = (props) => {
               <Col lg={6}>
                   {props.calendar_list.length === 0 ?
                       <my_h5>Brak wyników</my_h5> :
-                          props.calendar_list.map(card =>
+                          props.calendar_list.sort((a,b) => {
+                              let da = new Date(a.from),
+                                  db = new Date(b.from);
+                              return db - da;
+                          }).map(card =>
                               <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} refreshProps = {() => refreshProps({...props})}/>
                           )
                   }

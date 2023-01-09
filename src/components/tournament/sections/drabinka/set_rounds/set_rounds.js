@@ -1,5 +1,5 @@
 import Button from "react-bootstrap/Button";
-import {putLadder} from "../../../../../../api/tournament/ladders_api";
+import {putLadder} from "../../../../../api/tournament/ladders_api";
 import * as React from "react";
 
 export const SetRounds = (props) => {
