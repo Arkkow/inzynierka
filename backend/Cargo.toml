@@ -1,0 +1,20 @@
+[package]
+name = "main"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+hyper = { version = "*", features = ["full"] }
+tokio = { version = "*", features = ["full"] }
+mysql = "*"
+serde_json = "*"
+serde = "*"
+serde_derive = "*"
+bcrypt = "0.12"
+rand = "0.3.0"
+lettre = "0.10.1"
+time="*"
+chrono = "*"
+image = "0.24.5"
