@@ -403,6 +403,7 @@ function InputBox() {
         className="form-control"
         type="file"
         id="formFile"
+        accept="image/*"
       ></input>
       <div id="uploadmsg"></div>
       {/*<div style={{ borderStyle: "solid", marginTop: "1%", width: "110px" }}>*/}

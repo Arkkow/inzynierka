@@ -516,6 +516,7 @@ function InputBox() {
             className="form-control"
             type="file"
             id="formFile"
+            accept="image/*"
         ></input>
 
         <div style={{ marginTop: "3%" }}>
