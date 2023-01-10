@@ -136,7 +136,7 @@ function InputBox() {
                 var reader = new FileReader();
                 reader.onload = function() {
                   var arrayBuffer = this.result;
-                  postImage(id,arrayBuffer).then(setTimeout(()=>{window.location.href="calendar"; }, 3000))
+                  postImage(id,arrayBuffer).then(setTimeout(()=>{window.location.href="calendar"; }, 6000))
                 }
                 reader.readAsArrayBuffer(document.getElementById("formFile").files[0]);
               }
