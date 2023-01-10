@@ -37,7 +37,7 @@ const Register_popup = ({
       errors.nameOfUser = "Wpisz swoje imię";
     }
     if (!values.username) {
-      errors.username = "Wpisz swój login";
+      errors.username = "Wpisz login";
     }
     if (!values.surname) {
       errors.surname = "Wpisz swoje nazwisko";
@@ -46,14 +46,14 @@ const Register_popup = ({
       errors.mail = "Wpisz swój email";
     }
     if (!values.phone) {
-      errors.phone = "Wpisz swój numer";
+      errors.phone = "Wpisz swój numer telefonu";
     }
     if (!values.password) {
-      errors.password = "Wpisz swoje hasło";
+      errors.password = "Wpisz hasło";
     }
     if (values.password !== values.repeatPassword) {
         setIsPasswordValid(false)
-      errors.repeatPassword = "Powtórzone hasło nie jest takie samo!";
+      errors.repeatPassword = "Powtórzone hasło nie jest takie samo";
     }
     else{setIsPasswordValid(true)}
     setError(errors);
@@ -137,16 +137,17 @@ const Register_popup = ({
               autoFocus
               onChange={handleChange}
             />
-            <big_para_sb
+            <paragraph_sb
               style={{
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                marginLeft: "20px",
+                paddingLeft: "5px",
+                  paddingTop: "5px"
               }}
             >
               {formErrors.nameOfUser}
-            </big_para_sb>
+            </paragraph_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="text"
@@ -157,16 +158,17 @@ const Register_popup = ({
               autoFocus
               onChange={handleChange}
             />
-            <big_para_sb
+            <paragraph_sb
               style={{
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                marginLeft: "20px",
+                  paddingLeft: "5px",
+                  paddingTop: "5px"
               }}
             >
               {formErrors.surname}
-            </big_para_sb>
+            </paragraph_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="text"
@@ -177,16 +179,17 @@ const Register_popup = ({
               autoFocus
               onChange={handleChange}
             />
-            <big_para_sb
+            <paragraph_sb
               style={{
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                marginLeft: "20px",
+                  paddingLeft: "5px",
+                  paddingTop: "5px"
               }}
             >
               {formErrors.username}
-            </big_para_sb>
+            </paragraph_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="email"
@@ -197,16 +200,17 @@ const Register_popup = ({
               autoFocus
               onChange={handleChange}
             />
-            <big_para_sb
+            <paragraph_sb
               style={{
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                marginLeft: "20px",
+                  paddingLeft: "5px",
+                  paddingTop: "5px"
               }}
             >
               {formErrors.mail}
-            </big_para_sb>
+            </paragraph_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="tel"
@@ -217,16 +221,17 @@ const Register_popup = ({
               autoFocus
               onChange={handleChange}
             />
-            <big_para_sb
+            <paragraph_sb
               style={{
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                marginLeft: "20px",
+                  paddingLeft: "5px",
+                  paddingTop: "5px"
               }}
             >
               {formErrors.phone}
-            </big_para_sb>
+            </paragraph_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="password"
@@ -237,16 +242,17 @@ const Register_popup = ({
               autoFocus
               onChange={handleChange}
             />
-            <big_para_sb
+            <paragraph_sb
               style={{
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                marginLeft: "20px",
+                  paddingLeft: "5px",
+                  paddingTop: "5px"
               }}
             >
               {formErrors.password}
-            </big_para_sb>
+            </paragraph_sb>
             <Form.Control
               style={{ marginTop: "1%" }}
               type="password"
@@ -257,31 +263,32 @@ const Register_popup = ({
               autoFocus
               onChange={handleChange}
             />
-            <big_para_sb
+            <paragraph_sb
               style={{
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                marginLeft: "20px",
+                  paddingLeft: "5px",
+                  paddingTop: "5px"
               }}
             >
               {formErrors.repeatPassword}
-            </big_para_sb>
+            </paragraph_sb>
           </Form.Group>
         </Form>
-        <div id={"errormsg"} style={{ display: "none" }}>
-          <paragraph_sb style={{ color: "red" }}>
-            Coś poszło nie tak. Spróbuj ponownie
+        <div id={"errormsg"} style={{ display: "none", marginBottom:"10px"}}>
+          <paragraph_sb style={{ color: "red"}}>
+            Zweryfikuj poprawność wpisanych danych i spróbuj ponownie
           </paragraph_sb>
         </div>
-          <div id={"errorInt"} style={{ display: "none" }}>
+          <div id={"errorInt"} style={{ display: "none", marginBottom:"10px" }}>
               <paragraph_sb style={{ color: "red" }}>
-                  Coś poszło nie tak. Spróbuj ponownie, lub sprawdź swój internet
+                  Coś poszło nie tak. Spróbuj ponownie lub sprawdź połączenie z internetem
               </paragraph_sb>
           </div>
-          <div id={"goodmsg"} style={{ display: "none" }}>
+          <div id={"goodmsg"} style={{ display: "none", marginBottom:"10px" }}>
               <paragraph_sb style={{ color: "green" }}>
-                  Rejestracja udana. Sprawdź swojego maila w celu skończenia rejestracji
+                  Udało się! Sprawdź skrzynkę i zweryfikuj adres email
               </paragraph_sb>
           </div>
         <Button
