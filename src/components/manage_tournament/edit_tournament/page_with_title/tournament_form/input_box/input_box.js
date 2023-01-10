@@ -32,6 +32,10 @@ function InputBox() {
   let ranked = "";
   let visibility = ""
 
+  function backToCalendar(){
+    window.location.href="calendar"
+  }
+
   function sendData() {
     if (document.getElementById("visibility_var").checked) {
       visibility = "TRUE";
@@ -399,6 +403,7 @@ function InputBox() {
         className="form-control"
         type="file"
         id="formFile"
+        accept="image/*"
       ></input>
       <div id="uploadmsg"></div>
       {/*<div style={{ borderStyle: "solid", marginTop: "1%", width: "110px" }}>*/}
@@ -416,7 +421,7 @@ function InputBox() {
             color: "white",
           }}
           type="button"
-          onClick={window.location.href = "calendar"}
+          onClick={backToCalendar}
           className="btn btn-secondary"
         >
           ANULUJ

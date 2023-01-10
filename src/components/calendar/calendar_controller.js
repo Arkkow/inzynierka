@@ -19,6 +19,8 @@ export function refreshProps(props) {
 
 export const Calendar_controller = (props) => {
 
+    let getFromLocal = localStorage.getItem("dateFrom") === null ? "1900-01-11" : localStorage.getItem("dateFrom");
+    let getToLocal = localStorage.getItem("dateTo") === null ? "2123-01-11" : localStorage.getItem("dateTo");
     const [authedDownload, changeAuthedDownload] = useState(() => { return 0; });
 
     useEffect(() => {
@@ -33,7 +35,6 @@ export const Calendar_controller = (props) => {
       <>
           {props.user.role !== "default" && authedDownload === 0 ?
               <>
-                  { console.log("authed") }
                   { props.handleDownloadAuthedCalendar() }
                   { changeAuthedDownload(1) }
               </>:null
@@ -43,7 +44,7 @@ export const Calendar_controller = (props) => {
               <Col lg={6}>
                   {props.calendar_list.length === 0 ?
                       <my_h5>Brak wyników</my_h5> :
-                          props.calendar_list.sort((a,b) => {
+                      props.calendar_list.filter(x=>x.from >= getFromLocal && x.from <= getToLocal).sort((a,b) => {
                               let da = new Date(a.from),
                                   db = new Date(b.from);
                               return db - da;
@@ -108,7 +109,6 @@ const mapDispatchToProps = (dispatch) => {
       //    API z kalendarza
       getUser()
           .then((res) => {
-            console.log(res);
             return dispatch({ type: "DOWNLOAD_USER", payload: { data: res } });
           })
           .catch((err) => {
@@ -120,8 +120,6 @@ const mapDispatchToProps = (dispatch) => {
       //    API z kalendarza
         getPendingApprovals()
           .then((res) => {
-            console.log(res);
-            console.log("My_TOURNAMENTS")
             return dispatch({ type: "DOWNLOAD_MY_TOURNAMENTS", payload: { data: res } });
           })
           .catch((err) => {

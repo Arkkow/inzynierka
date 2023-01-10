@@ -69,7 +69,9 @@ export const ZapisyCard = (props) => {
                             }
                         </Row>
                     </Col>
-                    <ZapisyConditionals {...props} tournamentID = {props.id} refreshProps = {props.refreshProps}/>
+                    {props.state !== 3 && props.state !== 4?
+                        <ZapisyConditionals {...props} tournamentID = {props.id} refreshProps = {props.refreshProps}/>
+                        :null}
                 </Row>
             </Container>
         </Card>

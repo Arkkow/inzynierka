@@ -7,8 +7,8 @@ import {useEffect} from "react";
 // CSS files
 import Button from "react-bootstrap/Button";
 import {ButtonGroup, Col} from "react-bootstrap";
-import {putLadder} from "../../../../api/tournament/ladders_api";
-import SetRounds from "./set_rounds/set_rounds";
+import {putLadder} from "../../../../../api/tournament/ladders_api";
+import SetRounds from "./set_rounds";
 
 export const SetTournamentRounds = (props) => {
 

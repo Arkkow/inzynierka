@@ -101,56 +101,58 @@ function InputBox() {
       pointsForTournament.value = "1000";
     }
 
-
-    fetch("https://dragonmaster.pl/inz/tournament", {
-      headers: {
-        Authorization: "Bearer " + Token,
-      },
-      method: "PUT",
-      body: JSON.stringify({
-        name: name.current.value,
-        typeOfLadder: typeOfLadder.current.value,
-        pointsForTournament: "4",
-        places: places.current.value,
-        ranked: ranked,
-        place: place.current.value,
-        from: from.current.value,
-        to: to.current.value,
-        rang: rang.current.value,
-        entryFee: entryFee.current.value,
-        director: director.current.value,
-        phone: phone.current.value,
-        entriesTo: entriesTo.current.value,
-        additionalInformations: additionalInformations.current.value,
-        categotry: categotry.current.value,
-        visibility: visibility,
-      }),
-    })
-        .then((res) => res.json())
-        .then(
-            (result) => {
-              console.log(result);
-              //usefulll link https://usefulangle.com/post/67/pure-javascript-ajax-file-upload-showing-progess-percent
-              if(document.getElementById("formFile").files.length !=0){
-                var id =result.id;
-                var reader = new FileReader();
-                reader.onload = function() {
-                  var arrayBuffer = this.result;
-                  postImage(id,arrayBuffer).then(setTimeout(()=>{window.location.href="calendar"; }, 3000))
-                }
-                reader.readAsArrayBuffer(document.getElementById("formFile").files[0]);
-              }
-              else{
-                window.location.href="calendar";
-              }
-            },
-            (error) => {
-              setError(error);
-            }
-        );
-
     if (!name.current.value || !entryFee.current.value || !place.current.value || !phone.current.value || !director.current.value || !from.current.value || !to.current.value || !entriesTo.current.value) {
       alert("Nie wszystkie pola zostały wypełnione");
+    }
+    else {
+      fetch("https://dragonmaster.pl/inz/tournament", {
+        headers: {
+          Authorization: "Bearer " + Token,
+        },
+        method: "PUT",
+        body: JSON.stringify({
+          name: name.current.value,
+          typeOfLadder: typeOfLadder.current.value,
+          pointsForTournament: "4",
+          places: places.current.value,
+          ranked: ranked,
+          place: place.current.value,
+          from: from.current.value,
+          to: to.current.value,
+          rang: rang.current.value,
+          entryFee: entryFee.current.value,
+          director: director.current.value,
+          phone: phone.current.value,
+          entriesTo: entriesTo.current.value,
+          additionalInformations: additionalInformations.current.value,
+          categotry: categotry.current.value,
+          visibility: visibility,
+        }),
+      })
+          .then((res) => res.json())
+          .then(
+              (result) => {
+                console.log(result);
+                //usefulll link https://usefulangle.com/post/67/pure-javascript-ajax-file-upload-showing-progess-percent
+                if (document.getElementById("formFile").files.length != 0) {
+                  var id = result.id;
+                  var reader = new FileReader();
+                  reader.onload = function () {
+                    var arrayBuffer = this.result;
+                    postImage(id, arrayBuffer).then(setTimeout(() => {
+                      window.location.href = "calendar";
+                    }, 6000))
+                  }
+                  reader.readAsArrayBuffer(document.getElementById("formFile").files[0]);
+                } else {
+                  window.location.href = "calendar";
+                }
+              },
+              (error) => {
+                setError(error);
+              }
+          );
+
     }
     if (error){
       if (error !== "Failed to fetch")
@@ -514,6 +516,7 @@ function InputBox() {
             className="form-control"
             type="file"
             id="formFile"
+            accept="image/*"
         ></input>
 
         <div style={{ marginTop: "3%" }}>
