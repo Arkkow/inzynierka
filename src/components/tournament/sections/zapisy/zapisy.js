@@ -29,17 +29,20 @@ export const Zapisy = (props) => {
             <Container fluid="true" style={{minHeight: "64vh", paddingTop: "0%"}}>
                 <Row className="justify-content-md-center" >
                     <Col sm={12} style={{}}>
-                        <Row>
-                            <TournamentAdminPanel
-                                {...props}
-                                tournament = {props.calendar_list}
-                                places = {props.calendar_list.places}
-                                pairs_list = {props.pairs_list}
-                                ladders_length = {props.ladders_list.ladders["ALL"].length}
-                                refreshProps = {() => props.refreshProps({...props}, props.id)}
-                            />
 
-                        </Row>
+                        {props.calendar_list.state !== 3?
+                            <Row>
+                                <TournamentAdminPanel
+                                    {...props}
+                                    tournament = {props.calendar_list}
+                                    places = {props.calendar_list.places}
+                                    pairs_list = {props.pairs_list}
+                                    ladders_length = {props.ladders_list.ladders["ALL"].length}
+                                    refreshProps = {() => props.refreshProps({...props}, props.id)}
+                                />
+
+                            </Row>:null}
+
                         <Row style={{background: "white", marginTop:"10px", borderRadius:"10px", width:"100%"}}>
 
                             {props.role === "default" || localStorage.getItem("token") === null ?
@@ -65,21 +68,21 @@ export const Zapisy = (props) => {
                                                     .filter((e) => e.partner === props.user.id || e.userid === props.user.id)
                                                     .sort((a, b) => b.rankingsum - a.rankingsum)
                                                     .map((card)=>(
-                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {() => props.refreshProps({...props}, props.id)}
-                                                                    isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
+                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} state ={props.calendar_list.state} refreshProps = {() => props.refreshProps({...props}, props.id)}
+                                                                    isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places } />
                                                     ))}
                                             </>
                                         </>
                                         <>
                                             <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%", textAlign: "center"}} >
-                                                Wszystkie rejestracje
+                                                Wszystkie rejestracje {console.log(props.calendar_list.state)}
                                             </Card>
                                             <>
                                                 {props.pairs_list.pairs["ALL"]
                                                     .sort((a, b) => b.rankingsum - a.rankingsum)
                                                     .map((card)=>(
-                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} refreshProps = {() => props.refreshProps({...props}, props.id)}
-                                                                    isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}/>
+                                                        <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} state ={props.calendar_list.state} refreshProps = {() => props.refreshProps({...props}, props.id)}
+                                                                    isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places} />
                                                     ))}
                                             </>
                                         </>

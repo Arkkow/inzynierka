@@ -25,7 +25,7 @@ export const TournamentAdminPanel = (props) => {
     return (
         <>
 
-            {props.user.role === "3"?
+            {props.user.role === "3" && props.tournament.state !== 3?
             <>
                 <Row>
                     <Col lg={9}>
@@ -51,7 +51,12 @@ export const TournamentAdminPanel = (props) => {
                     <Col lg={3}>
                         <Button
                             variant="secondary"
-                            disabled={props.tournament.state ===2}
+                            disabled={( props.pairs_list.pairs["DONE"].length !== props.places ||
+                                // Jeżeli turniej nie jest w odpowiednim stanie
+                                props.tournament.state !== 0 ||
+                                // Jeżeli jesteś adminem lub organizatorem tego turnieju
+                                ((props.user.role !== "2" || props.user.id !== props.tournament.creator) && props.user.role !== "3"))}
+
                             onClick={() =>{
                                 if( props.pairs_list.pairs["DONE"].length === props.places &&
                                     // Jeżeli turniej nie jest w odpowiednim stanie

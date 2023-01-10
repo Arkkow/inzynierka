@@ -416,7 +416,7 @@ function InputBox() {
             color: "white",
           }}
           type="button"
-          onClick={window.location.href = "calendar"}
+          onClick={() => window.location.href = "calendar"}
           className="btn btn-secondary"
         >
           ANULUJ
@@ -467,6 +467,7 @@ function InputBox() {
                 document.getElementById("formFile").files[0]
               );
             } else {
+              console.log("Hi!")
               sendData();
             }
           }}

@@ -70,16 +70,17 @@ export const Drabinka = (props) => {
             </Row>
                 :null}
 
-            <Row>
-                <SetTournamentRounds
-                    {...props}
-                    tournament = {props.calendar_list}
-                    places = {props.calendar_list.places}
-                    pairs_list = {props.pairs_list}
-                    ladders_length = {props.ladders_list.ladders["ALL"].length}
-                    refreshProps = {() => props.refreshProps({...props}, props.id)}
-                />
-            </Row>
+            {props.calendar_list.state !== 3?
+                <Row className="justify-content-md-center" >
+                    <SetTournamentRounds
+                            {...props}
+                            tournament = {props.calendar_list}
+                            places = {props.calendar_list.places}
+                            pairs_list = {props.pairs_list}
+                            ladders_length = {props.ladders_list.ladders["ALL"].length}
+                            refreshProps = {() => props.refreshProps({...props}, props.id)}
+                        />
+                </Row>:null}
 
             {props.ladders_list.ladders["ALL"].length !== 0 ?
                 <Row>
@@ -155,15 +156,16 @@ export const Drabinka = (props) => {
             {/*    </div>*/}
             {/*}*/}
 
-            {/*{console.log(props.calendar_list.typeOfLadder)}*/}
-            <div style={{marginTop:"20px", marginBottom:"20px", display:"flex", justifyContent:"center"}}>
-                { props.calendar_list.approved === 2 ?
-                (props.calendar_list.typeOfLadder == "DRABINKA O MIEJSCA" ?
-                    <div><End_tournament_places_popup  {...props}/></div> :
-                    <div><EndTournament_popup  {...props}/></div>) :
-                <div><EndUnrankedTournament_popup/></div>
+            {props.calendar_list.state === 2?
+                <div style={{marginTop:"20px", marginBottom:"20px", display:"flex", justifyContent:"center"}}>
+                    { props.calendar_list.approved === 2 ?
+                    (props.calendar_list.typeOfLadder == "DRABINKA O MIEJSCA" ?
+                        <div><End_tournament_places_popup  {...props}/></div> :
+                        <div><EndTournament_popup  {...props}/></div>) :
+                    <div><EndUnrankedTournament_popup/></div>
+                }
+                </div>:null
             }
-            </div>
 
         </>
     );
