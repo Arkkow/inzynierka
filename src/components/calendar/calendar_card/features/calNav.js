@@ -15,7 +15,6 @@ import Button from "react-bootstrap/Button";
 import { Col, Form, Row } from "react-bootstrap";
 
 function saveData() {
-  console.log(document.getElementById("dateFrom").value === "");
   if (
       document.getElementById("dateFrom").value !== "" ||
       document.getElementById("dateTo").value !== ""

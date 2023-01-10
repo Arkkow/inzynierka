@@ -18,7 +18,6 @@ export const My_calendar_controller = (props) => {
         if (localStorage.getItem("token") === null) {
             console.log("unauthed")
             window.location.href="calendar"
-
         }
         else {
             console.log("authed")

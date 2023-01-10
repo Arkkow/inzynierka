@@ -35,7 +35,6 @@ export const Calendar_controller = (props) => {
       <>
           {props.user.role !== "default" && authedDownload === 0 ?
               <>
-                  { console.log("authed") }
                   { props.handleDownloadAuthedCalendar() }
                   { changeAuthedDownload(1) }
               </>:null
@@ -110,7 +109,6 @@ const mapDispatchToProps = (dispatch) => {
       //    API z kalendarza
       getUser()
           .then((res) => {
-            console.log(res);
             return dispatch({ type: "DOWNLOAD_USER", payload: { data: res } });
           })
           .catch((err) => {
@@ -122,8 +120,6 @@ const mapDispatchToProps = (dispatch) => {
       //    API z kalendarza
         getPendingApprovals()
           .then((res) => {
-            console.log(res);
-            console.log("My_TOURNAMENTS")
             return dispatch({ type: "DOWNLOAD_MY_TOURNAMENTS", payload: { data: res } });
           })
           .catch((err) => {
