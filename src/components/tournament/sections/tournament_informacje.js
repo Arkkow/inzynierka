@@ -21,6 +21,7 @@ export const TournamentInfo = (props) => {
                     <div style={{marginBottom: "1%"}}>
                         <big_para_sb style={{marginBottom:"0"}}> Od: </big_para_sb>
                         <div>
+                            <big_para> {props.calendar_list.from} </big_para>
                         </div>
                     </div>
                     <div style={{marginBottom: "1%"}}>
