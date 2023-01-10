@@ -6,17 +6,20 @@ import PFP_LOGO from "../../../assets/PFP_LOGO.png";
 import "../../../styles/App.css";
 import { getUser, getUserById } from "../../../api/user_interaction/user_api";
 import { putRegistration } from "../../../api/tournament/tournament_registration_api";
+import {getTournamentById} from "../../../api/api";
 
 function T_registration_popup(props) {
+    const id_tournament = window.location.href.split("?")[1].split("=")[1];
     // document.getElementById("forms").addEventListener('keypress', );
   const [userId, setId] = useState([]);
+  const [tournamentInfo, setTournamentInfo] = useState([]);
 
   useEffect(() => {
     getUser().then((response) => setId(response.id));
+    getTournamentById(id_tournament).then((response) => setTournamentInfo(response))
   }, []);
 
   const [show, setShow] = useState(false);
-  const id_tournament = window.location.href.split("?")[1].split("=")[1];
 
   const id = useRef(null);
 
@@ -54,7 +57,8 @@ function T_registration_popup(props) {
 
   return (
     <>
-      {props.role === "default" || localStorage.getItem("token") === null ? (
+        {tournamentInfo.approved !== 3 ?
+            (props.role === "default" || localStorage.getItem("token") === null ? (
         <Button
           style={{
             backgroundColor: "gray",
@@ -99,7 +103,28 @@ function T_registration_popup(props) {
         >
           ZAPISZ SIĘ!
         </Button>
-      )}
+      )):        <Button
+                style={{
+                    backgroundColor: "gray",
+                    borderColor: "gray",
+                    height: "15vh",
+                    width: "40vh",
+                    borderRadius: "20px",
+                    fontFamily: "Montserrat",
+                    fontWeight: "600",
+                    fontSize: "24px",
+                    lineHeight: "41.45px",
+                    color: "white",
+                    paddingRight: "1.5%",
+                    paddingLeft: "1.5%",
+                    paddingBottom: "0.5%",
+                    paddingTop: "0.5%",
+                    marginRight: "1%",
+                }}
+                variant="success"
+            >
+                Turniej zakończył się. Zapisywanie się na turniej nie jest możliwe.
+            </Button>}
       <Modal show={show} onHide={handleClose} onKeyDown={handleKeyDown}>
         <Modal.Header closeButton>
           <img

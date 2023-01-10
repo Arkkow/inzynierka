@@ -32,6 +32,10 @@ function InputBox() {
   let ranked = "";
   let visibility = ""
 
+  function backToCalendar(){
+    window.location.href="calendar"
+  }
+
   function sendData() {
     if (document.getElementById("visibility_var").checked) {
       visibility = "TRUE";
@@ -416,7 +420,7 @@ function InputBox() {
             color: "white",
           }}
           type="button"
-          onClick={() => window.location.href = "calendar"}
+          onClick={backToCalendar}
           className="btn btn-secondary"
         >
           ANULUJ
@@ -467,7 +471,6 @@ function InputBox() {
                 document.getElementById("formFile").files[0]
               );
             } else {
-              console.log("Hi!")
               sendData();
             }
           }}
