@@ -66,73 +66,81 @@ export const Header = (props) => {
           <Nav className="me-auto">
             <Container>
               <Row style={{ marginTop: "1%" }}>
-                <Col sm={6}>
-                  <my_h4 style={{ paddingLeft: "10px" }}>Od</my_h4>
+                <Col sm={4}>
+                  <my_h4 style={{ paddingLeft: "10px" }}>Data rozpoczęcia od</my_h4>
                   <Form.Control
                     style={{
-                      marginTop: "1%",
+                      marginTop: "8px",
                       height: "80%",
                       borderRadius: "100px",
+                        maxHeight:"52px"
                     }}
                     type="date"
                     id="dateFrom"
                     defaultValue={localStorage.getItem("dateFrom")}
                   />
                 </Col>
-                <Col sm={6}>
-                  <my_h4 style={{ paddingLeft: "10px" }}>Do</my_h4>
+                <Col sm={4}>
+                  <my_h4 style={{ paddingLeft: "10px" }}>Data rozpoczęcia do</my_h4>
                   <Form.Control
                     style={{
-                      marginTop: "1%",
+                      marginTop: "8px",
                       height: "80%",
                       borderRadius: "100px",
+                        maxHeight:"52px"
                     }}
                     type="date"
                     id="dateTo"
                     defaultValue={localStorage.getItem("dateTo")}
                   />
                 </Col>
-              </Row>
-              <Button
-                style={{
-                  fontFamily: "Montserrat",
-                  fontWeight: "600",
-                  fontSize: "10px",
-                  lineHeight: "15px",
-                  color: "white",
-                  borderRadius: "15px",
-                  paddingBottom: "3%",
-                  paddingTop: "3%",
-                  paddingRight: "20px",
-                  paddingLeft: "20px",
-                }}
-                variant="success"
-                onClick={saveData}
-              >
-                Filtruj
-              </Button>
+                  <Col sm={4} style={{display:"flex", alignItems:"end", marginTop:"35px", justifyContent:"center"}}>
+                      <Button
+                          style={{
+                              fontFamily: "Montserrat",
+                              fontWeight: "600",
+                              fontSize: "18px",
+                              lineHeight: "25px",
+                              color: "white",
+                              borderRadius: "15px",
+                              paddingBottom: "3%",
+                              paddingTop: "3%",
+                              paddingRight: "20px",
+                              paddingLeft: "20px",
+                              marginRight: "20px"
 
-              {localStorage.getItem("dateFrom") !== null ||
-              localStorage.getItem("dateTo") ? (
-                <Button
-                  style={{
-                    fontFamily: "Montserrat",
-                    fontWeight: "600",
-                    fontSize: "10px",
-                    lineHeight: "15px",
-                    color: "white",
-                    borderRadius: "15px",
-                    paddingBottom: "3%",
-                    paddingTop: "3%",
-                    paddingRight: "20px",
-                    paddingLeft: "20px",
-                  }}
-                  variant="success"
-                  onClick={deleteFilterData}
-                >
-                  Usuń filtry
-                </Button>
-              ) : null}
+                          }}
+                          variant="success"
+                          onClick={saveData}
+                      >
+                          FILTRUJ
+                      </Button>
+
+                      {localStorage.getItem("dateFrom") !== null ||
+                      localStorage.getItem("dateTo") ? (
+                          <Button
+                              style={{
+                                  fontFamily: "Montserrat",
+                                  fontWeight: "600",
+                                  fontSize: "18px",
+                                  lineHeight: "25px",
+                                  color: "white",
+                                  borderRadius: "15px",
+                                  paddingBottom: "3%",
+                                  paddingTop: "3%",
+                                  paddingRight: "20px",
+                                  paddingLeft: "20px",
+                              }}
+                              variant="success"
+                              onClick={deleteFilterData}
+                          >
+                              WYCZYŚĆ
+                          </Button>
+                      ) : null}
+
+                  </Col>
+              </Row>
+
               <Row style={{ marginTop: "2%", marginBottom: "2%" }}>
                 {props.user.role === "1" ? (
                   <Col
