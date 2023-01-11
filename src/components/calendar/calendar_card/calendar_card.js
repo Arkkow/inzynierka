@@ -18,7 +18,7 @@ export const CalendarCard = (props) => {
     return (
         <Card id={props.id} style={{ minWidth: '40%', margin: "2%", padding: "2%",
             borderRadius:"20px", borderColor:"var(--medium_grey)",
-            background: props.state >= 3?"#DDDDDD":"white"}} >
+            background: props.state >= 3?"#c9ccc8":"white"}} >
             <Container fluid="lg">
                 <Row>
                     <Col sm={2}>
