@@ -456,6 +456,8 @@ function InputBox() {
                         "PRZESŁANO";
                       sendData();
                     } else {
+                      document.getElementById("uploadmsg").innerText =
+                          "Coś poszło nie tak";
                     }
                   }
                 };
