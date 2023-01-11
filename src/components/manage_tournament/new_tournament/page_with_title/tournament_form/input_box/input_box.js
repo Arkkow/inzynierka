@@ -121,7 +121,7 @@ function InputBox() {
     else if (to.current.value < from.current.value) {
       alert("Turniej nie może kończyć się przed rozpoczęciem!");
     }
-    else if (!((from.current.value >= entriesTo.current.value)) ) {
+    else if (from.current.value > entriesTo.current.value) {
       alert("Zapisy nie mogą zaczynać się po rozpoczęciu turnieju!");
     }
     else {
