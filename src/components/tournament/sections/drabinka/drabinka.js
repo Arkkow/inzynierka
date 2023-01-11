@@ -13,7 +13,6 @@ import { deleteLadder } from "../../../../api/tournament/ladders_api";
 // CSS files
 import { Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import SetTournament from "../zapisy/tournament_admin_panel/tournament_admin_panel";
 import SetTournamentRounds from "./set_rounds/set_tournament_rounds";
 
 export const Drabinka = (props) => {
@@ -162,18 +161,18 @@ export const Drabinka = (props) => {
         </Row>
       )}
       {/** BUTTON USUWANIA TURNIEJÓW **/}
-      {/*{props.user.id === undefined ? null:*/}
-      {/*    props.user.role !== "3"? null:*/}
-      {/*    <div>*/}
-      {/*        <Button variant="danger" onClick={ () => {*/}
-      {/*            for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){*/}
-      {/*                deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))*/}
-      {/*            }*/}
-      {/*        }}>*/}
-      {/*            Usuń drabinki*/}
-      {/*        </Button>*/}
-      {/*    </div>*/}
-      {/*}*/}
+      {props.user.id === undefined ? null:
+          props.user.role !== "3"? null:
+          <div>
+              <Button variant="danger" onClick={ () => {
+                  for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){
+                      deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))
+                  }
+              }}>
+                  Usuń drabinki
+              </Button>
+          </div>
+      }
 
             {props.calendar_list.state === 2?
                 <div style={{marginTop:"20px", marginBottom:"20px", display:"flex", justifyContent:"center"}}>

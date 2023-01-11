@@ -10,7 +10,7 @@ export const TournamentInfo = (props) => {
 
     return (
         <Col sm={6}>
-            <Container style={{background: "white", borderRadius:"10px 10px 0px 0px"}}>
+            <Container style={{background: "white", borderRadius:"10px 10px 10px 10px", marginBottom: "20px"}}>
                 <Row style={{borderBottom: "1px solid var(--medium_grey)", paddingLeft: "5%", paddingRight: "5%", paddingTop: "1.5%", paddingBottom:"1.5%"}}>
                     <my_h2>{props.calendar_list.name}</my_h2>
                 </Row>
@@ -86,7 +86,7 @@ export const TournamentInfo = (props) => {
                             <big_para> {props.calendar_list.phone} </big_para>
                         </div>
                     </div>
-                    <div style={{marginBottom: "1%"}}>
+                    <div style={{marginBottom: "3%"}}>
                         <big_para_sb style={{marginBottom:"0"}}> Dodatkowe informacje: </big_para_sb>
                         <div>
                             <big_para> {props.calendar_list.additionalInformations} </big_para>
