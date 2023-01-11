@@ -173,8 +173,8 @@ export const Drabinka = (props) => {
               </Button>
           </div>
       }
-
-            {props.calendar_list.state === 2?
+      {props.calendar_list.creator === props.user.id ?
+          props.calendar_list.state === 2?
                 <div style={{marginTop:"20px", marginBottom:"20px", display:"flex", justifyContent:"center"}}>
                     { props.calendar_list.approved === 2 ?
                     (props.calendar_list.typeOfLadder === "DRABINKA O MIEJSCA" ?
@@ -183,7 +183,7 @@ export const Drabinka = (props) => {
                     <div><EndUnrankedTournament_popup/></div>
                 }
                 </div>:null
-            }
+             :null}
 
         </>
     );
