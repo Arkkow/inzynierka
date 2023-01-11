@@ -16,7 +16,7 @@ import Card from "react-bootstrap/Card";
 export const CalendarCard = (props) => {
 
     return (
-        <Card style={{ minWidth: '40%', margin: "2%", padding: "2%",
+        <Card id={props.id} style={{ minWidth: '40%', margin: "2%", padding: "2%",
             borderRadius:"20px", borderColor:"var(--medium_grey)",
             background: props.state >= 3?"#DDDDDD":"white"}} >
             <Container fluid="lg">

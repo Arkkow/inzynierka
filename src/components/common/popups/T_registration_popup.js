@@ -45,6 +45,18 @@ function T_registration_popup(props) {
     });
   };
 
+  const renderSwitch = (id) => {
+      switch(id) {
+          case 1:
+              return 'bar';
+          case 2:
+              return 'bar';
+          case 3:
+              return 'bar';
+          default:
+              return 'foo';}
+  }
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
@@ -57,7 +69,11 @@ function T_registration_popup(props) {
 
   return (
     <>
-        {tournamentInfo.approved !== 3 ?
+
+
+
+
+        {tournamentInfo.state !== 3 ?
             (props.role === "default" || localStorage.getItem("token") === null ? (
         <Button
           style={{

@@ -117,8 +117,15 @@ function InputBox() {
       !entriesTo.current.value
     ) {
       alert("Nie wszystkie pola zostały wypełnione");
-    } else {
-      let response = fetch("https://dragonmaster.pl/inz/tournament", {
+    }
+    else if (to.current.value < from.current.value) {
+      alert("Turniej nie może kończyć się przed rozpoczęciem!");
+    }
+    else if (!((from.current.value >= entriesTo.current.value)) ) {
+      alert("Zapisy nie mogą zaczynać się po rozpoczęciu turnieju!");
+    }
+    else {
+      fetch("https://dragonmaster.pl/inz/tournament", {
         headers: {
           Authorization: "Bearer " + Token,
         },
