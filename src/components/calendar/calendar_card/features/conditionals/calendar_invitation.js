@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 // Project specific files
 
 // CSS files
-import {Col} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import {postAcceptInvite, postRejectInvite} from "../../../../../api/user_interaction/invitation_api";
@@ -35,27 +35,27 @@ export const CalendarInvitation = (props) => {
                             {invitation.id === props.id ? (
 
                                 <Card.Text>
-                                    <div style={{ textAlign: "center" }}>
-                                        {props.name1} {props.surname1} zaprosił/a cię do gry
+                                    <div style={{textAlign: "center" }}>
+                                            <paragraph_sb>{props.name1} {props.surname1} zaprosił/a cię do gry. Czy chcesz zaakceptować?</paragraph_sb>
                                     </div>
 
-                                    <div style={{ textAlign: "center" }}>
-                                        <Button variant="success" style={{ margin: "5%" }}
+                                    <div style={{ textAlign: "center", display:"flex", justifyContent:"center" }}>
+                                        <Button variant="success" style={{ margin: "5%", display:"flex", justifyContent:"center", alignItems:"center", minHeight:"35px" }}
                                                 onClick={() => postAcceptInvite(invitation.id).then(() =>
                                                     getPendingApprovals()
                                                         .then((dane) => {
                                                             setInvitations({ fetched: true, data: dane });
                                                         }))}>
-                                            TAK
+                                            <paragraph_sb>TAK</paragraph_sb>
                                         </Button>
-                                        <Button variant="danger" style={{ margin: "5%" }}
+                                        <Button variant="danger" style={{ margin: "5%" , display:"flex", justifyContent:"center", alignItems:"center"}}
                                                 onClick={() =>
                                                     postRejectInvite(invitation.id).then(() => getPendingApprovals()
                                                         .then((dane) => {
                                                             setInvitations({ fetched: true, data: dane });
                                                         }))
                                                     }>
-                                            NIE
+                                            <paragraph_sb>NIE</paragraph_sb>
                                         </Button>
                                     </div>
                                 </Card.Text>

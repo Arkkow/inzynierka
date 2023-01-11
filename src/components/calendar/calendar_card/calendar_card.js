@@ -25,8 +25,8 @@ export const CalendarCard = (props) => {
                         <CalendarPhoto {...props}/>
                     </Col>
                     <Col sm={4}>
-                        <Row className="justify-content-sm-center">
-                            <my_h4 style={{marginBottom:"7px"}}>
+                        <Row style={{display:"flex", alignItems:"center"}}>
+                            <my_h4 style={{marginBottom:"7px", display:"flex", alignItems:"center"}}>
                                 {props.name} &nbsp;
                                 <RangTick {...props}/>
                             </my_h4>
@@ -39,7 +39,7 @@ export const CalendarCard = (props) => {
                             props.my_tournament_list !== [] && props.my_tournament_list !== undefined?
                                     props.my_tournament_list.filter(e => e.tournament === String(props.id)).length !== 0?
                                         <Row style={{display:"flex", textAlign:"center"}}>
-                                            <paragraph_sb style={{color:"#F96A15"}}>Zostałeś zaproszony na ten turniej!<br/> By zobaczyć zapis, sprawdź sekcję zapisy</paragraph_sb>
+                                            <paragraph_sb style={{color:"#F96A15"}}>Zostałeś zaproszony na ten turniej!<br/> Sprawdź sekcję zapisy</paragraph_sb>
                                         </Row>: null:null
                         }
 
