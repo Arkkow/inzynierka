@@ -7,43 +7,17 @@ import { getTournaments } from "../../../api/tournament/tournament_CRUD_api";
 import { getUser } from "../../../api/user_interaction/user_api";
 import { getPendingApprovals } from "../../../api/api";
 import MyAllFilter from "./my_all_filter";
+import DateFilter from "./date_filter";
 
 // CSS files
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import { Col, Form, Row } from "react-bootstrap";
-
-function saveData() {
-    console.log(document.getElementById("dateFrom").value === "");
-    if (
-        document.getElementById("dateFrom").value !== "" ||
-        document.getElementById("dateTo").value !== ""
-    ) {
-        if (document.getElementById("dateFrom").value !== "") {
-            localStorage.setItem(
-                "dateFrom",
-                document.getElementById("dateFrom").value
-            );
-        }
-        if (document.getElementById("dateTo").value !== "") {
-            localStorage.setItem("dateTo", document.getElementById("dateTo").value);
-        }
-        window.location.reload()
-    }
-    else {
-        alert("Nie podano dat do filtracji");
-    }
-}
-
-function deleteFilterData() {
-    localStorage.removeItem("dateFrom");
-    localStorage.removeItem("dateTo");
-    window.location.reload();
-}
+import { Col, Row } from "react-bootstrap";
 
 export const Header = (props) => {
+
     useEffect(() => {
         props.handleDownloadCalendar();
         props.handleDownloadUser();
@@ -51,145 +25,71 @@ export const Header = (props) => {
 
     return (
         <Row className="justify-content-md-center">
+            <Col lg="6">
+                <Navbar
+                    expand="lg"
+                    style={{
+                        backgroundColor: "var(--light_grey)",
+                        borderRadius: "10px",
+                        marginBottom: "2%",
+                        marginLeft: "30px",
+                        marginRight: "30px",
+                    }}
+                >
 
-        <Col lg="6">
-        <Navbar
-            expand="lg"
-            style={{
-                backgroundColor: "var(--light_grey)",
-                borderRadius: "10px",
-                marginBottom: "2%",
-            }}
-        >
-            <Navbar.Toggle
-                aria-controls="basic-navbar-nav"
-                style={{ marginLeft: "7%" }}
-            />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Container fluid>
-                    <Nav className="me-auto">
-                        <Container>
-                            <Row style={{ marginTop: "1%" }}>
-                                <Col sm={4}>
-                                    <my_h4 style={{ paddingLeft: "10px" }}>Data rozpoczęcia od</my_h4>
-                                    <Form.Control
-                                        style={{
-                                            marginTop: "8px",
-                                            height: "80%",
-                                            borderRadius: "100px",
-                                            maxHeight:"52px"
-                                        }}
-                                        type="date"
-                                        id="dateFrom"
-                                        defaultValue={localStorage.getItem("dateFrom")}
-                                    />
-                                </Col>
-                                <Col sm={4}>
-                                    <my_h4 style={{ paddingLeft: "10px" }}>Data rozpoczęcia do</my_h4>
-                                    <Form.Control
-                                        style={{
-                                            marginTop: "8px",
-                                            height: "80%",
-                                            borderRadius: "100px",
-                                            maxHeight:"52px"
-                                        }}
-                                        type="date"
-                                        id="dateTo"
-                                        defaultValue={localStorage.getItem("dateTo")}
-                                    />
-                                </Col>
-                                <Col sm={4} style={{display:"flex", alignItems:"end", marginTop:"35px", justifyContent:"flex-start"}}>
+                    <Navbar.Toggle
+                        aria-controls="basic-navbar-nav"
+                        style={{ marginLeft: "7%" }}
+                    />
 
-                                    <Button
-                                        style={{
-                                            fontFamily: "Montserrat",
-                                            fontWeight: "600",
-                                            fontSize: "18px",
-                                            lineHeight: "25px",
-                                            color: "white",
-                                            borderRadius: "15px",
-                                            paddingBottom: "3%",
-                                            paddingTop: "3%",
-                                            paddingRight: "20px",
-                                            paddingLeft: "20px",
-                                            marginRight: "20px"
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Container fluid>
+                            <Nav className="me-auto">
+                                <Container>
+                                    <DateFilter {...props}/>
 
-                                        }}
-                                        variant="success"
-                                        onClick={saveData}
-                                    >
-                                        FILTRUJ
-                                    </Button>
+                                    <Row style={{ marginTop: "2%", marginBottom: "2%" }}>
 
-                                    {localStorage.getItem("dateFrom") !== null ||
-                                    localStorage.getItem("dateTo") ? (
-                                        <Button
+                                        <MyAllFilter {...props}/>
+
+                                        <Col
+                                            sm={6}
                                             style={{
-                                                fontFamily: "Montserrat",
-                                                fontWeight: "600",
-                                                fontSize: "18px",
-                                                lineHeight: "25px",
-                                                color: "white",
-                                                borderRadius: "15px",
-                                                paddingBottom: "3%",
-                                                paddingTop: "3%",
-                                                paddingRight: "20px",
-                                                paddingLeft: "20px",
+                                                marginTop: "2%",
+                                                display: "flex",
+                                                justifyContent: "end",
                                             }}
-                                            variant="success"
-                                            onClick={deleteFilterData}
                                         >
-                                            WYCZYŚĆ
-                                        </Button>
-                                    ) : null}
-
-                                </Col>
-                            </Row>
-
-
-
-                            <Row style={{ marginTop: "2%", marginBottom: "2%" }}>
-
-                                <MyAllFilter {...props}/>
-
-                                <Col
-                                    sm={6}
-                                    style={{
-                                        marginTop: "2%",
-                                        display: "flex",
-                                        justifyContent: "end",
-                                    }}
-                                >
-                                    {props.user.role === "2" || props.user.role === "3" ? (
-                                        <div>
-                                            <Button
-                                                style={{
-                                                    fontFamily: "Montserrat",
-                                                    fontWeight: "600",
-                                                    fontSize: "18px",
-                                                    lineHeight: "25px",
-                                                    color: "white",
-                                                    borderRadius: "15px",
-                                                    paddingBottom: "3%",
-                                                    paddingTop: "3%",
-                                                    paddingRight: "20px",
-                                                    paddingLeft: "20px",
-                                                }}
-                                                variant="success"
-                                                href="new_tournament"
-                                            >
-                                                STWÓRZ NOWY TURNIEJ
-                                            </Button>
-                                        </div>
-                                    ) : null}
-                                </Col>
-                            </Row>
+                                            {props.user.role === "2" || props.user.role === "3" ? (
+                                                <div>
+                                                    <Button
+                                                        style={{
+                                                            fontFamily: "Montserrat",
+                                                            fontWeight: "600",
+                                                            fontSize: "18px",
+                                                            lineHeight: "25px",
+                                                            color: "white",
+                                                            borderRadius: "15px",
+                                                            paddingBottom: "3%",
+                                                            paddingTop: "3%",
+                                                            paddingRight: "20px",
+                                                            paddingLeft: "20px",
+                                                        }}
+                                                        variant="success"
+                                                        href="new_tournament"
+                                                    >
+                                                        STWÓRZ NOWY TURNIEJ
+                                                    </Button>
+                                                </div>
+                                            ) : null}
+                                        </Col>
+                                    </Row>
+                                </Container>
+                            </Nav>
                         </Container>
-                    </Nav>
-                </Container>
-            </Navbar.Collapse>
-        </Navbar>
-        </Col>
+                    </Navbar.Collapse>
+                </Navbar>
+            </Col>
         </Row>
     );
 };

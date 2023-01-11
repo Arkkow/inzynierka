@@ -16,11 +16,8 @@ import Container from "react-bootstrap/Container";
 export default function MyCalendarRoute() {
     return (
         <Container fluid="true" style={{background: "#689F82", minHeight: "94vh", paddingTop: "2%"}}>
-            <Row className="justify-content-md-center">
-                <Col sm="6">
-                    <CalNav/>
-                </Col>
-            </Row>
+            <CalNav/>
+
             <Row className="justify-content-md-center">
                 <My_calendar_controller />
             </Row>

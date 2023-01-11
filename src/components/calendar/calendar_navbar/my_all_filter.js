@@ -8,8 +8,6 @@ import Button from 'react-bootstrap/Button';
 import {Col} from "react-bootstrap";
 import {getToken} from "../../../api/api";
 
-
-
 export const MyAllFilter = (props) => {
 
     let isViewMyTournaments = window.location.href.split("/")[3] === "myTournaments"
@@ -26,8 +24,6 @@ export const MyAllFilter = (props) => {
                         alignItems: "center",
                     }}
                 >
-                    hi mom!
-
                     <Col
                         sm={6}
                         style={{
