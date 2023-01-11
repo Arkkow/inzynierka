@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import PFP_LOGO from "../../../assets/PFP_LOGO.png";
 import "../../../styles/App.css";
+import { Await } from "react-router-dom";
 
 const Register_popup = ({
   isRegisterOpen,
@@ -13,7 +14,7 @@ const Register_popup = ({
   const initialValues = {
     username: "",
     surname: "",
-    name: "",
+    nameOfUser: "",
     mail: "",
     phone: "",
     password: "",
@@ -21,7 +22,6 @@ const Register_popup = ({
   const [formErrors, setFormErrors] = useState({});
   const [formValues, setFormValues] = useState(initialValues);
   const [error, setError] = useState(null);
-  const [isSended, setIsSended] = useState(false);
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const username = useRef(null);
   const surname = useRef(null);
@@ -29,7 +29,7 @@ const Register_popup = ({
   const mail = useRef(null);
   const phone = useRef(null);
   const password = useRef(null);
-  let userData = "";
+  const repeatPassword = useRef(null);
 
   const validate = (values) => {
     const errors = {};
@@ -67,64 +67,67 @@ const Register_popup = ({
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
-  const handleClick = async () => {
-     setFormErrors(validate(formValues));
-     if (
-      !nameOfUser.current.value ||
-      !surname.current.value ||
-      !username.current.value ||
-      !mail.current.value ||
-      !mail.current.value ||
-      !phone.current.value ||
-      !password.current.value ||
-      !isPasswordValid
-    ) {
-      document.getElementById("errormsg").style.display = "block";
-    } else {
-      fetch("https://dragonmaster.pl/inz/user/create", {
-        method: "PUT",
-        body: JSON.stringify({
-          name: nameOfUser.current.value,
-          username: username.current.value,
-          surname: surname.current.value,
-          mail: mail.current.value,
-          phone: phone.current.value,
-          password: password.current.value,
-        }),
-      })
-        .then((result) => {
-          if (result.status === 502) {
-            document.getElementById("systemMsg").style.display = "block";
-            document.getElementById("goodmsg").style.display = "none";
-            document.getElementById("errormsg").style.display = "none";
-            document.getElementById("userIsRegistered").style.display = "none";
-          } else if (result.status === 200) {
-              document.getElementById("register").style.display = "none";
-            document.getElementById("systemMsg").style.display = "none";
-            document.getElementById("goodmsg").style.display = "block";
-            document.getElementById("errormsg").style.display = "none";
-            document.getElementById("userIsRegistered").style.display = "none";
-          } else {
-            document.getElementById("systemMsg").style.display = "none";
-            document.getElementById("goodmsg").style.display = "none";
+
+    function checkOfData()
+    {
+        console.log(formValues)
+        if (checkInput
+
+        ) {
+            console.log(isPasswordValid)
             document.getElementById("errormsg").style.display = "block";
-            document.getElementById("userIsRegistered").style.display = "none";
-          }
-          return result.json();
-        })
-        .then((data) => {
-          if (data.error == "login in already use") {
-            document.getElementById("systemMsg").style.display = "none";
-            document.getElementById("goodmsg").style.display = "none";
-            document.getElementById("errormsg").style.display = "none";
-            document.getElementById("userIsRegistered").style.display = "block";
-          }
-          setIsSended(true);
-        })
-        .catch(function (err) {
-          console.log(err.response);
-        });
+        } else {
+            fetch("https://dragonmaster.pl/inz/user/create", {
+                method: "PUT",
+                body: JSON.stringify({
+                    name: nameOfUser.current.value,
+                    username: username.current.value,
+                    surname: surname.current.value,
+                    mail: mail.current.value,
+                    phone: phone.current.value,
+                    password: password.current.value,
+                }),
+            })
+                .then((result) => {
+                    if (result.status === 502) {
+                        document.getElementById("systemMsg").style.display = "block";
+                        document.getElementById("goodmsg").style.display = "none";
+                        document.getElementById("errormsg").style.display = "none";
+                        document.getElementById("userIsRegistered").style.display =
+                            "none";
+                    } else if (result.status === 200) {
+                        document.getElementById("register").style.display = "none";
+                        document.getElementById("systemMsg").style.display = "none";
+                        document.getElementById("goodmsg").style.display = "block";
+                        document.getElementById("errormsg").style.display = "none";
+                        document.getElementById("userIsRegistered").style.display =
+                            "none";
+                    } else {
+                        document.getElementById("systemMsg").style.display = "none";
+                        document.getElementById("goodmsg").style.display = "none";
+                        document.getElementById("errormsg").style.display = "block";
+                        document.getElementById("userIsRegistered").style.display =
+                            "none";
+                    }
+                    return result.json();
+                })
+                .then((data) => {
+                    if (data.error == "login in already use") {
+                        document.getElementById("systemMsg").style.display = "none";
+                        document.getElementById("goodmsg").style.display = "none";
+                        document.getElementById("errormsg").style.display = "none";
+                        document.getElementById("userIsRegistered").style.display =
+                            "block";
+                    }
+                })
+                .catch(function (err) {
+                    console.log(err.response);
+                });
+        }
     }
+  const handleClick = async () => {
+    await setFormErrors(validate(formValues));
+    setTimeout(checkOfData, 1000);
   };
 
   return (
@@ -326,7 +329,7 @@ const Register_popup = ({
           style={{ display: "none", marginBottom: "10px" }}
         >
           <paragraph_sb style={{ color: "red" }}>
-           Użytkownik o podanym nicku jest już zarejestrowany
+            Użytkownik o podanym nicku jest już zarejestrowany
           </paragraph_sb>
         </div>
 
@@ -336,7 +339,7 @@ const Register_popup = ({
           </paragraph_sb>
         </div>
         <Button
-            id="register"
+          id="register"
           type="submit"
           style={{
             fontFamily: "Montserrat",
