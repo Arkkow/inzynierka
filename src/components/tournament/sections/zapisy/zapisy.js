@@ -43,7 +43,7 @@ export const Zapisy = (props) => {
 
                             </Row>:null}
 
-                        <Row style={{background: "white", marginTop:"10px", borderRadius:"10px", width:"100%"}}>
+                        <Row style={{background: "white", marginTop:"10px", borderRadius:"10px", width:"100%", marginLeft:"0px"}}>
 
                             {props.role === "default" || localStorage.getItem("token") === null ?
 
@@ -60,8 +60,8 @@ export const Zapisy = (props) => {
                                     :
                                     <>
                                         <>
-                                            <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%", textAlign: "center"}} >
-                                                Moje rejestracje
+                                            <Card style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%", textAlign: "center", background: "#0B4D39"}} >
+                                                <my_h3 style={{color:"white", lineHeight:"22px"}}>MOJE ZAPISY</my_h3>
                                             </Card>
                                             <>
                                                 {props.pairs_list.pairs["ALL"]
@@ -74,8 +74,8 @@ export const Zapisy = (props) => {
                                             </>
                                         </>
                                         <>
-                                            <Card border={"dark"} style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%", textAlign: "center"}} >
-                                                Wszystkie rejestracje {console.log(props.calendar_list.state)}
+                                            <Card style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%", textAlign: "center", background: "#0B4D39"}} >
+                                                <my_h3 style={{color:"white", lineHeight:"22px"}}>WSZYSTKIE ZAPISY</my_h3> {console.log(props.calendar_list.state)}
                                             </Card>
                                             <>
                                                 {props.pairs_list.pairs["ALL"]

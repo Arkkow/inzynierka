@@ -28,34 +28,46 @@ export const TournamentAdminPanel = (props) => {
             {props.user.role === "3" && props.tournament.state !== 3?
             <>
                 <Row>
-                    <Col lg={9}>
-                        <ButtonGroup style={{backgroundColor: "transparent", marginTop: "2%", marginBottom: "2%", margin: "auto"}}>
+                    <Col lg={12} style={{display:"flex", flexDirection:"column", alignItems:"center", backgroundColor:"white",
+                        paddingTop:"10px", paddingBottom:"10px", marginLeft:"12px", borderRadius:"30px", marginBottom:"10px", border:"solid", borderColor:"var(--medium_grey)", borderWidth:"2px"}}>
+                        <ButtonGroup style={{backgroundColor: "white", marginTop: "2%", marginBottom: "2%", margin: "auto"}}>
                             {/** Zaproszonych par: **/}
-                                <Button variant="outline-light" style={{ float: "right"}}>
-                                    Zaproszonych par: {props.pairs_list.pairs["ALL"].length}
+                                <Button variant="outline-dark" disabled="true" style={{ float: "right"}}>
+                                   <paragraph>Zaproszonych par: {props.pairs_list.pairs["ALL"].length}</paragraph>
                                 </Button>
                             {/** Zaakceptowanych par: **/}
-                                <Button variant="outline-light" style={{ float: "right"}}>
-                                    Zaakceptowanych par: {accepted_count.length} / {props.places}
+                                <Button variant="outline-dark" disabled="true" style={{ float: "right"}}>
+                                   <paragraph>Zaakceptowanych par: {accepted_count.length} / {props.places}</paragraph>
                                 </Button>
 
                             {/** Opłaconych zapisów: **/}
-                                <Button variant="outline-light" style={{ float: "right"}}>
-                                    Opłaconych zapisów: {props.pairs_list.pairs["DONE"].length} / {props.places}
+                                <Button variant="outline-dark" disabled="true" style={{ float: "right"}}>
+                                    <paragraph >Opłaconych zapisów: {props.pairs_list.pairs["DONE"].length} / {props.places}</paragraph>
                                 </Button>
                         </ButtonGroup>
-                    </Col>
 
                     {/** Zakocz zapisy **/}
 
-                    <Col lg={3}>
                         <Button
-                            variant="secondary"
+                            variant="success"
                             disabled={( props.pairs_list.pairs["DONE"].length !== props.places ||
                                 // Jeżeli turniej nie jest w odpowiednim stanie
                                 props.tournament.state !== 0 ||
                                 // Jeżeli jesteś adminem lub organizatorem tego turnieju
                                 ((props.user.role !== "2" || props.user.id !== props.tournament.creator) && props.user.role !== "3"))}
+                            style={{marginTop:"10px",
+                                maxWidth:"200px",
+                                fontFamily: 'Montserrat',
+                                fontWeight: "600",
+                                fontSize: "18px",
+                                lineHeight: "25px",
+                                color: "white",
+                                borderRadius: "15px",
+                                paddingRight: "13px",
+                                paddingLeft: "13px",
+                                paddingBottom: "6px",
+                                paddingTop: "6px",}}
+
 
                             onClick={() =>{
                                 if( props.pairs_list.pairs["DONE"].length === props.places &&
@@ -82,7 +94,9 @@ export const TournamentAdminPanel = (props) => {
                                 }
 
                             }}
-                        >Zakończ zapisy</Button>
+                        >
+                          ZAKOŃCZ ZAPISY
+                        </Button>
                     </Col>
                 </Row>
             </> :null}
