@@ -6,7 +6,7 @@ import * as React from 'react';
 // CSS files
 import Button from 'react-bootstrap/Button';
 import {Col} from "react-bootstrap";
-import {getToken} from "../../../../api/api";
+import {getToken} from "../../../api/api";
 
 
 

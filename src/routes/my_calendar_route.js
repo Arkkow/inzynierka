@@ -2,7 +2,7 @@
 import * as React from "react";
 
 // Project specific files
-import CalNav from "../components/calendar/calendar_card/features/calNav.js";
+import CalNav from "../components/calendar/calendar_navbar/calendar_navbar.js";
 import My_calendar_controller from "../components/calendar/my_calendar_controller";
 
 // CSS files
