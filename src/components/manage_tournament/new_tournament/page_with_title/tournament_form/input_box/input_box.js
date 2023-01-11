@@ -183,6 +183,9 @@ function InputBox() {
               document.getElementById("formFile").files[0]
             );
           }
+          else {
+            window.location.href = "calendar";
+          }
         });
       if (error) {
         if (error !== "Failed to fetch") {
