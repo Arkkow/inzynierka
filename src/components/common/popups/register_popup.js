@@ -84,11 +84,19 @@ const Register_popup = ({
       })
         .then((result) => {
           setIsSended(true);
-          if (result.status === 200) {
-              document.getElementById("goodmsg").style.display = "block";
+          // if(!result.ok){throw Error(result.statusText)}
+            if (result.status === 502) {
+                document.getElementById("systemMsg").style.display = "block";
+                document.getElementById("goodmsg").style.display = "none";
+                document.getElementById("errormsg").style.display = "none";
+            }
+          else if (result.status === 200) {
+                document.getElementById("systemMsg").style.display = "none";
+                document.getElementById("goodmsg").style.display = "block";
             document.getElementById("errormsg").style.display = "none";
           } else {
-              document.getElementById("goodmsg").style.display = "none";
+                document.getElementById("systemMsg").style.display = "none";
+                document.getElementById("goodmsg").style.display = "none";
               document.getElementById("errormsg").style.display = "block";
           }
           // alert("Zweryfikuj adres e-mail, aby móc się zalogować");
@@ -281,6 +289,11 @@ const Register_popup = ({
             Zweryfikuj poprawność wpisanych danych i spróbuj ponownie
           </paragraph_sb>
         </div>
+          <div id={"systemMsg"} style={{ display: "none", marginBottom:"10px"}}>
+              <paragraph_sb style={{ color: "red"}}>
+                  Problem z serwerem. Skontaktuj się z administratorem
+              </paragraph_sb>
+          </div>
           <div id={"errorInt"} style={{ display: "none", marginBottom:"10px" }}>
               <paragraph_sb style={{ color: "red" }}>
                   Coś poszło nie tak. Spróbuj ponownie lub sprawdź połączenie z internetem
