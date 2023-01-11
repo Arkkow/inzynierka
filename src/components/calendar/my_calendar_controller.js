@@ -8,6 +8,7 @@ import {getMyTournaments, getPendingApprovals} from "../../api/api";
 import {getUser} from "../../api/user_interaction/user_api";
 import { Col, Row } from "react-bootstrap";
 import CalendarCard from "./calendar_card/calendar_card";
+import * as React from "react";
 
 
 export const My_calendar_controller = (props) => {
@@ -30,7 +31,9 @@ export const My_calendar_controller = (props) => {
         <Row className="justify-content-md-center">
             <Col lg={6}>
                 {props.my_tournament_list.length === 0 ?
-                    <my_h5>Brak wyników</my_h5> :
+                    <my_h4 style={{backgroundColor:"white", display:"flex", alignItems:"center", justifyContent:"center", borderRadius:"10px", height:"50px", minWidth:"560px"}}>
+                        Brak wyników
+                    </my_h4> :
                     props.my_tournament_list.map(card =>
                         <CalendarCard key={card.id} {...card} user={props.user} view={props.view} my_tournament_list={props.my_tournament_list} />
                     )
