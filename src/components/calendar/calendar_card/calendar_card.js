@@ -25,8 +25,8 @@ export const CalendarCard = (props) => {
                         <CalendarPhoto {...props}/>
                     </Col>
                     <Col sm={4}>
-                        <Row className="justify-content-sm-center">
-                            <my_h4 style={{marginBottom:"7px"}}>
+                        <Row style={{display:"flex", alignItems:"center"}}>
+                            <my_h4 style={{marginBottom:"7px", display:"flex", alignItems:"center"}}>
                                 {props.name} &nbsp;
                                 <RangTick {...props}/>
                             </my_h4>
