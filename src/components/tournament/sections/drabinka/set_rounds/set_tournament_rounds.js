@@ -57,6 +57,7 @@ export const SetTournamentRounds = (props) => {
                                 }>
                             Wygeneruj I rundę
                         </Button>
+
                         <SetRounds {...props} accepted_difference={accepted_difference} current_round = {2}
                                    text={"Wygeneruj II rundę"} tournament = {props.tournament}
                                    isEmpty = {props.ladders_list.ladders[1].length === 0}/>
