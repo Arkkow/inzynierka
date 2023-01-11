@@ -2,7 +2,7 @@
 import * as React from "react";
 
 // Project specific files
-import CalNav from "../components/calendar/calendar_card/features/calNav.js";
+import CalNav from "../components/calendar/calendar_navbar/calendar_navbar.js";
 import My_calendar_controller from "../components/calendar/my_calendar_controller";
 
 // CSS files
@@ -16,11 +16,8 @@ import Container from "react-bootstrap/Container";
 export default function MyCalendarRoute() {
     return (
         <Container fluid="true" style={{background: "#689F82", minHeight: "94vh", paddingTop: "2%"}}>
-            <Row className="justify-content-md-center">
-                <Col sm="6">
-                    <CalNav/>
-                </Col>
-            </Row>
+            <CalNav/>
+
             <Row className="justify-content-md-center">
                 <My_calendar_controller />
             </Row>
