@@ -2,6 +2,7 @@
 import * as React from 'react';
 import {Col, Form, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import {getToken} from "../../../api/api";
 
 // Project specific files
 
@@ -31,7 +32,8 @@ function saveData() {
 function deleteFilterData() {
     localStorage.removeItem("dateFrom");
     localStorage.removeItem("dateTo");
-    window.location.reload();
+    getToken()
+    // window.location.reload();
 }
 
 export const DateFilter = (props) => {
