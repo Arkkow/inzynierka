@@ -84,6 +84,7 @@ const Register_popup = ({
       })
         .then((result) => {
           setIsSended(true);
+          console.log(result)
           if (result.status === 200) {
               document.getElementById("goodmsg").style.display = "block";
             document.getElementById("errormsg").style.display = "none";
