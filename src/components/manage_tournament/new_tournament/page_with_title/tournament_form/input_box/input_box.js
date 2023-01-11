@@ -125,7 +125,7 @@ function InputBox() {
       alert("Zapisy nie mogą się kończyć poza ramami czasowymi turnieju!");
     }
     else {
-      let response = fetch("https://dragonmaster.pl/inz/tournament", {
+      fetch("https://dragonmaster.pl/inz/tournament", {
         headers: {
           Authorization: "Bearer " + Token,
         },
