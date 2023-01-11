@@ -1,6 +1,6 @@
 # Padel Tournaments System
 
-## Projekt inżynierski studentów WMI UAM
+## Projekt inżynierski studentów Wydziału Matematyki i Informatyki Uniwersytetu im. Adama Mickiewicza w Poznaniu
 
 Celem projektu jest stworzenie systemu obsługi turniejów padla dla graczy i organizatorów z całej Polski. 
 
