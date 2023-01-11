@@ -121,8 +121,8 @@ function InputBox() {
     else if (to.current.value < from.current.value) {
       alert("Turniej nie może kończyć się przed rozpoczęciem!");
     }
-    else if (!((from.current.value <= entriesTo.current.value) && (to.current.value >= entriesTo.current.value)) ) {
-      alert("Zapisy nie mogą się kończyć poza ramami czasowymi turnieju!");
+    else if (!((from.current.value >= entriesTo.current.value)) ) {
+      alert("Zapisy nie mogą zaczynać się po rozpoczęciu turnieju!");
     }
     else {
       fetch("https://dragonmaster.pl/inz/tournament", {
