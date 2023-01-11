@@ -34,7 +34,7 @@ export const ZapisyCard = (props) => {
                     </Col>
                     <Col sm={2}>
                         <div style={{display: "flex", justifyContent: "center", margin: "auto", height: "100%", alignItems: "center"}}>
-                            <paragraph>RANKING: {props.rankingsum}</paragraph>
+                            <paragraph style={{textAlign:"center"}}>RANKING: {props.rankingsum}</paragraph>
                         </div>
                     </Col>
                     {(props.approval === "0" && props.partnerAcceptance === 1)?

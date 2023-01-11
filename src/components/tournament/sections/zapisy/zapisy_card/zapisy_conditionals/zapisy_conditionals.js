@@ -14,10 +14,11 @@ import {Container, Row, Col, Form} from "react-bootstrap";
 export const ZapisyConditionals = (props) => {
 
     return (
+
         <Col sm={5} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
             <Container>
                 <Row>
-                    <Form style={{display:"flex", justifyContent:"center"}}>
+                    <Form style={{display:"flex", alignItems:"center", flexDirection:"column"}}>
                         {/** Button "Użytkownik zaprosił cię do gry" **/}
                         <CalendarInvitation{...props} tournamentID = {props.tournamentID} refreshProps = {props.refreshProps}/>
 
@@ -31,8 +32,21 @@ export const ZapisyConditionals = (props) => {
                                     (props.user.role === "2" && props.creator === props.user.id) || props.user.role === '3'?
                                         props.paymentstatus === "NOTSTARTED"?null:
                                         props.paymentstatus === "DONE"?
-                                            <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis 1. opłacony" reverse/>:
-                                            <Form.Check type="switch" label="Zapis 1. opłacony" reverse disabled={props.paymenttype !== "cash"}
+                                            <Form.Check type="switch" defaultChecked="true" disabled={true} style={{
+                                                color: "black",
+                                                fontFamily: "Montserrat",
+                                                fontStyle: "normal",
+                                                fontWeight: "400",
+                                                fontSize: "14px"
+
+                                            }} label="Zapis 1. opłacony" reverse/>:
+                                            <Form.Check type="switch" style={{
+                                                color: "black",
+                                                fontFamily: "Montserrat",
+                                                fontStyle: "normal",
+                                                fontWeight: "400",
+                                                fontSize: "14px"}}
+                                                        label="Zapis 1. opłacony" reverse disabled={props.paymenttype !== "cash"}
                                                         onClick={() => {
                                                             postPayedUsingCash({
                                                                 "id": String(props.id) ,
@@ -48,8 +62,22 @@ export const ZapisyConditionals = (props) => {
                             (props.user.role === "2" && props.creator === props.user.id) || props.user.role === '3'?
                                 props.paymentstatus2 === "NOTSTARTED"?null:
                                 props.paymentstatus2 === "DONE"?
-                                    <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "cash"} label="Zapis 2 opłacony" reverse/>:
-                                    <Form.Check type="switch" disabled={props.paymenttype2 !== "cash"} label="Zapis 2 opłacony" reverse
+                                    <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "cash"} style={{
+                                        color: "black",
+                                        fontFamily: "Montserrat",
+                                        fontStyle: "normal",
+                                        fontWeight: "400",
+                                        fontSize: "14px"
+
+                                    }} label="Zapis 2. opłacony" reverse/>:
+                                    <Form.Check type="switch" disabled={props.paymenttype2 !== "cash"} style={{
+                                        color: "black",
+                                        fontFamily: "Montserrat",
+                                        fontStyle: "normal",
+                                        fontWeight: "400",
+                                        fontSize: "14px"
+
+                                    }} label="Zapis 2. opłacony" reverse
                                                 onClick={() => {
                                                     postPayedUsingCash({
                                                         "id": String(props.id) ,
@@ -85,6 +113,8 @@ export const ZapisyConditionals = (props) => {
             </Container>
         </Col>
     );
+
+
 }
 
 export default ZapisyConditionals;
