@@ -9,7 +9,7 @@ import {Col, Container, Row} from "react-bootstrap";
 export const TournamentInfo = (props) => {
 
     return (
-        <Col sm={6}>
+        <Col lg={6}>
             <Container style={{background: "white", borderRadius:"10px 10px 10px 10px", marginBottom: "20px"}}>
                 <Row style={{borderBottom: "1px solid var(--medium_grey)", paddingLeft: "5%", paddingRight: "5%", paddingTop: "1.5%", paddingBottom:"1.5%"}}>
                     <my_h2>{props.calendar_list.name}</my_h2>

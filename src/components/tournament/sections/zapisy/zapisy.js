@@ -25,7 +25,7 @@ export const Zapisy = (props) => {
 	  }
 
     return (
-        <Col sm={6} >
+        <Col lg={6} >
             <Container fluid="true" style={{minHeight: "64vh", paddingTop: "0%"}}>
                 <Row className="justify-content-md-center" >
                     <Col sm={12} style={{}}>

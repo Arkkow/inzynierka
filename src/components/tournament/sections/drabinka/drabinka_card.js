@@ -38,14 +38,14 @@ export const DrabinkaCard = (props) => {
             <Container>
                 <Row style={{paddingLeft: "10px"}}>
                     <Col sm={8}>
-                        {/*<Row>{props.id}  {props.inA} {props.inB}</Row>*/}
+                        <Row>{props.id}  {props.inA} {props.inB}</Row>
                         <Row>
                             <Col sm={8} style={{marginTop:"10px", marginBottom:"10px"}}>
                                 <Row>
-                                   <paragraph_sb>{props.inAname1} {props.inAsurname1}</paragraph_sb>
+                                   <paragraph_sb>{card.inAname1} {card.inAsurname1}</paragraph_sb>
                                 </Row>
                                 <Row>
-                                    <paragraph_sb>{props.inAname2} {props.inAsurname2}</paragraph_sb>
+                                    <paragraph_sb>{card.inAname2} {card.inAsurname2}</paragraph_sb>
                                 </Row>
                             </Col>
                             <Col sm={4} style={{marginTop:"5px", marginBottom:"10px", display:"flex", alignItems:"center", fontFamily:"'Montserrat', serif", fontStyle:"normal",
@@ -61,10 +61,10 @@ export const DrabinkaCard = (props) => {
                         <Row>
                             <Col sm={8} style={{marginTop:"10px", marginBottom:"10px"}}>
                                 <Row>
-                                    <paragraph_sb>{props.inBname1} {props.inBsurname1}</paragraph_sb>
+                                    <paragraph_sb>{card.inBname1} {card.inBsurname1}</paragraph_sb>
                                 </Row>
                                 <Row>
-                                    <paragraph_sb>{props.inBname2} {props.inBsurname2}</paragraph_sb>
+                                    <paragraph_sb>{card.inBname2} {card.inBsurname2}</paragraph_sb>
                                 </Row>
                             </Col>
                             <Col sm={4} style={{marginTop:"5px", marginBottom:"10px", display:"flex", alignItems:"center", fontFamily:"'Montserrat', serif", fontStyle:"normal",
