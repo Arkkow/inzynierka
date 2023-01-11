@@ -22,8 +22,8 @@ const Register_popup = ({
   const [formValues, setFormValues] = useState(initialValues);
   const [error, setError] = useState(null);
   const [isSended, setIsSended] = useState(false);
-    const [isPasswordValid, setIsPasswordValid] = useState(false);
-    const username = useRef(null);
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const username = useRef(null);
   const surname = useRef(null);
   const nameOfUser = useRef(null);
   const mail = useRef(null);
@@ -52,23 +52,33 @@ const Register_popup = ({
       errors.password = "Wpisz hasło";
     }
     if (values.password !== values.repeatPassword) {
-        setIsPasswordValid(false)
+      setIsPasswordValid(false);
       errors.repeatPassword = "Powtórzone hasło nie jest takie samo";
+    } else {
+      setIsPasswordValid(true);
     }
-    else{setIsPasswordValid(true)}
     setError(errors);
 
     return errors;
   };
 
   const handleChange = (e) => {
-      document.getElementById("goodmsg").style.display = "none";
-      const { name, value } = e.target;
+    document.getElementById("goodmsg").style.display = "none";
+    const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
   const handleClick = async () => {
-    await setFormErrors(validate(formValues));
-    if (!nameOfUser.current.value || !surname.current.value || !username.current.value || !mail.current.value || !mail.current.value || !phone.current.value || !password.current.value || !isPasswordValid) {
+     setFormErrors(validate(formValues));
+     if (
+      !nameOfUser.current.value ||
+      !surname.current.value ||
+      !username.current.value ||
+      !mail.current.value ||
+      !mail.current.value ||
+      !phone.current.value ||
+      !password.current.value ||
+      !isPasswordValid
+    ) {
       document.getElementById("errormsg").style.display = "block";
     } else {
       fetch("https://dragonmaster.pl/inz/user/create", {
@@ -83,26 +93,37 @@ const Register_popup = ({
         }),
       })
         .then((result) => {
-          setIsSended(true);
-          // if(!result.ok){throw Error(result.statusText)}
-            if (result.status === 502) {
-                document.getElementById("systemMsg").style.display = "block";
-                document.getElementById("goodmsg").style.display = "none";
-                document.getElementById("errormsg").style.display = "none";
-            }
-          else if (result.status === 200) {
-                document.getElementById("systemMsg").style.display = "none";
-                document.getElementById("goodmsg").style.display = "block";
+          if (result.status === 502) {
+            document.getElementById("systemMsg").style.display = "block";
+            document.getElementById("goodmsg").style.display = "none";
             document.getElementById("errormsg").style.display = "none";
+            document.getElementById("userIsRegistered").style.display = "none";
+          } else if (result.status === 200) {
+              document.getElementById("register").style.display = "none";
+            document.getElementById("systemMsg").style.display = "none";
+            document.getElementById("goodmsg").style.display = "block";
+            document.getElementById("errormsg").style.display = "none";
+            document.getElementById("userIsRegistered").style.display = "none";
           } else {
-                document.getElementById("systemMsg").style.display = "none";
-                document.getElementById("goodmsg").style.display = "none";
-              document.getElementById("errormsg").style.display = "block";
+            document.getElementById("systemMsg").style.display = "none";
+            document.getElementById("goodmsg").style.display = "none";
+            document.getElementById("errormsg").style.display = "block";
+            document.getElementById("userIsRegistered").style.display = "none";
           }
-          // alert("Zweryfikuj adres e-mail, aby móc się zalogować");
-          // setIsRegisterOpen(false);
+          return result.json();
         })
-        .catch((error) => console.log("error:", error));
+        .then((data) => {
+          if (data.error == "login in already use") {
+            document.getElementById("systemMsg").style.display = "none";
+            document.getElementById("goodmsg").style.display = "none";
+            document.getElementById("errormsg").style.display = "none";
+            document.getElementById("userIsRegistered").style.display = "block";
+          }
+          setIsSended(true);
+        })
+        .catch(function (err) {
+          console.log(err.response);
+        });
     }
   };
 
@@ -136,7 +157,7 @@ const Register_popup = ({
           Rejestracja
         </h2>
         <Form style={{ width: "100%" }}>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Group className="mb-3">
             <Form.Control
               type="text"
               placeholder="Imię"
@@ -151,7 +172,7 @@ const Register_popup = ({
                 display: "flex",
                 alignItems: "center",
                 paddingLeft: "5px",
-                  paddingTop: "5px"
+                paddingTop: "5px",
               }}
             >
               {formErrors.nameOfUser}
@@ -171,8 +192,8 @@ const Register_popup = ({
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                  paddingLeft: "5px",
-                  paddingTop: "5px"
+                paddingLeft: "5px",
+                paddingTop: "5px",
               }}
             >
               {formErrors.surname}
@@ -192,8 +213,8 @@ const Register_popup = ({
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                  paddingLeft: "5px",
-                  paddingTop: "5px"
+                paddingLeft: "5px",
+                paddingTop: "5px",
               }}
             >
               {formErrors.username}
@@ -213,8 +234,8 @@ const Register_popup = ({
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                  paddingLeft: "5px",
-                  paddingTop: "5px"
+                paddingLeft: "5px",
+                paddingTop: "5px",
               }}
             >
               {formErrors.mail}
@@ -234,8 +255,8 @@ const Register_popup = ({
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                  paddingLeft: "5px",
-                  paddingTop: "5px"
+                paddingLeft: "5px",
+                paddingTop: "5px",
               }}
             >
               {formErrors.phone}
@@ -255,8 +276,8 @@ const Register_popup = ({
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                  paddingLeft: "5px",
-                  paddingTop: "5px"
+                paddingLeft: "5px",
+                paddingTop: "5px",
               }}
             >
               {formErrors.password}
@@ -276,35 +297,46 @@ const Register_popup = ({
                 color: "red",
                 display: "flex",
                 alignItems: "center",
-                  paddingLeft: "5px",
-                  paddingTop: "5px"
+                paddingLeft: "5px",
+                paddingTop: "5px",
               }}
             >
               {formErrors.repeatPassword}
             </paragraph_sb>
           </Form.Group>
         </Form>
-        <div id={"errormsg"} style={{ display: "none", marginBottom:"10px"}}>
-          <paragraph_sb style={{ color: "red"}}>
+        <div id={"errormsg"} style={{ display: "none", marginBottom: "10px" }}>
+          <paragraph_sb style={{ color: "red" }}>
             Zweryfikuj poprawność wpisanych danych i spróbuj ponownie
           </paragraph_sb>
         </div>
-          <div id={"systemMsg"} style={{ display: "none", marginBottom:"10px"}}>
-              <paragraph_sb style={{ color: "red"}}>
-                  Problem z serwerem. Skontaktuj się z administratorem
-              </paragraph_sb>
-          </div>
-          <div id={"errorInt"} style={{ display: "none", marginBottom:"10px" }}>
-              <paragraph_sb style={{ color: "red" }}>
-                  Coś poszło nie tak. Spróbuj ponownie lub sprawdź połączenie z internetem
-              </paragraph_sb>
-          </div>
-          <div id={"goodmsg"} style={{ display: "none", marginBottom:"10px" }}>
-              <paragraph_sb style={{ color: "green" }}>
-                  Udało się! Sprawdź skrzynkę i zweryfikuj adres email
-              </paragraph_sb>
-          </div>
+        <div id={"systemMsg"} style={{ display: "none", marginBottom: "10px" }}>
+          <paragraph_sb style={{ color: "red" }}>
+            Problem z serwerem. Skontaktuj się z administratorem
+          </paragraph_sb>
+        </div>
+        <div id={"errorInt"} style={{ display: "none", marginBottom: "10px" }}>
+          <paragraph_sb style={{ color: "red" }}>
+            Coś poszło nie tak. Spróbuj ponownie lub sprawdź połączenie z
+            internetem
+          </paragraph_sb>
+        </div>
+        <div
+          id={"userIsRegistered"}
+          style={{ display: "none", marginBottom: "10px" }}
+        >
+          <paragraph_sb style={{ color: "red" }}>
+           Użytkownik o podanym nicku jest już zarejestrowany
+          </paragraph_sb>
+        </div>
+
+        <div id={"goodmsg"} style={{ display: "none", marginBottom: "10px" }}>
+          <paragraph_sb style={{ color: "green" }}>
+            Udało się! Sprawdź skrzynkę i zweryfikuj adres email
+          </paragraph_sb>
+        </div>
         <Button
+            id="register"
           type="submit"
           style={{
             fontFamily: "Montserrat",
