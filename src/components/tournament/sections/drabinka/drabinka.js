@@ -143,6 +143,7 @@ export const Drabinka = (props) => {
                 marginTop: "10px",
                 borderRadius: "10px",
                 width: "100%",
+                marginLeft:"0px"
               }}
             >
               <my_h4
@@ -151,7 +152,7 @@ export const Drabinka = (props) => {
                   alignItems: "center",
                   justifyContent: "center",
                   padding: "20px",
-                  color: "var(--black)",
+                  color: "var(--black)"
                 }}
               >
                 Brak meczów do wyświetlenia

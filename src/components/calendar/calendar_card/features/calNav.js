@@ -96,6 +96,8 @@ export const Header = (props) => {
                                 </Col>
                                 <Col sm={4} style={{display:"flex", alignItems:"end", marginTop:"35px", justifyContent:"flex-start"}}>
 
+
+
                                     <Button
                                         style={{
                                             fontFamily: "Montserrat",
@@ -130,7 +132,7 @@ export const Header = (props) => {
                                                 paddingBottom: "3%",
                                                 paddingTop: "3%",
                                                 paddingRight: "20px",
-                                                paddingLeft: "20px",
+                                                paddingLeft: "20px"
                                             }}
                                             variant="success"
                                             onClick={deleteFilterData}
@@ -138,6 +140,8 @@ export const Header = (props) => {
                                             WYCZYŚĆ
                                         </Button>
                                     ) : null}
+
+
 
                                 </Col>
                             </Row>
