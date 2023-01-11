@@ -3,7 +3,7 @@ import * as React from "react";
 
 // Project specific files
 import Calendar_controller from "../components/calendar/calendar_controller";
-import CalNav from "../components/calendar/calendar_card/features/calNav.js";
+import CalNav from "../components/calendar/calendar_navbar/calendar_navbar.js";
 
 // CSS files
 import "../styles/index.css";
@@ -11,16 +11,10 @@ import "../styles/App.css";
 import {Col, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 
-
-
 export default function CalendarRoute() {
-  return (
-      <Container fluid="true" style={{background: "#689F82", minHeight: "94vh", paddingTop: "2%"}}>
-            <Row className="justify-content-md-center">
-                <Col sm="6">
-                    <CalNav/>
-                </Col>
-            </Row>
+    return (
+        <Container fluid="true" style={{background: "#689F82", minHeight: "94vh", paddingTop: "2%"}}>
+            <CalNav/>
             <Row className="justify-content-md-center">
                 <Calendar_controller />
             </Row>
@@ -30,5 +24,5 @@ export default function CalendarRoute() {
             </div>
         </Container>
 
-  );
+    );
 }

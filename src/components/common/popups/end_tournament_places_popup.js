@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import "../../../styles/App.css"
 import {Col, Row} from "react-bootstrap";
 import {endTournament} from "../../../api/tournament/tournament_CRUD_api";
+import getLaddersFiltered from "../../tournament/sections/drabinka/functions/getLadddersFiltered";
 
 function End_tournament_places_popup(props) {
     const [show, setShow] = useState(false);
@@ -25,11 +26,18 @@ function End_tournament_places_popup(props) {
         console.log({ toAPI});
         endTournament(toAPI).then(setShow(false))
     };
+
     const handleShow = () => setShow(true);
+    let ladders = [{ id: 0 }];
+    ladders = getLaddersFiltered(
+        props.calendar_list.places,
+        props.ladders_list.ladders["ALL"]
+    );
 
 
     return (
         <>
+            {console.log(ladders)}
             <Button style={{
                 fontFamily: 'Montserrat',
                 fontWeight: "600",

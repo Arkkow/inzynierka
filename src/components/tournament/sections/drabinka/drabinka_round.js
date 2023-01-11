@@ -34,7 +34,7 @@ export const DrabinkaRound = (props) => {
             {props.ladders[props.chosen_match].filter((e) => e.round_number.length === props.current_round).map((card)=>(
                 // <div style={{marginTop: props.net_round===2 ? "125px":null}}>
                 <div>
-                <DrabinkaCard {...card} tournamentID = {props.calendar_list.id} role = {props.user.role} refreshProps = {() => props.refreshProps({...props}, props.id)}/>
+                    <DrabinkaCard {...card} tournamentID = {props.calendar_list.id} role = {props.user.role} refreshProps = {() => props.refreshProps({...props}, props.id)}/>
                 </div>
 
                 ))}

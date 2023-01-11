@@ -8,13 +8,20 @@ export const SetRounds = (props) => {
 
     let num_of_matches = 0;
 
-    if(props.tournament.typeOfLadder === "DRABINKA O MIEJSCA"){
-        num_of_matches = props.places/2;
-    }else {
-        num_of_matches = props.places/(2**(props.current_round-1))
-    }
+    num_of_matches = props.places;
+
+    // if(props.tournament.typeOfLadder === "DRABINKA O MIEJSCA"){
+    //     num_of_matches = props.places/2;
+    // }else {
+    //     num_of_matches = props.places/(2**(props.current_round-1))
+    // }
 
     return (
+        <>
+            {console.log("xD")}
+            {console.log("hi!!!")}
+            {console.log(props.tournament.typeOfLadder === "DRABINKA O MIEJSCA")}
+
         <Button variant="secondary"
                 style={{float: "right"}}
                 disabled={props.accepted_difference !== 0 || props.ladders_length === 0 || props.isEmpty === true || props.ladders_list.ladders[props.current_round].length !== 0}
@@ -44,6 +51,9 @@ export const SetRounds = (props) => {
                         .then(r => console.log(r))
                     } // Koniec for
 
+                    console.log("hi!!!")
+                    console.log(props.tournament.typeOfLadder === "DRABINKA O MIEJSCA")
+
                     if(props.tournament.typeOfLadder === "DRABINKA O MIEJSCA") {
                         // PUT wszystkie drabinki przegranych
                         for (let i = 0; i < num_of_matches; i += 2) {
@@ -62,8 +72,9 @@ export const SetRounds = (props) => {
                     }
                 } //Koniec funkcji "OnClick"
                 }>
-            {props.text}
+            {props.text} xD
         </Button>
+        </>
     )
 }
 export default SetRounds

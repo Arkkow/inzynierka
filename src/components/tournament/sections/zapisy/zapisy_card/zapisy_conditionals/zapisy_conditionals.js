@@ -14,25 +14,39 @@ import {Container, Row, Col, Form} from "react-bootstrap";
 export const ZapisyConditionals = (props) => {
 
     return (
-        <Col sm={4}>
+
+        <Col sm={5} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
             <Container>
                 <Row>
-                    <Form>
+                    <Form style={{display:"flex", alignItems:"center", flexDirection:"column"}}>
                         {/** Button "Użytkownik zaprosił cię do gry" **/}
                         <CalendarInvitation{...props} tournamentID = {props.tournamentID} refreshProps = {props.refreshProps}/>
 
                         {/** Slider "1 Zapis opłacony" **/}
                         {
                             // Jeżeli zapis jest opłacony masz cały proces
-                            props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?"Zapis zatwierdzony":
-                                props.partnerAcceptance === 0 && props.partner !== props.user.id? "Czeka na akceptację partnera/rki":
+                            props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?<paragraph_sb>Zapis zatwierdzony</paragraph_sb>:
+                                props.partnerAcceptance === 0 && props.partner !== props.user.id? <paragraph_sb>Czeka na akceptację partnera/rki</paragraph_sb>:
                                     props.partnerAcceptance === 0 && props.partner === props.user.id? null:
                                     // Jeżeli jesteś adminem lub właścicielem turnieju
                                     (props.user.role === "2" && props.creator === props.user.id) || props.user.role === '3'?
                                         props.paymentstatus === "NOTSTARTED"?null:
                                         props.paymentstatus === "DONE"?
-                                            <Form.Check type="switch" defaultChecked="true" disabled={true} label="Zapis 1. opłacony" reverse/>:
-                                            <Form.Check type="switch" label="Zapis 1. opłacony" reverse disabled={props.paymenttype !== "cash"}
+                                            <Form.Check type="switch" defaultChecked="true" disabled={true} style={{
+                                                color: "black",
+                                                fontFamily: "Montserrat",
+                                                fontStyle: "normal",
+                                                fontWeight: "400",
+                                                fontSize: "14px"
+
+                                            }} label="Zapis 1. opłacony" reverse/>:
+                                            <Form.Check type="switch" style={{
+                                                color: "black",
+                                                fontFamily: "Montserrat",
+                                                fontStyle: "normal",
+                                                fontWeight: "400",
+                                                fontSize: "14px"}}
+                                                        label="Zapis 1. opłacony" reverse disabled={props.paymenttype !== "cash"}
                                                         onClick={() => {
                                                             postPayedUsingCash({
                                                                 "id": String(props.id) ,
@@ -48,8 +62,22 @@ export const ZapisyConditionals = (props) => {
                             (props.user.role === "2" && props.creator === props.user.id) || props.user.role === '3'?
                                 props.paymentstatus2 === "NOTSTARTED"?null:
                                 props.paymentstatus2 === "DONE"?
-                                    <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "cash"} label="Zapis 2 opłacony" reverse/>:
-                                    <Form.Check type="switch" disabled={props.paymenttype2 !== "cash"} label="Zapis 2 opłacony" reverse
+                                    <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "cash"} style={{
+                                        color: "black",
+                                        fontFamily: "Montserrat",
+                                        fontStyle: "normal",
+                                        fontWeight: "400",
+                                        fontSize: "14px"
+
+                                    }} label="Zapis 2. opłacony" reverse/>:
+                                    <Form.Check type="switch" disabled={props.paymenttype2 !== "cash"} style={{
+                                        color: "black",
+                                        fontFamily: "Montserrat",
+                                        fontStyle: "normal",
+                                        fontWeight: "400",
+                                        fontSize: "14px"
+
+                                    }} label="Zapis 2. opłacony" reverse
                                                 onClick={() => {
                                                     postPayedUsingCash({
                                                         "id": String(props.id) ,
@@ -63,8 +91,8 @@ export const ZapisyConditionals = (props) => {
                         {/** Komunikaty dla zawodników **/}
                         {/*Nie może być, bo uruchamia się przed akceptacją zaproszenia*/}
                         {/*|| props.paymentstatus2 === "NOTSTARTED"*/}
-                        {props.userid === props.user.id && (props.paymentstatus2 === "PENDING" )?"Oczekuje na płatność partnera":null}
-                        {props.partner === props.user.id && (props.paymentstatus === "PENDING")?"Oczekuje na płatność partnera":null}
+                        {props.userid === props.user.id && (props.paymentstatus2 === "PENDING" )?<paragraph_sb>Oczekuje na płatność partnera/rki</paragraph_sb>:null}
+                        {props.partner === props.user.id && (props.paymentstatus === "PENDING")?<paragraph_sb>Oczekuje na płatność partnera/rki</paragraph_sb>:null}
                     </Form>
 
                 </Row>
@@ -76,7 +104,7 @@ export const ZapisyConditionals = (props) => {
                         (props.userid === props.user.id && props.paymentstatus !=="DONE" && props.paymentstatus !=="PENDING") ||
                         (props.partner === props.user.id&& props.paymentstatus2 !=="DONE" && props.paymentstatus2 !=="PENDING")) ?
                             <Row>
-                                <div>
+                                <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
                                     <PaymentMethod_popup rid ={props.id} />
                                 </div>
                             </Row>:
@@ -85,6 +113,8 @@ export const ZapisyConditionals = (props) => {
             </Container>
         </Col>
     );
+
+
 }
 
 export default ZapisyConditionals;

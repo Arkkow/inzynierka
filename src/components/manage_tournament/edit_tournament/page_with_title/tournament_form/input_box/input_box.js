@@ -388,7 +388,27 @@ function InputBox() {
 
       </div>
           </>
-          :null
+          : <>
+            <label
+                style={{ display: "none", textAlign: "left", marginTop: "1%" }}
+                htmlFor="exampleFormControlTextarea1"
+                className="form-label"
+            >
+              Widoczność turnieju
+            </label>
+            <div
+                style={{ display: "none", textAlign: "left" }}
+                className="form-check form-switch"
+            >
+              <input
+                  className="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="visibility_var"
+              />
+
+            </div>
+          </>
       }
 
       <label

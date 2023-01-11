@@ -18,6 +18,11 @@ export const CalendarAdminDropdown = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const deletingTournament = (id) => {
+        handleClose()
+        document.getElementById(id).style.display = "none";
+    }
+
     return (
         <>
             <style type="text/css">
@@ -55,7 +60,7 @@ export const CalendarAdminDropdown = (props) => {
                     }}>
                         NIE
                     </Button>
-                    <Button variant="danger" onClick={() => deleteTournamentAdmin(String(props.id)).then(() => window.location.reload(false))}  style={{
+                    <Button variant="danger" onClick={() => deleteTournamentAdmin(String(props.id)).then(() => deletingTournament(props.id))}  style={{
                         fontFamily: "Montserrat",
                         fontWeight: "600",
                         fontSize: "18px",
