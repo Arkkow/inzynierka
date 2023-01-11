@@ -10,6 +10,7 @@ import {getUser} from "../../api/user_interaction/user_api";
 
 // CSS files
 import { Col, Row } from "react-bootstrap";
+import * as React from "react";
 
 export function refreshProps(props) {
     props.handleDownloadUser()
@@ -43,7 +44,9 @@ export const Calendar_controller = (props) => {
           <Row className="justify-content-md-center">
               <Col lg={6}>
                   {props.calendar_list.length === 0 ?
-                      <my_h5>Brak wyników</my_h5> :
+                      <my_h4 style={{backgroundColor:"white", display:"flex", alignItems:"center", justifyContent:"center", borderRadius:"10px", height:"50px", minWidth:"560px"}}>
+                          Brak wyników
+                      </my_h4> :
                       props.calendar_list.filter(x=>x.from >= getFromLocal && x.from <= getToLocal).sort((a,b) => {
                               let da = new Date(a.from),
                                   db = new Date(b.from);
