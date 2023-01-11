@@ -38,7 +38,7 @@ export const DrabinkaCard = (props) => {
             <Container>
                 <Row style={{paddingLeft: "10px"}}>
                     <Col sm={8}>
-                        <Row>{props.id}  {props.inA} {props.inB}</Row>
+                        {/*<Row>{props.id}  {props.inA} {props.inB}</Row>*/}
                         <Row>
                             <Col sm={8} style={{marginTop:"10px", marginBottom:"10px"}}>
                                 <Row>
