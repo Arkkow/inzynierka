@@ -13,6 +13,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { Col, Form, Row } from "react-bootstrap";
+import MyAllFilter from "./my_all_filter";
 
 function saveData() {
   if (
@@ -139,7 +140,12 @@ export const Header = (props) => {
 
                   </Col>
               </Row>
+                <Row>
+                    <MyAllFilter {...props}/>
+                </Row>
 
+
+              {/*  TODO CO TO*/}
               <Row style={{ marginTop: "2%", marginBottom: "2%" }}>
                 {props.user.role === "1" ? (
                   <Col
