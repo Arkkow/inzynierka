@@ -16,22 +16,14 @@ export const MyAllFilter = (props) => {
         <>
             {getToken() !== null ? (
                 <Col
-                    sm={12}
+                    sm={6}
                     style={{
-                        marginTop: "2%",
                         display: "flex",
-                        justifyContent: "center",
+                        justifyContent: "flex-start",
                         alignItems: "center",
+                        marginTop: "2%"
                     }}
                 >
-                    <Col
-                        sm={6}
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
                         <Button
                             className="btn btn-primary"
                             href="calendar"
@@ -45,16 +37,6 @@ export const MyAllFilter = (props) => {
                         >
                             <my_h4>WSZYSTKIE</my_h4>
                         </Button>
-                    </Col>
-
-                    <Col
-                        sm={6}
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
                         <Button
                             className="btn btn-primary"
                             style={{
@@ -67,8 +49,6 @@ export const MyAllFilter = (props) => {
                         >
                             <my_h4>MOJE</my_h4>
                         </Button>
-
-                    </Col>
 
                 </Col>
             ):null
