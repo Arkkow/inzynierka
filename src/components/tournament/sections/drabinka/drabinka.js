@@ -160,6 +160,7 @@ export const Drabinka = (props) => {
           </Col>
         </Row>
       )}
+
       {/** BUTTON USUWANIA TURNIEJÓW **/}
       {props.user.id === undefined ? null:
           props.user.role !== "3"? null:
@@ -173,6 +174,7 @@ export const Drabinka = (props) => {
               </Button>
           </div>
       }
+
       {props.calendar_list.creator === props.user.id ?
           props.calendar_list.state === 2?
                 <div style={{marginTop:"20px", marginBottom:"20px", display:"flex", justifyContent:"center"}}>

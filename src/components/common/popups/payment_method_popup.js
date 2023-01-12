@@ -20,7 +20,12 @@ function checker(){
 
 			return;
 		}
-		if(stat.status!="PENDING"){
+        if(stat.status == "DONE"){
+            document.getElementById("loader").style.display="none";
+            document.getElementById("msg").style.display="block";
+            document.getElementById("msg").innerText = "ZAPIS OPŁACONY";
+            setTimeout(function(){setShow(false);},5000);
+        } else if(stat.status!="PENDING"){
 				document.getElementById("loader").style.display="none";
 	document.getElementById("msg").style.display="block";
 	document.getElementById("msg").innerText = stat.status;
