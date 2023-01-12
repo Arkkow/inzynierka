@@ -19,3 +19,4 @@ Organizatorzy i administratorzy mają możliwość:
   - przydzielania punktów do rankingu umieszczonego na stronie
 
 Paweł Lewicki, Arek Kowalski, Jan Majchrzycki, Tomek Sidoruk
+

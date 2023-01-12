@@ -47,14 +47,119 @@ function T_registration_popup(props) {
 
   const renderSwitch = (id) => {
       switch(id) {
+          case 0:
+              return <Button
+                  style={{
+                      height: "15vh",
+                      width: "40vh",
+                      borderRadius: "20px",
+                      fontFamily: "Montserrat",
+                      fontWeight: "600",
+                      fontSize: "34px",
+                      lineHeight: "41.45px",
+                      color: "white",
+                      paddingRight: "1.5%",
+                      paddingLeft: "1.5%",
+                      paddingBottom: "0.5%",
+                      paddingTop: "0.5%",
+                      marginRight: "1%",
+                  }}
+                  variant="success"
+                  onClick={handleShow}
+              >
+                  ZAPISZ SIĘ!
+              </Button>
           case 1:
-              return 'bar';
+              return <Button
+                  style={{
+                      backgroundColor: "gray",
+                      borderColor: "gray",
+                      height: "15vh",
+                      width: "40vh",
+                      borderRadius: "20px",
+                      fontFamily: "Montserrat",
+                      fontWeight: "600",
+                      fontSize: "24px",
+                      lineHeight: "41.45px",
+                      color: "white",
+                      paddingRight: "1.5%",
+                      paddingLeft: "1.5%",
+                      paddingBottom: "0.5%",
+                      paddingTop: "0.5%",
+                      marginRight: "1%",
+                  }}
+                  variant="success"
+              >
+                  Zapisy zakończone.
+              </Button>;
           case 2:
-              return 'bar';
+              return <Button
+                  style={{
+                      backgroundColor: "gray",
+                      borderColor: "gray",
+                      height: "15vh",
+                      width: "40vh",
+                      borderRadius: "20px",
+                      fontFamily: "Montserrat",
+                      fontWeight: "600",
+                      fontSize: "24px",
+                      lineHeight: "41.45px",
+                      color: "white",
+                      paddingRight: "1.5%",
+                      paddingLeft: "1.5%",
+                      paddingBottom: "0.5%",
+                      paddingTop: "0.5%",
+                      marginRight: "1%",
+                  }}
+                  variant="success"
+              >
+                  Zapisy zakończone. Turniej rozpoczął się
+              </Button>;
           case 3:
-              return 'bar';
+              return <Button
+                  style={{
+                      backgroundColor: "gray",
+                      borderColor: "gray",
+                      height: "15vh",
+                      width: "40vh",
+                      borderRadius: "20px",
+                      fontFamily: "Montserrat",
+                      fontWeight: "600",
+                      fontSize: "24px",
+                      lineHeight: "41.45px",
+                      color: "white",
+                      paddingRight: "1.5%",
+                      paddingLeft: "1.5%",
+                      paddingBottom: "0.5%",
+                      paddingTop: "0.5%",
+                      marginRight: "1%",
+                  }}
+                  variant="success"
+              >
+                  TURNIEJ ZAKOŃCZONY
+              </Button>;
           default:
-              return 'foo';}
+              return <Button
+                  style={{
+                      height: "15vh",
+                      width: "40vh",
+                      borderRadius: "20px",
+                      fontFamily: "Montserrat",
+                      fontWeight: "600",
+                      fontSize: "34px",
+                      lineHeight: "41.45px",
+                      color: "white",
+                      paddingRight: "1.5%",
+                      paddingLeft: "1.5%",
+                      paddingBottom: "0.5%",
+                      paddingTop: "0.5%",
+                      marginRight: "1%",
+                  }}
+                  variant="success"
+                  onClick={handleShow}
+              >
+                  ZAPISZ SIĘ!
+              </Button>;}
   }
 
   const handleKeyDown = (event) => {
@@ -69,12 +174,7 @@ function T_registration_popup(props) {
 
   return (
     <>
-
-
-
-
-        {tournamentInfo.state !== 3 ?
-            (props.role === "default" || localStorage.getItem("token") === null ? (
+        {props.role === "default" || localStorage.getItem("token") === null ? (
         <Button
           style={{
             backgroundColor: "gray",
@@ -97,50 +197,7 @@ function T_registration_popup(props) {
         >
           {"ABY ZAPISAĆ SIĘ NA TURNIEJ MUSISZ BYĆ ZALOGOWANY"}
         </Button>
-      ) : (
-        <Button
-          style={{
-            height: "15vh",
-            width: "40vh",
-            borderRadius: "20px",
-            fontFamily: "Montserrat",
-            fontWeight: "600",
-            fontSize: "34px",
-            lineHeight: "41.45px",
-            color: "white",
-            paddingRight: "1.5%",
-            paddingLeft: "1.5%",
-            paddingBottom: "0.5%",
-            paddingTop: "0.5%",
-            marginRight: "1%",
-          }}
-          variant="success"
-          onClick={handleShow}
-        >
-          ZAPISZ SIĘ!
-        </Button>
-      )):        <Button
-                style={{
-                    backgroundColor: "gray",
-                    borderColor: "gray",
-                    height: "15vh",
-                    width: "40vh",
-                    borderRadius: "20px",
-                    fontFamily: "Montserrat",
-                    fontWeight: "600",
-                    fontSize: "24px",
-                    lineHeight: "41.45px",
-                    color: "white",
-                    paddingRight: "1.5%",
-                    paddingLeft: "1.5%",
-                    paddingBottom: "0.5%",
-                    paddingTop: "0.5%",
-                    marginRight: "1%",
-                }}
-                variant="success"
-            >
-                Turniej zakończył się. Zapisywanie się na turniej nie jest możliwe.
-            </Button>}
+      ) : renderSwitch(tournamentInfo.state)}
       <Modal show={show} onHide={handleClose} onKeyDown={handleKeyDown}>
         <Modal.Header closeButton>
           <img
@@ -176,7 +233,6 @@ function T_registration_popup(props) {
                 placeholder="ID partnera (znajdzie je w swoim profilu)"
                 autoFocus
                 ref={id}
-                // onKeyDown={handleKeyDown}
               />
 
             </Form.Group>
