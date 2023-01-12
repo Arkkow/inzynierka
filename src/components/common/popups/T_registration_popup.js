@@ -113,7 +113,7 @@ function T_registration_popup(props) {
                   }}
                   variant="success"
               >
-                  Turniej zakończył się. Zapisywanie się na turniej nie jest możliwe.
+                  TURNIEJ ZAKOŃCZONY
               </Button>;
           default:
               return <Button
