@@ -70,7 +70,7 @@ export function SetRounds(props) {
                     }
                 } //Koniec funkcji "OnClick"
                 }>
-            {props.text} xD
+            {props.text}
         </Button>
         </>
     )
