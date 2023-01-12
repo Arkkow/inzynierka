@@ -47,8 +47,8 @@ function T_registration_popup(props) {
 
   const renderSwitch = (id) => {
       switch(id) {
-          case 1:
-              return  <Button
+          case 0:
+              return <Button
                   style={{
                       height: "15vh",
                       width: "40vh",
@@ -68,6 +68,29 @@ function T_registration_popup(props) {
                   onClick={handleShow}
               >
                   ZAPISZ SIĘ!
+              </Button>
+          case 1:
+              return <Button
+                  style={{
+                      backgroundColor: "gray",
+                      borderColor: "gray",
+                      height: "15vh",
+                      width: "40vh",
+                      borderRadius: "20px",
+                      fontFamily: "Montserrat",
+                      fontWeight: "600",
+                      fontSize: "24px",
+                      lineHeight: "41.45px",
+                      color: "white",
+                      paddingRight: "1.5%",
+                      paddingLeft: "1.5%",
+                      paddingBottom: "0.5%",
+                      paddingTop: "0.5%",
+                      marginRight: "1%",
+                  }}
+                  variant="success"
+              >
+                  Zapisy zakończone.
               </Button>;
           case 2:
               return <Button
@@ -90,7 +113,7 @@ function T_registration_popup(props) {
                   }}
                   variant="success"
               >
-                  Zapisy zakończone.
+                  Zapisy zakończone. Turniej rozpoczął się
               </Button>;
           case 3:
               return <Button
