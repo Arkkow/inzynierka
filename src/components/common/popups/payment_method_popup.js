@@ -36,6 +36,8 @@ setTimeout(function(){setShow(false);},5000);
 		}
 	});
 }
+
+
     const handleConfirm = () => {
 		postPayForRegistration({
   "id": props.rid.toString(),
