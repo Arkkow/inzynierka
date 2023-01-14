@@ -32,8 +32,7 @@ function saveData() {
 function deleteFilterData() {
     localStorage.removeItem("dateFrom");
     localStorage.removeItem("dateTo");
-    getToken()
-    // window.location.reload();
+    window.location.reload();
 }
 
 export const DateFilter = (props) => {
