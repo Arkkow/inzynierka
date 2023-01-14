@@ -96,6 +96,7 @@ const Register_popup = ({
                         document.getElementById("goodmsg").style.display = "none";
                         document.getElementById("errormsg").style.display = "none";
                         document.getElementById("userIsRegistered").style.display = "none";
+                        document.getElementById("register").style.display = "block";
                     } else if (result.status === 200) {
                         document.getElementById("register").style.display = "none";
                         document.getElementById("systemMsg").style.display = "none";
@@ -112,6 +113,7 @@ const Register_popup = ({
                 })
                 .then((data) => {
                     if (data.error == "login in already use") {
+                        document.getElementById("register").style.display = "block";
                         document.getElementById("systemMsg").style.display = "none";
                         document.getElementById("goodmsg").style.display = "none";
                         document.getElementById("errormsg").style.display = "none";
