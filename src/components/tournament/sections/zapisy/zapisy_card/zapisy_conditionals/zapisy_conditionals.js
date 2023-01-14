@@ -104,7 +104,7 @@ export const ZapisyConditionals = (props) => {
                         (props.partner === props.user.id&& props.paymentstatus2 !=="DONE" && props.paymentstatus2 !=="PENDING")) ?
                             <Row>
                                 <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                                    <PaymentMethod_popup rid ={props.id} isOwner={props.userid == props.user.id} />
+                                    <PaymentMethod_popup {...props} rid ={props.id} isOwner={props.userid == props.user.id} />
                                 </div>
                             </Row>:
                             null

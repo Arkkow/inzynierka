@@ -9,7 +9,6 @@ import {getRegistrationPaymentStatus, postPayForRegistration} from "../../../api
 var couter = 0; 
 
 function PaymentMethod_popup(props) {
-	console.log(props);
     const [show, setShow] = useState(false);
 function checker(){
 	getRegistrationPaymentStatus(props.rid.toString()).then((stat)=>{
@@ -70,8 +69,9 @@ setTimeout(function(){setShow(false);},5000);
 	document.getElementById("loader").style.display="block";
 	window.btcpay.showInvoice(tmp[tmp.length-1]);
 	}else{
-			setShow(false);
-	}
+        document.getElementById(props.id).style.display="none";
+        setShow(false);
+    }
 });
 
 	};
@@ -96,9 +96,10 @@ const script = document.createElement('script');
                 paddingBottom: "6px",
                 paddingTop: "6px",
                 marginLeft:"45%"
-            }} variant="success" onClick={handleShow}>
+            }} variant="success" onClick={handleShow} id={props.id}>
                 PŁATNOŚĆ
             </Button>
+
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton >
                     <img src={PFP_LOGO} style={{ marginLeft: "auto", height:"8vh"}} alt="LOGO" />
