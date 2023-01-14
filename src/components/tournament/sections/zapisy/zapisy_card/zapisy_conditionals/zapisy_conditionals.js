@@ -12,7 +12,6 @@ import {Container, Row, Col, Form} from "react-bootstrap";
 
 
 export const ZapisyConditionals = (props) => {
-
     return (
 
         <Col sm={5} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
@@ -105,7 +104,7 @@ export const ZapisyConditionals = (props) => {
                         (props.partner === props.user.id&& props.paymentstatus2 !=="DONE" && props.paymentstatus2 !=="PENDING")) ?
                             <Row>
                                 <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                                    <PaymentMethod_popup rid ={props.id} />
+                                    <PaymentMethod_popup rid ={props.id} isOwner={props.userid == props.user.id} />
                                 </div>
                             </Row>:
                             null

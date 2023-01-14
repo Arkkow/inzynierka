@@ -9,6 +9,7 @@ import {getRegistrationPaymentStatus, postPayForRegistration} from "../../../api
 var couter = 0; 
 
 function PaymentMethod_popup(props) {
+	console.log(props);
     const [show, setShow] = useState(false);
 function checker(){
 	getRegistrationPaymentStatus(props.rid.toString()).then((stat)=>{
@@ -20,6 +21,7 @@ function checker(){
 
 			return;
 		}
+		if(props.isOwner){
         if(stat.status == "DONE"){
             document.getElementById("loader").style.display="none";
             document.getElementById("msg").style.display="block";
@@ -33,6 +35,23 @@ setTimeout(function(){setShow(false);},5000);
 		}else{
 			couter++;
 			setTimeout(checker,1000);
+		}
+		}else{
+			        if(stat.status2 == "DONE"){
+            document.getElementById("loader").style.display="none";
+            document.getElementById("msg").style.display="block";
+            document.getElementById("msg").innerText = "ZAPIS OPŁACONY";
+            setTimeout(function(){setShow(false);},5000);
+        } else if(stat.status2!="PENDING"){
+				document.getElementById("loader").style.display="none";
+	document.getElementById("msg").style.display="block";
+	document.getElementById("msg").innerText = stat.status2;
+setTimeout(function(){setShow(false);},5000);
+		}else{
+			couter++;
+			setTimeout(checker,1000);
+		}
+
 		}
 	});
 }
