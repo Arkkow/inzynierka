@@ -21,6 +21,7 @@ import RankingRoute from "./routes/ranking_route.js";
 import Drabinka from "./routes/drabinka_route.js";
 import TokenRoute from "./routes/token_route";
 import MyCalendarRoute from "./routes/my_calendar_route";
+import NotFound from "./routes/not_found";
 
 
 // CSS files
@@ -74,6 +75,7 @@ function App() {
               <Route path="/tournament" element={<TournamentRoute />} exact={true} />
               <Route path="/AdminUsers" element={<AdminUsers />} exact={true} />
               <Route path="/Ranking" element={<RankingRoute />} exact={true} />
+              <Route path='*' element={<NotFound />}/>
           </Routes>
           <Login_popup
               isLoginOpen={isLoginOpen}
