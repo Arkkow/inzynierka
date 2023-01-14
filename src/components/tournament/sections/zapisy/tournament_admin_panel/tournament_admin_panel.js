@@ -49,6 +49,7 @@ export const TournamentAdminPanel = (props) => {
                     {/** Zakocz zapisy **/}
 
                         <Button
+                            id="endSignUps"
                             variant="success"
                             disabled={( props.pairs_list.pairs["DONE"].length !== props.places ||
                                 // Jeżeli turniej nie jest w odpowiednim stanie
@@ -89,7 +90,9 @@ export const TournamentAdminPanel = (props) => {
                                         .then(() => props.handleDownloadCalendarCard(props.tournament.id))
                                         .catch(err => console.log(err))
                                         .then(() => setTimeout(()=> props.handleDownloadCalendarCard(props.tournament.id), 2000))
+                                        document.getElementById("endSignUps").style.display = "none";
                                 }else {
+                                    document.getElementById("endSignUps").style.display = "block";
                                     alert("Turniej nie jest jeszcze gotowy do rozpoczęcia")
                                 }
 
