@@ -32,90 +32,96 @@ function saveData() {
 function deleteFilterData() {
     localStorage.removeItem("dateFrom");
     localStorage.removeItem("dateTo");
-    getToken()
-    // window.location.reload();
+    window.location.reload();
 }
 
 export const DateFilter = (props) => {
 
     return (
-        <Row style={{ marginTop: "1%" }}>
-            <Col sm={4}>
-                <my_h4 style={{ paddingLeft: "10px" }}>Data rozpoczęcia od</my_h4>
-                <Form.Control
-                    style={{
-                        marginTop: "8px",
-                        height: "80%",
-                        borderRadius: "100px",
-                        maxHeight:"52px"
-                    }}
-                    type="date"
-                    id="dateFrom"
-                    defaultValue={localStorage.getItem("dateFrom")}
-                />
-            </Col>
-            <Col sm={4}>
-                <my_h4 style={{ paddingLeft: "10px" }}>Data rozpoczęcia do</my_h4>
-                <Form.Control
-                    style={{
-                        marginTop: "8px",
-                        height: "80%",
-                        borderRadius: "100px",
-                        maxHeight:"52px"
-                    }}
-                    type="date"
-                    id="dateTo"
-                    defaultValue={localStorage.getItem("dateTo")}
-                />
-            </Col>
-            <Col sm={4} style={{display:"flex", alignItems:"end", marginTop:"35px", justifyContent:"flex-start"}}>
-
-                <Button
-                    style={{
-                        fontFamily: "Montserrat",
-                        fontWeight: "600",
-                        fontSize: "18px",
-                        color: "white",
-                        borderRadius: "15px",
-                        paddingBottom: "3%",
-                        paddingTop: "3%",
-                        paddingRight: "20px",
-                        paddingLeft: "20px",
-                        marginRight: "20px",
-                        display: "flex"
-
-                    }}
-                    variant="success"
-                    onClick={saveData}
-                >
-                    FILTRUJ
-                </Button>
-
-                {localStorage.getItem("dateFrom") !== null ||
-                localStorage.getItem("dateTo") ? (
+        <Row style={{ marginTop: "1%", display:"grid", gridAutoFlow:"column" }}>
+                <div>
+                    <my_h4 style={{ paddingLeft: "10px" }}>Data rozpoczęcia od</my_h4>
+                    <Form.Control
+                        style={{
+                            marginTop: "8px",
+                            height: "80%",
+                            borderRadius: "100px",
+                            maxHeight:"52px"
+                        }}
+                        type="date"
+                        id="dateFrom"
+                        defaultValue={localStorage.getItem("dateFrom")}
+                    />
+                </div>
+                <div>
+                    <my_h4 style={{ paddingLeft: "10px" }}>Data rozpoczęcia do</my_h4>
+                    <Form.Control
+                        style={{
+                            marginTop: "8px",
+                            height: "80%",
+                            borderRadius: "100px",
+                            maxHeight:"52px"
+                        }}
+                        type="date"
+                        id="dateTo"
+                        defaultValue={localStorage.getItem("dateTo")}
+                    />
+                </div>
+                <div style={{display:"flex", alignItems:"end", marginTop:"35px"}}>
                     <Button
                         style={{
                             fontFamily: "Montserrat",
                             fontWeight: "600",
                             fontSize: "18px",
-                            lineHeight: "25px",
                             color: "white",
                             borderRadius: "15px",
                             paddingBottom: "3%",
                             paddingTop: "3%",
                             paddingRight: "20px",
                             paddingLeft: "20px",
-                            display: "flex"
+                            display: "flex",
+                            maxWidth:"120px",
+                            maxHeight:"40px",
+
 
                         }}
                         variant="success"
-                        onClick={deleteFilterData}
+                        onClick={saveData}
                     >
-                        WYCZYŚĆ
+                        FILTRUJ
                     </Button>
+                </div>
+
+
+                {localStorage.getItem("dateFrom") !== null ||
+                localStorage.getItem("dateTo") ? (
+                    <div style={{display:"flex", alignItems:"end"}}>
+                        <Button
+                            style={{
+                                fontFamily: "Montserrat",
+                                fontWeight: "600",
+                                fontSize: "18px",
+                                color: "white",
+                                borderRadius: "15px",
+                                paddingBottom: "3%",
+                                paddingTop: "3%",
+                                paddingRight: "20px",
+                                paddingLeft: "20px",
+                                marginRight: "20px",
+                                display: "flex",
+                                maxWidth:"140px",
+                                maxHeight:"40px"
+
+                            }}
+                            variant="success"
+                            onClick={deleteFilterData}
+                        >
+                            WYCZYŚĆ
+                        </Button>
+                    </div>
+
                 ) : null}
 
-            </Col>
         </Row>
     )
 };

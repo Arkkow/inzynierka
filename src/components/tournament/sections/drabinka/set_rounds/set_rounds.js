@@ -21,7 +21,7 @@ export function SetRounds(props) {
     return (
         <>
         <Button variant="secondary"
-                style={{float: "right"}}
+                style={{margin: "auto"}}
                 disabled={props.accepted_difference !== 0 || props.ladders_length === 0 || props.isEmpty === true || props.ladders_list.ladders[props.current_round].length !== 0}
                 onClick={async () => {
 

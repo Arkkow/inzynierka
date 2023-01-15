@@ -11,6 +11,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "../../../../styles/App.css"
 import {Col, ModalFooter, Row} from "react-bootstrap";
+import {getUser} from "../../../../api/user_interaction/user_api";
+import {getTournamentById} from "../../../../api/api";
 
 export function legitScores(scoreboardText) {
 
@@ -51,6 +53,11 @@ export function legitScores(scoreboardText) {
 }
 
 function MatchResult_popup(props) {
+    let id = window.location.href.split('?')[1].split('=')[1]
+    const [tournamentsData, setTournamentsData] = useState({"fetched":false,data:[]});
+    if(tournamentsData.fetched === false){
+        getTournamentById(id).then((dane)=>{setTournamentsData({"fetched":true,data:dane});})
+    }
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -58,7 +65,7 @@ function MatchResult_popup(props) {
 
     return (
         <>
-            <Button style={{
+            {tournamentsData.data.state === 3 ? null :  <Button style={{
                 fontFamily: "Montserrat",
                 fontWeight: "600",
                 fontSize: "18px",
@@ -71,7 +78,8 @@ function MatchResult_popup(props) {
                 paddingLeft:"15px"
             }} variant="success" onClick={handleShow}>
                 PODAJ WYNIK
-            </Button>
+            </Button>}
+
 
             <Modal show={show} onHide={handleClose} className="modal-lg" backdrop="static">
                 <Modal.Header closeButton >

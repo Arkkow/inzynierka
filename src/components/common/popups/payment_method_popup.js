@@ -20,6 +20,7 @@ function checker(){
 
 			return;
 		}
+		if(props.isOwner){
         if(stat.status == "DONE"){
             document.getElementById("loader").style.display="none";
             document.getElementById("msg").style.display="block";
@@ -34,8 +35,27 @@ setTimeout(function(){setShow(false);},5000);
 			couter++;
 			setTimeout(checker,1000);
 		}
+		}else{
+			        if(stat.status2 == "DONE"){
+            document.getElementById("loader").style.display="none";
+            document.getElementById("msg").style.display="block";
+            document.getElementById("msg").innerText = "ZAPIS OPŁACONY";
+            setTimeout(function(){setShow(false);},5000);
+        } else if(stat.status2!="PENDING"){
+				document.getElementById("loader").style.display="none";
+	document.getElementById("msg").style.display="block";
+	document.getElementById("msg").innerText = stat.status2;
+setTimeout(function(){setShow(false);},5000);
+		}else{
+			couter++;
+			setTimeout(checker,1000);
+		}
+
+		}
 	});
 }
+
+
     const handleConfirm = () => {
 		postPayForRegistration({
   "id": props.rid.toString(),
@@ -49,8 +69,9 @@ setTimeout(function(){setShow(false);},5000);
 	document.getElementById("loader").style.display="block";
 	window.btcpay.showInvoice(tmp[tmp.length-1]);
 	}else{
-			setShow(false);
-	}
+        document.getElementById(props.id).style.display="none";
+        setShow(false);
+    }
 });
 
 	};
@@ -75,9 +96,10 @@ const script = document.createElement('script');
                 paddingBottom: "6px",
                 paddingTop: "6px",
                 marginLeft:"45%"
-            }} variant="success" onClick={handleShow}>
+            }} variant="success" onClick={handleShow} id={props.id}>
                 PŁATNOŚĆ
             </Button>
+
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton >
                     <img src={PFP_LOGO} style={{ marginLeft: "auto", height:"8vh"}} alt="LOGO" />

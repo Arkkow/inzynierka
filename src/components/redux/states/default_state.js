@@ -99,9 +99,7 @@ const default_state = {
   },
 
   my_tournaments_content: {
-    data: [
-
-          ],
+    data: [],
   },
 
 

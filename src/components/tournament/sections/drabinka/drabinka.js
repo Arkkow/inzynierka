@@ -72,7 +72,8 @@ export const Drabinka = (props) => {
         </Row>
       ) : null}
 
-            {props.calendar_list.state !== 3?
+            {/*TODO zmienić na !== 3*/}
+            {props.calendar_list.state === 3?
                 <Row className="justify-content-md-center" >
                     <SetTournamentRounds
                             {...props}
