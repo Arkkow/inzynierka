@@ -165,7 +165,9 @@ export const Drabinka = (props) => {
       {/** BUTTON USUWANIA TURNIEJÓW **/}
       {props.user.id === undefined ? null:
           props.user.role !== "3"? null:
+              props.calendar_list.state === 3? null :
           <div>
+
               <Button variant="danger" onClick={ () => {
                   for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){
                       deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))
