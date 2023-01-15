@@ -41,38 +41,44 @@ export const SetTournamentRounds = (props) => {
         return 0
     }
 
+    let numberOfRounds = Math.log2(props.places)
+
     return (
         <>
             {props.user.role === "3"?
                 /** Załóż turniej: **/
-                <Col sm={4}>
-                    {/** Warunek przejścia do kolejnej fazy turnieju **/}
-                    <ButtonGroup>
-                        <Button variant="secondary"
-                                style={{float: "right"}}
-                                disabled={accepted_difference !== 0 || props.ladders_length !== 0}
-                                onClick={ () =>
-                                    prepareTournamentRound({...props},
-                                        props.places, props.pairs_list.pairs["DONE"], 1, "R")
-                                }>
-                            Wygeneruj I rundę
-                        </Button>
+                <>
+                    <Col sm={12/numberOfRounds} style={{display: "flex"}}>
+                        {/** Warunek przejścia do kolejnej fazy turnieju **/}
+                            <Button variant="secondary"
+                                    style={{margin: "auto"}}
+                                    disabled={accepted_difference !== 0 || props.ladders_length !== 0}
+                                    onClick={ () =>
+                                        prepareTournamentRound({...props},
+                                            props.places, props.pairs_list.pairs["DONE"], 1, "R")
+                                    }>
+                                Wygeneruj I rundę
+                            </Button>
+                    </Col>
+                    <Col sm={12/numberOfRounds} style={{display: "flex"}}>
 
-                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {2}
-                                   text={"Wygeneruj II rundę"} tournament = {props.tournament}
-                                   isEmpty = {props.ladders_list.ladders[1].length === 0}/>
+                            <SetRounds {...props} accepted_difference={accepted_difference} current_round = {2}
+                                       text={"Wygeneruj II rundę"} tournament = {props.tournament}
+                                       isEmpty = {props.ladders_list.ladders[1].length === 0}/>
+                    </Col>
+                    <Col sm={12/numberOfRounds} style={{display: "flex"}}>
+                            <SetRounds {...props} accepted_difference={accepted_difference} current_round = {3}
+                                       text={"Wygeneruj III rundę"} tournament = {props.tournament}
+                                       isEmpty = {props.ladders_list.ladders[2].length === 0}/>
+                    </Col>
+                    <Col sm={12/numberOfRounds} style={{display: "flex"}}>
+                            {props.places === 16?
+                                    <SetRounds {...props} accepted_difference={accepted_difference} current_round = {4} text={"Załóż IV rundę"} tournament = {props.tournament} isEmpty = {props.ladders_list.ladders[3].length === 0}/>
+                                :null
+                            }
 
-                        <SetRounds {...props} accepted_difference={accepted_difference} current_round = {3}
-                                   text={"Wygeneruj III rundę"} tournament = {props.tournament}
-                                   isEmpty = {props.ladders_list.ladders[2].length === 0}/>
-
-                        {props.places === 16?
-                                <SetRounds {...props} accepted_difference={accepted_difference} current_round = {4} text={"Załóż IV rundę"} tournament = {props.tournament} isEmpty = {props.ladders_list.ladders[3].length === 0}/>
-                            :null
-                        }
-
-                    </ButtonGroup>
-                </Col>
+                    </Col>
+                </>
              :null}
         </>
     )
