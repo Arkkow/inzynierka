@@ -22,7 +22,6 @@ export const TournamentRanked = (props) => {
                         <div style={{display:"flex", justifyContent:"center"}}>
 
                             {/*{*/}
-                            {/*    // console.log("hi!")*/}
                             {/*    props.handleDownloadAuthedCalendar()*/}
                             {/*}*/}
 
