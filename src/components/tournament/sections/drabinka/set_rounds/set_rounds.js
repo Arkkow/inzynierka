@@ -20,8 +20,11 @@ export function SetRounds(props) {
 
     return (
         <>
-        <Button variant="secondary"
-                style={{margin: "auto"}}
+        <Button variant="success"
+                style={{margin: "auto", fontFamily: 'Montserrat',
+                    fontWeight: "600",
+                    fontSize: "18px",
+                    lineHeight: "25px", paddingRight:"15px", paddingLeft:"15px"}}
                 disabled={props.accepted_difference !== 0 || props.ladders_length === 0 || props.isEmpty === true || props.ladders_list.ladders[props.current_round].length !== 0}
                 onClick={async () => {
 
