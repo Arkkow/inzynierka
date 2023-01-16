@@ -90,7 +90,7 @@ function T_registration_popup(props) {
                   }}
                   variant="success"
               >
-                  Zapisy zakończone.
+                  ZAPISY ZAKOŃCZONE
               </Button>;
           case 2:
               return <Button
@@ -113,7 +113,7 @@ function T_registration_popup(props) {
                   }}
                   variant="success"
               >
-                  Zapisy zakończone. Turniej rozpoczął się
+                  ZAPISY ZAKOŃCZONE
               </Button>;
           case 3:
               return <Button
