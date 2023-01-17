@@ -37,7 +37,8 @@ export const ZapisyCard = (props) => {
                             <paragraph style={{textAlign:"center"}}>RANKING: {props.rankingsum}</paragraph>
                         </div>
                     </Col>
-                    {(props.approval === "0" && props.partnerAcceptance === 1) && props.isFull !== false && props.tournamentState === 0?
+
+                    {(props.approval === "0" && props.partnerAcceptance === 1) && props.tournamentState === 0?
                         <Col sm={6} style={{display:"flex", justifyContent:"center"}}>
                             <Row style={{display:"flex", alignItems:"center"}}>
                                 {/** Button akceptacji zapisu **/}
