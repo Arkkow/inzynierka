@@ -52,7 +52,7 @@ export const Drabinka = (props) => {
         <Row>
           <div>
             {props.calendar_list.typeOfLadder === "DRABINKA O MIEJSCA" ? (
-                <Col lg={3}>
+                <Col lg={3} style={{marginBottom: "20px"}}>
                   <Form.Select
                     value={chosen_match}
                     onChange={(e) => set_chosen_match(e.target.value)}
