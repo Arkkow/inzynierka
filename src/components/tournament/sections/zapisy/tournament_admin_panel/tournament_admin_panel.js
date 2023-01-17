@@ -25,7 +25,7 @@ export const TournamentAdminPanel = (props) => {
     return (
         <>
 
-            {props.user.role === "3" && props.tournament.state !== 3?
+            {(props.user.role === "3" || (props.user.role === "2" && props.user.id === props.tournament.creator)) && props.tournament.state !== 3?
             <>
                 <Row>
                     <Col lg={12} style={{display:"flex", flexDirection:"column", alignItems:"center", backgroundColor:"white",
