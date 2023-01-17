@@ -46,8 +46,9 @@ export const TournamentAdminPanel = (props) => {
                                 </Button>
                         </ButtonGroup>
 
-                    {/** Zakocz zapisy **/}
+                    {/** Zakończ zapisy **/}
 
+                        {props.tournament.state === 0 ?
                         <Button
                             id="endSignUps"
                             variant="success"
@@ -99,7 +100,7 @@ export const TournamentAdminPanel = (props) => {
                             }}
                         >
                           ZAKOŃCZ ZAPISY
-                        </Button>
+                        </Button> : null}
                     </Col>
                 </Row>
             </> :null}
