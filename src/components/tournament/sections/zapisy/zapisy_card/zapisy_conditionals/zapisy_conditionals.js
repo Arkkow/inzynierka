@@ -18,9 +18,13 @@ export const ZapisyConditionals = (props) => {
             <Container>
                 <Row>
                     <Form style={{display:"flex", alignItems:"center", flexDirection:"column"}}>
-                        {/** Button "Użytkownik zaprosił cię do gry" **/}
-                        <CalendarInvitation{...props} tournamentID = {props.tournamentID} refreshProps = {props.refreshProps}/>
-
+                        {props.myInvites?
+                            <>
+                                {/** Button "Użytkownik zaprosił cię do gry" **/}
+                                <CalendarInvitation{...props} tournamentID = {props.tournamentID} refreshProps = {props.refreshProps}/>
+                            </>
+                                :null
+                        }
                         {/** Slider "1 Zapis opłacony" **/}
                         {
                             // Jeżeli zapis jest opłacony masz cały proces
