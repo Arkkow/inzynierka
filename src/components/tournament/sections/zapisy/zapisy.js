@@ -71,6 +71,7 @@ export const Zapisy = (props) => {
                                                         <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} state ={props.calendar_list.state} refreshProps = {() => props.refreshProps({...props}, props.id)}
                                                                     isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places }
                                                                     myInvites ={true} tournamentState = {props.calendar_list.state}
+                                                                    tournament = {props.calendar_list}
                                                         />
                                                     ))}
                                             </>
@@ -85,7 +86,8 @@ export const Zapisy = (props) => {
                                                     .map((card)=>(
                                                         <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} state ={props.calendar_list.state} refreshProps = {() => props.refreshProps({...props}, props.id)}
                                                                     isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}
-                                                                    myInvites ={true} tournamentState = {props.calendar_list.state}
+                                                                    myInvites ={false} tournamentState = {props.calendar_list.state}
+                                                                    tournament = {props.calendar_list}
                                                         />
                                                     ))}
                                             </>

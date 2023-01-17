@@ -46,7 +46,7 @@ export const ZapisyCard = (props) => {
                                     // Jeżeli para się zgodziła
                                     (props.approval === "0" && props.partnerAcceptance === 1) &&
                                     // Jeżeli jesteś organizatorem tego turnieju lub adminem
-                                    ((props.user.role === "2" && props.creator === props.user.id) || props.user.role === "3") &&
+                                    ((props.user.role === "2" && props.tournament.creator === props.user.id) || props.user.role === "3") &&
                                     // Jeżeli liczba zaakceptowanych par jest mniejsza niż max
                                     props.isFull === false?
 
