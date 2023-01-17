@@ -73,7 +73,6 @@ function InputBox() {
               }
           } else {
               alert("Powtórzone hasło nie jest takie samo!");
-          console.log("dupa ")
   }};
 
   useEffect(() => {

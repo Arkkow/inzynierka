@@ -24,7 +24,7 @@ function T_registration_popup(props) {
   const id = useRef(null);
 
   const checkIfIdIsValid = async () => {
-    console.log(id.current.value);
+    // console.log(id.current.value);
     await getUserById(id.current.value).then((dane) => {
       if (!dane) {
         return alert("Uzytkownik o podanym id nie istnieje!");

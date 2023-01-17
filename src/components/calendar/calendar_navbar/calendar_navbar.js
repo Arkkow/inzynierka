@@ -125,7 +125,6 @@ const mapDispatchToProps = (dispatch) => {
             //    API z kalendarza
             getUser()
                 .then((res) => {
-                    console.log(res);
                     return dispatch({ type: "DOWNLOAD_USER", payload: { data: res } });
                 })
                 .catch((err) => {

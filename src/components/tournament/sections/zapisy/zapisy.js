@@ -77,7 +77,7 @@ export const Zapisy = (props) => {
                                         </>
                                         <>
                                             <Card style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%", textAlign: "center", background: "#0B4D39"}} >
-                                                <my_h3 style={{color:"white", lineHeight:"22px"}}>WSZYSTKIE ZAPISY</my_h3> {console.log(props.calendar_list.state)}
+                                                <my_h3 style={{color:"white", lineHeight:"22px"}}>WSZYSTKIE ZAPISY</my_h3>
                                             </Card>
                                             <>
                                                 {props.pairs_list.pairs["ALL"]

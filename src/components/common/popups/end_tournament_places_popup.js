@@ -37,7 +37,6 @@ function End_tournament_places_popup(props) {
 
     return (
         <>
-            {console.log(ladders)}
             <Button style={{
                 fontFamily: 'Montserrat',
                 fontWeight: "600",

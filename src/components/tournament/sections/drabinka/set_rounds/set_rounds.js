@@ -6,8 +6,6 @@ export function SetRounds(props) {
 
     let ready_list_next = props.ladders_list.ladders[props.current_round-1].sort();
 
-    console.log(ready_list_next)
-    console.log(props.tournament.id)
     let num_of_matches = 0;
 
     // num_of_matches = props.places;
@@ -52,7 +50,6 @@ export function SetRounds(props) {
                             .then(r => console.log(r))
                     } // Koniec for
 
-                    console.log("hi!!!")
                     console.log(props.tournament.typeOfLadder === "DRABINKA O MIEJSCA")
 
                     if (props.tournament.typeOfLadder === "DRABINKA O MIEJSCA") {
