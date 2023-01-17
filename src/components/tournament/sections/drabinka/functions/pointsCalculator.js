@@ -70,7 +70,7 @@ export function pointsForTournamentsClassicLadder(numberOfPairGames, rang, numbe
 }
 
 export function pointsForTournamentsLadderOfPlace(place, rang, numberOfPairs){
-    if (rang == "Master" && numberOfPairs == "8")
+    if (rang == "MASTER" && numberOfPairs == "8")
     {
         if (place == 1){
             return 500
@@ -97,7 +97,7 @@ export function pointsForTournamentsLadderOfPlace(place, rang, numberOfPairs){
             return 25
         }
     }
-    else if (rang == "Master" && numberOfPairs == "16")
+    else if (rang == "MASTER" && numberOfPairs == "16")
     {
         if (place == 1){
             return 1000

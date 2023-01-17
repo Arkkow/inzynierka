@@ -1,4 +1,7 @@
-import {pointsForTournamentsClassicLadder} from '../../tournament/sections/drabinka/functions/pointsCalculator';
+import {
+    pointsForTournamentsClassicLadder,
+    pointsForTournamentsLadderOfPlace
+} from '../../tournament/sections/drabinka/functions/pointsCalculator';
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -34,6 +37,25 @@ function End_tournament_places_popup(props) {
         props.ladders_list.ladders["ALL"]
     );
 
+    let playersPlaces = [];
+
+    for (let i = 1; i < props.calendar_list.places; i = i + 2) {
+        if ( ladders[i][ladders[i].length-1].winner === "B"){
+            playersPlaces.push(ladders[i][ladders[i].length-1].inB)
+            playersPlaces.push(ladders[i][ladders[i].length-1].inA)
+        }
+        else {
+            playersPlaces.push(ladders[i][ladders[i].length-1].inA)
+            playersPlaces.push(ladders[i][ladders[i].length-1].inB)
+        }
+    }
+
+    const points = (id) => {
+    for (let i = 0; i < 8; i++) {
+        if (playersPlaces[i] == id){
+            return (i + 1)
+        }
+    }}
 
     return (
         <>
@@ -76,10 +98,8 @@ function End_tournament_places_popup(props) {
 
                                 <input style={{width:"80px", marginTop:"10px", marginBottom:"10px", borderRadius:"15px"}}
                                        type="number" className="form-control" id={card.id}
-                                       defaultValue={0}>
-
+                                       defaultValue={pointsForTournamentsLadderOfPlace(points(card.id), props.calendar_list.rang, props.calendar_list.places)}>
                                 </input>
-
                             </Col>
                         </Row>
 
