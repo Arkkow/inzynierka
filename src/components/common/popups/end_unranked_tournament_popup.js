@@ -13,7 +13,7 @@ function EndUnrankedTournament_popup() {
     const handleClose = () => setShow(false);
     const handleEndTournament = () => {
         endTournament({id: id_tournament}).then(setShow(false))
-            .then((result) => result.error ? alert("Coś poszło nie tak. Skontaktuj się z adminsitracją.") :  window.location.href="calendar")
+            .then((result) => result.error ? alert("Coś poszło nie tak. Skontaktuj się z administracją.") :  window.location.href="calendar")
         }
     const handleShow = () => setShow(true);
 
