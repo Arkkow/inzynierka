@@ -12,7 +12,7 @@ export const TournamentRanked = (props) => {
 
     return (
         <>
-            { props.approved === 1 && ((props.user.role === "2" && props.creator === props.user.id) || props.user.role === "3") ? (
+            { props.approved === 1 && props.user.role === "3" ? (
                 <Col>
                     <Row style={{display:"flex", textAlign:"center"}}>
                         <paragraph>Czy chcesz uczynić turniej rankingowym?</paragraph>
