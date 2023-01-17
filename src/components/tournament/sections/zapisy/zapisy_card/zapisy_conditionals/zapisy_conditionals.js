@@ -56,7 +56,6 @@ export const ZapisyConditionals = (props) => {
 
                         }
                         {/** Slider "Zapis 2 opłacony" **/}
-                        {console.log(props)}
                         {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?null:
                             props.partnerAcceptance === 0? null:
                             (props.user.role === "2" && props.tournament.creator === props.user.id) || props.user.role === '3'?
