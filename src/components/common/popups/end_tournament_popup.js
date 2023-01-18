@@ -63,7 +63,8 @@ function EndTournament_popup(props) {
     }
     const toAPI = { id: String(id_tournament), results: finalResults };
     console.log({ toAPI });
-    endTournament(toAPI).then(setShow(false));
+    endTournament(toAPI).then(window.location.reload())
+          .catch((error) => (console.log(error)))
   };
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
