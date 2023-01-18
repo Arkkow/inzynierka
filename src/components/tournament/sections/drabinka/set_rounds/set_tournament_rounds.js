@@ -6,7 +6,7 @@ import {useEffect} from "react";
 
 // CSS files
 import Button from "react-bootstrap/Button";
-import {ButtonGroup, Col} from "react-bootstrap";
+import { Col} from "react-bootstrap";
 import {putLadder} from "../../../../../api/tournament/ladders_api";
 import SetRounds from "./set_rounds";
 
@@ -45,6 +45,7 @@ export const SetTournamentRounds = (props) => {
 
     return (
         <>
+            {console.log(props)}
             {props.user.role === "3" || (props.user.role === "2" && props.calendar_list.creator === props.user.id)?
                 /** Załóż turniej: **/
                 <>
