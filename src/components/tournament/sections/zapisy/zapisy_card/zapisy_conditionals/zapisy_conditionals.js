@@ -94,8 +94,8 @@ export const ZapisyConditionals = (props) => {
                         {/** Komunikaty dla zawodników **/}
                         {/*Nie może być, bo uruchamia się przed akceptacją zaproszenia*/}
                         {/*|| props.paymentstatus2 === "NOTSTARTED"*/}
-                        {props.userid === props.user.id && (props.paymentstatus2 === "PENDING" )?<paragraph_sb>Oczekuje na płatność partnera/rki</paragraph_sb>:null}
-                        {props.partner === props.user.id && (props.paymentstatus === "PENDING" )?<paragraph_sb>Oczekuje na płatność partnera/rki</paragraph_sb>:null}
+                        {props.userid === props.user.id && (props.paymentstatus2 === "PENDING" || (props.paymentstatus === "NOTSTARTED" && props.partnerAcceptance === 1))?<paragraph_sb>Oczekuje na płatność partnera/rki</paragraph_sb>:null}
+                        {props.partner === props.user.id && (props.paymentstatus === "PENDING" || props.paymentstatus === "NOTSTARTED")?<paragraph_sb>Oczekuje na płatność partnera/rki</paragraph_sb>:null}
                     </Form>
 
                 </Row>
