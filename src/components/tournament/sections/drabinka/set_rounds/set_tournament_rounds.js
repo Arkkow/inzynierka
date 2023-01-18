@@ -48,7 +48,6 @@ export const SetTournamentRounds = (props) => {
             {props.user.role === "3" || (props.user.role === "2" && props.calendar_list.creator === props.user.id)?
                 /** Załóż turniej: **/
                 <>
-                    {console.log(props)}
                     <Col sm={12/numberOfRounds} style={{display: "flex"}}>
                         {/** Warunek przejścia do kolejnej fazy turnieju **/}
                             <Button variant="success"

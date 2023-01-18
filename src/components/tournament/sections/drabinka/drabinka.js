@@ -167,7 +167,7 @@ export const Drabinka = (props) => {
 
       {/** BUTTON USUWANIA TURNIEJÓW **/}
       {props.user.id === undefined ? null:
-          props.user.role !== "3"? null:
+          props.user.role !== "3" && (props.user.role !== "2" || props.user.id !== props.calendar_list.creator)? null:
               props.calendar_list.state === 3? null :
           <div style={{display:"flex", justifyContent:"center", marginBottom:"20px", marginTop:"10px", fontFamily: 'Montserrat',
             fontWeight: "600",
