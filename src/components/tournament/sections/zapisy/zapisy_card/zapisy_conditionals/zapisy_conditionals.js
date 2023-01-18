@@ -102,7 +102,7 @@ export const ZapisyConditionals = (props) => {
 
                 {/** Button "Płatność" **/}
                 {
-                    props.approval==="1" &&
+                    props.approval==="1" && props.myInvites &&
                     (
                         (props.userid === props.user.id && props.paymentstatus !=="DONE" && props.paymentstatus !=="PENDING") ||
                         (props.partner === props.user.id && props.paymentstatus2 !=="DONE" && props.paymentstatus2 !=="PENDING")) ?
