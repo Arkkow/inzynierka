@@ -14,6 +14,8 @@ import { deleteLadder } from "../../../../api/tournament/ladders_api";
 import { Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import SetTournamentRounds from "./set_rounds/set_tournament_rounds";
+import { Form } from "react-bootstrap";
+
 
 export const Drabinka = (props) => {
   useEffect(() => {
@@ -50,30 +52,31 @@ export const Drabinka = (props) => {
         <Row>
           <div>
             {props.calendar_list.typeOfLadder === "DRABINKA O MIEJSCA" ? (
-              <select
-                value={chosen_match}
-                onChange={(e) => set_chosen_match(e.target.value)}
-              >
-                <option value="1">Drabinka główna</option>
-                <option value="3">3 miejsce</option>
-                <option value="5">5 miejsce</option>
-                <option value="7">7 miejsce</option>
-                {props.calendar_list.places === 16 ? (
-                  <>
-                    <option value="9">9 miejsce</option>
-                    <option value="11">11 miejsce</option>
-                    <option value="13">13 miejsce</option>
-                    <option value="15">15 miejsce</option>
-                  </>
-                ) : null}
-              </select>
+                <Col lg={3} style={{marginBottom: "20px"}}>
+                  <Form.Select
+                    value={chosen_match}
+                    onChange={(e) => set_chosen_match(e.target.value)}
+                  >
+                    <option value="1">DRABINKA GŁÓWNA</option>
+                    <option value="3">DRABINKA O 3. MIEJSCE</option>
+                    <option value="5">DRABINKA O 5. MIEJSCE</option>
+                    <option value="7">DRABINKA O 7. MIEJSCE</option>
+                    {props.calendar_list.places === 16 ? (
+                      <>
+                        <option value="9"> O 9. MIEJSCE</option>
+                        <option value="11"> O 11. MIEJSCE</option>
+                        <option value="13"> O 13. MIEJSCE</option>
+                        <option value="15"> O 15. MIEJSCE</option>
+                      </>
+                    ) : null}
+                  </Form.Select>
+                </Col>
             ) : null}
           </div>
         </Row>
       ) : null}
 
-            {/*TODO zmienić na !== 3*/}
-            {props.calendar_list.state === 3?
+            {props.calendar_list.state !== 3?
                 <Row className="justify-content-md-center" >
                     <SetTournamentRounds
                             {...props}
@@ -164,14 +167,19 @@ export const Drabinka = (props) => {
 
       {/** BUTTON USUWANIA TURNIEJÓW **/}
       {props.user.id === undefined ? null:
-          props.user.role !== "3"? null:
-          <div>
+          props.user.role !== "3" && (props.user.role !== "2" || props.user.id !== props.calendar_list.creator)? null:
+              props.calendar_list.state === 3? null :
+          <div style={{display:"flex", justifyContent:"center", marginBottom:"20px", marginTop:"10px", fontFamily: 'Montserrat',
+            fontWeight: "600",
+            fontSize: "18px",
+            lineHeight: "25px", paddingRight:"15px", paddingLeft:"15px"}}>
+
               <Button variant="danger" onClick={ () => {
                   for(let i=0;i<props.ladders_list.ladders["ALL"].length;i++){
                       deleteLadder(props.ladders_list.ladders["ALL"][i].id).then(r => console.log(r))
                   }
               }}>
-                  Usuń drabinki
+                  USUŃ DRABINKI
               </Button>
           </div>
       }

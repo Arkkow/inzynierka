@@ -12,9 +12,9 @@ function EndUnrankedTournament_popup() {
     const id_tournament = window.location.href.split('?')[1].split('=')[1];
     const handleClose = () => setShow(false);
     const handleEndTournament = () => {
-        endTournament(id_tournament).then(setShow(false),
-        window.location.href="calendar");
-    }
+        endTournament({id: id_tournament}).then(setShow(false))
+            .then((result) => result.error ? alert("Coś poszło nie tak. Skontaktuj się z administracją.") :  window.location.href="calendar")
+        }
     const handleShow = () => setShow(true);
 
     return (
@@ -26,11 +26,8 @@ function EndUnrankedTournament_popup() {
                 lineHeight: "25px",
                 color: "white",
                 borderRadius: "15px",
-                paddingRight: "10%",
-                paddingLeft: "10%",
                 paddingBottom: "5%",
                 paddingTop: "5%",
-                marginRight: "1%",
                 whiteSpace: "nowrap",
                 textAlign: "center",
                 backgroundColor:"#D99D00",
@@ -40,45 +37,50 @@ function EndUnrankedTournament_popup() {
             </Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <my_h4>Przydzielanie punktów do rankingu</my_h4>
+                    <my_h4>Kończenie turnieju</my_h4>
                 </Modal.Header>
                 <Modal.Body style={{
-                    backgroundColor: "#EBEBEB"
+                    backgroundColor: "#EBEBEB", display:"flex", alignItems:"center", flexDirection:"column"
                 }}>
-                    Czy na pewno chcesz zakończyć turniej?
+                    <Row>
+                        <my_h4>Czy na pewno chcesz zakończyć turniej?</my_h4>
+
+                    </Row>
+                    <div style={{display:"flex", flexDirection:"row"}}>
+                        <Button style={{
+                            fontFamily: 'Montserrat',
+                            fontWeight: "600",
+                            fontSize: "18px",
+                            lineHeight: "25px",
+                            color: "white",
+                            borderRadius: "13px",
+                            display: "flex",
+                            justifyContent: "center",
+                            margin: "auto",
+                            alignItems: "center",
+                            marginTop:"20px", marginRight:"20px"
+                        }} variant="success" onClick={handleEndTournament}>
+                            Tak
+                        </Button>
+                        <Button style={{
+                            fontFamily: 'Montserrat',
+                            fontWeight: "600",
+                            fontSize: "18px",
+                            lineHeight: "25px",
+                            color: "white",
+                            borderRadius: "13px",
+                            display: "flex",
+                            justifyContent: "center",
+                            margin: "auto",
+                            alignItems: "center",
+                            marginTop:"20px"
+                        }} variant="success" onClick={handleClose}>
+                            Nie
+                        </Button>
+                    </div>
 
 
 
-                    <Button style={{
-                        fontFamily: 'Montserrat',
-                        fontWeight: "600",
-                        fontSize: "18px",
-                        lineHeight: "25px",
-                        color: "white",
-                        borderRadius: "13px",
-                        display: "flex",
-                        justifyContent: "center",
-                        margin: "auto",
-                        alignItems: "center",
-                        marginTop:"20px"
-                    }} variant="success" onClick={handleEndTournament}>
-                        Tak
-                    </Button>
-                    <Button style={{
-                        fontFamily: 'Montserrat',
-                        fontWeight: "600",
-                        fontSize: "18px",
-                        lineHeight: "25px",
-                        color: "white",
-                        borderRadius: "13px",
-                        display: "flex",
-                        justifyContent: "center",
-                        margin: "auto",
-                        alignItems: "center",
-                        marginTop:"20px"
-                    }} variant="success" onClick={handleClose}>
-                        Nie
-                    </Button>
                 </Modal.Body>
                 <Modal.Footer style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                 </Modal.Footer>

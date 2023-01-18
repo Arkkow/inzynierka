@@ -13,7 +13,10 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
   const username = useRef(null);
   const password = useRef(null);
 
-  const handleClick = () => {
+
+
+
+const handleClick = () => {
     fetch("https://dragonmaster.pl/inz/user/login", {
       method: "POST",
       body: JSON.stringify({
@@ -43,8 +46,15 @@ function Login_popup({ isLoginOpen, setIsLoginOpen, setIsRegisterOpen }) {
     }
   };
 
+    const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleClick();
+        }
+    };
+
   return (
-    <Modal show={isLoginOpen} onHide={() => setIsLoginOpen(false)}>
+    <Modal show={isLoginOpen} onHide={() => setIsLoginOpen(false)} onKeyDown={handleKeyDown}>
       <Modal.Header closeButton>
         <img src={PFP_LOGO} style={{ marginLeft: "auto", height:"8vh"}} alt="LOGO" />
       </Modal.Header>

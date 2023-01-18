@@ -37,7 +37,8 @@ export const ZapisyCard = (props) => {
                             <paragraph style={{textAlign:"center"}}>RANKING: {props.rankingsum}</paragraph>
                         </div>
                     </Col>
-                    {(props.approval === "0" && props.partnerAcceptance === 1)?
+
+                    {(props.approval === "0" && props.partnerAcceptance === 1) && props.tournamentState === 0?
                         <Col sm={6} style={{display:"flex", justifyContent:"center"}}>
                             <Row style={{display:"flex", alignItems:"center"}}>
                                 {/** Button akceptacji zapisu **/}
@@ -45,7 +46,7 @@ export const ZapisyCard = (props) => {
                                     // Jeżeli para się zgodziła
                                     (props.approval === "0" && props.partnerAcceptance === 1) &&
                                     // Jeżeli jesteś organizatorem tego turnieju lub adminem
-                                    ((props.user.role === "2" && props.creator === props.user.id) || props.user.role === "3") &&
+                                    ((props.user.role === "2" && props.tournament.creator === props.user.id) || props.user.role === "3") &&
                                     // Jeżeli liczba zaakceptowanych par jest mniejsza niż max
                                     props.isFull === false?
 
@@ -80,7 +81,7 @@ export const ZapisyCard = (props) => {
                     }
 
                     {props.state !== 3 && props.state !== 4?
-                        <ZapisyConditionals  {...props} tournamentID = {props.id} refreshProps = {props.refreshProps}/>
+                        <ZapisyConditionals  {...props} tournamentID = {props.id} refreshProps = {props.refreshProps} myInvites = {props.myInvites}/>
                         :null}
                 </Row>
             </Container>

@@ -46,7 +46,7 @@ function UserName() {
   }
 
   if (error) {
-    setTimeout(()=> {checkIfUserHasValidToken()}, 200)
+    setTimeout(()=> {checkIfUserHasValidToken()}, 400)
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {

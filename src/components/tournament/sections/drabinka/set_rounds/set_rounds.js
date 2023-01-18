@@ -6,8 +6,6 @@ export function SetRounds(props) {
 
     let ready_list_next = props.ladders_list.ladders[props.current_round-1].sort();
 
-    console.log(ready_list_next)
-    console.log(props.tournament.id)
     let num_of_matches = 0;
 
     // num_of_matches = props.places;
@@ -20,8 +18,11 @@ export function SetRounds(props) {
 
     return (
         <>
-        <Button variant="secondary"
-                style={{margin: "auto"}}
+        <Button variant="success"
+                style={{margin: "auto", fontFamily: 'Montserrat',
+                    fontWeight: "600",
+                    fontSize: "18px",
+                    lineHeight: "25px", paddingRight:"15px", paddingLeft:"15px"}}
                 disabled={props.accepted_difference !== 0 || props.ladders_length === 0 || props.isEmpty === true || props.ladders_list.ladders[props.current_round].length !== 0}
                 onClick={async () => {
 
@@ -49,7 +50,6 @@ export function SetRounds(props) {
                             .then(r => console.log(r))
                     } // Koniec for
 
-                    console.log("hi!!!")
                     console.log(props.tournament.typeOfLadder === "DRABINKA O MIEJSCA")
 
                     if (props.tournament.typeOfLadder === "DRABINKA O MIEJSCA") {

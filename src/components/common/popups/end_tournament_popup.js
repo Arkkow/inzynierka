@@ -63,7 +63,8 @@ function EndTournament_popup(props) {
     }
     const toAPI = { id: String(id_tournament), results: finalResults };
     console.log({ toAPI });
-    endTournament(toAPI).then(setShow(false));
+    endTournament(toAPI).then(window.location.reload())
+          .catch((error) => (console.log(error)))
   };
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -78,11 +79,8 @@ function EndTournament_popup(props) {
           lineHeight: "25px",
           color: "white",
           borderRadius: "15px",
-          paddingRight: "10%",
-          paddingLeft: "10%",
           paddingBottom: "5%",
           paddingTop: "5%",
-          marginRight: "1%",
           whiteSpace: "nowrap",
           textAlign: "center",
           backgroundColor: "#f9a620",

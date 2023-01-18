@@ -69,20 +69,26 @@ export const Zapisy = (props) => {
                                                     .sort((a, b) => b.rankingsum - a.rankingsum)
                                                     .map((card)=>(
                                                         <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} state ={props.calendar_list.state} refreshProps = {() => props.refreshProps({...props}, props.id)}
-                                                                    isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places } />
+                                                                    isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places }
+                                                                    myInvites ={true} tournamentState = {props.calendar_list.state}
+                                                                    tournament = {props.calendar_list}
+                                                        />
                                                     ))}
                                             </>
                                         </>
                                         <>
                                             <Card style={{ width: '95%', margin: "auto", marginTop: "1%", marginBottom: "1%", padding: "2%", textAlign: "center", background: "#0B4D39"}} >
-                                                <my_h3 style={{color:"white", lineHeight:"22px"}}>WSZYSTKIE ZAPISY</my_h3> {console.log(props.calendar_list.state)}
+                                                <my_h3 style={{color:"white", lineHeight:"22px"}}>WSZYSTKIE ZAPISY</my_h3>
                                             </Card>
                                             <>
                                                 {props.pairs_list.pairs["ALL"]
                                                     .sort((a, b) => b.rankingsum - a.rankingsum)
                                                     .map((card)=>(
                                                         <ZapisyCard key={card.id} {...card} user = {props.user} view = {props.view} state ={props.calendar_list.state} refreshProps = {() => props.refreshProps({...props}, props.id)}
-                                                                    isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places} />
+                                                                    isFull = {props.pairs_list.pairs["ALL"].filter( (e) => e.approval === "1").length < props.places}
+                                                                    myInvites ={false} tournamentState = {props.calendar_list.state}
+                                                                    tournament = {props.calendar_list}
+                                                        />
                                                     ))}
                                             </>
                                         </>
