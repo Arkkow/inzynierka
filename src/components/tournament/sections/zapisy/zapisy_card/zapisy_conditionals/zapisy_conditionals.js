@@ -33,7 +33,7 @@ export const ZapisyConditionals = (props) => {
                                     props.partnerAcceptance === 0 && props.partner === props.user.id? null:
                                     // Jeżeli jesteś adminem lub właścicielem turnieju
                                     (props.user.role === "2" && props.tournament.creator === props.user.id) || props.user.role === '3'?
-                                        props.paymentstatus === "NOTSTARTED"?null:
+                                        // props.paymentstatus === "NOTSTARTED"?null:
                                         props.paymentstatus === "DONE"?
                                             <Form.Check type="switch" defaultChecked="true" disabled={true} style={{
                                                 color: "black",
@@ -63,7 +63,7 @@ export const ZapisyConditionals = (props) => {
                         {props.paymentstatus === "DONE" && props.paymentstatus2 === "DONE"?null:
                             props.partnerAcceptance === 0? null:
                             (props.user.role === "2" && props.tournament.creator === props.user.id) || props.user.role === '3'?
-                                props.paymentstatus2 === "NOTSTARTED"?null:
+                                // props.paymentstatus2 === "NOTSTARTED"?null:
                                 props.paymentstatus2 === "DONE"?
                                     <Form.Check type="switch" defaultChecked="true" disabled={props.paymenttype === "cash"} style={{
                                         color: "black",
