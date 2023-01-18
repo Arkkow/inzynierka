@@ -38,7 +38,7 @@ function End_tournament_places_popup(props) {
     );
 
     let playersPlaces = [];
-
+    if(ladders[1].length > 0){
     for (let i = 1; i < props.calendar_list.places; i = i + 2) {
         if ( ladders[i][ladders[i].length-1].winner === "B"){
             playersPlaces.push(ladders[i][ladders[i].length-1].inB)
@@ -48,7 +48,7 @@ function End_tournament_places_popup(props) {
             playersPlaces.push(ladders[i][ladders[i].length-1].inA)
             playersPlaces.push(ladders[i][ladders[i].length-1].inB)
         }
-    }
+    }}
 
     const points = (id) => {
     for (let i = 0; i < 8; i++) {
